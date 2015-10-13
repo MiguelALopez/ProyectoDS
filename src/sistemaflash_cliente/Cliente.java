@@ -19,7 +19,8 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author Camilo Ruiz Casanova
+ * @author Camilo Ruiz Casanova, Andrés Felipe Martínez, Miguel Ángel López
+ * 
  */
 public class Cliente extends javax.swing.JFrame 
 {
