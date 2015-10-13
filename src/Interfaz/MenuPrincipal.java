@@ -22,6 +22,9 @@ public class MenuPrincipal extends JFrame
     public CrearUsuario crearUsuario;
     public CrearUsuario_Eventos crearUsuario_Eventos;
     
+    public ModificarUsuario modificarUsuario;
+    public ModificarUsuario_Eventos modificarUsuario_Eventos;
+    
     /**
      * constructor de la clase, construye la interfaz
      */
@@ -31,6 +34,9 @@ public class MenuPrincipal extends JFrame
         
         this.crearUsuario = new CrearUsuario();
         this.crearUsuario_Eventos = new CrearUsuario_Eventos(this.crearUsuario);
+        
+        this.modificarUsuario = new ModificarUsuario();
+        this.modificarUsuario_Eventos = new ModificarUsuario_Eventos(this.modificarUsuario);
         
         this.setLocationRelativeTo(null);
         this.setVisible(true);

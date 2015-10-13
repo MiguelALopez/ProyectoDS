@@ -66,7 +66,8 @@ public class MenuPrincipal_Eventos
                 @Override
                 public void actionPerformed(ActionEvent ae) 
                 {
-                    
+                    menuPrincipal.modificarUsuario.setLocationRelativeTo(null);
+                    menuPrincipal.modificarUsuario.setVisible(true);
                 }                
             }
         );
