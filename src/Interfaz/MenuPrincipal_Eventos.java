@@ -54,7 +54,8 @@ public class MenuPrincipal_Eventos
                 @Override
                 public void actionPerformed(ActionEvent ae) 
                 {
-                    
+                    menuPrincipal.crearUsuario.setLocationRelativeTo(null);
+                    menuPrincipal.crearUsuario.setVisible(true);
                 }                
             }
         );

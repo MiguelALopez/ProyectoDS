@@ -18,13 +18,19 @@ import javax.swing.JFrame;
  * @author Camilo Ruiz Casanova
  */
 public class MenuPrincipal extends JFrame
-{    
+{
+    public CrearUsuario crearUsuario;
+    public CrearUsuario_Eventos crearUsuario_Eventos;
+    
     /**
      * constructor de la clase, construye la interfaz
      */
     public MenuPrincipal() 
     {
         initComponents();
+        
+        this.crearUsuario = new CrearUsuario();
+        this.crearUsuario_Eventos = new CrearUsuario_Eventos(this.crearUsuario);
         
         this.setLocationRelativeTo(null);
         this.setVisible(true);

@@ -9,6 +9,7 @@
  **********************************************/
 
 import Interfaz.MenuPrincipal;
+import Interfaz.MenuPrincipal_Eventos;
 
 
 /**
@@ -22,6 +23,7 @@ public class SistemaFLASH
      */
     public static void main(String[] args) 
     {
-        MenuPrincipal cliente = new MenuPrincipal();        
+        MenuPrincipal cliente = new MenuPrincipal();
+        MenuPrincipal_Eventos eventos = new MenuPrincipal_Eventos(cliente);
     }
 }
