@@ -8,21 +8,20 @@
  * Institución Educativa: Universidad del Valle
  **********************************************/
 
-package sistemaflash_cliente;
+import Interfaz.MenuPrincipal;
+
 
 /**
  *
  * @author Camilo Ruiz Casanova
  */
-public class SistemaFLASH_Cliente 
+public class SistemaFLASH
 {
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) 
     {
-        Cliente cliente = new Cliente("localhost", 3344);
-        cliente.setLocationRelativeTo(null);
-        cliente.setVisible(true);
+        MenuPrincipal cliente = new MenuPrincipal();        
     }
 }
