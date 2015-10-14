@@ -52,7 +52,7 @@ public class Sede {
 
     /**
      * Getters and setters para los atributos de la clase
-     * 
+     *      * 
      */
     
     public String getNumero() {
