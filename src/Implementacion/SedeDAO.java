@@ -14,15 +14,16 @@ import java.sql.Statement;
  *
  * @author AndrésFelipe
  */
-public class SedeDAO {
+public class SedeDAO 
+{
     ConexionBD fachada;
     Connection conexion;
     
-    public Sede consultarSede(String sede_id)
+    public Sede consultarSede(String sede_numero)
     {
         String query = "SELECT * "
-                + "FROM sedes "
-                + "WHERE sede_id='"+sede_id+"'";
+                + "FROM sede "
+                + "WHERE sede_numero='"+sede_numero+"'";
         
         try
         {
@@ -43,10 +44,11 @@ public class SedeDAO {
             //Logger.getLogger(ConsultasBD.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        return new Sede();
+        return null;
     }
     
-    public void insertarSede(Sede sede){
+    public void insertarSede(Sede sede)
+    {
         String query = "INSERT INTO sedes VALUES('"
                 + sede.getNumero()+"','"
                 + sede.getNombre()+"','"                
@@ -57,8 +59,7 @@ public class SedeDAO {
         try
         {
             Statement st = conexion.createStatement();
-            ResultSet tabla = st.executeQuery(query);
-            
+            int tabla = st.executeUpdate(query);            
         } 
         catch (SQLException ex) 
         {
@@ -66,19 +67,20 @@ public class SedeDAO {
         }
     }
     
-    public void modificarSede(Sede sede){
-        String query = "UPDATE sedes SET "
-                + "sede_id='" + sede.getNumero()+"', "
+    public void modificarSede(Sede sede)
+    {
+        String query = "UPDATE sede SET "
+                + "sede_numero='" + sede.getNumero()+"', "
                 + "sede_nombre='" + sede.getNombre()+"', "                
                 + "sede_presupuesto='" + sede.getPresupuesto()+"', "
                 + "sede_cant_camiones='" + sede.getCamiones()+"', "
                 + "sede_direccion='" + sede.getDireccion() + "' "
-                + "WHERE sede_id='"+sede.getNumero()+"'";
+                + "WHERE sede_numero='"+sede.getNumero()+"'";
         
         try
         {
             Statement st = conexion.createStatement();
-            ResultSet tabla = st.executeQuery(query);
+            int tabla = st.executeUpdate(query);
             
         } 
         catch (SQLException ex) 
