@@ -75,7 +75,7 @@ public class ModificarUsuario_Eventos
     
     public void limpiarCampos()
     {
-        this.modificarUsuario.bBuscarCedula.setText("");
+        this.modificarUsuario.tfBuscarCedula.setText("");
         this.modificarUsuario.ftfFechaIncorporacion.setText("");
         this.modificarUsuario.ftfFechaNacimiento.setText("");
         this.modificarUsuario.pfClave.setText("");
