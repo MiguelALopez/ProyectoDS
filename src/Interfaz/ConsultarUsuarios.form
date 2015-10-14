@@ -108,7 +108,7 @@
                   <Table columnCount="4" rowCount="0">
                     <Column editable="false" title="CEDULA" type="java.lang.Object"/>
                     <Column editable="false" title="NOMBRE" type="java.lang.Object"/>
-                    <Column editable="false" title="SEDE" type="java.lang.Object"/>
+                    <Column editable="false" title="ROL" type="java.lang.Object"/>
                     <Column editable="false" title="ESTADO" type="java.lang.Object"/>
                   </Table>
                 </Property>
