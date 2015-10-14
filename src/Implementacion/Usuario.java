@@ -150,7 +150,5 @@ public class Usuario {
     public void setCuenta(String cuenta) {
         this.cuenta = cuenta;
     }
-    
-    
-    
+   
 }
