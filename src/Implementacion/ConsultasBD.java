@@ -107,6 +107,23 @@ public class ConsultasBD
         }
     }
     
+    public ResultSet inicioSesion(String user, String pass)
+    {
+        String query = "SELECT user_passwd, user_estado, user_name, user_rol FROM usuarios WHERE user_cedula='"+user+"' AND user_estado='Activo';";
+        
+        try
+        {
+            Statement st = conexion.createStatement();
+            ResultSet table = st.executeQuery(query);
+            return table;
+        }
+        catch (SQLException ex)
+        {
+            //Logger.getLogger(ConsultasBD.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+    }
+    
     public int modificarCuenta(String currentUser, String user, String password, int type)
     {
         String query = "UPDATE cuentas SET usuario = '" + user + "'" + ", clave = '" + password + "', tipo =" + type
