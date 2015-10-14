@@ -78,7 +78,8 @@ public class MenuPrincipal_Eventos
                 @Override
                 public void actionPerformed(ActionEvent ae) 
                 {
-                    
+                    menuPrincipal.consultarUsuarios.setLocationRelativeTo(null);
+                    menuPrincipal.consultarUsuarios.setVisible(true);
                 }                
             }
         );
