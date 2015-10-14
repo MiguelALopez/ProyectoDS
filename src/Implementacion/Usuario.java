@@ -72,16 +72,61 @@ public class Usuario
         this.nombre = nombre;
         this.estado = estado;
         this.rol = rol;
-        this.fechaNacimiento = fecha_nacimiento;
-        this.direccion = direccion;
-        this.telefono = telefono;
-        this.celular = celular;
-        this.fechaIncorporacion = fecha_incorporacion;
-        this.salario = salario;
-        this.cuenta = cuenta;
-        this.numeroSede = numeroSede;
+        if (fecha_nacimiento!=null){
+            this.fechaNacimiento = fecha_nacimiento;
+        }
+        else{
+            this.fechaNacimiento  = "";
+        }
+        if (direccion != null){
+            this.direccion = direccion;
+        }
+        else{
+            this.direccion = "";
+        }
+        
+        if (telefono != null){
+            this.telefono = telefono;
+        }
+        else{
+            this.telefono = "";
+        }
+        
+        if (celular != null){
+            this.celular = celular;
+        }
+        else{
+            this.celular = "";
+        }
+        
+        if (fecha_incorporacion != null){
+            this.fechaIncorporacion = fecha_incorporacion;
+        }
+        else{
+            this.fechaIncorporacion = "";
+        }
+        if(salario != null){
+            this.salario = salario;
+        }
+        else{
+            this.salario = "";
+        }
+        if(cuenta != null){
+            this.cuenta = cuenta;
+        }
+        else{
+            this.cuenta = "";
+        }
+        if(numeroSede!=null){
+            this.numeroSede = numeroSede;
+        }
+        else{
+            this.numeroSede = "";
+        }
+        
     }
-
+    
+   
     /**
      * Getters and Setters de los atributos de la clase
      * 

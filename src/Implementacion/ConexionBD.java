@@ -22,7 +22,7 @@ public class ConexionBD
     private String user; // usuario de la base de datos
     private String password; // contraseña de la base de datos
     
-    private Connection conexion; // coneccion a la base de datos
+    public Connection conexion; // coneccion a la base de datos
     
     /**
      * constructor para inicializar los valores necesarios
@@ -38,19 +38,19 @@ public class ConexionBD
      * metodo para realizar la coneccion con la base de datos
      * @return la coneccion con la base de datos
      */
-    public Connection conectar()
+    public void conectar()
     {
         try
         {
             conexion = DriverManager.getConnection(url, user, password);
             
             //System.out.println( "Conexion Abierta" );
-            return conexion;
+            //return conexion;
         } 
         catch( SQLException ex ) 
         {
              //System.out.println( "No se pudo abrir." );
-             return null;
+             //return null;
         }
     }
     

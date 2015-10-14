@@ -16,14 +16,16 @@ public class PQR {
     private String sede;
     private String tipo;
     private String contenido;
+    private String estado;
 
-    public PQR(String numero, String cedula, String nombre, String sede, String tipo, String contenido) {
+    public PQR(String numero, String cedula, String nombre, String sede, String tipo, String contenido, String estado) {
         this.numero = numero;
         this.cedula = cedula;
         this.nombre = nombre;
         this.sede = sede;
         this.tipo = tipo;
         this.contenido = contenido;
+        this.estado = estado;
     }
     
     public PQR() {
@@ -33,6 +35,7 @@ public class PQR {
         this.sede = null;
         this.tipo = null;
         this.contenido = null;
+        this.estado = null;
     }
 
     public String getNumero() {
@@ -83,5 +86,12 @@ public class PQR {
         this.contenido = contenido;
     }
     
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
     
 }

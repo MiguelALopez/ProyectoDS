@@ -18,17 +18,18 @@ import java.util.ArrayList;
 public class UsuarioDAO 
 {
     private ArrayList<Usuario> listaUsuarios;
-    ConexionBD fachada;
-    Connection conexion;
+    ConexionBD conexionBD = new ConexionBD();
+    //Connection conexion;
         
     public ArrayList<Usuario> getListaUsuarios() 
     {
+        conexionBD.conectar();
         listaUsuarios = new ArrayList<>();
         String query = "SELECT * FROM usuarios";
         
         try
         {
-            Statement st = conexion.createStatement();
+            Statement st = conexionBD.conexion.createStatement();
             ResultSet tabla = st.executeQuery(query);
             
             if (tabla.next())
@@ -41,23 +42,27 @@ public class UsuarioDAO
                         tabla.getString(9), tabla.getString(10), 
                         tabla.getString(11), tabla.getString(12)));                
             }
+            
+            
         } 
         catch (SQLException ex) 
         {
             //Logger.getLogger(ConsultasBD.class.getName()).log(Level.SEVERE, null, ex);
         }
         
+        conexionBD.cerrarConexion();
         return listaUsuarios;
     }
     
     public Usuario consultarUsuario(String user)
     {
+        conexionBD.conectar();
         String query = "SELECT * "
                 + "FROM usuarios WHERE user_cedula='"+user+"';";
         
         try
         {
-            Statement st = conexion.createStatement();
+            Statement st = conexionBD.conexion.createStatement();
             ResultSet tabla = st.executeQuery(query);
             
             if (tabla.next())
@@ -75,12 +80,13 @@ public class UsuarioDAO
         {
             //Logger.getLogger(ConsultasBD.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+        conexionBD.cerrarConexion();
         return null;
     }
     
     public void insetarUsuario(Usuario usr)
     {
+        conexionBD.conectar();
         String query = "INSERT INTO usuarios VALUES ('"
                 + usr.getCedula()+ "','"
                 + usr.getPasswd() + "','"
@@ -97,15 +103,17 @@ public class UsuarioDAO
                 + usr.getCuenta()+ "');";        
         try
         {
-            Statement st = conexion.createStatement();
-            ResultSet tabla = st.executeQuery(query);            
+            Statement st = conexionBD.conexion.createStatement();
+            int tabla = st.executeUpdate(query);            
         } 
         catch (SQLException ex) 
         {
             //Logger.getLogger(ConsultasBD.class.getName()).log(Level.SEVERE, null, ex);
         }
+        conexionBD.cerrarConexion();
     }
     public void modificarUsuario(Usuario usr) {
+        conexionBD.conectar();
         String query = "UPDATE usuarios SET "
                 + "user_cedula='" + usr.getCedula() + "', "
                 + "user_passwd='" + usr.getPasswd()+ "', "
@@ -121,5 +129,16 @@ public class UsuarioDAO
                 + "user_sede_id='" + usr.getNumeroSede()+ "', "
                 + "user_cuenta='" + usr.getCuenta()+ "' "
                 + "WHERE user_cedula='" + usr.getCedula() +"'";
+        try
+        {
+            Statement st = conexionBD.conexion.createStatement();
+            int tabla = st.executeUpdate(query);            
+        } 
+        catch (SQLException ex) 
+        {
+            //Logger.getLogger(ConsultasBD.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        conexionBD.cerrarConexion();
     }
+    
 }

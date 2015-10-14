@@ -16,18 +16,18 @@ import java.sql.Statement;
  */
 public class SedeDAO 
 {
-    ConexionBD fachada;
-    Connection conexion;
+    ConexionBD conexionBD = new ConexionBD();
     
     public Sede consultarSede(String sede_numero)
     {
+        conexionBD.conectar();
         String query = "SELECT * "
                 + "FROM sede "
                 + "WHERE sede_numero='"+sede_numero+"'";
         
         try
         {
-            Statement st = conexion.createStatement();
+            Statement st = conexionBD.conexion.createStatement();
             ResultSet tabla = st.executeQuery(query);
             
             if (tabla.next())
@@ -43,12 +43,13 @@ public class SedeDAO
         {
             //Logger.getLogger(ConsultasBD.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+        conexionBD.cerrarConexion();
         return null;
     }
     
     public void insertarSede(Sede sede)
     {
+        conexionBD.conectar();
         String query = "INSERT INTO sedes VALUES('"
                 + sede.getNumero()+"','"
                 + sede.getNombre()+"','"                
@@ -58,17 +59,19 @@ public class SedeDAO
         
         try
         {
-            Statement st = conexion.createStatement();
+            Statement st = conexionBD.conexion.createStatement();
             int tabla = st.executeUpdate(query);            
         } 
         catch (SQLException ex) 
         {
             //Logger.getLogger(ConsultasBD.class.getName()).log(Level.SEVERE, null, ex);
         }
+        conexionBD.cerrarConexion();
     }
     
     public void modificarSede(Sede sede)
     {
+        conexionBD.conectar();
         String query = "UPDATE sede SET "
                 + "sede_numero='" + sede.getNumero()+"', "
                 + "sede_nombre='" + sede.getNombre()+"', "                
@@ -79,7 +82,7 @@ public class SedeDAO
         
         try
         {
-            Statement st = conexion.createStatement();
+            Statement st = conexionBD.conexion.createStatement();
             int tabla = st.executeUpdate(query);
             
         } 
@@ -87,5 +90,6 @@ public class SedeDAO
         {
             //Logger.getLogger(ConsultasBD.class.getName()).log(Level.SEVERE, null, ex);
         }
+        conexionBD.cerrarConexion();
     }
 }

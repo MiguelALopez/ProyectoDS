@@ -36,7 +36,7 @@ public class ConsultasBD
     public int conectar()
     {
         fachada = new ConexionBD();
-        conexion = fachada.conectar();
+        //conexion = fachada.conectar();
         
         if (conexion != null)
         {
