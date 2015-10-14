@@ -6,7 +6,6 @@
 
 package Interfaz;
 
-import Implementacion.ModuloUsuarios;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
@@ -19,12 +18,10 @@ import java.awt.event.WindowListener;
 public class CrearUsuario_Eventos 
 {
     private CrearUsuario crearUsuario;
-    private ModuloUsuarios moduloUsuarios;
     
     public CrearUsuario_Eventos(final CrearUsuario crearUsuario)
     {
         this.crearUsuario = crearUsuario;
-        this.moduloUsuarios = new ModuloUsuarios();
         
         crearUsuario.bCancelar.addActionListener(
                 new ActionListener()
