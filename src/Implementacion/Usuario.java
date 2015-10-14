@@ -23,6 +23,38 @@ public class Usuario {
     private String salario;
     private String cuenta;
 
+    public Usuario() {
+        this.cedula = null;
+        this.passwd = null;
+        this.nombre = null;
+        this.estado = null;
+        this.rol = null;
+        this.fecha_nacimiento = null;
+        this.direccion = null;
+        this.telefono = null;
+        this.celular = null;
+        this.fecha_incorporacion = null;
+        this.salario = null;
+        this.cuenta = null;
+    }
+
+    public Usuario(String cedula, String passwd, String nombre, String estado, String rol, String fecha_nacimiento, String direccion, String telefono, String celular, String fecha_incorporacion, String salario, String cuenta) {
+        this.cedula = cedula;
+        this.passwd = passwd;
+        this.nombre = nombre;
+        this.estado = estado;
+        this.rol = rol;
+        this.fecha_nacimiento = fecha_nacimiento;
+        this.direccion = direccion;
+        this.telefono = telefono;
+        this.celular = celular;
+        this.fecha_incorporacion = fecha_incorporacion;
+        this.salario = salario;
+        this.cuenta = cuenta;
+    }
+
+    
+    
     public String getCedula() {
         return cedula;
     }
