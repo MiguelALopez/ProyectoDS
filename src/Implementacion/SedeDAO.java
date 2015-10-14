@@ -65,4 +65,25 @@ public class SedeDAO {
             //Logger.getLogger(ConsultasBD.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    public void modificarSede(Sede sede){
+        String query = "UPDATE sedes VALUES('"
+                + sede.getNumero()+"'.'"
+                + sede.getNombre()+"'.'"                
+                + sede.getPresupuesto()+"'.'"
+                + sede.getCamiones()+"'.'"
+                + sede.getDireccion() + "')"
+                + "WHERE sede_id='"+sede.getNumero()+"'";
+        
+        try
+        {
+            Statement st = conexion.createStatement();
+            ResultSet tabla = st.executeQuery(query);
+            
+        } 
+        catch (SQLException ex) 
+        {
+            //Logger.getLogger(ConsultasBD.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }
