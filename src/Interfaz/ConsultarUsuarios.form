@@ -30,6 +30,8 @@
                   <Group type="102" attributes="0">
                       <Component id="bCerrar" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
+                      <Component id="bActualizar" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="bVerPerfil" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -46,6 +48,7 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="bCerrar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="bVerPerfil" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="bActualizar" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -145,5 +148,13 @@
         </Container>
       </SubComponents>
     </Container>
+    <Component class="javax.swing.JButton" name="bActualizar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Actualizar Lista"/>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
+    </Component>
   </SubComponents>
 </Form>

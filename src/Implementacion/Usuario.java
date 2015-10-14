@@ -24,6 +24,7 @@ public class Usuario
     private double salario;
     private String numeroCuenta;
     private String estado;
+    private String sede;
     
     public String getCedula() {
         return cedula;
@@ -119,5 +120,13 @@ public class Usuario
 
     public void setEstado(String estado) {
         this.estado = estado;
+    }
+
+    public String getSede() {
+        return sede;
+    }
+
+    public void setSede(String sede) {
+        this.sede = sede;
     }    
 }

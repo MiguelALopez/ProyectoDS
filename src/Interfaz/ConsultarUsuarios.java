@@ -34,6 +34,7 @@ public class ConsultarUsuarios extends javax.swing.JFrame
         jPanel2 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tUsuarios = new javax.swing.JTable();
+        bActualizar = new javax.swing.JButton();
 
         setTitle("Consultar Usuarios");
 
@@ -73,6 +74,8 @@ public class ConsultarUsuarios extends javax.swing.JFrame
             .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 286, Short.MAX_VALUE)
         );
 
+        bActualizar.setText("Actualizar Lista");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -84,6 +87,8 @@ public class ConsultarUsuarios extends javax.swing.JFrame
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(bCerrar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(bActualizar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(bVerPerfil)))
                 .addContainerGap())
         );
@@ -95,13 +100,15 @@ public class ConsultarUsuarios extends javax.swing.JFrame
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(bCerrar)
-                    .addComponent(bVerPerfil))
+                    .addComponent(bVerPerfil)
+                    .addComponent(bActualizar))
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton bActualizar;
     public javax.swing.JButton bCerrar;
     public javax.swing.JButton bVerPerfil;
     private javax.swing.JPanel jPanel2;

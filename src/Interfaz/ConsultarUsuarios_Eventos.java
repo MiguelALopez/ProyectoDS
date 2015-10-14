@@ -6,8 +6,12 @@
 
 package Interfaz;
 
+import Implementacion.ModuloUsuarios;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -17,10 +21,12 @@ import javax.swing.table.DefaultTableModel;
 public class ConsultarUsuarios_Eventos 
 {
     private ConsultarUsuarios consultarUsuarios;
+    private ModuloUsuarios moduloUsuarios;
     
     public ConsultarUsuarios_Eventos(final ConsultarUsuarios consultarUsuarios)
     {
         this.consultarUsuarios = consultarUsuarios;
+        this.moduloUsuarios = new ModuloUsuarios();    
         
         consultarUsuarios.bCerrar.addActionListener(
                 new ActionListener()
@@ -33,14 +39,72 @@ public class ConsultarUsuarios_Eventos
                 }
         );
         
+        consultarUsuarios.bActualizar.addActionListener(
+                new ActionListener()
+                {
+                    @Override
+                    public void actionPerformed(ActionEvent ae) 
+                    {
+                        moduloUsuarios.consultarUsuarios(consultarUsuarios.tUsuarios);
+                    }
+                }
+        );
+        
         consultarUsuarios.bVerPerfil.addActionListener(
                 new ActionListener()
                 {
                     @Override
                     public void actionPerformed(ActionEvent ae) 
                     {
+                        verPerfil();
+                    }
+                }
+        );
+        
+        consultarUsuarios.addWindowListener(
+                new WindowListener()
+                {
+                    @Override
+                    public void windowOpened(WindowEvent we) 
+                    {
                         
                     }
+
+                    @Override
+                    public void windowClosing(WindowEvent we) 
+                    {
+                        
+                    }
+
+                    @Override
+                    public void windowClosed(WindowEvent we) 
+                    {
+                        
+                    }
+
+                    @Override
+                    public void windowIconified(WindowEvent we) 
+                    {
+                        
+                    }
+
+                    @Override
+                    public void windowDeiconified(WindowEvent we) 
+                    {
+                        
+                    }
+
+                    @Override
+                    public void windowActivated(WindowEvent we) 
+                    {
+                        moduloUsuarios.consultarUsuarios(consultarUsuarios.tUsuarios);
+                    }
+
+                    @Override
+                    public void windowDeactivated(WindowEvent we) 
+                    {
+                        
+                    }                    
                 }
         );
     }
@@ -50,5 +114,20 @@ public class ConsultarUsuarios_Eventos
         DefaultTableModel model = (DefaultTableModel) consultarUsuarios.tUsuarios.getModel();
         model.setRowCount(0);
         this.consultarUsuarios.setVisible(false);
+    }
+    
+    public void verPerfil()
+    {
+        int row = consultarUsuarios.tUsuarios.getSelectedRow();
+                        
+        if (row != -1)
+        {
+            String cedula = (String) consultarUsuarios.tUsuarios.getValueAt(row, 0);
+            moduloUsuarios.consultarUsuario(cedula);
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(consultarUsuarios, "No ha seleccionado ningun Usuario.", "Advertencia", JOptionPane.WARNING_MESSAGE);
+        }
     }
 }
