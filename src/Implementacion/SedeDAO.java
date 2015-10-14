@@ -48,10 +48,10 @@ public class SedeDAO {
     
     public void insertarSede(Sede sede){
         String query = "INSERT INTO sedes VALUES('"
-                + sede.getNumero()+"'.'"
-                + sede.getNombre()+"'.'"                
-                + sede.getPresupuesto()+"'.'"
-                + sede.getCamiones()+"'.'"
+                + sede.getNumero()+"','"
+                + sede.getNombre()+"','"                
+                + sede.getPresupuesto()+"','"
+                + sede.getCamiones()+"','"
                 + sede.getDireccion() + "')";
         
         try
@@ -67,12 +67,12 @@ public class SedeDAO {
     }
     
     public void modificarSede(Sede sede){
-        String query = "UPDATE sedes VALUES('"
-                + sede.getNumero()+"'.'"
-                + sede.getNombre()+"'.'"                
-                + sede.getPresupuesto()+"'.'"
-                + sede.getCamiones()+"'.'"
-                + sede.getDireccion() + "')"
+        String query = "UPDATE sedes SET "
+                + "sede_id='" + sede.getNumero()+"', "
+                + "sede_nombre='" + sede.getNombre()+"', "                
+                + "sede_presupuesto='" + sede.getPresupuesto()+"', "
+                + "sede_cant_camiones='" + sede.getCamiones()+"', "
+                + "sede_direccion='" + sede.getDireccion() + "' "
                 + "WHERE sede_id='"+sede.getNumero()+"'";
         
         try
