@@ -6,6 +6,7 @@
 
 package Interfaz;
 
+import Implementacion.ModuloUsuarios;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
@@ -18,10 +19,12 @@ import java.awt.event.WindowListener;
 public class CrearUsuario_Eventos 
 {
     private CrearUsuario crearUsuario;
+    private ModuloUsuarios moduloUsuarios;
     
     public CrearUsuario_Eventos(final CrearUsuario crearUsuario)
     {
         this.crearUsuario = crearUsuario;
+        this.moduloUsuarios = new ModuloUsuarios();
         
         crearUsuario.bCancelar.addActionListener(
                 new ActionListener()
@@ -40,7 +43,7 @@ public class CrearUsuario_Eventos
                     @Override
                     public void actionPerformed(ActionEvent ae) 
                     {
-                        
+                        crearUsuario();
                     }
                 }
         );
@@ -81,7 +84,7 @@ public class CrearUsuario_Eventos
                     @Override
                     public void windowActivated(WindowEvent we) 
                     {
-                        
+                        actualizarSedes();
                     }
 
                     @Override
@@ -112,5 +115,15 @@ public class CrearUsuario_Eventos
     {
         this.crearUsuario.setVisible(false);
         limpiarCampos();
+    }
+    
+    public void crearUsuario()
+    {
+        
+    }
+    
+    public void actualizarSedes()
+    {
+        
     }
 }

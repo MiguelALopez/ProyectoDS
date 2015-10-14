@@ -1,34 +1,37 @@
 
-DROP TABLE if exists usuarios;
+DROP TABLE if exists usuario;
 
-CREATE TABLE usuarios(
-	user_cedula varchar(15),
-	user_passwd varchar(30) NOT NULL,
-	user_nombre varchar(30) NOT NULL,
-	user_rol varchar(15) NOT NULL,
-	user_estado varchar(10) NOT NULL,
-	user_fecha_nacimiento date,
-	user_direccion varchar(60),
-	user_telefono varchar(15),
-	user_celular varchar(15),
-	user_fecha_incorporacion date,
-	user_salario varchar(15),
-	user_sede_id varchar(5),
-	user_cuenta varchar(30),
-	PRIMARY KEY (user_id)
+CREATE TABLE usuario
+(
+	usuario_cedula varchar(15),
+	usuario_passwd varchar(30) NOT NULL,
+	usuario_nombre varchar(30) NOT NULL,
+	usuario_rol varchar(15) NOT NULL,
+	usuario_estado varchar(10) NOT NULL,
+	usuario_fecha_nacimiento date,
+	usuario_direccion varchar(60),
+	usuario_telefono varchar(15),
+	usuario_celular varchar(15),
+	usuario_fecha_incorporacion date,
+	usuario_salario varchar(15),
+	usuario_cuenta varchar(30),
+        usuario_sede_numero varchar(5),
+	PRIMARY KEY (usuario_cedula),
+        FOREIGN KEY (usuario_sede_numero) REFERENCES sede(sede_numero)
 );
 
-INSERT INTO usuarios(user_cedula,user_passwd,user_nombre,user_rol,user_estado) 
+INSERT INTO usuario(usuario_cedula, usuario_passwd, usuario_nombre, usuario_rol, usuario_estado) 
 VALUES ('123','202cb962ac59075b964b07152d234b70','Administrador','Admin','1');
 
-DROP TABLE if exists sedes;
+DROP TABLE if exists sede;
 
-CREATE TABLE sedes(
-	sede_id varchar(5),
+CREATE TABLE sede
+(
+	sede_numero varchar(5),
 	sede_nombre varchar(30),
 	sede_gerente varchar(15),
 	sede_presupuesto varchar(15),
 	sede_cant_camiones int,
 	sede_direccion varchar(30),
-	PRIMARY KEY (sede_id)
+	PRIMARY KEY (sede_numero)
 );
