@@ -93,6 +93,7 @@ public class UsuarioDAO
                 + usr.getCelular()+ "','"
                 + usr.getFechaIncorporacion()+ "','"
                 + usr.getSalario()+ "','"
+                + usr.getNumeroSede()+ "','"
                 + usr.getCuenta()+ "');";        
         try
         {
@@ -103,5 +104,22 @@ public class UsuarioDAO
         {
             //Logger.getLogger(ConsultasBD.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }    
+    }
+    public void modificarUsuario(Usuario usr) {
+        String query = "UPDATE usuarios SET "
+                + "user_cedula='" + usr.getCedula() + "', "
+                + "user_passwd='" + usr.getPasswd()+ "', "
+                + "user_nombre='" + usr.getNombre()+ "', "
+                + "user_rol='" + usr.getRol()+ "', "
+                + "user_estado='" + usr.getEstado()+ "', "
+                + "user_fecha_nacimiento='" + usr.getFechaNacimiento()+ "', "
+                + "user_direccion='" + usr.getDireccion()+ "', "
+                + "user_telefono='" + usr.getTelefono()+ "', "
+                + "user_celular='" + usr.getCelular()+ "', "
+                + "user_fecha_incorporacion='" + usr.getFechaIncorporacion()+ "', "
+                + "user_salario='" + usr.getSalario()+ "', "
+                + "user_sede_id='" + usr.getNumeroSede()+ "', "
+                + "user_cuenta='" + usr.getCuenta()+ "' "
+                + "WHERE user_cedula='" + usr.getCedula() +"'";
+    }
 }
