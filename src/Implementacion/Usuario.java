@@ -8,8 +8,14 @@ package Implementacion;
 /**
  *
  * @author AndrésFelipe
+ * 
+ * La clase usuario se crea con el fin de utilizar el patron de diseño DAO
  */
 public class Usuario {
+    /**
+     * Campos que representan un usuario, también deben encontrarse en la base
+     * de datos
+     */
     private String cedula;
     private String passwd;
     private String nombre;
@@ -23,6 +29,9 @@ public class Usuario {
     private String salario;
     private String cuenta;
 
+    /**
+     * Constructor para crear un usuario con datos nulos
+     */
     public Usuario() {
         this.cedula = null;
         this.passwd = null;
@@ -37,7 +46,21 @@ public class Usuario {
         this.salario = null;
         this.cuenta = null;
     }
-
+    /**
+     * Constructor para crear un usuario dados los datos
+     * @param cedula : cedula del usuario
+     * @param passwd : password del usuario
+     * @param nombre : nombre del usuario
+     * @param estado : estado del usuario (Activo ó Inactivo)
+     * @param rol : Rol del usuario (administrador, operario...)
+     * @param fecha_nacimiento : fecha de nacimiento del usuario
+     * @param direccion : direccion del usuario
+     * @param telefono : telefono del usuario
+     * @param celular : celular del usuario
+     * @param fecha_incorporacion : fecha de incorporacion del usuario a la empresa
+     * @param salario : salario asignado al usuario
+     * @param cuenta : cuenta bancaria del usuario
+     */
     public Usuario(String cedula, String passwd, String nombre, String estado, String rol, String fecha_nacimiento, String direccion, String telefono, String celular, String fecha_incorporacion, String salario, String cuenta) {
         this.cedula = cedula;
         this.passwd = passwd;
@@ -53,7 +76,10 @@ public class Usuario {
         this.cuenta = cuenta;
     }
 
-    
+    /**
+     * Getters and Setters de los atributos de la clase
+     * 
+     */
     
     public String getCedula() {
         return cedula;
