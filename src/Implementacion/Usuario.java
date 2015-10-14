@@ -11,7 +11,8 @@ package Implementacion;
  * 
  * La clase usuario se crea con el fin de utilizar el patron de diseño DAO
  */
-public class Usuario {
+public class Usuario 
+{
     /**
      * Campos que representan un usuario, también deben encontrarse en la base
      * de datos
@@ -21,30 +22,33 @@ public class Usuario {
     private String nombre;
     private String estado;
     private String rol;
-    private String fecha_nacimiento;
+    private String fechaNacimiento;
     private String direccion;
     private String telefono;
     private String celular;
-    private String fecha_incorporacion;
+    private String fechaIncorporacion;
     private String salario;
     private String cuenta;
+    private String numeroSede;
 
     /**
      * Constructor para crear un usuario con datos nulos
      */
-    public Usuario() {
+    public Usuario() 
+    {
         this.cedula = null;
         this.passwd = null;
         this.nombre = null;
         this.estado = null;
         this.rol = null;
-        this.fecha_nacimiento = null;
+        this.fechaNacimiento = null;
         this.direccion = null;
         this.telefono = null;
         this.celular = null;
-        this.fecha_incorporacion = null;
+        this.fechaIncorporacion = null;
         this.salario = null;
         this.cuenta = null;
+        this.numeroSede = null;
     }
     /**
      * Constructor para crear un usuario dados los datos
@@ -61,19 +65,21 @@ public class Usuario {
      * @param salario : salario asignado al usuario
      * @param cuenta : cuenta bancaria del usuario
      */
-    public Usuario(String cedula, String passwd, String nombre, String estado, String rol, String fecha_nacimiento, String direccion, String telefono, String celular, String fecha_incorporacion, String salario, String cuenta) {
+    public Usuario(String cedula, String passwd, String nombre, String estado, String rol, String fecha_nacimiento, String direccion, String telefono, String celular, String fecha_incorporacion, String salario, String cuenta, String numeroSede) 
+    {
         this.cedula = cedula;
         this.passwd = passwd;
         this.nombre = nombre;
         this.estado = estado;
         this.rol = rol;
-        this.fecha_nacimiento = fecha_nacimiento;
+        this.fechaNacimiento = fecha_nacimiento;
         this.direccion = direccion;
         this.telefono = telefono;
         this.celular = celular;
-        this.fecha_incorporacion = fecha_incorporacion;
+        this.fechaIncorporacion = fecha_incorporacion;
         this.salario = salario;
         this.cuenta = cuenta;
+        this.numeroSede = numeroSede;
     }
 
     /**
@@ -121,12 +127,12 @@ public class Usuario {
         this.rol = rol;
     }
 
-    public String getFecha_nacimiento() {
-        return fecha_nacimiento;
+    public String getFechaNacimiento() {
+        return fechaNacimiento;
     }
 
-    public void setFecha_nacimiento(String fecha_nacimiento) {
-        this.fecha_nacimiento = fecha_nacimiento;
+    public void setFechaNacimiento(String fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
     }
 
     public String getDireccion() {
@@ -153,12 +159,12 @@ public class Usuario {
         this.celular = celular;
     }
 
-    public String getFecha_incorporacion() {
-        return fecha_incorporacion;
+    public String getFechaIncorporacion() {
+        return fechaIncorporacion;
     }
 
-    public void setFecha_incorporacion(String fecha_incorporacion) {
-        this.fecha_incorporacion = fecha_incorporacion;
+    public void setFecha_incorporacion(String fechaIncorporacion) {
+        this.fechaIncorporacion = fechaIncorporacion;
     }
 
     public String getSalario() {
@@ -176,5 +182,12 @@ public class Usuario {
     public void setCuenta(String cuenta) {
         this.cuenta = cuenta;
     }
-   
+
+    public String getNumeroSede() {
+        return numeroSede;
+    }
+
+    public void setNumeroSede(String numeroSede) {
+        this.numeroSede = numeroSede;
+    }    
 }

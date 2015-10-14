@@ -15,15 +15,16 @@ import java.util.ArrayList;
  *
  * @author AndrésFelipe
  */
-public class UsuarioDAO {
-    private ArrayList<Usuario>  listaUsuarios;
+public class UsuarioDAO 
+{
+    private ArrayList<Usuario> listaUsuarios;
     ConexionBD fachada;
     Connection conexion;
-    
-    
-    public ArrayList<Usuario> getListaUsuarios() {
+        
+    public ArrayList<Usuario> getListaUsuarios() 
+    {
         listaUsuarios = new ArrayList<>();
-        String query = "SELECT * FROM usuarios" ;
+        String query = "SELECT * FROM usuarios";
         
         try
         {
@@ -38,23 +39,21 @@ public class UsuarioDAO {
                         tabla.getString(5),tabla.getString(6), 
                         tabla.getString(7), tabla.getString(8), 
                         tabla.getString(9), tabla.getString(10), 
-                        tabla.getString(11))
-                );
-                
+                        tabla.getString(11), tabla.getString(12)));                
             }
         } 
         catch (SQLException ex) 
         {
             //Logger.getLogger(ConsultasBD.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
         return listaUsuarios;
     }
     
     public Usuario consultarUsuario(String user)
     {
         String query = "SELECT * "
-                + "FROM usuarios WHERE user_cedula='"+user+"' AND "
-                + "user_estado='Activo';";
+                + "FROM usuarios WHERE user_cedula='"+user+"';";
         
         try
         {
@@ -68,8 +67,8 @@ public class UsuarioDAO {
                         tabla.getString(4), tabla.getString(5), 
                         tabla.getString(6), tabla.getString(7), 
                         tabla.getString(8), tabla.getString(9), 
-                        tabla.getString(10), tabla.getString(11));
-                
+                        tabla.getString(10), tabla.getString(11),
+                        tabla.getString(12));                
             }
         } 
         catch (SQLException ex) 
@@ -77,35 +76,32 @@ public class UsuarioDAO {
             //Logger.getLogger(ConsultasBD.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        return new Usuario();
+        return null;
     }
     
-    public void insetarUsuario(Usuario usr){
+    public void insetarUsuario(Usuario usr)
+    {
         String query = "INSERT INTO usuarios VALUES ('"
                 + usr.getCedula()+ "','"
                 + usr.getPasswd() + "','"
                 + usr.getNombre()+ "','"
                 + usr.getRol()+ "','"
                 + usr.getEstado()+ "','"
-                + usr.getFecha_nacimiento()+ "','"
+                + usr.getFechaNacimiento()+ "','"
                 + usr.getDireccion()+ "','"
                 + usr.getTelefono()+ "','"
                 + usr.getCelular()+ "','"
-                + usr.getFecha_incorporacion()+ "','"
+                + usr.getFechaIncorporacion()+ "','"
                 + usr.getSalario()+ "','"
-                + usr.getCuenta()+ "');"
-                ;
-        
+                + usr.getCuenta()+ "');";        
         try
         {
             Statement st = conexion.createStatement();
-            ResultSet tabla = st.executeQuery(query);
-            
+            ResultSet tabla = st.executeQuery(query);            
         } 
         catch (SQLException ex) 
         {
             //Logger.getLogger(ConsultasBD.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
-    
+    }    
 }

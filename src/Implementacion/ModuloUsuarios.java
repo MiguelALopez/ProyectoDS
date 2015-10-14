@@ -41,7 +41,7 @@ public class ModuloUsuarios
         {
             tabla.setValueAt(usuarios.get(i).getCedula(), i, 0);
             tabla.setValueAt(usuarios.get(i).getNombre(), i, 1);
-            tabla.setValueAt(usuarios.get(i).getSede(), i, 2);
+            tabla.setValueAt(usuarios.get(i).getNumeroSede(), i, 2);
             tabla.setValueAt(usuarios.get(i).getEstado(), i, 3);
         }
     }

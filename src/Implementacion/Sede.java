@@ -11,7 +11,8 @@ package Implementacion;
  * 
  * La clase sede se crea con el fin de utilizan el patron de diseño DAO
  */
-public class Sede {    
+public class Sede 
+{    
     /**
      * Campos que representan una sede, también deben encontrarse en la base
      * de datos
@@ -25,7 +26,8 @@ public class Sede {
     /**
      * Constructor para crear una sede con datos nulos
      */
-    public Sede() {
+    public Sede() 
+    {
         this.numero = null;
         this.nombre = null;
         this.direccion = null;
@@ -42,7 +44,8 @@ public class Sede {
      * @param camiones : camiones asignados a la sede
      */
 
-    public Sede(String numero, String nombre, String direccion, String presupuesto, String camiones) {
+    public Sede(String numero, String nombre, String direccion, String presupuesto, String camiones) 
+    {
         this.numero = numero;
         this.nombre = nombre;
         this.direccion = direccion;
@@ -94,7 +97,5 @@ public class Sede {
     public void setCamiones(String camiones) {
         this.camiones = camiones;
     }
-    
-    
 }
  
