@@ -12,6 +12,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import javax.swing.JOptionPane;
+import javax.swing.JTextArea;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -45,7 +46,7 @@ public class ConsultarUsuarios_Eventos
                     @Override
                     public void actionPerformed(ActionEvent ae) 
                     {
-                        moduloUsuarios.consultarUsuarios(consultarUsuarios.tUsuarios);
+                        consultarUsuarios();
                     }
                 }
         );
@@ -97,7 +98,7 @@ public class ConsultarUsuarios_Eventos
                     @Override
                     public void windowActivated(WindowEvent we) 
                     {
-                        moduloUsuarios.consultarUsuarios(consultarUsuarios.tUsuarios);
+                        consultarUsuarios();
                     }
 
                     @Override
@@ -107,6 +108,11 @@ public class ConsultarUsuarios_Eventos
                     }                    
                 }
         );
+    }
+    
+    public void consultarUsuarios()
+    {
+        moduloUsuarios.consultarUsuarios(consultarUsuarios.tUsuarios);
     }
     
     public void cerrarVentana()
@@ -123,7 +129,10 @@ public class ConsultarUsuarios_Eventos
         if (row != -1)
         {
             String cedula = (String) consultarUsuarios.tUsuarios.getValueAt(row, 0);
-            moduloUsuarios.consultarUsuario(cedula);
+            String perfil = moduloUsuarios.consultarUsuario(cedula);
+            JTextArea area = new JTextArea(perfil);
+            area.setEditable(false);
+            JOptionPane.showMessageDialog(consultarUsuarios, area, "Perfil de Usuario", JOptionPane.INFORMATION_MESSAGE);
         }
         else
         {

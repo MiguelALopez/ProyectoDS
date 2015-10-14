@@ -49,7 +49,7 @@ public class ConsultarUsuarios extends javax.swing.JFrame
 
             },
             new String [] {
-                "CEDULA", "NOMBRE", "SEDE", "ESTADO"
+                "CEDULA", "NOMBRE", "ROL", "ESTADO"
             }
         ) {
             boolean[] canEdit = new boolean [] {
