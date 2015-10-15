@@ -4,8 +4,9 @@
  * and open the template in the editor.
  */
 
-package Interfaz;
+package Controlador;
 
+import Vista.ModificarUsuario;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 

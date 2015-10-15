@@ -9,8 +9,8 @@
  * Institución Educativa: Universidad del Valle
  **********************************************/
 
-import Interfaz.MenuPrincipal;
-import Interfaz.MenuPrincipal_Eventos;
+import Vista.MenuPrincipal;
+import Controlador.MenuPrincipal_Eventos;
 
 
 /**

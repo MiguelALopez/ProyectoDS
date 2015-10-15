@@ -4,20 +4,34 @@
  * and open the template in the editor.
  */
 
-package Interfaz;
+package Vista;
 
 /**
  *
  * @author Camilo Ruiz Casanova
  */
-public class CrearUsuario extends javax.swing.JFrame 
+public class ModificarUsuario extends javax.swing.JFrame 
 {
     /**
      * Creates new form CrearUsuario
      */
-    public CrearUsuario() 
+    public ModificarUsuario() 
     {
         initComponents();
+        
+        this.tfCedula.setEnabled(false);
+        this.cbCargo.setEnabled(false);
+        this.pfClave.setEnabled(false);
+        this.pfVerificarClave.setEnabled(false);
+        this.tfNombre.setEnabled(false);
+        this.tfDireccion.setEnabled(false);
+        this.ftfFechaNacimiento.setEnabled(false);
+        this.tfTelefono.setEnabled(false);
+        this.tfCelular.setEnabled(false);
+        this.ftfFechaIncorporacion.setEnabled(false);
+        this.tfSalario.setEnabled(false);
+        this.tfNumeroCuenta.setEnabled(false);
+        this.cbEstado.setEnabled(false);
     }
 
     /**
@@ -57,12 +71,16 @@ public class CrearUsuario extends javax.swing.JFrame
         tfNumeroCuenta = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         cbEstado = new javax.swing.JComboBox();
-        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
         cbSedes = new javax.swing.JComboBox();
-        bCrearUsuario = new javax.swing.JButton();
+        bModificarUsuario = new javax.swing.JButton();
         bCancelar = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel14 = new javax.swing.JLabel();
+        tfBuscarCedula = new javax.swing.JTextField();
+        bBuscarCedula = new javax.swing.JButton();
 
-        setTitle("Crear Usuario");
+        setTitle("Modificar Usuario");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos de Ingreso al Sistema", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
 
@@ -149,7 +167,7 @@ public class CrearUsuario extends javax.swing.JFrame
 
         cbEstado.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Activo", "Inactivo" }));
 
-        jLabel14.setText("Sede");
+        jLabel15.setText("Sede");
 
         cbSedes.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " " }));
 
@@ -160,7 +178,7 @@ public class CrearUsuario extends javax.swing.JFrame
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel14)
+                    .addComponent(jLabel15)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(cbSedes, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -239,15 +257,45 @@ public class CrearUsuario extends javax.swing.JFrame
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(ftfFechaIncorporacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel14)
+                .addComponent(jLabel15)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cbSedes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        bCrearUsuario.setText("Crear Usuario");
+        bModificarUsuario.setText("Modificar Usuario");
 
         bCancelar.setText("Cancelar");
+
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+
+        jLabel14.setText("Usuario (C.C.)");
+
+        bBuscarCedula.setText("Buscar");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel14)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(tfBuscarCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(bBuscarCedula)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel14)
+                    .addComponent(tfBuscarCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bBuscarCedula))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -261,19 +309,25 @@ public class CrearUsuario extends javax.swing.JFrame
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(bCancelar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(bCrearUsuario)))
+                        .addComponent(bModificarUsuario)))
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(114, 114, 114)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(114, 114, 114))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(bCrearUsuario)
+                    .addComponent(bModificarUsuario)
                     .addComponent(bCancelar))
                 .addContainerGap())
         );
@@ -281,8 +335,9 @@ public class CrearUsuario extends javax.swing.JFrame
         pack();
     }// </editor-fold>//GEN-END:initComponents
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton bBuscarCedula;
     public javax.swing.JButton bCancelar;
-    public javax.swing.JButton bCrearUsuario;
+    public javax.swing.JButton bModificarUsuario;
     public javax.swing.JComboBox cbCargo;
     public javax.swing.JComboBox cbEstado;
     public javax.swing.JComboBox cbSedes;
@@ -294,6 +349,7 @@ public class CrearUsuario extends javax.swing.JFrame
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -304,8 +360,10 @@ public class CrearUsuario extends javax.swing.JFrame
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     public javax.swing.JPasswordField pfClave;
     public javax.swing.JPasswordField pfVerificarClave;
+    public javax.swing.JTextField tfBuscarCedula;
     public javax.swing.JTextField tfCedula;
     public javax.swing.JTextField tfCelular;
     public javax.swing.JTextField tfDireccion;

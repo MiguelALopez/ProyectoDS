@@ -4,12 +4,13 @@
  * and open the template in the editor.
  */
 
-package Interfaz;
+package Controlador;
 
-import Implementacion.Sede;
-import Implementacion.SedeDAO;
-import Implementacion.Usuario;
-import Implementacion.UsuarioDAO;
+import Modelo.Sede;
+import Modelo.SedeDAO;
+import Modelo.Usuario;
+import Modelo.UsuarioDAO;
+import Vista.CrearUsuario;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Implementacion;
+package Modelo;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -13,14 +13,15 @@ import java.util.ArrayList;
  *
  * @author AndrésFelipe
  */
-public class PQRDAO {
-    private ArrayList<PQR> listaPQR;
+public class PQRDAO 
+{
     ConexionBD conexionBD = new ConexionBD();
     
     public ArrayList<PQR> getListaUsuarios() 
     {
         conexionBD.conectar();
-        listaPQR = new ArrayList<>();
+        
+        ArrayList<PQR> listaPQR = new ArrayList();
         String query = "SELECT * FROM usuarios";
         
         try
@@ -49,7 +50,8 @@ public class PQRDAO {
     }
     
     
-    public void insertarPQR(PQR item){
+    public void insertarPQR(PQR item)
+    {
         conexionBD.conectar();
         String query = "INSERT INTO pqr VALUES('"
                 + item.getNumero() + "', '"
@@ -68,11 +70,12 @@ public class PQRDAO {
         {
             //Logger.getLogger(ConsultasBD.class.getName()).log(Level.SEVERE, null, ex);
         }
-        conexionBD.cerrarConexion();
         
+        conexionBD.cerrarConexion();        
     }
     
-    public void modificarPQR(PQR item){
+    public void modificarPQR(PQR item)
+    {
         conexionBD.conectar();
         String query = "UPDATE pqr SET "
                 //+ "pqr_numero='" + item.getNumero() + "', "
@@ -93,10 +96,12 @@ public class PQRDAO {
         {
             //Logger.getLogger(ConsultasBD.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
         conexionBD.cerrarConexion();
     }
     
-    public PQR consultarPQR(String pqr_numero){
+    public PQR consultarPQR(String pqr_numero)
+    {
         conexionBD.conectar();
         String query = "SELECT * "
                 + "FROM pqr "
@@ -121,6 +126,7 @@ public class PQRDAO {
         {
             //Logger.getLogger(ConsultasBD.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
         return null;
     }
 }

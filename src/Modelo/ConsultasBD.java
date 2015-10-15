@@ -8,7 +8,7 @@
  * Institución Educativa: Universidad del Valle
  **********************************************/
 
-package Implementacion;
+package Modelo;
 
 import java.sql.Connection;
 import java.sql.ResultSet;

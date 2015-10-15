@@ -8,8 +8,9 @@
  * Institución Educativa: Universidad del Valle
  **********************************************/
 
-package Interfaz;
+package Controlador;
 
+import Vista.MenuPrincipal;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -122,9 +123,8 @@ public class MenuPrincipal_Eventos
                 @Override
                 public void actionPerformed(ActionEvent ae) 
                 {
-                    menuPrincipal.interfazPqr.setLocationRelativeTo(null);
-                    menuPrincipal.interfazPqr.setVisible(true);
-                    
+                    menuPrincipal.crearPQR.setLocationRelativeTo(null);
+                    menuPrincipal.crearPQR.setVisible(true);                    
                 }                
             }
         );      

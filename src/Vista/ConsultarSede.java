@@ -6,7 +6,7 @@
  * Plan: Ingeniería de Sistemas - 3743
  * Institución Educativa: Universidad del Valle
  **********************************************/
-package Interfaz;
+package Vista;
 
 import javax.swing.*;
 import java.awt.*;

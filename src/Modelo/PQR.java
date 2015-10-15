@@ -3,13 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Implementacion;
+package Modelo;
 
 /**
  *
  * @author AndrésFelipe
  */
-public class PQR {
+public class PQR 
+{
     private String numero;
     private String cedula;
     private String nombre;
@@ -18,7 +19,8 @@ public class PQR {
     private String contenido;
     private String estado;
 
-    public PQR(String numero, String cedula, String nombre, String sede, String tipo, String contenido, String estado) {
+    public PQR(String numero, String cedula, String nombre, String sede, String tipo, String contenido, String estado) 
+    {
         this.numero = numero;
         this.cedula = cedula;
         this.nombre = nombre;
@@ -28,7 +30,8 @@ public class PQR {
         this.estado = estado;
     }
     
-    public PQR() {
+    public PQR() 
+    {
         this.numero = null;
         this.cedula = null;
         this.nombre = null;
@@ -92,6 +95,5 @@ public class PQR {
 
     public void setEstado(String estado) {
         this.estado = estado;
-    }
-    
+    }    
 }
