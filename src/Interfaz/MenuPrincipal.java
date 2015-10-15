@@ -28,6 +28,9 @@ public class MenuPrincipal extends JFrame
     public ConsultarUsuarios consultarUsuarios;
     public ConsultarUsuarios_Eventos consultarUsuarios_Eventos;
     
+    public InterfazPqr InterfazPqr;
+    //public ConsultarUsuarios_Eventos consultarUsuarios_Eventos;
+    
     /**
      * constructor de la clase, construye la interfaz
      */
@@ -43,6 +46,8 @@ public class MenuPrincipal extends JFrame
         
         this.consultarUsuarios = new ConsultarUsuarios();
         this.consultarUsuarios_Eventos = new ConsultarUsuarios_Eventos(this.consultarUsuarios);
+        
+        this.InterfazPqr = new InterfazPqr();
         
         this.setLocationRelativeTo(null);
         this.setVisible(true);
@@ -75,6 +80,7 @@ public class MenuPrincipal extends JFrame
         bModificarSede = new javax.swing.JButton();
         bConsultarSedes = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
+        bPqr = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Sistema FLASH");
@@ -194,15 +200,23 @@ public class MenuPrincipal extends JFrame
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "PQR", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
 
+        bPqr.setText("Realizar PQR");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(bPqr)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(38, 38, 38)
+                .addComponent(bPqr)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -260,6 +274,7 @@ public class MenuPrincipal extends JFrame
     public javax.swing.JButton bIniciarSesion;
     public javax.swing.JButton bModificarSede;
     public javax.swing.JButton bModificarUsuario;
+    public javax.swing.JButton bPqr;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;

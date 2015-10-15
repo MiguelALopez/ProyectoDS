@@ -116,5 +116,17 @@ public class MenuPrincipal_Eventos
                 }                
             }
         );
+        this.menuPrincipal.bPqr.addActionListener(
+            new ActionListener()
+            {
+                @Override
+                public void actionPerformed(ActionEvent ae) 
+                {
+                    menuPrincipal.InterfazPqr.setLocationRelativeTo(null);
+                    menuPrincipal.InterfazPqr.setVisible(true);
+                    
+                }                
+            }
+        );      
     }
 }
