@@ -10,5 +10,9 @@ package Interfaz;
  * @author Cristian Jurado
  */
 public class InterfazPqr_Eventos {
+
+    InterfazPqr_Eventos(InterfazPqr InterfazPqr) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

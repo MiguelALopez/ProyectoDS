@@ -122,8 +122,8 @@ public class MenuPrincipal_Eventos
                 @Override
                 public void actionPerformed(ActionEvent ae) 
                 {
-                    menuPrincipal.InterfazPqr.setLocationRelativeTo(null);
-                    menuPrincipal.InterfazPqr.setVisible(true);
+                    menuPrincipal.interfazPqr.setLocationRelativeTo(null);
+                    menuPrincipal.interfazPqr.setVisible(true);
                     
                 }                
             }
