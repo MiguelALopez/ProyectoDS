@@ -28,8 +28,8 @@ public class MenuPrincipal extends JFrame
     public ConsultarUsuarios consultarUsuarios;
     public ConsultarUsuarios_Eventos consultarUsuarios_Eventos;
     
-    public CrearPqr interfazPqr;
-    public CrearPqr_Eventos interfazPqr_Eventos;
+    public CrearPQR interfazPqr;
+    public CrearPQR_Eventos interfazPqr_Eventos;
     
     /**
      * constructor de la clase, construye la interfaz
@@ -47,8 +47,8 @@ public class MenuPrincipal extends JFrame
         this.consultarUsuarios = new ConsultarUsuarios();
         this.consultarUsuarios_Eventos = new ConsultarUsuarios_Eventos(this.consultarUsuarios);
         
-        this.interfazPqr = new CrearPqr();
-        this.interfazPqr_Eventos = new CrearPqr_Eventos(this.interfazPqr);
+        this.interfazPqr = new CrearPQR();
+        this.interfazPqr_Eventos = new CrearPQR_Eventos(this.interfazPqr);
         
         this.setLocationRelativeTo(null);
         this.setVisible(true);
