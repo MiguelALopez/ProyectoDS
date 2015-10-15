@@ -4,6 +4,9 @@
  * and open the template in the editor.
  */
 package Interfaz;
+import Implementacion.PQRDAO;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  *
@@ -11,8 +14,29 @@ package Interfaz;
  */
 public class CrearPqr_Eventos {
 
-    CrearPqr_Eventos(CrearPqr InterfazPqr) {
-       
+    private CrearPqr crearPqr;
+    private PQRDAO pqrDAO;
+    
+    CrearPqr_Eventos(final CrearPqr crearPqr) {
+        this.crearPqr = crearPqr;
+        this.pqrDAO = new PQRDAO();
+        
+        crearPqr.bSalir.addActionListener(
+                new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                cerrarVentana();
+            }
+        }
+        );
     }
     
+    public void cerrarVentana()
+    {
+        this.crearPqr.setVisible(false);
+        //limpiarCampos();
+    }
+    
+        
 }
