@@ -5,7 +5,6 @@
  */
 package Implementacion;
 
-import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -73,7 +72,7 @@ public class SedeDAO
     {
         conexionBD.conectar();
         String query = "UPDATE sede SET "
-                + "sede_numero='" + sede.getNumero()+"', "
+                //+ "sede_numero='" + sede.getNumero()+"', "
                 + "sede_nombre='" + sede.getNombre()+"', "                
                 + "sede_presupuesto='" + sede.getPresupuesto()+"', "
                 + "sede_cant_camiones='" + sede.getCamiones()+"', "

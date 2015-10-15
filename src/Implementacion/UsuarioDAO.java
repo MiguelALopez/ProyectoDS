@@ -115,7 +115,7 @@ public class UsuarioDAO
     public void modificarUsuario(Usuario usr) {
         conexionBD.conectar();
         String query = "UPDATE usuarios SET "
-                + "user_cedula='" + usr.getCedula() + "', "
+                //+ "user_cedula='" + usr.getCedula() + "', "
                 + "user_passwd='" + usr.getPasswd()+ "', "
                 + "user_nombre='" + usr.getNombre()+ "', "
                 + "user_rol='" + usr.getRol()+ "', "
