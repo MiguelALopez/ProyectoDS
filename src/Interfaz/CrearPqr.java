@@ -9,12 +9,12 @@ package Interfaz;
  *
  * @author Cristian Jurado
  */
-public class InterfazPqr extends javax.swing.JFrame {
+public class CrearPqr extends javax.swing.JFrame {
 
     /**
      * Creates new form Interfaz_PQR
      */
-    public InterfazPqr() {
+    public CrearPqr() {
         initComponents();
     }
 

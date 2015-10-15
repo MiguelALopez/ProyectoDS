@@ -9,9 +9,9 @@ package Interfaz;
  *
  * @author Cristian Jurado
  */
-public class InterfazPqr_Eventos {
+public class CrearPqr_Eventos {
 
-    InterfazPqr_Eventos(InterfazPqr InterfazPqr) {
+    CrearPqr_Eventos(CrearPqr InterfazPqr) {
        
     }
     
