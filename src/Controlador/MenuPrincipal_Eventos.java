@@ -127,6 +127,19 @@ public class MenuPrincipal_Eventos
                     menuPrincipal.crearPQR.setVisible(true);                    
                 }                
             }
-        );      
+        ); 
+ 
+        this.menuPrincipal.bConsultarPQR.addActionListener(
+            new ActionListener()
+            {
+                @Override
+                public void actionPerformed(ActionEvent ae) 
+                {
+                    menuPrincipal.consultarPQR.setLocationRelativeTo(null);
+                    menuPrincipal.consultarPQR.setVisible(true);
+                }                
+            }
+        );
+  
     }
 }
