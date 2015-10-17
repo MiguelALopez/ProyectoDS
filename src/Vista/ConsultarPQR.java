@@ -29,8 +29,6 @@ public class ConsultarPQR extends javax.swing.JFrame {
         bVerPQR = new javax.swing.JButton();
         bActualizarPQR = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
         bCerrar.setText("Cerrar");
 
         tPQR.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
