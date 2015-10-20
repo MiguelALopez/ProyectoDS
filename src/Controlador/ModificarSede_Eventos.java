@@ -3,27 +3,26 @@
  * Autor: Miguel Angel Lopez - 1326691
  * Autor: Andres Felipe Polanco - 1324539
  * Fecha: 20-oct-2015
- * Nombre del Archivo: CrearSede_Eventos.java
+ * Nombre del Archivo: ModificarSede_Eventos.java
  * Plan: Ingeniería de Sistemas - 3743
  * Institución Educativa: Universidad del Valle (Cali - Colombia)
  * *********************************************
  */
 package Controlador;
 
-import Modelo.Sede;
-import Vista.CrearSede;
+import Vista.ModificarSede;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class CrearSede_Eventos {
-    private CrearSede crearSede;
-    
-    public CrearSede_Eventos(CrearSede crearSede){
-        this.crearSede = crearSede;
+public class ModificarSede_Eventos {
 
-        // Eventos para el boton de Cancelar
-        this.crearSede.getButtonCancel().addActionListener(
+    private ModificarSede modificarSede;
+
+    public ModificarSede_Eventos(ModificarSede modificarSede) {
+        this.modificarSede = modificarSede;
+
+        this.modificarSede.getButtonCancel().addActionListener(
                 new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
@@ -31,39 +30,34 @@ public class CrearSede_Eventos {
                     }
                 }
         );
-        // Eventos para el boton de Crear
-        this.crearSede.getButtonCreate().addActionListener(
+
+        this.modificarSede.getButtonAccept().addActionListener(
                 new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        crearSede();
+                        modificarSede();
                     }
                 }
         );
     }
 
-    //Metodo encargado de crear una nueva sede y añadirla a la Base de Datos
-    public void crearSede(){
-        String numSede = crearSede.getTextNumSede().getText();
-        String nameSede = crearSede.getTextNameSede().getText();
-        String address = crearSede.getTextAddress().getText();
-
-        Sede sede = new Sede(numSede, nameSede, address);
-
+    private void modificarSede() {
 
     }
 
     // Metodo encargado de hacer la ventana invisible y llamar al metodo limpiarCampos
     public void cerrarVentana(){
-        crearSede.setVisible(false);
+        modificarSede.setVisible(false);
         limpiarCampos();
     }
 
     // Metodo encergado de limpiar los campos de la ventana
     private void limpiarCampos(){
-        crearSede.getTextNumSede().setText("");
-        crearSede.getTextNameSede().setText("");
-        crearSede.getTextAddress().setText("");
+        modificarSede.getTextNumSede().setText("");
+        modificarSede.getTextNameSede().setText("");
+        modificarSede.getTextAddress().setText("");
+        modificarSede.getTextManager().setText("");
+        modificarSede.getTextBudget().setText("");
+        modificarSede.getTextNumTruck().setText("");
     }
-
 }

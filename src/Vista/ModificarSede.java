@@ -25,6 +25,12 @@ public class ModificarSede extends JFrame{
     public ModificarSede(){
         super("Modificar Sede");
         setLayout(new GridBagLayout());
+        initComponents();
+        setSize(400, 400);
+    }
+
+    /* Clase encargada de inicializar y posicionar los elementos en los diferentes posiciones en el frame*/
+    public void initComponents(){
         GridBagConstraints c = new GridBagConstraints();
 
         // Se inicializan los componentes
@@ -127,11 +133,6 @@ public class ModificarSede extends JFrame{
         c.insets = new Insets(15,20,0,30);
         c.anchor = GridBagConstraints.CENTER;
         add(buttonAccept,c);
-
-
-//        setVisible(true);
-        setSize(400, 400);
-//        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
 
     public void manageConst(GridBagConstraints c, int colX, int filY, int width, int heigth, int weightx, int weighty, int ipadx, int ipady){
@@ -148,8 +149,76 @@ public class ModificarSede extends JFrame{
         c.ipady = ipady;
     }
 
+    // Getters and Setters
+    public JTextField getTextNumSede() {
+        return textNumSede;
+    }
+
+    public void setTextNumSede(JTextField textNumSede) {
+        this.textNumSede = textNumSede;
+    }
+
+    public JTextField getTextNameSede() {
+        return textNameSede;
+    }
+
+    public void setTextNameSede(JTextField textNameSede) {
+        this.textNameSede = textNameSede;
+    }
+
+    public JTextField getTextAddress() {
+        return textAddress;
+    }
+
+    public void setTextAddress(JTextField textAddress) {
+        this.textAddress = textAddress;
+    }
+
+    public JTextField getTextManager() {
+        return textManager;
+    }
+
+    public void setTextManager(JTextField textManager) {
+        this.textManager = textManager;
+    }
+
+    public JTextField getTextBudget() {
+        return textBudget;
+    }
+
+    public void setTextBudget(JTextField textBudget) {
+        this.textBudget = textBudget;
+    }
+
+    public JTextField getTextNumTruck() {
+        return textNumTruck;
+    }
+
+    public void setTextNumTruck(JTextField textNumTruck) {
+        this.textNumTruck = textNumTruck;
+    }
+
+    public JButton getButtonAccept() {
+        return buttonAccept;
+    }
+
+    public void setButtonAccept(JButton buttonAccept) {
+        this.buttonAccept = buttonAccept;
+    }
+
+    public JButton getButtonCancel() {
+        return buttonCancel;
+    }
+
+    public void setButtonCancel(JButton buttonCancel) {
+        this.buttonCancel = buttonCancel;
+    }
+
     public static void main(String[] args) {
         ModificarSede prueba = new ModificarSede();
+        prueba.setLocationRelativeTo(null);
+        prueba.setVisible(true);
+        prueba.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
     }
 }
