@@ -140,6 +140,36 @@ public class MenuPrincipal_Eventos
                 }                
             }
         );
+
+        this.menuPrincipal.bCrearSede.addActionListener(
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        menuPrincipal.crearSede.setLocationRelativeTo(null);
+                        menuPrincipal.crearSede.setVisible(true);
+                    }
+                }
+        );
+
+        this.menuPrincipal.bModificarSede.addActionListener(
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        menuPrincipal.modificarSede.setLocationRelativeTo(null);
+                        menuPrincipal.modificarSede.setVisible(true);
+                    }
+                }
+        );
+
+        this.menuPrincipal.bConsultarSedes.addActionListener(
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        menuPrincipal.consultarSede.setLocationRelativeTo(null);
+                        menuPrincipal.consultarSede.setVisible(true);
+                    }
+                }
+        );
   
     }
 }

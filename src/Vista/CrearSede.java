@@ -69,9 +69,9 @@ public class CrearSede extends JFrame {
         add(buttonCrear, c);
 
 
-        setVisible(true);
+//        setVisible(true);
         setSize(400, 200);
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+//        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
 
     public void manageConst(GridBagConstraints c, int colX, int filY, int width, int heigth, int weightx, int weighty, int ipadx, int ipady) {

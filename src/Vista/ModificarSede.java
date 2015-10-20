@@ -129,9 +129,9 @@ public class ModificarSede extends JFrame{
         add(buttonAccept,c);
 
 
-        setVisible(true);
+//        setVisible(true);
         setSize(400, 400);
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+//        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
 
     public void manageConst(GridBagConstraints c, int colX, int filY, int width, int heigth, int weightx, int weighty, int ipadx, int ipady){

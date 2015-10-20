@@ -38,6 +38,12 @@ public class MenuPrincipal extends JFrame
     
     public ConsultarPQR consultarPQR;
     public ConsultarPQR_Eventos consultarPQR_Eventos;
+
+    public CrearSede crearSede;
+
+    public ModificarSede modificarSede;
+
+    public ConsultarSede consultarSede;
     
     /**
      * constructor de la clase, construye la interfaz
@@ -60,6 +66,12 @@ public class MenuPrincipal extends JFrame
         
         this.consultarPQR = new ConsultarPQR();
         this.consultarPQR_Eventos = new ConsultarPQR_Eventos(this.consultarPQR);
+
+        this.crearSede = new CrearSede();
+
+        this.modificarSede = new ModificarSede();
+
+        this.consultarSede = new ConsultarSede();
         
         this.setLocationRelativeTo(null);
         this.setVisible(true);
