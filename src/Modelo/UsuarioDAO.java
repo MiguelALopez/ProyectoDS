@@ -24,7 +24,7 @@ public class UsuarioDAO
     public ArrayList<Usuario> getListaUsuarios() 
     {
         conexionBD.conectar();
-        listaUsuarios = new ArrayList<>();
+        listaUsuarios = new ArrayList();
         String query = "SELECT * FROM usuarios";
         
         try

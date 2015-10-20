@@ -38,12 +38,12 @@ CREATE TABLE sede
 
 
 CREATE TABLE pqr
-{
-    pqr_numero varchar(5),
-    pqr_cedula varchar(15) NOT NULL,
-    pqr_nombre varchar(50),
-    pqr_sede varchar(5) NOT NULL,
-    pqr_tipo varchar(10),
-    pqr_contenido text,
-    PRIMARY KEY (pqr_numero)
-};
+(
+	pqr_numero    VARCHAR(5),
+	pqr_cedula    VARCHAR(15) NOT NULL,
+	pqr_nombre    VARCHAR(50),
+	pqr_sede      VARCHAR(5)  NOT NULL,
+	pqr_tipo      VARCHAR(10),
+	pqr_contenido TEXT,
+	PRIMARY KEY (pqr_numero)
+);
