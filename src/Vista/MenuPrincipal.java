@@ -222,18 +222,18 @@ public class MenuPrincipal extends JFrame
 
         bPqr.setText("Realizar PQR");
 
-        bConsultarPQR.setText("ConsultarPQR");
+        bConsultarPQR.setText("Consultar PQR");
 
         javax.swing.GroupLayout pPQRLayout = new javax.swing.GroupLayout(pPQR);
         pPQR.setLayout(pPQRLayout);
         pPQRLayout.setHorizontalGroup(
             pPQRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pPQRLayout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(pPQRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pPQRLayout.createSequentialGroup()
                         .addComponent(bPqr, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(12, 12, 12))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(pPQRLayout.createSequentialGroup()
                         .addComponent(bConsultarPQR)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
@@ -245,7 +245,7 @@ public class MenuPrincipal extends JFrame
                 .addComponent(bPqr)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(bConsultarPQR)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jLabel14.setText("Usted se ha identificado como:");
@@ -257,7 +257,7 @@ public class MenuPrincipal extends JFrame
         pIdentidadLayout.setHorizontalGroup(
             pIdentidadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pIdentidadLayout.createSequentialGroup()
-                .addContainerGap(70, Short.MAX_VALUE)
+                .addContainerGap(71, Short.MAX_VALUE)
                 .addComponent(jLabel14)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(tfIdentidad, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
