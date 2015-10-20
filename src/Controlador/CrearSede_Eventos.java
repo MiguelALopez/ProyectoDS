@@ -11,13 +11,16 @@
 package Controlador;
 
 import Modelo.Sede;
+import Modelo.SedeDAO;
 import Vista.CrearSede;
 
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class CrearSede_Eventos {
     private CrearSede crearSede;
+
     
     public CrearSede_Eventos(CrearSede crearSede){
         this.crearSede = crearSede;
@@ -49,6 +52,11 @@ public class CrearSede_Eventos {
         String address = crearSede.getTextAddress().getText();
 
         Sede sede = new Sede(numSede, nameSede, address);
+        if (new SedeDAO().insertarSede(sede)){
+            JOptionPane.showMessageDialog(null, "La sede a sido creada exitosamente");
+        }else {
+            JOptionPane.showMessageDialog(null, "Error al crear la sede");
+        }
 
 
     }
