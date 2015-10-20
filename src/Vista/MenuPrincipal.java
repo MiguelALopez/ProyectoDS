@@ -40,6 +40,7 @@ public class MenuPrincipal extends JFrame
     public CrearSede_Eventos crearSede_eventos;
 
     public ModificarSede modificarSede;
+    public ModificarSede_Eventos modificarSede_eventos;
 
     public ConsultarSede consultarSede;
     
@@ -69,6 +70,7 @@ public class MenuPrincipal extends JFrame
         this.crearSede_eventos = new CrearSede_Eventos(crearSede);
 
         this.modificarSede = new ModificarSede();
+        modificarSede_eventos = new ModificarSede_Eventos(modificarSede);
 
         this.consultarSede = new ConsultarSede();
         

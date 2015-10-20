@@ -1,6 +1,17 @@
 
-DROP TABLE if exists usuario;
+DROP TABLE IF EXISTS sede CASCADE;
+CREATE TABLE sede
+(
+	sede_numero varchar(5),
+	sede_nombre varchar(30),
+	sede_gerente varchar(15),
+	sede_presupuesto varchar(15),
+	sede_cant_camiones int,
+	sede_direccion varchar(30),
+	PRIMARY KEY (sede_numero)
+);
 
+DROP TABLE IF EXISTS usuario CASCADE;
 CREATE TABLE usuario
 (
 	usuario_cedula varchar(15),
@@ -20,23 +31,7 @@ CREATE TABLE usuario
         FOREIGN KEY (usuario_sede_numero) REFERENCES sede(sede_numero)
 );
 
-INSERT INTO usuario(usuario_cedula, usuario_passwd, usuario_nombre, usuario_rol, usuario_estado) 
-VALUES ('123','202cb962ac59075b964b07152d234b70','Administrador','Admin','1');
-
-DROP TABLE if exists sede;
-
-CREATE TABLE sede
-(
-	sede_numero varchar(5),
-	sede_nombre varchar(30),
-	sede_gerente varchar(15),
-	sede_presupuesto varchar(15),
-	sede_cant_camiones int,
-	sede_direccion varchar(30),
-	PRIMARY KEY (sede_numero)
-);
-
-
+DROP TABLE IF EXISTS pqr CASCADE;
 CREATE TABLE pqr
 (
 	pqr_numero    VARCHAR(5),
@@ -47,3 +42,6 @@ CREATE TABLE pqr
 	pqr_contenido TEXT,
 	PRIMARY KEY (pqr_numero)
 );
+
+INSERT INTO usuario(usuario_cedula, usuario_passwd, usuario_nombre, usuario_rol, usuario_estado)
+VALUES ('123','202cb962ac59075b964b07152d234b70','Administrador','Admin','1');

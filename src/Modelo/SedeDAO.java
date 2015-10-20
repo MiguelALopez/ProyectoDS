@@ -5,6 +5,7 @@
  */
 package Modelo;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -45,27 +46,39 @@ public class SedeDAO
         conexionBD.cerrarConexion();
         return null;
     }
-    
-    public void insertarSede(Sede sede)
+
+    /* Metodo encargado de insertar una sede en la base de datos retorna un true si la
+    * operacion es exitosa y un false de lo contrario*/
+    public boolean insertarSede(Sede sede)
     {
+        boolean exitoso = false;
         conexionBD.conectar();
-        String query = "INSERT INTO sedes VALUES('"
-                + sede.getNumero()+"','"
-                + sede.getNombre()+"','"                
-                + sede.getPresupuesto()+"','"
-                + sede.getCamiones()+"','"
-                + sede.getDireccion() + "')";
-        
-        try
-        {
-            Statement st = conexionBD.conexion.createStatement();
-            int tabla = st.executeUpdate(query);            
-        } 
-        catch (SQLException ex) 
-        {
-            //Logger.getLogger(ConsultasBD.class.getName()).log(Level.SEVERE, null, ex);
+        if (conexionBD.conexion != null) {
+            // Se verifica que no exista la sede primero
+            if (!existSede(sede.getNumero())) {
+                PreparedStatement consulta = null;
+                // La consulta se hace de esta forma para evitar inserciones SQL
+                String insertSQL = "INSERT INTO sede" +
+                        "(sede_numero, sede_nombre, sede_direccion)" +
+                        "VALUES (?, ?, ?);";
+                try {
+                    consulta = conexionBD.conexion.prepareStatement(insertSQL);
+
+                    consulta.setString(1, sede.getNumero());
+                    consulta.setString(2, sede.getNombre());
+                    consulta.setString(3, sede.getDireccion());
+
+                    consulta.executeUpdate();
+                    exitoso = true;
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            } else {
+                System.err.println("La sede numero " + sede.getNumero() + " ya existe");
+            }
+            conexionBD.cerrarConexion(); // Se cierra la conexion
         }
-        conexionBD.cerrarConexion();
+        return exitoso;
     }
     
     public void modificarSede(Sede sede)
@@ -90,5 +103,23 @@ public class SedeDAO
             //Logger.getLogger(ConsultasBD.class.getName()).log(Level.SEVERE, null, ex);
         }
         conexionBD.cerrarConexion();
+    }
+
+    public boolean existSede(String numSede){
+        Boolean existe = false;
+        String consulta = "SELECT sede_numero FROM sede WHERE sede_numero='" + numSede + "';";
+        ResultSet resultSet = null;
+
+        try {
+            Statement statement = conexionBD.conexion.createStatement();
+            resultSet = statement.executeQuery(consulta);
+            if (resultSet.next()){
+                existe = true;
+            }
+        }catch (SQLException e){
+            System.err.println("Error en la consulta en + " + e.getLocalizedMessage());
+        }
+
+        return existe;
     }
 }

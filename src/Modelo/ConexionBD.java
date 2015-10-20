@@ -29,9 +29,9 @@ public class ConexionBD
      */
     public ConexionBD()
     {
-        url = "jdbc:postgresql://localhost:5432/Prueba";
-        user = "postgres";
-        password = "postgresql";
+        url = "jdbc:postgresql://localhost:5432/proyectods";
+        user = "prueba";
+        password = "123456";
     }
     
     /**
@@ -40,17 +40,23 @@ public class ConexionBD
      */
     public void conectar()
     {
-        try
-        {
+        try {
+            // Se carga el driver
+            Class.forName("org.postgresql.Driver");
+            System.out.println( "Driver Cargado" );
+        } catch(ClassNotFoundException  e ) {
+            System.err.println( "No se pudo cargar el driver." );
+        }
+
+        try{
+            //Crear el objeto de conexion a la base de datos
             conexion = DriverManager.getConnection(url, user, password);
-            
-            //System.out.println( "Conexion Abierta" );
-            //return conexion;
-        } 
-        catch( SQLException ex ) 
-        {
-             //System.out.println( "No se pudo abrir." );
-             //return null;
+            System.out.println( "Conexion Abierta" );
+
+            //Crear objeto Statement para realizar queries a la base de datos
+        } catch(SQLException e) {
+            conexion = null;
+            System.err.println( "No se pudo abrir la bd." );
         }
     }
     
@@ -66,7 +72,7 @@ public class ConexionBD
         }
         catch(SQLException ex)
         {
-            System.out.println( "No se pudo cerrar la conexion" );
+            System.err.println( "No se pudo cerrar la conexion" );
         }
     }
     
@@ -108,5 +114,11 @@ public class ConexionBD
     public void setConexion(Connection conexion) 
     {
         this.conexion = conexion;
+    }
+
+    public static void main(String[] args) {
+        ConexionBD conexionBD = new ConexionBD();
+        conexionBD.conectar();
+        conexionBD.cerrarConexion();
     }
 }
