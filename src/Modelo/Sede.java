@@ -34,7 +34,13 @@ public class Sede
         this.presupuesto = null;
         this.camiones = null;
     }
-    
+
+    public Sede(String numero, String nombre, String direccion) {
+        this.numero = numero;
+        this.nombre = nombre;
+        this.direccion = direccion;
+    }
+
     /**
      * Constructor para crear una sede dados los datos 
      * @param numero : numero unico que identifica la sede

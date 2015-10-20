@@ -13,21 +13,30 @@ import java.awt.*;
 
 public class CrearSede extends JFrame {
 
-    JTextField textNumSede;
-    JTextField textNameSede;
-    JTextField textAddress;
-    JButton buttonCrear;
+    private JTextField textNumSede;
+    private JTextField textNameSede;
+    private JTextField textAddress;
+    private JButton buttonCreate;
+    private JButton buttonCancel;
 
     public CrearSede() {
         super("Crear Sede");
         setLayout(new GridBagLayout());
-        GridBagConstraints c = new GridBagConstraints();
+        initComponents();
+        setSize(400, 200);
+    }
+
+    /* Clase encargada de inicializar y posicionar los elementos en los diferentes posiciones en el frame*/
+    public void initComponents(){
 
         // Se inicializan los componentes
         textNumSede = new JTextField();
         textNameSede = new JTextField();
         textAddress = new JTextField();
-        buttonCrear = new JButton("Crear");
+        buttonCreate = new JButton("Crear");
+        buttonCancel = new JButton("Cancelar");
+
+        GridBagConstraints c = new GridBagConstraints();
 
         // Label Numero Sede
         manageConst(c, 0, 0, 1, 1, 0, 0, 3, 3);
@@ -62,16 +71,17 @@ public class CrearSede extends JFrame {
         c.fill = GridBagConstraints.HORIZONTAL;
         add(textAddress, c);
 
+        // Button Cancelar
+        manageConst(c, 0, 3, 1, 1, 0, 0, 0, 0);
+        c.insets = new Insets(10, 15, 0, 30);
+        c.anchor = GridBagConstraints.WEST;
+        add(buttonCancel, c);
+
         // Button Crear
         manageConst(c, 1, 3, 1, 1, 0, 0, 0, 0);
         c.insets = new Insets(10, 20, 0, 30);
         c.anchor = GridBagConstraints.EAST;
-        add(buttonCrear, c);
-
-
-//        setVisible(true);
-        setSize(400, 200);
-//        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        add(buttonCreate, c);
     }
 
     public void manageConst(GridBagConstraints c, int colX, int filY, int width, int heigth, int weightx, int weighty, int ipadx, int ipady) {
@@ -88,9 +98,52 @@ public class CrearSede extends JFrame {
         c.ipady = ipady;
     }
 
+    //Getters and Setters
+    public JTextField getTextNumSede() {
+        return textNumSede;
+    }
+
+    public void setTextNumSede(JTextField textNumSede) {
+        this.textNumSede = textNumSede;
+    }
+
+    public JTextField getTextNameSede() {
+        return textNameSede;
+    }
+
+    public void setTextNameSede(JTextField textNameSede) {
+        this.textNameSede = textNameSede;
+    }
+
+    public JTextField getTextAddress() {
+        return textAddress;
+    }
+
+    public void setTextAddress(JTextField textAddress) {
+        this.textAddress = textAddress;
+    }
+
+    public JButton getButtonCreate() {
+        return buttonCreate;
+    }
+
+    public void setButtonCreate(JButton buttonCreate) {
+        this.buttonCreate = buttonCreate;
+    }
+
+    public JButton getButtonCancel() {
+        return buttonCancel;
+    }
+
+    public void setButtonCancel(JButton buttonCancel) {
+        this.buttonCancel = buttonCancel;
+    }
 
     public static void main(String[] args) {
         CrearSede prueba = new CrearSede();
+        prueba.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        prueba.setLocationRelativeTo(null);
+        prueba.setVisible(true);
 
     }
 }

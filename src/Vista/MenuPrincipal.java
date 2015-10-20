@@ -10,11 +10,8 @@
 
 package Vista;
 
-import Controlador.ConsultarUsuarios_Eventos;
-import Controlador.CrearPQR_Eventos;
-import Controlador.CrearUsuario_Eventos;
-import Controlador.ModificarUsuario_Eventos;
-import Controlador.ConsultarPQR_Eventos;
+import Controlador.*;
+
 import javax.swing.JFrame;
 
 
@@ -40,6 +37,7 @@ public class MenuPrincipal extends JFrame
     public ConsultarPQR_Eventos consultarPQR_Eventos;
 
     public CrearSede crearSede;
+    public CrearSede_Eventos crearSede_eventos;
 
     public ModificarSede modificarSede;
 
@@ -68,6 +66,7 @@ public class MenuPrincipal extends JFrame
         this.consultarPQR_Eventos = new ConsultarPQR_Eventos(this.consultarPQR);
 
         this.crearSede = new CrearSede();
+        this.crearSede_eventos = new CrearSede_Eventos(crearSede);
 
         this.modificarSede = new ModificarSede();
 
