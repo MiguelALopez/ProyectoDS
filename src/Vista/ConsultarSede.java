@@ -13,19 +13,24 @@ import java.awt.*;
 
 public class ConsultarSede extends JFrame {
 
-    JTextField textNumSede;
-    JTextField textNameSede;
-    JTextField textAddress;
-    JTextField textManager;
-    JTextField textBudget;
-    JTextField textNumEmployee;
-    JTextField textNumTruck;
-    JButton buttonAccept;
-    JButton buttonCancel;
+    private JTextField textNumSede;
+    private JTextField textNameSede;
+    private JTextField textAddress;
+    private JTextField textManager;
+    private JTextField textBudget;
+    private JTextField textNumEmployee;
+    private JTextField textNumTruck;
+    private JButton buttonAccept;
+    private JButton buttonCancel;
 
     public ConsultarSede() {
         super("Modificar Sede");
         setLayout(new GridBagLayout());
+        initComponets();
+        setSize(400, 450);
+    }
+
+    public void initComponets(){
         GridBagConstraints c = new GridBagConstraints();
 
         // Se inicializan los componentes
@@ -140,11 +145,6 @@ public class ConsultarSede extends JFrame {
         c.insets = new Insets(15, 20, 0, 30);
         c.anchor = GridBagConstraints.CENTER;
         add(buttonAccept, c);
-
-
-//        setVisible(true);
-        setSize(400, 450);
-//        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
 
     public void manageConst(GridBagConstraints c, int colX, int filY, int width, int heigth, int weightx, int weighty, int ipadx, int ipady) {
@@ -161,8 +161,84 @@ public class ConsultarSede extends JFrame {
         c.ipady = ipady;
     }
 
+    // Getters and Setters
+    public JTextField getTextNumSede() {
+        return textNumSede;
+    }
+
+    public void setTextNumSede(JTextField textNumSede) {
+        this.textNumSede = textNumSede;
+    }
+
+    public JTextField getTextNameSede() {
+        return textNameSede;
+    }
+
+    public void setTextNameSede(JTextField textNameSede) {
+        this.textNameSede = textNameSede;
+    }
+
+    public JTextField getTextAddress() {
+        return textAddress;
+    }
+
+    public void setTextAddress(JTextField textAddress) {
+        this.textAddress = textAddress;
+    }
+
+    public JTextField getTextManager() {
+        return textManager;
+    }
+
+    public void setTextManager(JTextField textManager) {
+        this.textManager = textManager;
+    }
+
+    public JTextField getTextBudget() {
+        return textBudget;
+    }
+
+    public void setTextBudget(JTextField textBudget) {
+        this.textBudget = textBudget;
+    }
+
+    public JTextField getTextNumEmployee() {
+        return textNumEmployee;
+    }
+
+    public void setTextNumEmployee(JTextField textNumEmployee) {
+        this.textNumEmployee = textNumEmployee;
+    }
+
+    public JTextField getTextNumTruck() {
+        return textNumTruck;
+    }
+
+    public void setTextNumTruck(JTextField textNumTruck) {
+        this.textNumTruck = textNumTruck;
+    }
+
+    public JButton getButtonAccept() {
+        return buttonAccept;
+    }
+
+    public void setButtonAccept(JButton buttonAccept) {
+        this.buttonAccept = buttonAccept;
+    }
+
+    public JButton getButtonCancel() {
+        return buttonCancel;
+    }
+
+    public void setButtonCancel(JButton buttonCancel) {
+        this.buttonCancel = buttonCancel;
+    }
+
     public static void main(String[] args) {
         ConsultarSede prueba = new ConsultarSede();
+        prueba.setLocationRelativeTo(null);
+        prueba.setVisible(true);
+        prueba.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
     }
 }

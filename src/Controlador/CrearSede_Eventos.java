@@ -52,6 +52,7 @@ public class CrearSede_Eventos {
         String address = crearSede.getTextAddress().getText();
 
         Sede sede = new Sede(numSede, nameSede, address);
+        // Se verifica si se creo la sede con exito
         if (new SedeDAO().insertarSede(sede)){
             JOptionPane.showMessageDialog(null, "La sede a sido creada exitosamente");
         }else {

@@ -20,31 +20,33 @@ public class SedeDAO
     
     public Sede consultarSede(String sede_numero)
     {
+        Sede sede = null;
         conexionBD.conectar();
-        String query = "SELECT * "
-                + "FROM sede "
-                + "WHERE sede_numero='"+sede_numero+"'";
-        
-        try
-        {
-            Statement st = conexionBD.conexion.createStatement();
-            ResultSet tabla = st.executeQuery(query);
-            
-            if (tabla.next())
-            {
-                return new Sede(
-                        tabla.getString(0), tabla.getString(1),
-                        tabla.getString(2), tabla.getString(3),
-                        tabla.getString(4));
-                
+        if (conexionBD.conexion != null){
+            if (!existSede(sede_numero)){
+                String query = "SELECT * "
+                        + "FROM sede "
+                        + "WHERE sede_numero='"+sede_numero+"'";
+                try{
+                    Statement st = conexionBD.conexion.createStatement();
+                    ResultSet tabla = st.executeQuery(query);
+
+                    if (tabla.next())
+                    {
+                        sede = new Sede(
+                                tabla.getString(0), tabla.getString(1),
+                                tabla.getString(2), tabla.getString(3),
+                                tabla.getString(4));
+
+                    }
+                }catch (SQLException e){
+                    e.printStackTrace();
+                    //Logger.getLogger(ConsultasBD.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
-        } 
-        catch (SQLException ex) 
-        {
-            //Logger.getLogger(ConsultasBD.class.getName()).log(Level.SEVERE, null, ex);
+            conexionBD.cerrarConexion();
         }
-        conexionBD.cerrarConexion();
-        return null;
+        return sede;
     }
 
     /* Metodo encargado de insertar una sede en la base de datos retorna un true si la
