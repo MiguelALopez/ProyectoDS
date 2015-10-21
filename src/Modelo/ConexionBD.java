@@ -22,7 +22,7 @@ public class ConexionBD
     private String user; // usuario de la base de datos
     private String password; // contraseña de la base de datos
     
-    public Connection conexion; // coneccion a la base de datos
+    public Connection conexion; // conexion a la base de datos
     
     /**
      * constructor para inicializar los valores necesarios

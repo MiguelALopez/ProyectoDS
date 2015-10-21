@@ -29,16 +29,13 @@ public class PQRDAO
             Statement st = conexionBD.conexion.createStatement();
             ResultSet tabla = st.executeQuery(query);
             
-            if (tabla.next())
+            while (tabla.next())
             {
-                listaPQR.add(new PQR(
-                        tabla.getString(0), tabla.getString(1),
-                        tabla.getString(2), tabla.getString(3),
-                        tabla.getString(4), tabla.getString(5),
-                        tabla.getString(6)));                
-            }
-            
-            
+                listaPQR.add(new PQR(tabla.getString(1), tabla.getString(2),
+                        tabla.getString(3), tabla.getString(4),
+                        tabla.getString(5), tabla.getString(6),
+                        tabla.getString(7)));                
+            }       
         } 
         catch (SQLException ex) 
         {
@@ -46,13 +43,15 @@ public class PQRDAO
         }
         
         conexionBD.cerrarConexion();
+        
         return listaPQR;
-    }
+    }    
     
-    
-    public void insertarPQR(PQR item)
+    public boolean insertarPQR(PQR item)
     {
         conexionBD.conectar();
+        boolean exito = false;
+        
         String query = "INSERT INTO pqr VALUES('"
                 + item.getNumero() + "', '"
                 + item.getCedula()+ "', '"
@@ -64,19 +63,24 @@ public class PQRDAO
         try
         {
             Statement st = conexionBD.conexion.createStatement();
-            int tabla = st.executeUpdate(query);            
+            int tabla = st.executeUpdate(query);
+            exito = true;
         } 
         catch (SQLException ex) 
         {
             //Logger.getLogger(ConsultasBD.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        conexionBD.cerrarConexion();        
+        conexionBD.cerrarConexion();
+        
+        return exito;
     }
     
-    public void modificarPQR(PQR item)
+    public boolean modificarPQR(PQR item)
     {
         conexionBD.conectar();
+        boolean exito = false;
+        
         String query = "UPDATE pqr SET "
                 //+ "pqr_numero='" + item.getNumero() + "', "
                 + "pqr_cedula='" + item.getCedula()+ "', "
@@ -90,7 +94,7 @@ public class PQRDAO
         {
             Statement st = conexionBD.conexion.createStatement();
             int tabla = st.executeUpdate(query);
-            
+            exito = true;
         } 
         catch (SQLException ex) 
         {
@@ -98,6 +102,8 @@ public class PQRDAO
         }
         
         conexionBD.cerrarConexion();
+        
+        return exito;
     }
     
     public PQR consultarPQR(String pqr_numero)
@@ -114,11 +120,10 @@ public class PQRDAO
             
             if (tabla.next())
             {
-                return new PQR(
-                        tabla.getString(0), tabla.getString(1),
-                        tabla.getString(2), tabla.getString(3),
-                        tabla.getString(4), tabla.getString(5),
-                        tabla.getString(6));
+                return new PQR(tabla.getString(1), tabla.getString(2),
+                        tabla.getString(3), tabla.getString(4),
+                        tabla.getString(5), tabla.getString(6),
+                        tabla.getString(7));
                 
             }
         } 

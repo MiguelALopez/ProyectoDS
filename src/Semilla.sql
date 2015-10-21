@@ -37,10 +37,11 @@ CREATE TABLE pqr
 	pqr_numero    VARCHAR(5),
 	pqr_cedula    VARCHAR(15) NOT NULL,
 	pqr_nombre    VARCHAR(50),
-	pqr_sede      VARCHAR(5)  NOT NULL,
+	pqr_sede      VARCHAR(5) NOT NULL,
 	pqr_tipo      VARCHAR(10),
 	pqr_contenido TEXT,
 	PRIMARY KEY (pqr_numero)
+        FOREIGN KEY (pqr_sede) REFERENCES sede(sede_numero)
 );
 
 INSERT INTO usuario(usuario_cedula, usuario_passwd, usuario_nombre, usuario_rol, usuario_estado)
