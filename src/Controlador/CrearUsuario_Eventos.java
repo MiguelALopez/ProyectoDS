@@ -16,6 +16,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -140,9 +141,32 @@ public class CrearUsuario_Eventos
         String cuenta = this.crearUsuario.tfNumeroCuenta.getText();
         String sede = (String) this.crearUsuario.cbSedes.getSelectedItem();
         
+        String rePasswd = String.valueOf(this.crearUsuario.pfVerificarClave.getPassword());
+        
         Usuario nuevoUsuario = new Usuario(cedula, passwd, nombre, estado, rol, fechaNacimiento, direccion, telefono, celular, fechaIncorporacion, salario, cuenta, sede);
         
-        //usuarioDAO.insetarUsuario(nuevoUsuario);
+        boolean verificar = verificarCamposCrearUsuario(nuevoUsuario, rePasswd);
+        
+        if (verificar)
+        {
+            int op = JOptionPane.showConfirmDialog(crearUsuario, "Desea agregar el Usuario " + cedula + " a la Base de Datos?", "Confirmacion", JOptionPane.YES_NO_OPTION);
+
+            if (op == JOptionPane.YES_OPTION)
+            {
+                //boolean resultado = usuarioDAO.insetarUsuario(nuevoUsuario);
+                boolean resultado = false;
+
+                if (resultado)
+                {
+                    JOptionPane.showMessageDialog(crearUsuario, "Usuario " + cedula + " creado exitosamente.", "", JOptionPane.INFORMATION_MESSAGE);
+                    limpiarCampos();
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(crearUsuario, "Error al crear el usuario.", "Error", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        }
     }
     
     public void actualizarSedes()
@@ -156,5 +180,92 @@ public class CrearUsuario_Eventos
         {
             crearUsuario.cbSedes.addItem(sedes.get(i).getNumero());            
         }
+    }
+    
+    public boolean verificarCamposCrearUsuario(Usuario usuario, String rePasswd)
+    {
+        if (usuario.getCedula().isEmpty())
+        {
+            JOptionPane.showMessageDialog(crearUsuario, "El campo Cedula es obligatorio.", "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        
+        if (usuario.getPasswd().isEmpty())
+        {
+            JOptionPane.showMessageDialog(crearUsuario, "El campo Contraseña es obligatorio.", "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        
+        if (rePasswd.isEmpty())
+        {
+            JOptionPane.showMessageDialog(crearUsuario, "Debe de confirmar la clave.", "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        
+        if (!usuario.getPasswd().equals(rePasswd))
+        {
+            JOptionPane.showMessageDialog(crearUsuario, "Las claves deben de coincidir.", "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        
+        if (usuario.getNombre().isEmpty())
+        {
+            JOptionPane.showMessageDialog(crearUsuario, "El campo Nombre es obligatorio.", "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        
+        if (!usuario.getTelefono().isEmpty())
+        {
+            try
+            {
+                Integer.parseInt(usuario.getTelefono());
+            }
+            catch (NumberFormatException ex)
+            {
+                JOptionPane.showMessageDialog(crearUsuario, "El campo Telefono es numerico.", "Error", JOptionPane.ERROR_MESSAGE);
+                return false;
+            }
+        }
+        
+        if (!usuario.getCelular().isEmpty())
+        {
+            try
+            {
+                Integer.parseInt(usuario.getCelular());
+            }
+            catch (NumberFormatException ex)
+            {
+                JOptionPane.showMessageDialog(crearUsuario, "El campo Celular es numerico.", "Error", JOptionPane.ERROR_MESSAGE);
+                return false;
+            }
+        }
+        
+        if (!usuario.getSalario().isEmpty())
+        {
+            try
+            {
+                Double.parseDouble(usuario.getSalario());
+            }
+            catch (NumberFormatException ex)
+            {
+                JOptionPane.showMessageDialog(crearUsuario, "El campo Salario es numerico.", "Error", JOptionPane.ERROR_MESSAGE);
+                return false;
+            }
+        }
+        
+        if (!usuario.getCuenta().isEmpty())
+        {
+            try
+            {
+                Long.parseLong(usuario.getCuenta());
+            }
+            catch (NumberFormatException ex)
+            {
+                JOptionPane.showMessageDialog(crearUsuario, "El campo Cuenta es numerico.", "Error", JOptionPane.ERROR_MESSAGE);
+                return false;
+            }
+        }
+        
+        return true;
     }
 }

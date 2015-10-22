@@ -63,8 +63,6 @@ public class ModificarUsuario_Eventos
                     public void actionPerformed(ActionEvent ae) 
                     {
                         modificarUsuario();
-                        limpiarCampos();
-                        habilitarCampos(false);
                     }
                 }
         );
@@ -81,7 +79,7 @@ public class ModificarUsuario_Eventos
                     @Override
                     public void windowClosing(WindowEvent we) 
                     {
-                        
+                        cerrarVentana();
                     }
 
                     @Override
@@ -105,8 +103,7 @@ public class ModificarUsuario_Eventos
                     @Override
                     public void windowActivated(WindowEvent we) 
                     {
-                        limpiarCampos();
-                        habilitarCampos(false);
+                        
                     }
 
                     @Override
@@ -134,42 +131,71 @@ public class ModificarUsuario_Eventos
         String cuenta = this.modificarUsuario.tfNumeroCuenta.getText();
         String sede = (String) this.modificarUsuario.cbSedes.getSelectedItem();
         
-        Usuario nuevoUsuario = new Usuario(cedula, passwd, nombre, estado, rol, fechaNacimiento, direccion, telefono, celular, fechaIncorporacion, salario, cuenta, sede);
+        String rePasswd = String.valueOf(this.modificarUsuario.pfVerificarClave.getPassword());
         
-        //usuarioDAO.modificarUsuario(nuevoUsuario);
+        Usuario usuario = new Usuario(cedula, passwd, nombre, estado, rol, fechaNacimiento, direccion, telefono, celular, fechaIncorporacion, salario, cuenta, sede);
+        
+        boolean verificar = verificarCamposModificarUsuario(usuario, rePasswd);
+        
+        if (verificar)
+        {
+            int op = JOptionPane.showConfirmDialog(modificarUsuario, "Desea modificar el Usuario " + cedula + " en la Base de Datos?", "Confirmacion", JOptionPane.YES_NO_OPTION);
+
+            if (op == JOptionPane.YES_OPTION)
+            {
+                //boolean resultado = usuarioDAO.modificarUsuario(usuario);
+                boolean resultado = false;
+
+                if (resultado)
+                {
+                    JOptionPane.showMessageDialog(modificarUsuario, "Usuario " + cedula + " modificado exitosamente.", "", JOptionPane.INFORMATION_MESSAGE);
+                    limpiarCampos();
+                    habilitarCampos(false);
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(modificarUsuario, "Error al modificar el usuario.", "Error", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        }
     }
     
     public void buscarUsuario()
     {
-        String cedula = this.modificarUsuario.tfBuscarCedula.getText();
+        boolean verificar = verificarCamposBuscarUsuario();
         
-        //Usuario usuario = this.usuarioDAO.consultarUsuario(cedula);
-        Usuario usuario = new Usuario();
-        
-        if (usuario != null)
+        if (verificar)
         {
-            actualizarSedes();
-            
-            this.modificarUsuario.tfCedula.setText(usuario.getCedula());
-            this.modificarUsuario.cbCargo.setSelectedItem(usuario.getRol());
-            this.modificarUsuario.pfClave.setText(usuario.getPasswd());
-            this.modificarUsuario.pfVerificarClave.setText(usuario.getPasswd());
-            this.modificarUsuario.tfNombre.setText(usuario.getNombre());
-            this.modificarUsuario.tfDireccion.setText(usuario.getDireccion());
-            this.modificarUsuario.ftfFechaNacimiento.setText(usuario.getFechaNacimiento());
-            this.modificarUsuario.cbSedes.setSelectedItem(usuario.getNumeroSede());
-            this.modificarUsuario.tfTelefono.setText(usuario.getTelefono());
-            this.modificarUsuario.tfCelular.setText(usuario.getCelular());
-            this.modificarUsuario.ftfFechaIncorporacion.setText(usuario.getFechaIncorporacion());
-            this.modificarUsuario.tfSalario.setText(usuario.getSalario());
-            this.modificarUsuario.tfNumeroCuenta.setText(usuario.getCuenta());
-            this.modificarUsuario.cbEstado.setSelectedItem(usuario.getEstado());
-            
-            habilitarCampos(true);
-        }
-        else
-        {
-            JOptionPane.showMessageDialog(modificarUsuario, "Error al consultar en la Base de Datos", "Error", JOptionPane.ERROR_MESSAGE);
+            String cedula = this.modificarUsuario.tfBuscarCedula.getText();
+                
+            //Usuario usuario = this.usuarioDAO.consultarUsuario(cedula);
+            Usuario usuario = new Usuario();
+
+            if (usuario != null)
+            {
+                actualizarSedes();
+
+                this.modificarUsuario.tfCedula.setText(usuario.getCedula());
+                this.modificarUsuario.cbCargo.setSelectedItem(usuario.getRol());
+                this.modificarUsuario.pfClave.setText(usuario.getPasswd());
+                this.modificarUsuario.pfVerificarClave.setText(usuario.getPasswd());
+                this.modificarUsuario.tfNombre.setText(usuario.getNombre());
+                this.modificarUsuario.tfDireccion.setText(usuario.getDireccion());
+                this.modificarUsuario.ftfFechaNacimiento.setText(usuario.getFechaNacimiento());
+                this.modificarUsuario.cbSedes.setSelectedItem(usuario.getNumeroSede());
+                this.modificarUsuario.tfTelefono.setText(usuario.getTelefono());
+                this.modificarUsuario.tfCelular.setText(usuario.getCelular());
+                this.modificarUsuario.ftfFechaIncorporacion.setText(usuario.getFechaIncorporacion());
+                this.modificarUsuario.tfSalario.setText(usuario.getSalario());
+                this.modificarUsuario.tfNumeroCuenta.setText(usuario.getCuenta());
+                this.modificarUsuario.cbEstado.setSelectedItem(usuario.getEstado());
+
+                habilitarCampos(true);
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(modificarUsuario, "Error al consultar en la Base de Datos", "Error", JOptionPane.ERROR_MESSAGE);
+            }
         }
     }
     
@@ -186,8 +212,95 @@ public class ModificarUsuario_Eventos
         }
     }
     
-    public boolean verificarCampos()
+    public boolean verificarCamposBuscarUsuario()
     {
+        if (this.modificarUsuario.tfBuscarCedula.getText().isEmpty())
+        {
+            JOptionPane.showMessageDialog(modificarUsuario, "Debe de introducir la Cedula para buscar el Usuario.", "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        
+        return true;
+    }
+    
+    public boolean verificarCamposModificarUsuario(Usuario usuario, String rePasswd)
+    {        
+        if (usuario.getPasswd().isEmpty())
+        {
+            JOptionPane.showMessageDialog(modificarUsuario, "El campo Contraseña es obligatorio.", "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        
+        if (rePasswd.isEmpty())
+        {
+            JOptionPane.showMessageDialog(modificarUsuario, "Debe de confirmar la clave.", "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        
+        if (!usuario.getPasswd().equals(rePasswd))
+        {
+            JOptionPane.showMessageDialog(modificarUsuario, "Las claves deben de coincidir.", "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        
+        if (usuario.getNombre().isEmpty())
+        {
+            JOptionPane.showMessageDialog(modificarUsuario, "El campo Nombre es obligatorio.", "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        
+        if (!usuario.getTelefono().isEmpty())
+        {
+            try
+            {
+                Integer.parseInt(usuario.getTelefono());
+            }
+            catch (NumberFormatException ex)
+            {
+                JOptionPane.showMessageDialog(modificarUsuario, "El campo Telefono es numerico.", "Error", JOptionPane.ERROR_MESSAGE);
+                return false;
+            }
+        }
+        
+        if (!usuario.getCelular().isEmpty())
+        {
+            try
+            {
+                Integer.parseInt(usuario.getCelular());
+            }
+            catch (NumberFormatException ex)
+            {
+                JOptionPane.showMessageDialog(modificarUsuario, "El campo Celular es numerico.", "Error", JOptionPane.ERROR_MESSAGE);
+                return false;
+            }
+        }
+        
+        if (!usuario.getSalario().isEmpty())
+        {
+            try
+            {
+                Double.parseDouble(usuario.getSalario());
+            }
+            catch (NumberFormatException ex)
+            {
+                JOptionPane.showMessageDialog(modificarUsuario, "El campo Salario es numerico.", "Error", JOptionPane.ERROR_MESSAGE);
+                return false;
+            }
+        }
+        
+        if (!usuario.getCuenta().isEmpty())
+        {
+            try
+            {
+                Long.parseLong(usuario.getCuenta());
+            }
+            catch (NumberFormatException ex)
+            {
+                JOptionPane.showMessageDialog(modificarUsuario, "El campo Cuenta es numerico.", "Error", JOptionPane.ERROR_MESSAGE);
+                return false;
+            }
+        }
+        
         return true;
     }
     
