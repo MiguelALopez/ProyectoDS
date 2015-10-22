@@ -13,24 +13,75 @@ import java.awt.*;
 
 public class ConsultarSede extends JFrame {
 
-    private JTextField textNumSede;
+    /*private JTextField textNumSede;
     private JTextField textNameSede;
     private JTextField textAddress;
     private JTextField textManager;
     private JTextField textBudget;
     private JTextField textNumEmployee;
-    private JTextField textNumTruck;
-    private JButton buttonAccept;
+    private JTextField textNumTruck;*/
+    private JButton buttonView;
+    private JButton buttonEdit;
     private JButton buttonCancel;
+
+    private JTable tableContent;
+
+    //array bidimencional de objetos con los datos de la tabla
+    /*Object[][] data = {
+//                {"001", "Melendez", "Carrera 100", "Miguel", "100000", "150", "70"},
+            {"001", "Melendez", "Miguel", "Activa"},
+            {"001", "Melendez", "Miguel", "Activa"},
+            {"001", "Melendez", "Miguel", "Activa"},
+            {"001", "Melendez", "Miguel", "Activa"},
+            {"001", "Melendez", "Miguel", "Activa"},
+            {"001", "Melendez", "Miguel", "Activa"},
+            {"001", "Melendez", "Miguel", "Activa"}
+
+    };*/
 
     public ConsultarSede() {
         super("Modificar Sede");
-        setLayout(new GridBagLayout());
-        initComponets();
-        setSize(400, 450);
+        setLayout(new GridLayout(1,1,5,5));
+//        setLayout(new GridBagLayout());
+//        initComponets();
+        initComponets2();
+
+        setSize(660, 286);
+//        setSize(400, 450);
     }
 
-    public void initComponets(){
+    public void initComponets2(){
+        GridBagConstraints c = new GridBagConstraints();
+
+        // Se inicializan los componentes
+        tableContent = new JTable();
+        JScrollPane scrollPane = new JScrollPane(tableContent);
+        buttonView = new JButton("Ver sede");
+        buttonEdit = new JButton("Modificar sede");
+        buttonCancel = new JButton("Cancelar");
+
+
+
+
+        /*//array de String's con los tÌtulos de las columnas
+        String[] columnNames = {"Numero de Sede", "Nombre", "Gerente a Cargo", "Estado"};
+        //se crea la Tabla
+        JTable table = new JTable(data, columnNames);
+        //Creamos un JscrollPane y le agregamos la JTable
+        JScrollPane scrollPane = new JScrollPane(table);
+        //Agregamos el JScrollPane al contenedor
+        add(scrollPane);
+        //manejamos la salida*/
+    }
+
+    // Metodo encargado de
+    public Object[][] getData(){
+        Object data[][] = null;
+
+        return data;
+    }
+
+    /*public void initComponets(){
         GridBagConstraints c = new GridBagConstraints();
 
         // Se inicializan los componentes
@@ -41,7 +92,7 @@ public class ConsultarSede extends JFrame {
         textBudget = new JTextField();
         textNumEmployee = new JTextField();
         textNumTruck = new JTextField();
-        buttonAccept = new JButton("Aceptar");
+        buttonView = new JButton("Aceptar");
         buttonCancel = new JButton("Cancelar");
 
         // Label titulo
@@ -144,8 +195,8 @@ public class ConsultarSede extends JFrame {
         manageConst(c, 1, 9, 1, 1, 0, 0, 0, 0);
         c.insets = new Insets(15, 20, 0, 30);
         c.anchor = GridBagConstraints.CENTER;
-        add(buttonAccept, c);
-    }
+        add(buttonView, c);
+    }*/
 
     public void manageConst(GridBagConstraints c, int colX, int filY, int width, int heigth, int weightx, int weighty, int ipadx, int ipady) {
         c.gridx = colX;
@@ -162,68 +213,12 @@ public class ConsultarSede extends JFrame {
     }
 
     // Getters and Setters
-    public JTextField getTextNumSede() {
-        return textNumSede;
+    public JButton getButtonView() {
+        return buttonView;
     }
 
-    public void setTextNumSede(JTextField textNumSede) {
-        this.textNumSede = textNumSede;
-    }
-
-    public JTextField getTextNameSede() {
-        return textNameSede;
-    }
-
-    public void setTextNameSede(JTextField textNameSede) {
-        this.textNameSede = textNameSede;
-    }
-
-    public JTextField getTextAddress() {
-        return textAddress;
-    }
-
-    public void setTextAddress(JTextField textAddress) {
-        this.textAddress = textAddress;
-    }
-
-    public JTextField getTextManager() {
-        return textManager;
-    }
-
-    public void setTextManager(JTextField textManager) {
-        this.textManager = textManager;
-    }
-
-    public JTextField getTextBudget() {
-        return textBudget;
-    }
-
-    public void setTextBudget(JTextField textBudget) {
-        this.textBudget = textBudget;
-    }
-
-    public JTextField getTextNumEmployee() {
-        return textNumEmployee;
-    }
-
-    public void setTextNumEmployee(JTextField textNumEmployee) {
-        this.textNumEmployee = textNumEmployee;
-    }
-
-    public JTextField getTextNumTruck() {
-        return textNumTruck;
-    }
-
-    public void setTextNumTruck(JTextField textNumTruck) {
-        this.textNumTruck = textNumTruck;
-    }
-
-    public JButton getButtonAccept() {
-        return buttonAccept;
-    }
-
-    public void setButtonAccept(JButton buttonAccept) {
-        this.buttonAccept = buttonAccept;
+    public void setButtonView(JButton buttonView) {
+        this.buttonView = buttonView;
     }
 
     public JButton getButtonCancel() {
