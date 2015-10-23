@@ -89,7 +89,7 @@
                   <EmptySpace type="separate" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="tfUsuario" alignment="0" pref="102" max="32767" attributes="0"/>
-                      <Component id="tfClave" alignment="0" max="32767" attributes="0"/>
+                      <Component id="pfClave" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -111,7 +111,7 @@
                   <EmptySpace max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel13" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="tfClave" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="pfClave" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
                   <Component id="bIniciarSesion" min="-2" max="-2" attributes="0"/>
@@ -144,7 +144,7 @@
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JPasswordField" name="tfClave">
+        <Component class="javax.swing.JPasswordField" name="pfClave">
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
@@ -297,7 +297,7 @@
               <Group type="102" attributes="0">
                   <EmptySpace max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                      <Component id="bPqr" max="32767" attributes="0"/>
+                      <Component id="bCrearPQR" max="32767" attributes="0"/>
                       <Component id="bConsultarPQR" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
@@ -308,7 +308,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="32767" attributes="0"/>
-                  <Component id="bPqr" max="-2" attributes="0"/>
+                  <Component id="bCrearPQR" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
                   <Component id="bConsultarPQR" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
@@ -317,7 +317,7 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JButton" name="bPqr">
+        <Component class="javax.swing.JButton" name="bCrearPQR">
           <Properties>
             <Property name="text" type="java.lang.String" value="Realizar PQR"/>
           </Properties>
@@ -372,6 +372,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="tfIdentidad">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+          </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
@@ -379,6 +382,7 @@
         <Component class="javax.swing.JButton" name="bCerrarSesion">
           <Properties>
             <Property name="text" type="java.lang.String" value="Cerrar Sesion"/>
+            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>

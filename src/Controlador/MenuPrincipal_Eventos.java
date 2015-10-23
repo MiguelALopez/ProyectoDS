@@ -10,9 +10,12 @@
 
 package Controlador;
 
+import Modelo.Usuario;
+import Modelo.UsuarioDAO;
 import Vista.MenuPrincipal;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 
 
 /**
@@ -22,10 +25,12 @@ import java.awt.event.ActionListener;
 public class MenuPrincipal_Eventos 
 {
     private MenuPrincipal menuPrincipal;
+    private UsuarioDAO usuarioDAO;
     
     public MenuPrincipal_Eventos(final MenuPrincipal menuPrincipal)
     {
         this.menuPrincipal = menuPrincipal;
+        this.usuarioDAO = new UsuarioDAO();
         
         this.menuPrincipal.bIniciarSesion.addActionListener(
             new ActionListener()
@@ -33,7 +38,7 @@ public class MenuPrincipal_Eventos
                 @Override
                 public void actionPerformed(ActionEvent ae) 
                 {
-                    
+                    iniciarSesion();
                 }                
             }
         );
@@ -44,7 +49,7 @@ public class MenuPrincipal_Eventos
                 @Override
                 public void actionPerformed(ActionEvent ae) 
                 {
-                    
+                    cerrarSesion();
                 }                
             }
         );
@@ -86,62 +91,6 @@ public class MenuPrincipal_Eventos
         );
         
         this.menuPrincipal.bCrearSede.addActionListener(
-            new ActionListener()
-            {
-                @Override
-                public void actionPerformed(ActionEvent ae) 
-                {
-                    
-                }                
-            }
-        );
-        
-        this.menuPrincipal.bModificarSede.addActionListener(
-            new ActionListener()
-            {
-                @Override
-                public void actionPerformed(ActionEvent ae) 
-                {
-                    
-                }                
-            }
-        );
-        
-        this.menuPrincipal.bConsultarSedes.addActionListener(
-            new ActionListener()
-            {
-                @Override
-                public void actionPerformed(ActionEvent ae) 
-                {
-                    
-                }                
-            }
-        );
-        this.menuPrincipal.bPqr.addActionListener(
-            new ActionListener()
-            {
-                @Override
-                public void actionPerformed(ActionEvent ae) 
-                {
-                    menuPrincipal.crearPQR.setLocationRelativeTo(null);
-                    menuPrincipal.crearPQR.setVisible(true);                    
-                }                
-            }
-        ); 
- 
-        this.menuPrincipal.bConsultarPQR.addActionListener(
-            new ActionListener()
-            {
-                @Override
-                public void actionPerformed(ActionEvent ae) 
-                {
-                    menuPrincipal.consultarPQR.setLocationRelativeTo(null);
-                    menuPrincipal.consultarPQR.setVisible(true);
-                }                
-            }
-        );
-
-        this.menuPrincipal.bCrearSede.addActionListener(
                 new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
@@ -170,6 +119,114 @@ public class MenuPrincipal_Eventos
                     }
                 }
         );
-  
+        
+        this.menuPrincipal.bCrearPQR.addActionListener(
+            new ActionListener()
+            {
+                @Override
+                public void actionPerformed(ActionEvent ae) 
+                {
+                    menuPrincipal.crearPQR.setLocationRelativeTo(null);
+                    menuPrincipal.crearPQR.setVisible(true);                    
+                }                
+            }
+        ); 
+ 
+        this.menuPrincipal.bConsultarPQR.addActionListener(
+            new ActionListener()
+            {
+                @Override
+                public void actionPerformed(ActionEvent ae) 
+                {
+                    menuPrincipal.consultarPQR.setLocationRelativeTo(null);
+                    menuPrincipal.consultarPQR.setVisible(true);
+                }                
+            }
+        );        
+    }
+    
+    public void iniciarSesion()
+    {
+        String cedula = this.menuPrincipal.tfUsuario.getText();
+        String passwd = String.valueOf(this.menuPrincipal.pfClave.getPassword());
+        
+        //Usuario usuario = usuarioDAO.consultarUsuario(cedula);
+        Usuario usuario = new Usuario();
+        usuario.setCedula("123");
+        usuario.setPasswd("123");
+        usuario.setRol("Administrador");
+        
+        if (usuario != null)
+        {
+            if (usuario.getPasswd().equals(passwd))
+            {
+                this.menuPrincipal.tfUsuario.setText("");
+                this.menuPrincipal.tfUsuario.setEnabled(false);
+                this.menuPrincipal.pfClave.setText("");
+                this.menuPrincipal.pfClave.setEnabled(false);
+                this.menuPrincipal.bIniciarSesion.setEnabled(false);
+                
+                this.menuPrincipal.tfIdentidad.setText(usuario.getCedula());
+                this.menuPrincipal.bCerrarSesion.setEnabled(true);
+                
+                String rol = usuario.getRol();
+                
+                switch (rol)
+                {
+                    case "Gerente":
+                    {
+                        break;
+                    }
+                    
+                    case "Contador":
+                    {
+                        break;
+                    }
+                    
+                    case "Auxiliar de Operacion":
+                    {
+                        break;
+                    }
+                    
+                    case "Auxiliar de Oficina":
+                    {
+                        break;
+                    }
+                    
+                    case "Secretaria":
+                    {
+                        break;
+                    }
+                    
+                    case "Administrador":
+                    {
+                        break;
+                    }
+                    
+                    default:
+                    {
+                        break;
+                    }
+                }
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(menuPrincipal, "Usuario o Contraseña incorrecta.", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(menuPrincipal, "Usuario o Contraseña incorrecta.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
+    public void cerrarSesion()
+    {
+        this.menuPrincipal.tfIdentidad.setText("");
+        this.menuPrincipal.bCerrarSesion.setEnabled(false);
+        
+        this.menuPrincipal.tfUsuario.setEnabled(true);
+        this.menuPrincipal.pfClave.setEnabled(true);
+        this.menuPrincipal.bIniciarSesion.setEnabled(true);
     }
 }

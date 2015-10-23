@@ -92,7 +92,7 @@ public class MenuPrincipal extends JFrame
         jLabel13 = new javax.swing.JLabel();
         tfUsuario = new javax.swing.JTextField();
         bIniciarSesion = new javax.swing.JButton();
-        tfClave = new javax.swing.JPasswordField();
+        pfClave = new javax.swing.JPasswordField();
         pGestionUsuarios = new javax.swing.JPanel();
         bCrearUsuario = new javax.swing.JButton();
         bModificarUsuario = new javax.swing.JButton();
@@ -102,7 +102,7 @@ public class MenuPrincipal extends JFrame
         bModificarSede = new javax.swing.JButton();
         bConsultarSedes = new javax.swing.JButton();
         pPQR = new javax.swing.JPanel();
-        bPqr = new javax.swing.JButton();
+        bCrearPQR = new javax.swing.JButton();
         bConsultarPQR = new javax.swing.JButton();
         pIdentidad = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
@@ -132,7 +132,7 @@ public class MenuPrincipal extends JFrame
                 .addGap(18, 18, Short.MAX_VALUE)
                 .addGroup(pIniciarSesionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(tfUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 102, Short.MAX_VALUE)
-                    .addComponent(tfClave))
+                    .addComponent(pfClave))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pIniciarSesionLayout.createSequentialGroup()
                 .addContainerGap(53, Short.MAX_VALUE)
@@ -149,7 +149,7 @@ public class MenuPrincipal extends JFrame
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(pIniciarSesionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
-                    .addComponent(tfClave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(pfClave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(bIniciarSesion)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -222,7 +222,7 @@ public class MenuPrincipal extends JFrame
 
         pPQR.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "PQR", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
 
-        bPqr.setText("Realizar PQR");
+        bCrearPQR.setText("Realizar PQR");
 
         bConsultarPQR.setText("Consultar PQR");
 
@@ -233,7 +233,7 @@ public class MenuPrincipal extends JFrame
             .addGroup(pPQRLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(pPQRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(bPqr, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(bCrearPQR, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(bConsultarPQR, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -241,7 +241,7 @@ public class MenuPrincipal extends JFrame
             pPQRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pPQRLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(bPqr)
+                .addComponent(bCrearPQR)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(bConsultarPQR)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -249,7 +249,10 @@ public class MenuPrincipal extends JFrame
 
         jLabel14.setText("Usted se ha identificado como:");
 
+        tfIdentidad.setEditable(false);
+
         bCerrarSesion.setText("Cerrar Sesion");
+        bCerrarSesion.setEnabled(false);
 
         javax.swing.GroupLayout pIdentidadLayout = new javax.swing.GroupLayout(pIdentidad);
         pIdentidad.setLayout(pIdentidadLayout);
@@ -317,12 +320,12 @@ public class MenuPrincipal extends JFrame
     public javax.swing.JButton bConsultarPQR;
     public javax.swing.JButton bConsultarSedes;
     public javax.swing.JButton bConsultarUsuarios;
+    public javax.swing.JButton bCrearPQR;
     public javax.swing.JButton bCrearSede;
     public javax.swing.JButton bCrearUsuario;
     public javax.swing.JButton bIniciarSesion;
     public javax.swing.JButton bModificarSede;
     public javax.swing.JButton bModificarUsuario;
-    public javax.swing.JButton bPqr;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
@@ -331,7 +334,7 @@ public class MenuPrincipal extends JFrame
     private javax.swing.JPanel pIdentidad;
     private javax.swing.JPanel pIniciarSesion;
     private javax.swing.JPanel pPQR;
-    public javax.swing.JPasswordField tfClave;
+    public javax.swing.JPasswordField pfClave;
     public javax.swing.JTextField tfIdentidad;
     public javax.swing.JTextField tfUsuario;
     // End of variables declaration//GEN-END:variables
