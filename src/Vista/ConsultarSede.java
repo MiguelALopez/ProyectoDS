@@ -9,25 +9,21 @@
 package Vista;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import java.awt.*;
+import java.util.*;
 
 public class ConsultarSede extends JFrame {
 
-    /*private JTextField textNumSede;
-    private JTextField textNameSede;
-    private JTextField textAddress;
-    private JTextField textManager;
-    private JTextField textBudget;
-    private JTextField textNumEmployee;
-    private JTextField textNumTruck;*/
     private JButton buttonView;
     private JButton buttonEdit;
     private JButton buttonCancel;
+    private JTextField textNumSede;
+    private DefaultTableModel tableModelContent;
 
-    private JTable tableContent;
 
     //array bidimencional de objetos con los datos de la tabla
-    /*Object[][] data = {
+    Object[][] data = {
 //                {"001", "Melendez", "Carrera 100", "Miguel", "100000", "150", "70"},
             {"001", "Melendez", "Miguel", "Activa"},
             {"001", "Melendez", "Miguel", "Activa"},
@@ -37,179 +33,91 @@ public class ConsultarSede extends JFrame {
             {"001", "Melendez", "Miguel", "Activa"},
             {"001", "Melendez", "Miguel", "Activa"}
 
-    };*/
+    };
+    String[] columnNames = {"Numero de Sede", "Nombre", "Gerente a Cargo", "Estado"};
+
 
     public ConsultarSede() {
         super("Modificar Sede");
-        setLayout(new GridLayout(1,1,5,5));
-//        setLayout(new GridBagLayout());
-//        initComponets();
-        initComponets2();
-
-        setSize(660, 286);
-//        setSize(400, 450);
+        setLayout(new GridBagLayout());
+        initComponets();
+        setSize(700, 400);
     }
 
-    public void initComponets2(){
+    public void initComponets(){
         GridBagConstraints c = new GridBagConstraints();
 
         // Se inicializan los componentes
-        tableContent = new JTable();
+        tableModelContent = new DefaultTableModel();
+        JTable tableContent = new JTable(tableModelContent);
         JScrollPane scrollPane = new JScrollPane(tableContent);
         buttonView = new JButton("Ver sede");
         buttonEdit = new JButton("Modificar sede");
         buttonCancel = new JButton("Cancelar");
-
-
-
-
-        /*//array de String's con los tÌtulos de las columnas
-        String[] columnNames = {"Numero de Sede", "Nombre", "Gerente a Cargo", "Estado"};
-        //se crea la Tabla
-        JTable table = new JTable(data, columnNames);
-        //Creamos un JscrollPane y le agregamos la JTable
-        JScrollPane scrollPane = new JScrollPane(table);
-        //Agregamos el JScrollPane al contenedor
-        add(scrollPane);
-        //manejamos la salida*/
-    }
-
-    // Metodo encargado de
-    public Object[][] getData(){
-        Object data[][] = null;
-
-        return data;
-    }
-
-    /*public void initComponets(){
-        GridBagConstraints c = new GridBagConstraints();
-
-        // Se inicializan los componentes
         textNumSede = new JTextField();
-        textNameSede = new JTextField();
-        textAddress = new JTextField();
-        textManager = new JTextField();
-        textBudget = new JTextField();
-        textNumEmployee = new JTextField();
-        textNumTruck = new JTextField();
-        buttonView = new JButton("Aceptar");
-        buttonCancel = new JButton("Cancelar");
 
-        // Label titulo
-        manageConst(c, 0, 0, 2, 1, 0, 0, 3, 3);
-        c.insets = new Insets(10, 30, 10, 0);
-        c.anchor = GridBagConstraints.CENTER;
-        add(new JLabel("Panel de Modificacion de Sedes"), c);
+        // Se añaden las columnas de la tabla
+        tableModelContent.addColumn("Numero de Sede");
+        tableModelContent.addColumn("Nombre");
+        tableModelContent.addColumn("Gerente a Cargo");
+        tableModelContent.addColumn("Dierccion");
 
-        // Linea separadora
-        manageConst(c, 0, 1, 2, 1, 0, 0, 3, 3);
-        c.insets = new Insets(0, 30, 30, 30);
-        c.fill = GridBagConstraints.HORIZONTAL;
-        add(new JSeparator(SwingConstants.HORIZONTAL), c);
+        Vector<String> v  =  new Vector<String>();
+        v.addElement("hola");
+        v.addElement("que hace");
+        v.addElement("nada");
+        v.addElement("o k ace");
+        tableModelContent.addRow(v);
 
+        // Tabla con los elementos
+        manageConst(c, 0, 0, 3, 1, 1, 1, 3, 3);
+        c.insets = new Insets(15, 30, 15, 30);
+        c.fill = GridBagConstraints.BOTH;
+        add(scrollPane, c);
 
-        // Label Numero Sede
-        manageConst(c, 0, 2, 1, 1, 0, 0, 3, 3);
-        c.insets = new Insets(10, 30, 10, 0);
+        // Label con el numero de la sede
+        manageConst(c, 0, 1, 1, 1, 0, 0, 3, 3);
+        c.insets = new Insets(0, 30, 15, 0);
         c.anchor = GridBagConstraints.WEST;
-        add(new JLabel("Numero Sede"), c);
+        add(new JLabel("Numero sede"), c);
 
-        manageConst(c, 1, 2, 1, 1, 1, 0, 3, 3);
-        c.insets = new Insets(0, 20, 0, 30);
+        // Text para ingresar el numero de sede
+        manageConst(c, 1, 1, 2, 1, 0, 0, 3, 3);
+        c.insets = new Insets(0, 20, 15, 30);
         c.fill = GridBagConstraints.HORIZONTAL;
         add(textNumSede, c);
 
-        // Label Nombre Sede
-        manageConst(c, 0, 3, 1, 1, 0, 0, 3, 3);
-        c.insets = new Insets(10, 30, 10, 0);
+        // button cancelar
+        manageConst(c, 0, 2, 1, 1, 0, 0, 3, 3);
+        c.insets = new Insets(0, 30, 15, 30);
         c.anchor = GridBagConstraints.WEST;
-        add(new JLabel("Nombre de la Sede"), c);
-
-        manageConst(c, 1, 3, 1, 1, 1, 0, 3, 3);
-        c.insets = new Insets(0, 20, 0, 30);
-        c.fill = GridBagConstraints.HORIZONTAL;
-        add(textNameSede, c);
-
-        // Label Direccion
-        manageConst(c, 0, 4, 1, 1, 0, 0, 3, 3);
-        c.insets = new Insets(10, 30, 10, 0);
-        c.anchor = GridBagConstraints.WEST;
-        add(new JLabel("Direccion"), c);
-
-        manageConst(c, 1, 4, 1, 1, 1, 0, 3, 3);
-        c.insets = new Insets(0, 20, 0, 30);
-        c.fill = GridBagConstraints.HORIZONTAL;
-        add(textAddress, c);
-
-        // Label Gerente
-        manageConst(c, 0, 5, 1, 1, 0, 0, 3, 3);
-        c.insets = new Insets(10, 30, 10, 0);
-        c.anchor = GridBagConstraints.WEST;
-        add(new JLabel("Gerente a Cargo"), c);
-
-        manageConst(c, 1, 5, 1, 1, 1, 0, 3, 3);
-        c.insets = new Insets(0, 20, 0, 30);
-        c.fill = GridBagConstraints.HORIZONTAL;
-        add(textManager, c);
-
-        // Label Presupuesto
-        manageConst(c, 0, 6, 1, 1, 0, 0, 3, 3);
-        c.insets = new Insets(10, 30, 10, 0);
-        c.anchor = GridBagConstraints.WEST;
-        add(new JLabel("Presupuesto Asignado"), c);
-
-        manageConst(c, 1, 6, 1, 1, 1, 0, 3, 3);
-        c.insets = new Insets(0, 20, 0, 30);
-        c.fill = GridBagConstraints.HORIZONTAL;
-        add(textBudget, c);
-
-        // Label Presupuesto
-        manageConst(c, 0, 7, 1, 1, 0, 0, 3, 3);
-        c.insets = new Insets(10, 30, 10, 0);
-        c.anchor = GridBagConstraints.WEST;
-        add(new JLabel("Presupuesto Asignado"), c);
-
-        manageConst(c, 1, 7, 1, 1, 1, 0, 3, 3);
-        c.insets = new Insets(0, 20, 0, 30);
-        c.fill = GridBagConstraints.HORIZONTAL;
-        add(textNumEmployee, c);
-
-        // Label Camiones
-        manageConst(c, 0, 8, 1, 1, 0, 0, 3, 3);
-        c.insets = new Insets(10, 30, 10, 0);
-        c.anchor = GridBagConstraints.WEST;
-        add(new JLabel("Numero de Camiones"), c);
-
-        manageConst(c, 1, 8, 1, 1, 1, 0, 3, 3);
-        c.insets = new Insets(0, 20, 0, 30);
-        c.fill = GridBagConstraints.HORIZONTAL;
-        add(textNumTruck, c);
-
-        // Button Cancelar
-        manageConst(c, 0, 9, 1, 1, 0, 0, 0, 0);
-        c.insets = new Insets(15, 20, 0, 30);
-        c.anchor = GridBagConstraints.CENTER;
         add(buttonCancel, c);
 
-        // Button Aceptar
-        manageConst(c, 1, 9, 1, 1, 0, 0, 0, 0);
-        c.insets = new Insets(15, 20, 0, 30);
-        c.anchor = GridBagConstraints.CENTER;
+        //button modificar
+        manageConst(c, 1, 2, 1, 1, 1, 0, 3, 3);
+        c.insets = new Insets(0, 0, 15, 0);
+        c.anchor = GridBagConstraints.EAST;
+        add(buttonEdit, c);
+
+        //button ver sede
+        manageConst(c, 2, 2, 1, 1, 0, 0, 3, 3);
+        c.insets = new Insets(0, 15, 15, 30);
+        c.anchor = GridBagConstraints.EAST;
         add(buttonView, c);
-    }*/
+    }
 
     public void manageConst(GridBagConstraints c, int colX, int filY, int width, int heigth, int weightx, int weighty, int ipadx, int ipady) {
-        c.gridx = colX;
-        c.gridy = filY;
-        c.gridheight = heigth;
-        c.gridwidth = width;
-        c.weightx = weightx;
-        c.weighty = weighty;
-        c.fill = GridBagConstraints.NONE;
-        c.anchor = GridBagConstraints.CENTER;
-        c.insets = new Insets(0, 0, 0, 0);
-        c.ipadx = ipadx;
-        c.ipady = ipady;
+        c.gridx = colX;                        // La posicion en la columna
+        c.gridy = filY;                        // La posicion en la fila
+        c.gridheight = heigth;                 // La ocupacion del elemento a lo ancho
+        c.gridwidth = width;                   // La ocupacion del elemento a lo alto
+        c.weightx = weightx;                   // Si se desea que se estire la fila
+        c.weighty = weighty;                   // Si se desea que se estire la columna
+        c.fill = GridBagConstraints.NONE;      // Si se desea que se estire el elemento
+        c.anchor = GridBagConstraints.CENTER;  // Si se desea que se ubique en una posicion especial
+        c.insets = new Insets(0, 0, 0, 0);     // Los margenes externos que se desean
+        c.ipadx = ipadx;                       // Los margenes internos en X
+        c.ipady = ipady;                       // Los margenes internos en Y
     }
 
     // Getters and Setters
@@ -221,12 +129,36 @@ public class ConsultarSede extends JFrame {
         this.buttonView = buttonView;
     }
 
+    public JButton getButtonEdit() {
+        return buttonEdit;
+    }
+
+    public void setButtonEdit(JButton buttonEdit) {
+        this.buttonEdit = buttonEdit;
+    }
+
     public JButton getButtonCancel() {
         return buttonCancel;
     }
 
     public void setButtonCancel(JButton buttonCancel) {
         this.buttonCancel = buttonCancel;
+    }
+
+    public JTextField getTextNumSede() {
+        return textNumSede;
+    }
+
+    public void setTextNumSede(JTextField textNumSede) {
+        this.textNumSede = textNumSede;
+    }
+
+    public DefaultTableModel getTableModelContent() {
+        return tableModelContent;
+    }
+
+    public void setTableModelContent(DefaultTableModel tableModelContent) {
+        this.tableModelContent = tableModelContent;
     }
 
     public static void main(String[] args) {
