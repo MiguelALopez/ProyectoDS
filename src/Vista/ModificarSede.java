@@ -125,13 +125,13 @@ public class ModificarSede extends JFrame{
         // Button Cancelar
         manageConst(c,0,8,1,1,0,0,0,0);
         c.insets = new Insets(15,20,0,30);
-        c.anchor = GridBagConstraints.CENTER;
+        c.anchor = GridBagConstraints.WEST;
         add(buttonCancel,c);
 
         // Button Aceptar
         manageConst(c,1,8,1,1,0,0,0,0);
         c.insets = new Insets(15,20,0,30);
-        c.anchor = GridBagConstraints.CENTER;
+        c.anchor = GridBagConstraints.EAST;
         add(buttonAccept,c);
     }
 

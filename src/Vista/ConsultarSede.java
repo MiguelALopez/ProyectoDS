@@ -21,24 +21,8 @@ public class ConsultarSede extends JFrame {
     private JTextField textNumSede;
     private DefaultTableModel tableModelContent;
 
-
-    //array bidimencional de objetos con los datos de la tabla
-    Object[][] data = {
-//                {"001", "Melendez", "Carrera 100", "Miguel", "100000", "150", "70"},
-            {"001", "Melendez", "Miguel", "Activa"},
-            {"001", "Melendez", "Miguel", "Activa"},
-            {"001", "Melendez", "Miguel", "Activa"},
-            {"001", "Melendez", "Miguel", "Activa"},
-            {"001", "Melendez", "Miguel", "Activa"},
-            {"001", "Melendez", "Miguel", "Activa"},
-            {"001", "Melendez", "Miguel", "Activa"}
-
-    };
-    String[] columnNames = {"Numero de Sede", "Nombre", "Gerente a Cargo", "Estado"};
-
-
     public ConsultarSede() {
-        super("Modificar Sede");
+        super("Consultar Sede");
         setLayout(new GridBagLayout());
         initComponets();
         setSize(700, 400);
@@ -61,13 +45,6 @@ public class ConsultarSede extends JFrame {
         tableModelContent.addColumn("Nombre");
         tableModelContent.addColumn("Gerente a Cargo");
         tableModelContent.addColumn("Dierccion");
-
-        Vector<String> v  =  new Vector<String>();
-        v.addElement("hola");
-        v.addElement("que hace");
-        v.addElement("nada");
-        v.addElement("o k ace");
-        tableModelContent.addRow(v);
 
         // Tabla con los elementos
         manageConst(c, 0, 0, 3, 1, 1, 1, 3, 3);

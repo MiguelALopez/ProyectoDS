@@ -14,11 +14,28 @@ import java.sql.Statement;
  *
  * @author AndrésFelipe
  */
-public class SedeDAO 
+public class SedeDAO
 {
     ConexionBD conexionBD = new ConexionBD();
+
+    public ResultSet consultarSedes(){
+        ResultSet tabla = null;
+        conexionBD.conectar();
+        if (conexionBD != null){
+            String query = "SELECT sede_numero, sede_nombre, sede_gerente, sede_direccion FROM sede;";
+            try{
+                Statement st = conexionBD.conexion.createStatement();
+                tabla = st.executeQuery(query);
+            }catch (SQLException e){
+                e.printStackTrace();
+            }
+        }
+        conexionBD.cerrarConexion();
+
+        return tabla;
+    }
     
-    public Sede consultarSede(String sede_numero)
+    public Sede consultarSedeEspecifico(String sede_numero)
     {
         Sede sede = null;
         conexionBD.conectar();
