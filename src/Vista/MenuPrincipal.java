@@ -50,31 +50,7 @@ public class MenuPrincipal extends JFrame
      */
     public MenuPrincipal() 
     {
-        initComponents();
-        
-        this.crearUsuario = new CrearUsuario();
-        this.crearUsuario_Eventos = new CrearUsuario_Eventos(this.crearUsuario);
-        
-        this.modificarUsuario = new ModificarUsuario();
-        this.modificarUsuario_Eventos = new ModificarUsuario_Eventos(this.modificarUsuario);
-        
-        this.consultarUsuarios = new ConsultarUsuarios();
-        this.consultarUsuarios_Eventos = new ConsultarUsuarios_Eventos(this.consultarUsuarios);
-        
-        this.crearPQR = new CrearPQR();
-        this.crearPQR_Eventos = new CrearPQR_Eventos(this.crearPQR);
-        
-        this.consultarPQR = new ConsultarPQR();
-        this.consultarPQR_Eventos = new ConsultarPQR_Eventos(this.consultarPQR);
-
-        this.crearSede = new CrearSede();
-        this.crearSede_Eventos = new CrearSede_Eventos(crearSede);
-
-        this.modificarSede = new ModificarSede();
-        modificarSede_Eventos = new ModificarSede_Eventos(modificarSede);
-
-        this.consultarSede = new ConsultarSede();
-        this.consultarSede_Eventos = new ConsultarSede_Eventos(consultarSede);
+        initComponents();       
         
         this.setLocationRelativeTo(null);
         this.setVisible(true);

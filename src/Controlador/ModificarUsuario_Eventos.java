@@ -13,8 +13,6 @@ import Modelo.UsuarioDAO;
 import Vista.ModificarUsuario;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -60,59 +58,14 @@ public class ModificarUsuario_Eventos
                 new ActionListener()
                 {
                     @Override
-                    public void actionPerformed(ActionEvent ae) 
+                    public void actionPerformed(ActionEvent ae)
                     {
                         modificarUsuario();
                     }
                 }
         );
         
-        modificarUsuario.addWindowListener(
-                new WindowListener()
-                {
-                    @Override
-                    public void windowOpened(WindowEvent we) 
-                    {
-                        
-                    }
-
-                    @Override
-                    public void windowClosing(WindowEvent we) 
-                    {
-                        cerrarVentana();
-                    }
-
-                    @Override
-                    public void windowClosed(WindowEvent we) 
-                    {
-                        
-                    }
-
-                    @Override
-                    public void windowIconified(WindowEvent we) 
-                    {
-                        
-                    }
-
-                    @Override
-                    public void windowDeiconified(WindowEvent we) 
-                    {
-                        
-                    }
-
-                    @Override
-                    public void windowActivated(WindowEvent we) 
-                    {
-                        
-                    }
-
-                    @Override
-                    public void windowDeactivated(WindowEvent we) 
-                    {
-                        
-                    }                    
-                }
-        );
+        actualizarSedes();
     }
     
     public void modificarUsuario()

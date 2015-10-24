@@ -13,8 +13,6 @@ import Modelo.UsuarioDAO;
 import Vista.CrearUsuario;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -56,52 +54,7 @@ public class CrearUsuario_Eventos
                 }
         );
         
-        crearUsuario.addWindowListener(
-                new WindowListener()
-                {
-                    @Override
-                    public void windowOpened(WindowEvent we) 
-                    {
-                        
-                    }
-
-                    @Override
-                    public void windowClosing(WindowEvent we) 
-                    {
-                        cerrarVentana();
-                    }
-
-                    @Override
-                    public void windowClosed(WindowEvent we) 
-                    {
-                        
-                    }
-
-                    @Override
-                    public void windowIconified(WindowEvent we) 
-                    {
-                        
-                    }
-
-                    @Override
-                    public void windowDeiconified(WindowEvent we) 
-                    {
-                        
-                    }
-
-                    @Override
-                    public void windowActivated(WindowEvent we) 
-                    {
-                        actualizarSedes();
-                    }
-
-                    @Override
-                    public void windowDeactivated(WindowEvent we) 
-                    {
-                        
-                    }                    
-                }
-        );
+        actualizarSedes();
     }
     
     public void limpiarCampos()

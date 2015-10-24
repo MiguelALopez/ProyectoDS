@@ -12,7 +12,7 @@ package Controlador;
 
 import Modelo.Usuario;
 import Modelo.UsuarioDAO;
-import Vista.MenuPrincipal;
+import Vista.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
@@ -60,6 +60,8 @@ public class MenuPrincipal_Eventos
                 @Override
                 public void actionPerformed(ActionEvent ae) 
                 {
+                    menuPrincipal.crearUsuario = new CrearUsuario();
+                    menuPrincipal.crearUsuario_Eventos = new CrearUsuario_Eventos(menuPrincipal.crearUsuario);
                     menuPrincipal.crearUsuario.setLocationRelativeTo(null);
                     menuPrincipal.crearUsuario.setVisible(true);
                 }                
@@ -72,6 +74,8 @@ public class MenuPrincipal_Eventos
                 @Override
                 public void actionPerformed(ActionEvent ae) 
                 {
+                    menuPrincipal.modificarUsuario = new ModificarUsuario();
+                    menuPrincipal.modificarUsuario_Eventos = new ModificarUsuario_Eventos(menuPrincipal.modificarUsuario);
                     menuPrincipal.modificarUsuario.setLocationRelativeTo(null);
                     menuPrincipal.modificarUsuario.setVisible(true);
                 }                
@@ -84,6 +88,8 @@ public class MenuPrincipal_Eventos
                 @Override
                 public void actionPerformed(ActionEvent ae) 
                 {
+                    menuPrincipal.consultarUsuarios = new ConsultarUsuarios();
+                    menuPrincipal.consultarUsuarios_Eventos = new ConsultarUsuarios_Eventos(menuPrincipal.consultarUsuarios);
                     menuPrincipal.consultarUsuarios.setLocationRelativeTo(null);
                     menuPrincipal.consultarUsuarios.setVisible(true);
                 }                
@@ -94,6 +100,8 @@ public class MenuPrincipal_Eventos
                 new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
+                        menuPrincipal.crearSede = new CrearSede();
+                        menuPrincipal.crearSede_Eventos = new CrearSede_Eventos(menuPrincipal.crearSede);
                         menuPrincipal.crearSede.setLocationRelativeTo(null);
                         menuPrincipal.crearSede.setVisible(true);
                     }
@@ -104,6 +112,8 @@ public class MenuPrincipal_Eventos
                 new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
+                        menuPrincipal.modificarSede = new ModificarSede();
+                        menuPrincipal.modificarSede_Eventos = new ModificarSede_Eventos(menuPrincipal.modificarSede);
                         menuPrincipal.modificarSede.setLocationRelativeTo(null);
                         menuPrincipal.modificarSede.setVisible(true);
                     }
@@ -114,6 +124,8 @@ public class MenuPrincipal_Eventos
                 new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
+                        menuPrincipal.consultarSede = new ConsultarSede();
+                        menuPrincipal.consultarSede_Eventos = new ConsultarSede_Eventos(menuPrincipal.consultarSede);
                         menuPrincipal.consultarSede.setLocationRelativeTo(null);
                         menuPrincipal.consultarSede.setVisible(true);
                     }
@@ -126,6 +138,8 @@ public class MenuPrincipal_Eventos
                 @Override
                 public void actionPerformed(ActionEvent ae) 
                 {
+                    menuPrincipal.crearPQR = new CrearPQR();
+                    menuPrincipal.crearPQR_Eventos = new CrearPQR_Eventos(menuPrincipal.crearPQR);
                     menuPrincipal.crearPQR.setLocationRelativeTo(null);
                     menuPrincipal.crearPQR.setVisible(true);                    
                 }                
@@ -138,6 +152,8 @@ public class MenuPrincipal_Eventos
                 @Override
                 public void actionPerformed(ActionEvent ae) 
                 {
+                    menuPrincipal.consultarPQR = new ConsultarPQR();
+                    menuPrincipal.consultarPQR_Eventos = new ConsultarPQR_Eventos(menuPrincipal.consultarPQR);
                     menuPrincipal.consultarPQR.setLocationRelativeTo(null);
                     menuPrincipal.consultarPQR.setVisible(true);
                 }                

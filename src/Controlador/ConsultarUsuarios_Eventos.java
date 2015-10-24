@@ -65,52 +65,7 @@ public class ConsultarUsuarios_Eventos
                 }
         );
         
-        consultarUsuarios.addWindowListener(
-                new WindowListener()
-                {
-                    @Override
-                    public void windowOpened(WindowEvent we) 
-                    {
-                        
-                    }
-
-                    @Override
-                    public void windowClosing(WindowEvent we) 
-                    {
-                        
-                    }
-
-                    @Override
-                    public void windowClosed(WindowEvent we) 
-                    {
-                        
-                    }
-
-                    @Override
-                    public void windowIconified(WindowEvent we) 
-                    {
-                        
-                    }
-
-                    @Override
-                    public void windowDeiconified(WindowEvent we) 
-                    {
-                        
-                    }
-
-                    @Override
-                    public void windowActivated(WindowEvent we) 
-                    {
-                        consultarUsuarios();
-                    }
-
-                    @Override
-                    public void windowDeactivated(WindowEvent we) 
-                    {
-                        
-                    }                    
-                }
-        );
+        consultarUsuarios();
     }
     
     public void consultarUsuarios()
