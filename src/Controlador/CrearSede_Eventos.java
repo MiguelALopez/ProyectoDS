@@ -40,6 +40,7 @@ public class CrearSede_Eventos {
                     @Override
                     public void actionPerformed(ActionEvent e) {
                         crearSede();
+                        crearSede.setVisible(false);
                     }
                 }
         );
