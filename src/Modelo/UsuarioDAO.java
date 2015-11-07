@@ -55,6 +55,8 @@ public class UsuarioDAO
     {
         conexionBD.conectar();
         
+        Usuario usuario = null;
+        
         String query = "SELECT * "
                 + "FROM usuario WHERE usuario_cedula='"+user+"';";
         
@@ -65,7 +67,7 @@ public class UsuarioDAO
             
             if (tabla.next())
             {
-                return new Usuario(tabla.getString(1), 
+                usuario = new Usuario(tabla.getString(1), 
                         tabla.getString(2), tabla.getString(3), 
                         tabla.getString(4), tabla.getString(5), 
                         tabla.getString(6),tabla.getString(7), 
@@ -81,7 +83,7 @@ public class UsuarioDAO
         
         conexionBD.cerrarConexion();
         
-        return null;
+        return usuario;
     }
     
     public boolean insetarUsuario(Usuario usr)
