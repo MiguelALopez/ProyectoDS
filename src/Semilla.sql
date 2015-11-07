@@ -44,4 +44,4 @@ CREATE TABLE pqr
 );
 
 INSERT INTO usuario (usuario_cedula, usuario_passwd, usuario_nombre, usuario_rol, usuario_estado)
-VALUES ('123', '202cb962ac59075b964b07152d234b70', 'Administrador', 'Admin', '1');
+VALUES ('123', '123456', 'Administrador', 'Admin', '1');
