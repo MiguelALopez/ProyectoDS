@@ -58,7 +58,8 @@ public class PQRDAO
                 + item.getNombre()+ "', '"
                 + item.getSede()+ "', '"
                 + item.getTipo()+ "', '"
-                + item.getContenido()+ "'); ";
+                + item.getContenido()+ "', '"
+                + item.getEstado() + "'); ";
         
         try
         {
