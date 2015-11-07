@@ -19,7 +19,7 @@ public class PQR
     private String contenido;
     private String estado;
 
-    public PQR(String numero, String cedula, String nombre, String sede, String tipo, String contenido, String estado) 
+    public PQR(String numero, String cedula, String nombre, String sede, String tipo, String contenido, String estado)
     {
         this.numero = numero;
         this.cedula = cedula;
@@ -28,6 +28,17 @@ public class PQR
         this.tipo = tipo;
         this.contenido = contenido;
         this.estado = estado;
+    }
+
+    public PQR(String numero, String cedula, String nombre, String sede, String tipo, String contenido)
+    {
+        this.numero = numero;
+        this.cedula = cedula;
+        this.nombre = nombre;
+        this.sede = sede;
+        this.tipo = tipo;
+        this.contenido = contenido;
+        this.estado = "Nuevo";
     }
     
     public PQR() 

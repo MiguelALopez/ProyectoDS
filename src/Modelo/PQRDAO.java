@@ -22,20 +22,20 @@ public class PQRDAO
         conexionBD.conectar();
         
         ArrayList<PQR> listaPQR = new ArrayList();
-        String query = "SELECT * FROM pqr";
+        String query = "SELECT * FROM pqr;";
         
         try
         {
             Statement st = conexionBD.conexion.createStatement();
             ResultSet tabla = st.executeQuery(query);
-            
+            System.out.println(tabla.getRow());
             while (tabla.next())
             {
                 listaPQR.add(new PQR(tabla.getString(1), tabla.getString(2),
                         tabla.getString(3), tabla.getString(4),
                         tabla.getString(5), tabla.getString(6),
-                        tabla.getString(7)));                
-            }       
+                        tabla.getString(7)));
+            }
         } 
         catch (SQLException ex) 
         {
@@ -58,7 +58,7 @@ public class PQRDAO
                 + item.getNombre()+ "', '"
                 + item.getSede()+ "', '"
                 + item.getTipo()+ "', '"
-                + item.getContenido()+ "') ";
+                + item.getContenido()+ "'); ";
         
         try
         {
