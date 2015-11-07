@@ -73,8 +73,8 @@ public class ModificarUsuario_Eventos
         String cedula = this.modificarUsuario.tfCedula.getText();
         String passwd = String.valueOf(this.modificarUsuario.pfClave.getPassword());
         String nombre = this.modificarUsuario.tfNombre.getText();
-        String estado = (String) this.modificarUsuario.cbEstado.getSelectedItem();
         String rol = (String) this.modificarUsuario.cbCargo.getSelectedItem();
+        String estado = (String) this.modificarUsuario.cbEstado.getSelectedItem();        
         String fechaNacimiento = this.modificarUsuario.ftfFechaNacimiento.getText();
         String direccion = this.modificarUsuario.tfDireccion.getText();
         String telefono = this.modificarUsuario.tfTelefono.getText();
@@ -86,7 +86,7 @@ public class ModificarUsuario_Eventos
         
         String rePasswd = String.valueOf(this.modificarUsuario.pfVerificarClave.getPassword());
         
-        Usuario usuario = new Usuario(cedula, passwd, nombre, estado, rol, fechaNacimiento, direccion, telefono, celular, fechaIncorporacion, salario, cuenta, sede);
+        Usuario usuario = new Usuario(cedula, passwd, nombre, rol, estado, fechaNacimiento, direccion, telefono, celular, fechaIncorporacion, salario, cuenta, sede);
         
         boolean verificar = verificarCamposModificarUsuario(usuario, rePasswd);
         

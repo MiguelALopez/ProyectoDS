@@ -83,8 +83,8 @@ public class CrearUsuario_Eventos
         String cedula = this.crearUsuario.tfCedula.getText();
         String passwd = String.valueOf(this.crearUsuario.pfClave.getPassword());
         String nombre = this.crearUsuario.tfNombre.getText();
-        String estado = (String) this.crearUsuario.cbEstado.getSelectedItem();
         String rol = (String) this.crearUsuario.cbCargo.getSelectedItem();
+        String estado = (String) this.crearUsuario.cbEstado.getSelectedItem();        
         String fechaNacimiento = this.crearUsuario.ftfFechaNacimiento.getText();
         String direccion = this.crearUsuario.tfDireccion.getText();
         String telefono = this.crearUsuario.tfTelefono.getText();
@@ -96,7 +96,7 @@ public class CrearUsuario_Eventos
         
         String rePasswd = String.valueOf(this.crearUsuario.pfVerificarClave.getPassword());
         
-        Usuario nuevoUsuario = new Usuario(cedula, passwd, nombre, estado, rol, fechaNacimiento, direccion, telefono, celular, fechaIncorporacion, salario, cuenta, sede);
+        Usuario nuevoUsuario = new Usuario(cedula, passwd, nombre, rol, estado, fechaNacimiento, direccion, telefono, celular, fechaIncorporacion, salario, cuenta, sede);
         
         boolean verificar = verificarCamposCrearUsuario(nuevoUsuario, rePasswd);
         

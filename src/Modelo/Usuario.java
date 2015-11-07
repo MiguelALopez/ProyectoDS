@@ -64,6 +64,7 @@ public class Usuario
      * @param fecha_incorporacion : fecha de incorporacion del usuario a la empresa
      * @param salario : salario asignado al usuario
      * @param cuenta : cuenta bancaria del usuario
+     * @param numeroSede
      */
     public Usuario(String cedula, String passwd, String nombre, String rol, String estado, String fecha_nacimiento, String direccion, String telefono, String celular, String fecha_incorporacion, String salario, String cuenta, String numeroSede)
     {

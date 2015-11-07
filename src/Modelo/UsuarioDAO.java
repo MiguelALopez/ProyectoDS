@@ -140,7 +140,7 @@ public class UsuarioDAO
                 + "usuario_celular='" + usr.getCelular()+ "', "
                 + "usuario_fecha_incorporacion='" + usr.getFechaIncorporacion()+ "', "
                 + "usuario_salario='" + usr.getSalario()+ "', "
-                + "usuario_sede_id='" + usr.getNumeroSede()+ "', "
+                + "usuario_sede_numero='" + usr.getNumeroSede()+ "', "
                 + "usuario_cuenta='" + usr.getCuenta()+ "' "
                 + "WHERE usuario_cedula='" + usr.getCedula() +"';";
         
