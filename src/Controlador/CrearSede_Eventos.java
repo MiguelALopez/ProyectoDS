@@ -22,7 +22,7 @@ public class CrearSede_Eventos {
     private CrearSede crearSede;
 
     
-    public CrearSede_Eventos(CrearSede crearSede){
+    public CrearSede_Eventos(final CrearSede crearSede){
         this.crearSede = crearSede;
 
         // Eventos para el boton de Cancelar
