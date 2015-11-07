@@ -177,53 +177,60 @@ public class MenuPrincipal_Eventos
         {            
             if (usuario.getPasswd().equals(passwd))
             {
-                this.menuPrincipal.tfUsuario.setText("");
-                this.menuPrincipal.tfUsuario.setEnabled(false);
-                this.menuPrincipal.pfClave.setText("");
-                this.menuPrincipal.pfClave.setEnabled(false);
-                this.menuPrincipal.bIniciarSesion.setEnabled(false);
-                
-                this.menuPrincipal.tfIdentidad.setText(usuario.getCedula());
-                this.menuPrincipal.bCerrarSesion.setEnabled(true);
-                
-                String rol = usuario.getRol();
-                
-                switch (rol)
+                if (usuario.getEstado().equals("Activo"))
                 {
-                    case "Gerente":
+                    this.menuPrincipal.tfUsuario.setText("");
+                    this.menuPrincipal.tfUsuario.setEnabled(false);
+                    this.menuPrincipal.pfClave.setText("");
+                    this.menuPrincipal.pfClave.setEnabled(false);
+                    this.menuPrincipal.bIniciarSesion.setEnabled(false);
+
+                    this.menuPrincipal.tfIdentidad.setText(usuario.getCedula());
+                    this.menuPrincipal.bCerrarSesion.setEnabled(true);
+
+                    String rol = usuario.getRol();
+
+                    switch (rol)
                     {
-                        break;
+                        case "Gerente":
+                        {
+                            break;
+                        }
+
+                        case "Contador":
+                        {
+                            break;
+                        }
+
+                        case "Auxiliar de Operacion":
+                        {
+                            break;
+                        }
+
+                        case "Auxiliar de Oficina":
+                        {
+                            break;
+                        }
+
+                        case "Secretaria":
+                        {
+                            break;
+                        }
+
+                        case "Administrador":
+                        {
+                            break;
+                        }
+
+                        default:
+                        {
+                            break;
+                        }
                     }
-                    
-                    case "Contador":
-                    {
-                        break;
-                    }
-                    
-                    case "Auxiliar de Operacion":
-                    {
-                        break;
-                    }
-                    
-                    case "Auxiliar de Oficina":
-                    {
-                        break;
-                    }
-                    
-                    case "Secretaria":
-                    {
-                        break;
-                    }
-                    
-                    case "Administrador":
-                    {
-                        break;
-                    }
-                    
-                    default:
-                    {
-                        break;
-                    }
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(menuPrincipal, "Usuario inactivo.", "Advertencia", JOptionPane.WARNING_MESSAGE);
                 }
             }
             else
