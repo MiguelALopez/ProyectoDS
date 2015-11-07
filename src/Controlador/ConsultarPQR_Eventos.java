@@ -9,8 +9,6 @@ import Modelo.UsuarioDAO;
 import Vista.ConsultarPQR;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
@@ -22,14 +20,15 @@ import Modelo.PQRDAO;
  *
  * @author Cristian Jurado
  */
-public class ConsultarPQR_Eventos {
+public class ConsultarPQR_Eventos 
+{
         private ConsultarPQR consultarPQR;
-        private PQRDAO PqrDAO;
+        private PQRDAO pqrDAO;
         
     public ConsultarPQR_Eventos(final ConsultarPQR consultarPQR)
     {
         this.consultarPQR = consultarPQR;
-        this.PqrDAO = new PQRDAO();
+        this.pqrDAO = new PQRDAO();
         
         consultarPQR.bCerrar.addActionListener(
                 new ActionListener()
@@ -64,99 +63,54 @@ public class ConsultarPQR_Eventos {
                 }
         );
         
-        consultarPQR.addWindowListener(
-                new WindowListener()
-                {
-                    @Override
-                    public void windowOpened(WindowEvent we) 
-                    {
-                        
-                    }
-
-                    @Override
-                    public void windowClosing(WindowEvent we) 
-                    {
-                        
-                    }
-
-                    @Override
-                    public void windowClosed(WindowEvent we) 
-                    {
-                        
-                    }
-
-                    @Override
-                    public void windowIconified(WindowEvent we) 
-                    {
-                        
-                    }
-
-                    @Override
-                    public void windowDeiconified(WindowEvent we) 
-                    {
-                        
-                    }
-
-                    @Override
-                    public void windowActivated(WindowEvent we) 
-                    {
-                        consultarPQR();
-                    }
-
-                    @Override
-                    public void windowDeactivated(WindowEvent we) 
-                    {
-                        
-                    }                    
-                }
-        );
-    }    
-    
+        consultarPQR();
+    }  
         
-        
-    public void consultarPQR()  {
-        //ArrayList<PQR> PQRs = usuarioDAO.getListaUsuarios(); // aqui metodo DAO para obtener todos los PQR de la BD
-        ArrayList<PQR> PQRs = new ArrayList();
+    public void consultarPQR()  
+    {
+        ArrayList<PQR> listaPQR = pqrDAO.getListaPQR(); // aqui metodo DAO para obtener todos los PQR de la BD
+        //ArrayList<PQR> listaPQR = new ArrayList();
         
         // prueba
-        PQR u1 = new PQR();
-        u1.setCedula("1000000");
-        u1.setNumero("1");
-        u1.setTipo("Jodido eso");
-        u1.setEstado("SinResponder");
-        PQRs.add(u1);
+//        PQR u1 = new PQR();
+//        u1.setCedula("1000000");
+//        u1.setNumero("1");
+//        u1.setTipo("Jodido eso");
+//        u1.setEstado("SinResponder");
+//        listaPQR.add(u1);
         // fin prueba
         
         DefaultTableModel model = (DefaultTableModel) this.consultarPQR.tPQR.getModel();
-        model.setRowCount(PQRs.size());
+        model.setRowCount(listaPQR.size());
         
-        for (int i = 0; i < PQRs.size(); i++) 
+        for (int i = 0; i < listaPQR.size(); i++) 
         {
-            this.consultarPQR.tPQR.setValueAt(PQRs.get(i).getNumero(), i, 0);
-            this.consultarPQR.tPQR.setValueAt(PQRs.get(i).getTipo(), i, 1);
-            this.consultarPQR.tPQR.setValueAt(PQRs.get(i).getCedula(), i, 2);
-            this.consultarPQR.tPQR.setValueAt(PQRs.get(i).getEstado(), i, 3);
+            this.consultarPQR.tPQR.setValueAt(listaPQR.get(i).getNumero(), i, 0);
+            this.consultarPQR.tPQR.setValueAt(listaPQR.get(i).getTipo(), i, 1);
+            this.consultarPQR.tPQR.setValueAt(listaPQR.get(i).getCedula(), i, 2);
+            this.consultarPQR.tPQR.setValueAt(listaPQR.get(i).getEstado(), i, 3);
         }
     }
             
-    public void cerrarVentana()  {
+    public void cerrarVentana()  
+    {
         DefaultTableModel model = (DefaultTableModel) consultarPQR.tPQR.getModel();
         model.setRowCount(0);
         this.consultarPQR.setVisible(false);
     }
     
     
-        public void verPQR()
+    public void verPQR()
     {
         int row = consultarPQR.tPQR.getSelectedRow();
                         
         if (row != -1)
         {
-            String cedula = (String) consultarPQR.tPQR.getValueAt(row, 0);
+            String numeroPQR = (String) consultarPQR.tPQR.getValueAt(row, 0);
             String perfil = "";
             
-            //PQR pqr = pqrDAO.consultarPQR(cedula);
-            PQR pqr = new PQR();
+            PQR pqr = pqrDAO.consultarPQR(numeroPQR);
+            //PQR pqr = new PQR();
 
             if (pqr != null)
             {
@@ -181,8 +135,5 @@ public class ConsultarPQR_Eventos {
         {
             JOptionPane.showMessageDialog(consultarPQR, "No ha seleccionado ningun PQR.", "Advertencia", JOptionPane.WARNING_MESSAGE);
         }
-    }
-            
-        
-    
+    }   
 }

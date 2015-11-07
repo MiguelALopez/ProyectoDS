@@ -96,8 +96,8 @@ public class ModificarUsuario_Eventos
 
             if (op == JOptionPane.YES_OPTION)
             {
-                //boolean resultado = usuarioDAO.modificarUsuario(usuario);
-                boolean resultado = false;
+                boolean resultado = usuarioDAO.modificarUsuario(usuario);
+                //boolean resultado = false;
 
                 if (resultado)
                 {
@@ -121,8 +121,8 @@ public class ModificarUsuario_Eventos
         {
             String cedula = this.modificarUsuario.tfBuscarCedula.getText();
                 
-            //Usuario usuario = this.usuarioDAO.consultarUsuario(cedula);
-            Usuario usuario = new Usuario();
+            Usuario usuario = this.usuarioDAO.consultarUsuario(cedula);
+            //Usuario usuario = new Usuario();
 
             if (usuario != null)
             {
@@ -156,8 +156,8 @@ public class ModificarUsuario_Eventos
     {
         modificarUsuario.cbSedes.removeAllItems();
         
-        //ArrayList<Sede> sedes = sedeDAO.consultarSedes();
-        ArrayList<Sede> sedes = new ArrayList();
+        ArrayList<Sede> sedes = sedeDAO.consultarSedes();
+        //ArrayList<Sede> sedes = new ArrayList();
         
         for (int i = 0; i < sedes.size(); i++) 
         {

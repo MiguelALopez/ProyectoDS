@@ -23,7 +23,7 @@ public class UsuarioDAO
         conexionBD.conectar();
         
         ArrayList<Usuario> listaUsuarios = new ArrayList();
-        String query = "SELECT * FROM usuarios";
+        String query = "SELECT * FROM usuario";
         
         try
         {
@@ -35,7 +35,7 @@ public class UsuarioDAO
                 listaUsuarios.add(new Usuario(tabla.getString(1), 
                         tabla.getString(2), tabla.getString(3), 
                         tabla.getString(4), tabla.getString(5), 
-                        tabla.getString(6),tabla.getString(7), 
+                        tabla.getString(6), tabla.getString(7), 
                         tabla.getString(8), tabla.getString(9), 
                         tabla.getString(10), tabla.getString(11), 
                         tabla.getString(12), tabla.getString(13)));                

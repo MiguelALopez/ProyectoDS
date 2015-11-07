@@ -11,6 +11,7 @@
  */
 package Controlador;
 
+import Modelo.Sede;
 import Modelo.SedeDAO;
 import Vista.ConsultarSede;
 
@@ -18,6 +19,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Vector;
 
 public class ConsultarSede_Eventos {
@@ -40,21 +42,16 @@ public class ConsultarSede_Eventos {
 
     }
 
-    public void cargarDatos(ResultSet tabla){
+    public void cargarDatos(ArrayList<Sede> listaSedes){
 
-        try {
-            while (tabla != null && tabla.next()){
+            for (int i = 0; i < listaSedes.size(); i++){
                 Vector<String> v = new Vector<>();
-                v.addElement(tabla.getString(1));
-                v.addElement(tabla.getString(2));
-                v.addElement(tabla.getString(3));
-                v.addElement(tabla.getString(4));
+                v.addElement(listaSedes.get(i).getNumero());
+                v.addElement(listaSedes.get(i).getNombre());
+                v.addElement(listaSedes.get(i).getGerente());
+                v.addElement(listaSedes.get(i).getDireccion());
                 consultarSede.getTableModelContent().addRow(v);
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
     }
 
     private void cerrarVentana() {

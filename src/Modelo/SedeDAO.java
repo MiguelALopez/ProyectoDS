@@ -9,6 +9,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 /**
  *
@@ -18,22 +19,31 @@ public class SedeDAO
 {
     ConexionBD conexionBD = new ConexionBD();
 
-    public ResultSet consultarSedes(){
-        ResultSet tabla = null;
-        conexionBD.conectar();
-        if (conexionBD.conexion != null){
-            String query = "SELECT sede_numero, sede_nombre, sede_gerente, sede_direccion FROM sede;";
-            try{
-                Statement st = conexionBD.conexion.createStatement();
-                tabla = st.executeQuery(query);
-            }catch (SQLException e){
-                e.printStackTrace();
-            }
-            conexionBD.cerrarConexion();
+    public ArrayList<Sede> consultarSedes(){
+        ArrayList<Sede> listaSedes = new ArrayList();
+        String query = "SELECT * FROM sede";
+        
+        try
+        {
+            Statement st = conexionBD.conexion.createStatement();
+            ResultSet tabla = st.executeQuery(query);
+            
+            while (tabla.next())
+            {
+                listaSedes.add(new Sede(tabla.getString(1), 
+                        tabla.getString(2), tabla.getString(3), 
+                        tabla.getString(4), tabla.getString(5),
+                        tabla.getString(6)));                
+            }        
+        } 
+        catch (SQLException ex) 
+        {
+            //Logger.getLogger(ConsultasBD.class.getName()).log(Level.SEVERE, null, ex);
         }
-
-
-        return tabla;
+        
+        conexionBD.cerrarConexion();
+        
+        return listaSedes;
     }
     
     public Sede consultarSedeEspecifico(String sede_numero)
@@ -52,9 +62,9 @@ public class SedeDAO
                     if (tabla.next())
                     {
                         sede = new Sede(
-                                tabla.getString(0), tabla.getString(1),
-                                tabla.getString(2), tabla.getString(3),
-                                tabla.getString(4));
+                                tabla.getString(1), tabla.getString(2),
+                                tabla.getString(3), tabla.getString(4),
+                                tabla.getString(5), tabla.getString(6));
 
                     }
                 }catch (SQLException e){
@@ -106,7 +116,8 @@ public class SedeDAO
         conexionBD.conectar();
         String query = "UPDATE sede SET "
                 //+ "sede_numero='" + sede.getNumero()+"', "
-                + "sede_nombre='" + sede.getNombre()+"', "                
+                + "sede_nombre='" + sede.getNombre()+"', "
+                + "sede_gerente='" + sede.getGerente()+"', "
                 + "sede_presupuesto='" + sede.getPresupuesto()+"', "
                 + "sede_cant_camiones='" + sede.getCamiones()+"', "
                 + "sede_direccion='" + sede.getDireccion() + "' "

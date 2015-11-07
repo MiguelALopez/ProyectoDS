@@ -11,8 +11,6 @@ import Modelo.UsuarioDAO;
 import Vista.ConsultarUsuarios;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
@@ -70,16 +68,16 @@ public class ConsultarUsuarios_Eventos
     
     public void consultarUsuarios()
     {
-        //ArrayList<Usuario> usuarios = usuarioDAO.getListaUsuarios(); // aqui metodo DAO para obtener todos los usuarios de la BD
-        ArrayList<Usuario> usuarios = new ArrayList();
+        ArrayList<Usuario> usuarios = usuarioDAO.getListaUsuarios(); // aqui metodo DAO para obtener todos los usuarios de la BD
+        //ArrayList<Usuario> usuarios = new ArrayList();
         
         // prueba
-        Usuario u1 = new Usuario();
-        u1.setCedula("1144082592");
-        u1.setNombre("Camilo Ruiz Casanova");
-        u1.setRol("Gerente");
-        u1.setEstado("Activo");
-        usuarios.add(u1);
+//        Usuario u1 = new Usuario();
+//        u1.setCedula("1144082592");
+//        u1.setNombre("Camilo Ruiz Casanova");
+//        u1.setRol("Gerente");
+//        u1.setEstado("Activo");
+//        usuarios.add(u1);
         // fin prueba
         
         DefaultTableModel model = (DefaultTableModel) this.consultarUsuarios.tUsuarios.getModel();
@@ -110,8 +108,8 @@ public class ConsultarUsuarios_Eventos
             String cedula = (String) consultarUsuarios.tUsuarios.getValueAt(row, 0);
             String perfil = "";
             
-            //Usuario usuario = usuarioDAO.consultarUsuario(cedula);
-            Usuario usuario = new Usuario();
+            Usuario usuario = usuarioDAO.consultarUsuario(cedula);
+            //Usuario usuario = new Usuario();
 
             if (usuario != null)
             {

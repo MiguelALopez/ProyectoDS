@@ -9,6 +9,7 @@ import Modelo.PQRDAO;
 import Vista.CrearPQR;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -19,12 +20,12 @@ public class CrearPQR_Eventos
     private CrearPQR crearPQR;
     private PQRDAO pqrDAO;
     
-    public CrearPQR_Eventos(final CrearPQR crearPqr) 
+    public CrearPQR_Eventos(final CrearPQR crearPQR) 
     {
-        this.crearPQR = crearPqr;
+        this.crearPQR = crearPQR;
         this.pqrDAO = new PQRDAO();
         
-        crearPqr.bSalir.addActionListener(
+        crearPQR.bSalir.addActionListener(
             new ActionListener() 
             {
                 @Override
@@ -35,7 +36,7 @@ public class CrearPQR_Eventos
             }
         );
         
-        crearPqr.bEnviar.addActionListener(
+        crearPQR.bEnviar.addActionListener(
             new ActionListener() 
             {
                 @Override
@@ -49,17 +50,28 @@ public class CrearPQR_Eventos
     
     public void crearPQR()
     {
-        String tPQRN = this.crearPQR.TPqrn.getText();
-        String tCedula = this.crearPQR.TCedula.getText();
-        String tNombre = this.crearPQR.TNombre.getText();
-        String tSede = this.crearPQR.TSede.getText();
-        String tTipo = this.crearPQR.ComboTipo.getSelectedItem().toString();
-        String tContenido = this.crearPQR.TContenido.getText();
-        String tEstado = "Nueva";
+        String numeroPQR = this.crearPQR.TPqrn.getText();
+        String cedula = this.crearPQR.TCedula.getText();
+        String nombre = this.crearPQR.TNombre.getText();
+        String sede = this.crearPQR.TSede.getText();
+        String tipo = this.crearPQR.ComboTipo.getSelectedItem().toString();
+        String contenido = this.crearPQR.TContenido.getText();
+        String estado = "Nueva";
         
-        /*pqrDAO.insertarPQR(
-                new PQR(tPQRN,tCedula,tSede,tNombre,tTipo,tContenido,tEstado)
-        );*/
+        PQR nuevoPQR = new PQR(numeroPQR, cedula, nombre, sede, tipo, contenido, estado);
+        //PQR nuevoPQR = new PQR();
+        
+        boolean resultado = pqrDAO.insertarPQR(nuevoPQR);
+        
+        if (resultado)
+        {
+            JOptionPane.showMessageDialog(crearPQR, "PQR " + numeroPQR + " creado exitosamente.", "", JOptionPane.INFORMATION_MESSAGE);
+            limpiarCampos();
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(crearPQR, "Error al crear el PQR.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }
     
     public void cerrarVentana()

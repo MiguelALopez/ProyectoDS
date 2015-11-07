@@ -72,6 +72,7 @@ public class Usuario
         this.nombre = nombre;
         this.estado = estado;
         this.rol = rol;
+        
         if (fecha_nacimiento!=null){
             this.fechaNacimiento = fecha_nacimiento;
         }

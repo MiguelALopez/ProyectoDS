@@ -106,8 +106,8 @@ public class CrearUsuario_Eventos
 
             if (op == JOptionPane.YES_OPTION)
             {
-                //boolean resultado = usuarioDAO.insetarUsuario(nuevoUsuario);
-                boolean resultado = false;
+                boolean resultado = usuarioDAO.insetarUsuario(nuevoUsuario);
+                //boolean resultado = false;
 
                 if (resultado)
                 {
@@ -126,8 +126,8 @@ public class CrearUsuario_Eventos
     {
         crearUsuario.cbSedes.removeAllItems();
         
-        //ArrayList<Sede> sedes = sedeDAO.consultarSedes();
-        ArrayList<Sede> sedes = new ArrayList();
+        ArrayList<Sede> sedes = sedeDAO.consultarSedes();
+        //ArrayList<Sede> sedes = new ArrayList();
         
         for (int i = 0; i < sedes.size(); i++) 
         {

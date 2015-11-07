@@ -17,12 +17,12 @@ public class PQRDAO
 {
     ConexionBD conexionBD = new ConexionBD();
     
-    public ArrayList<PQR> getListaUsuarios() 
+    public ArrayList<PQR> getListaPQR() 
     {
         conexionBD.conectar();
         
         ArrayList<PQR> listaPQR = new ArrayList();
-        String query = "SELECT * FROM usuarios";
+        String query = "SELECT * FROM pqr";
         
         try
         {

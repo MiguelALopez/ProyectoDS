@@ -166,11 +166,12 @@ public class MenuPrincipal_Eventos
         String cedula = this.menuPrincipal.tfUsuario.getText();
         String passwd = String.valueOf(this.menuPrincipal.pfClave.getPassword());
         
-        //Usuario usuario = usuarioDAO.consultarUsuario(cedula);
-        Usuario usuario = new Usuario();
-        usuario.setCedula("123");
-        usuario.setPasswd("123");
-        usuario.setRol("Administrador");
+        Usuario usuario = usuarioDAO.consultarUsuario(cedula);
+        //prueba
+//        Usuario usuario = new Usuario();
+//        usuario.setCedula("123");
+//        usuario.setPasswd("123");
+//        usuario.setRol("Administrador");
         
         if (usuario != null)
         {
