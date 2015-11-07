@@ -9,6 +9,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -23,7 +25,7 @@ public class UsuarioDAO
         conexionBD.conectar();
         
         ArrayList<Usuario> listaUsuarios = new ArrayList();
-        String query = "SELECT * FROM usuario";
+        String query = "SELECT * FROM usuario;";
         
         try
         {
@@ -127,20 +129,20 @@ public class UsuarioDAO
         boolean exito = false;
         
         String query = "UPDATE usuario SET "
-                //+ "user_cedula='" + usr.getCedula() + "', "
-                + "user_passwd='" + usr.getPasswd()+ "', "
-                + "user_nombre='" + usr.getNombre()+ "', "
-                + "user_rol='" + usr.getRol()+ "', "
-                + "user_estado='" + usr.getEstado()+ "', "
-                + "user_fecha_nacimiento='" + usr.getFechaNacimiento()+ "', "
-                + "user_direccion='" + usr.getDireccion()+ "', "
-                + "user_telefono='" + usr.getTelefono()+ "', "
-                + "user_celular='" + usr.getCelular()+ "', "
-                + "user_fecha_incorporacion='" + usr.getFechaIncorporacion()+ "', "
-                + "user_salario='" + usr.getSalario()+ "', "
-                + "user_sede_id='" + usr.getNumeroSede()+ "', "
-                + "user_cuenta='" + usr.getCuenta()+ "' "
-                + "WHERE user_cedula='" + usr.getCedula() +"'";
+                //+ "usuario_cedula='" + usr.getCedula() + "', "
+                + "usuario_passwd='" + usr.getPasswd()+ "', "
+                + "usuario_nombre='" + usr.getNombre()+ "', "
+                + "usuario_rol='" + usr.getRol()+ "', "
+                + "usuario_estado='" + usr.getEstado()+ "', "
+                + "usuario_fecha_nacimiento='" + usr.getFechaNacimiento()+ "', "
+                + "usuario_direccion='" + usr.getDireccion()+ "', "
+                + "usuario_telefono='" + usr.getTelefono()+ "', "
+                + "usuario_celular='" + usr.getCelular()+ "', "
+                + "usuario_fecha_incorporacion='" + usr.getFechaIncorporacion()+ "', "
+                + "usuario_salario='" + usr.getSalario()+ "', "
+                + "usuario_sede_id='" + usr.getNumeroSede()+ "', "
+                + "usuario_cuenta='" + usr.getCuenta()+ "' "
+                + "WHERE usuario_cedula='" + usr.getCedula() +"';";
         
         try
         {
@@ -150,7 +152,7 @@ public class UsuarioDAO
         } 
         catch (SQLException ex) 
         {
-            //Logger.getLogger(ConsultasBD.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ConsultasBD.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         conexionBD.cerrarConexion();
