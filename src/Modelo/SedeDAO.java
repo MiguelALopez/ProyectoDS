@@ -20,6 +20,8 @@ public class SedeDAO
     ConexionBD conexionBD = new ConexionBD();
 
     public ArrayList<Sede> consultarSedes(){
+        conexionBD.conectar();
+        
         ArrayList<Sede> listaSedes = new ArrayList();
         String query = "SELECT * FROM sede";
         
