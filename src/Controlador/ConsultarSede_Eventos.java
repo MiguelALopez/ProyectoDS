@@ -43,7 +43,7 @@ public class ConsultarSede_Eventos {
     public void cargarDatos(ResultSet tabla){
 
         try {
-            while (tabla.next()){
+            while (tabla != null && tabla.next()){
                 Vector<String> v = new Vector<>();
                 v.addElement(tabla.getString(1));
                 v.addElement(tabla.getString(2));

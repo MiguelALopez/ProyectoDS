@@ -21,7 +21,7 @@ public class SedeDAO
     public ResultSet consultarSedes(){
         ResultSet tabla = null;
         conexionBD.conectar();
-        if (conexionBD != null){
+        if (conexionBD.conexion != null){
             String query = "SELECT sede_numero, sede_nombre, sede_gerente, sede_direccion FROM sede;";
             try{
                 Statement st = conexionBD.conexion.createStatement();
@@ -29,8 +29,9 @@ public class SedeDAO
             }catch (SQLException e){
                 e.printStackTrace();
             }
+            conexionBD.cerrarConexion();
         }
-        conexionBD.cerrarConexion();
+
 
         return tabla;
     }
