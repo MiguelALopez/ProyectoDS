@@ -105,8 +105,8 @@ public class UsuarioDAO
                 + usr.getCelular()+ "','"
                 + usr.getFechaIncorporacion()+ "','"
                 + usr.getSalario()+ "','"
-                + usr.getNumeroSede()+ "','"
-                + usr.getCuenta()+ "');";        
+                + usr.getCuenta()+ "','"
+                + usr.getNumeroSede()+ "');";        
         try
         {
             Statement st = conexionBD.conexion.createStatement();
@@ -115,7 +115,7 @@ public class UsuarioDAO
         } 
         catch (SQLException ex) 
         {
-            //Logger.getLogger(ConsultasBD.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ConsultasBD.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         conexionBD.cerrarConexion();
