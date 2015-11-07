@@ -56,11 +56,9 @@ public class CrearPQR_Eventos
         String sede = this.crearPQR.TSede.getText();
         String tipo = this.crearPQR.ComboTipo.getSelectedItem().toString();
         String contenido = this.crearPQR.TContenido.getText();
-        String estado = "Nueva";
-        
-        PQR nuevoPQR = new PQR(numeroPQR, cedula, nombre, sede, tipo, contenido, estado);
-        //PQR nuevoPQR = new PQR();
-        
+
+        PQR nuevoPQR = new PQR(numeroPQR, cedula, nombre, sede, tipo, contenido);
+
         boolean resultado = pqrDAO.insertarPQR(nuevoPQR);
         
         if (resultado)
