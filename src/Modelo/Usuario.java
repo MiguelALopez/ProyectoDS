@@ -65,7 +65,7 @@ public class Usuario
      * @param salario : salario asignado al usuario
      * @param cuenta : cuenta bancaria del usuario
      */
-    public Usuario(String cedula, String passwd, String nombre, String estado, String rol, String fecha_nacimiento, String direccion, String telefono, String celular, String fecha_incorporacion, String salario, String cuenta, String numeroSede) 
+    public Usuario(String cedula, String passwd, String nombre, String rol, String estado, String fecha_nacimiento, String direccion, String telefono, String celular, String fecha_incorporacion, String salario, String cuenta, String numeroSede) 
     {
         this.cedula = cedula;
         this.passwd = passwd;
