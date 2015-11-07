@@ -56,7 +56,7 @@ public class UsuarioDAO
         conexionBD.conectar();
         
         String query = "SELECT * "
-                + "FROM usuarios WHERE user_cedula='"+user+"';";
+                + "FROM usuario WHERE user_cedula='"+user+"';";
         
         try
         {
@@ -89,7 +89,7 @@ public class UsuarioDAO
         conexionBD.conectar();
         boolean exito = false;
         
-        String query = "INSERT INTO usuarios VALUES ('"
+        String query = "INSERT INTO usuario VALUES ('"
                 + usr.getCedula()+ "','"
                 + usr.getPasswd() + "','"
                 + usr.getNombre()+ "','"
@@ -124,7 +124,7 @@ public class UsuarioDAO
         conexionBD.conectar();
         boolean exito = false;
         
-        String query = "UPDATE usuarios SET "
+        String query = "UPDATE usuario SET "
                 //+ "user_cedula='" + usr.getCedula() + "', "
                 + "user_passwd='" + usr.getPasswd()+ "', "
                 + "user_nombre='" + usr.getNombre()+ "', "

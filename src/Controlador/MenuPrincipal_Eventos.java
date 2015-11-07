@@ -174,7 +174,7 @@ public class MenuPrincipal_Eventos
 //        usuario.setRol("Administrador");
         
         if (usuario != null)
-        {
+        {            
             if (usuario.getPasswd().equals(passwd))
             {
                 this.menuPrincipal.tfUsuario.setText("");
