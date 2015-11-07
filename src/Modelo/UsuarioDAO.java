@@ -56,7 +56,7 @@ public class UsuarioDAO
         conexionBD.conectar();
         
         String query = "SELECT * "
-                + "FROM usuario WHERE user_cedula='"+user+"';";
+                + "FROM usuario WHERE usuario_cedula='"+user+"';";
         
         try
         {
