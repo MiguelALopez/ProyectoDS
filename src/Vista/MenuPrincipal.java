@@ -92,7 +92,7 @@ public class MenuPrincipal extends JFrame
 
         pIniciarSesion.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(""), "Iniciar Sesion", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
 
-        jLabel11.setText("Usuario:");
+        jLabel11.setText("Cedula:");
 
         jLabel13.setText("Contraseña:");
 

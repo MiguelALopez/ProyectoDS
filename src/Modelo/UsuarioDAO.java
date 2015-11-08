@@ -5,6 +5,7 @@
  */
 package Modelo;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -88,29 +89,98 @@ public class UsuarioDAO
         return usuario;
     }
     
-    public boolean insetarUsuario(Usuario usr)
+    public boolean insetarUsuario(Usuario usuario)
     {
         conexionBD.conectar();
         boolean exito = false;
         
-        String query = "INSERT INTO usuario VALUES ('"
-                + usr.getCedula()+ "','"
-                + usr.getPasswd() + "','"
-                + usr.getNombre()+ "','"
-                + usr.getRol()+ "','"
-                + usr.getEstado()+ "','"
-                + usr.getFechaNacimiento()+ "','"
-                + usr.getDireccion()+ "','"
-                + usr.getTelefono()+ "','"
-                + usr.getCelular()+ "','"
-                + usr.getFechaIncorporacion()+ "','"
-                + usr.getSalario()+ "','"
-                + usr.getCuenta()+ "','"
-                + usr.getNumeroSede()+ "');";        
+        String query = "INSERT INTO usuario (usuario_cedula, usuario_passwd, usuario_nombre, usuario_rol, usuario_estado, "
+                + "usuario_fecha_nacimiento, usuario_direccion, usuario_telefono, usuario_celular, usuario_fecha_incorporacion, "
+                + "usuario_salario, usuario_cuenta, usuario_sede_numero) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        
         try
         {
-            Statement st = conexionBD.conexion.createStatement();
-            int tabla = st.executeUpdate(query);
+            PreparedStatement st = conexionBD.conexion.prepareStatement(query);
+            
+            st.setString(1, usuario.getCedula());
+            st.setString(2, usuario.getPasswd());
+            st.setString(3, usuario.getNombre());
+            st.setString(4, usuario.getRol());
+            st.setString(5, usuario.getEstado());
+            
+            if (usuario.getFechaNacimiento().isEmpty())
+            {
+                st.setNull(6, java.sql.Types.VARCHAR);
+            }
+            else
+            {
+                st.setString(6, usuario.getFechaNacimiento());
+            }
+            
+            if (usuario.getDireccion().isEmpty())
+            {
+                st.setNull(7, java.sql.Types.VARCHAR);
+            }
+            else
+            {
+                st.setString(7, usuario.getDireccion());
+            }
+            
+            if (usuario.getTelefono().isEmpty())
+            {
+                st.setNull(8, java.sql.Types.VARCHAR);
+            }
+            else
+            {
+                st.setString(8, usuario.getTelefono());
+            }
+            
+            if (usuario.getCelular().isEmpty())
+            {
+                st.setNull(9, java.sql.Types.VARCHAR);
+            }
+            else
+            {
+                st.setString(9, usuario.getCelular());
+            }
+            
+            if (usuario.getFechaIncorporacion().isEmpty())
+            {
+                st.setNull(10, java.sql.Types.VARCHAR);
+            }
+            else
+            {
+                st.setString(10, usuario.getFechaIncorporacion());
+            }
+            
+            if (usuario.getSalario().isEmpty())
+            {
+                st.setNull(11, java.sql.Types.VARCHAR);
+            }
+            else
+            {
+                st.setString(11, usuario.getSalario());
+            }
+            
+            if (usuario.getCuenta().isEmpty())
+            {
+                st.setNull(12, java.sql.Types.VARCHAR);
+            }
+            else
+            {
+                st.setString(12, usuario.getCuenta());
+            }
+            
+            if (usuario.getNumeroSede().isEmpty())
+            {
+                st.setNull(13, java.sql.Types.VARCHAR);
+            }
+            else
+            {
+                st.setString(13, usuario.getNumeroSede());
+            }
+            
+            int resultado = st.executeUpdate();
             exito = true;
         } 
         catch (SQLException ex) 
@@ -123,31 +193,112 @@ public class UsuarioDAO
         return exito;
     }
     
-    public boolean modificarUsuario(Usuario usr) 
+    public boolean modificarUsuario(Usuario usuario) 
     {
         conexionBD.conectar();
         boolean exito = false;
         
         String query = "UPDATE usuario SET "
-                //+ "usuario_cedula='" + usr.getCedula() + "', "
-                + "usuario_passwd='" + usr.getPasswd()+ "', "
-                + "usuario_nombre='" + usr.getNombre()+ "', "
-                + "usuario_rol='" + usr.getRol()+ "', "
-                + "usuario_estado='" + usr.getEstado()+ "', "
-                + "usuario_fecha_nacimiento='" + usr.getFechaNacimiento()+ "', "
-                + "usuario_direccion='" + usr.getDireccion()+ "', "
-                + "usuario_telefono='" + usr.getTelefono()+ "', "
-                + "usuario_celular='" + usr.getCelular()+ "', "
-                + "usuario_fecha_incorporacion='" + usr.getFechaIncorporacion()+ "', "
-                + "usuario_salario='" + usr.getSalario()+ "', "
-                + "usuario_sede_numero='" + usr.getNumeroSede()+ "', "
-                + "usuario_cuenta='" + usr.getCuenta()+ "' "
-                + "WHERE usuario_cedula='" + usr.getCedula() +"';";
+                //+ "usuario_cedula = ?,"
+                + "usuario_passwd = ?,"
+                + "usuario_nombre = ?,"
+                + "usuario_rol = ?,"
+                + "usuario_estado = ?,"
+                + "usuario_fecha_nacimiento = ?,"
+                + "usuario_direccion = ?,"
+                + "usuario_telefono = ?,"
+                + "usuario_celular = ?,"
+                + "usuario_fecha_incorporacion = ?,"
+                + "usuario_salario = ?,"
+                + "usuario_cuenta = ?,"
+                + "usuario_sede_numero = ?"
+                + "WHERE usuario_cedula = ?;";
         
         try
         {
-            Statement st = conexionBD.conexion.createStatement();
-            int tabla = st.executeUpdate(query);
+            PreparedStatement st = conexionBD.conexion.prepareStatement(query);
+            
+            //st.setString(1, usuario.getCedula());
+            st.setString(1, usuario.getPasswd());
+            st.setString(2, usuario.getNombre());
+            st.setString(3, usuario.getRol());
+            st.setString(4, usuario.getEstado());
+            
+            if (usuario.getFechaNacimiento().isEmpty())
+            {
+                st.setNull(5, java.sql.Types.VARCHAR);
+            }
+            else
+            {
+                st.setString(5, usuario.getFechaNacimiento());
+            }
+            
+            if (usuario.getDireccion().isEmpty())
+            {
+                st.setNull(6, java.sql.Types.VARCHAR);
+            }
+            else
+            {
+                st.setString(6, usuario.getDireccion());
+            }
+            
+            if (usuario.getTelefono().isEmpty())
+            {
+                st.setNull(7, java.sql.Types.VARCHAR);
+            }
+            else
+            {
+                st.setString(7, usuario.getTelefono());
+            }
+            
+            if (usuario.getCelular().isEmpty())
+            {
+                st.setNull(8, java.sql.Types.VARCHAR);
+            }
+            else
+            {
+                st.setString(8, usuario.getCelular());
+            }
+            
+            if (usuario.getFechaIncorporacion().isEmpty())
+            {
+                st.setNull(9, java.sql.Types.VARCHAR);
+            }
+            else
+            {
+                st.setString(9, usuario.getFechaIncorporacion());
+            }
+            
+            if (usuario.getSalario().isEmpty())
+            {
+                st.setNull(10, java.sql.Types.VARCHAR);
+            }
+            else
+            {
+                st.setString(10, usuario.getSalario());
+            }
+            
+            if (usuario.getCuenta().isEmpty())
+            {
+                st.setNull(11, java.sql.Types.VARCHAR);
+            }
+            else
+            {
+                st.setString(11, usuario.getCuenta());
+            }
+            
+            if (usuario.getNumeroSede().isEmpty())
+            {
+                st.setNull(12, java.sql.Types.VARCHAR);
+            }
+            else
+            {
+                st.setString(12, usuario.getNumeroSede());
+            }
+            
+            st.setString(13, usuario.getCedula());
+            
+            int resultado = st.executeUpdate();
             exito = true;
         } 
         catch (SQLException ex) 

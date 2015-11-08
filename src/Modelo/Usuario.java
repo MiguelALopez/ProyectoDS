@@ -74,58 +74,77 @@ public class Usuario
         this.estado = estado;
         this.rol = rol;
         
-        if (fecha_nacimiento!=null){
+        if (fecha_nacimiento != null)
+        {
             this.fechaNacimiento = fecha_nacimiento;
         }
-        else{
+        else
+        {
             this.fechaNacimiento  = "";
         }
-        if (direccion != null){
+        
+        if (direccion != null)
+        {
             this.direccion = direccion;
         }
-        else{
+        else
+        {
             this.direccion = "";
         }
         
-        if (telefono != null){
+        if (telefono != null)
+        {
             this.telefono = telefono;
         }
-        else{
+        else
+        {
             this.telefono = "";
         }
         
-        if (celular != null){
+        if (celular != null)
+        {
             this.celular = celular;
         }
-        else{
+        else
+        {
             this.celular = "";
         }
         
-        if (fecha_incorporacion != null){
+        if (fecha_incorporacion != null)
+        {
             this.fechaIncorporacion = fecha_incorporacion;
         }
-        else{
+        else
+        {
             this.fechaIncorporacion = "";
         }
-        if(salario != null){
+        
+        if(salario != null)
+        {
             this.salario = salario;
         }
-        else{
+        else
+        {
             this.salario = "";
         }
-        if(cuenta != null){
+        
+        if (cuenta != null)
+        {
             this.cuenta = cuenta;
         }
-        else{
+        else
+        {
             this.cuenta = "";
         }
-        if(numeroSede!=null){
+        
+        if (numeroSede != null)
+        {
             this.numeroSede = numeroSede;
         }
-        else{
+        else
+        {
             this.numeroSede = "";
-        }
-        
+        }        
     }
     
    

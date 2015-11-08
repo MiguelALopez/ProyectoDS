@@ -9,6 +9,7 @@ package Controlador;
 import Modelo.Usuario;
 import Modelo.UsuarioDAO;
 import Vista.ConsultarUsuarios;
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -133,6 +134,8 @@ public class ConsultarUsuarios_Eventos
                         
             JTextArea area = new JTextArea(perfil);
             area.setEditable(false);
+            area.setOpaque(false);
+            area.setBackground(new Color(0,0,0,0));
             JOptionPane.showMessageDialog(consultarUsuarios, area, "Perfil de Usuario", JOptionPane.INFORMATION_MESSAGE);
         }
         else
