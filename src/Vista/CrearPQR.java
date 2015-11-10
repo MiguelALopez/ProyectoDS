@@ -283,10 +283,13 @@ public class CrearPQR extends javax.swing.JFrame {
     public javax.swing.JTextArea TContenido;
     public javax.swing.JTextField TNombre;
     public javax.swing.JTextField TPqrn;
+    public javax.swing.JButton bBuscarCedula;
+    public javax.swing.JButton bBuscarCedula1;
     public javax.swing.JButton bEnviar;
     public javax.swing.JButton bSalir;
     public javax.swing.JComboBox cbSedes;
     private javax.swing.Box.Filler filler1;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
@@ -296,7 +299,12 @@ public class CrearPQR extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
+    public javax.swing.JTextField tfBuscarCedula;
+    public javax.swing.JTextField tfBuscarCedula1;
     // End of variables declaration//GEN-END:variables
 }

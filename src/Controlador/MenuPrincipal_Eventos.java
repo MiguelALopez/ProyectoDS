@@ -158,7 +158,21 @@ public class MenuPrincipal_Eventos
                     menuPrincipal.consultarPQR.setVisible(true);
                 }                
             }
-        );        
+        );
+        
+        this.menuPrincipal.bResponderPQR.addActionListener(
+            new ActionListener()
+            {
+                @Override
+                public void actionPerformed(ActionEvent ae) 
+                {
+                    menuPrincipal.responderPQR = new ResponderPQR();
+                    menuPrincipal.responderPQR_Eventos = new ResponderPQR_Eventos(menuPrincipal.responderPQR);
+                    menuPrincipal.responderPQR.setLocationRelativeTo(null);
+                    menuPrincipal.responderPQR.setVisible(true);
+                }                
+            }
+        ); 
     }
     
     public void iniciarSesion()

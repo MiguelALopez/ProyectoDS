@@ -30,12 +30,6 @@ public class MenuPrincipal extends JFrame
     public ConsultarUsuarios consultarUsuarios;
     public ConsultarUsuarios_Eventos consultarUsuarios_Eventos;
     
-    public CrearPQR crearPQR;
-    public CrearPQR_Eventos crearPQR_Eventos;
-    
-    public ConsultarPQR consultarPQR;
-    public ConsultarPQR_Eventos consultarPQR_Eventos;
-
     public CrearSede crearSede;
     public CrearSede_Eventos crearSede_Eventos;
 
@@ -44,6 +38,15 @@ public class MenuPrincipal extends JFrame
 
     public ConsultarSede consultarSede;
     public ConsultarSede_Eventos consultarSede_Eventos;
+    
+    public CrearPQR crearPQR;
+    public CrearPQR_Eventos crearPQR_Eventos;
+    
+    public ConsultarPQR consultarPQR;
+    public ConsultarPQR_Eventos consultarPQR_Eventos;    
+    
+    public ResponderPQR responderPQR;
+    public ResponderPQR_Eventos responderPQR_Eventos;
     
     /**
      * constructor de la clase, construye la interfaz
@@ -82,6 +85,7 @@ public class MenuPrincipal extends JFrame
         pPQR = new javax.swing.JPanel();
         bCrearPQR = new javax.swing.JButton();
         bConsultarPQR = new javax.swing.JButton();
+        bResponderPQR = new javax.swing.JButton();
         pIdentidad = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         tfIdentidad = new javax.swing.JTextField();
@@ -204,15 +208,18 @@ public class MenuPrincipal extends JFrame
 
         bConsultarPQR.setText("Consultar PQR");
 
+        bResponderPQR.setText("Responder PQR");
+
         javax.swing.GroupLayout pPQRLayout = new javax.swing.GroupLayout(pPQR);
         pPQR.setLayout(pPQRLayout);
         pPQRLayout.setHorizontalGroup(
             pPQRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pPQRLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(pPQRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(pPQRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(bCrearPQR, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(bConsultarPQR, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(bConsultarPQR, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(bResponderPQR, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pPQRLayout.setVerticalGroup(
@@ -222,6 +229,8 @@ public class MenuPrincipal extends JFrame
                 .addComponent(bCrearPQR)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(bConsultarPQR)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(bResponderPQR)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -237,7 +246,7 @@ public class MenuPrincipal extends JFrame
         pIdentidadLayout.setHorizontalGroup(
             pIdentidadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pIdentidadLayout.createSequentialGroup()
-                .addContainerGap(74, Short.MAX_VALUE)
+                .addContainerGap(80, Short.MAX_VALUE)
                 .addComponent(jLabel14)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(tfIdentidad, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -304,6 +313,7 @@ public class MenuPrincipal extends JFrame
     public javax.swing.JButton bIniciarSesion;
     public javax.swing.JButton bModificarSede;
     public javax.swing.JButton bModificarUsuario;
+    public javax.swing.JButton bResponderPQR;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;

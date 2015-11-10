@@ -114,19 +114,18 @@ public class ConsultarPQR_Eventos
 
             if (pqr != null)
             {
-                perfil = "\tInformacion del PQR\t\t\t" + 
-                        "\n\nPQR N°:\t" + pqr.getNumero() + "\t\t" +
-                        "Cedula:\t" + pqr.getCedula() +
-                        "\n\nNombre:\t" + pqr.getNombre()+ "\t\t" +
-                        "Sede:\t" + pqr.getSede() +
-                        "\n\nTipo:\t" + pqr.getTipo() + "\t\t" +
-                        "Contenido:\t" + pqr.getContenido() +
+                perfil = "\tInformacion del PQR\t\t" + 
+                        "\n\nPQR N°:\t" + pqr.getNumero() +
+                        "\n\nCedula:\t" + pqr.getCedula() +
+                        "\n\nNombre:\t" + pqr.getNombre() +
+                        "\n\nSede:\t" + pqr.getSede() +
+                        "\n\nTipo:\t" + pqr.getTipo() +
                         "\n\nEstado:\t" + pqr.getEstado() +
-                        "\n";
+                        "\n\nContenido:\n\n" + pqr.getContenido() + "\n";
                 
                 //System.out.println(perfil);
             }
-                        
+            
             JTextArea area = new JTextArea(perfil);
             area.setEditable(false);
             area.setOpaque(false);

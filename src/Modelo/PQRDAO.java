@@ -89,18 +89,28 @@ public class PQRDAO
         boolean exito = false;
         
         String query = "UPDATE pqr SET "
-                //+ "pqr_numero='" + pqr.getNumero() + "', "
-                + "pqr_cedula='" + pqr.getCedula()+ "', "
-                + "pqr_nombre='" + pqr.getNombre()+ "', "
-                + "pqr_sede='" + pqr.getSede()+ "', "
-                + "pqr_tipo='" + pqr.getTipo()+ "', "
-                + "pqr_contenido='" + pqr.getContenido()+ "' "
-                + "WHERE pqr_numero='" + pqr.getNumero() + "'";
+                //+ "pqr_numero = ?,"
+                + "pqr_cedula = ?,"
+                + "pqr_nombre = ?,"
+                + "pqr_sede = ?,"
+                + "pqr_tipo = ?,"
+                + "pqr_contenido = ?,"
+                + "pqr_estado = ?"
+                + "WHERE pqr_numero = ?;";
         
         try
         {
-            Statement st = conexionBD.conexion.createStatement();
-            int tabla = st.executeUpdate(query);
+            PreparedStatement st = conexionBD.conexion.prepareStatement(query);
+            
+            st.setString(1, pqr.getCedula());
+            st.setString(2, pqr.getNombre());
+            st.setString(3, pqr.getSede());
+            st.setString(4, pqr.getTipo());
+            st.setString(5, pqr.getContenido());
+            st.setString(6, pqr.getEstado());
+            st.setString(7, pqr.getNumero());
+                        
+            int resultado = st.executeUpdate();
             exito = true;
         } 
         catch (SQLException ex) 
@@ -119,8 +129,7 @@ public class PQRDAO
         
         PQR pqr = null;
         
-        String query = "SELECT * "
-                + "FROM pqr "
+        String query = "SELECT * FROM pqr "
                 + "WHERE pqr_numero='"+pqr_numero+"'";
         
         try
