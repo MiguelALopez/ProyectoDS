@@ -5,7 +5,6 @@
  */
 package Controlador;
 
-import Modelo.UsuarioDAO;
 import Vista.ConsultarPQR;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -15,6 +14,7 @@ import javax.swing.JTextArea;
 import javax.swing.table.DefaultTableModel;
 import Modelo.PQR;
 import Modelo.PQRDAO;
+import java.awt.Color;
 
 /**
  *
@@ -114,14 +114,14 @@ public class ConsultarPQR_Eventos
 
             if (pqr != null)
             {
-                perfil = "\t\tInformacion del Usuario\t\t\t" + 
-                        "\n\nN°PQR:\t\t" + pqr.getNumero() + "\t\t" +
+                perfil = "\tInformacion del PQR\t\t\t" + 
+                        "\n\nPQR N°:\t" + pqr.getNumero() + "\t\t" +
                         "Cedula:\t" + pqr.getCedula() +
-                        "\n\nNombre:\t\t" + pqr.getNombre()+ "\t\t" +
+                        "\n\nNombre:\t" + pqr.getNombre()+ "\t\t" +
                         "Sede:\t" + pqr.getSede() +
                         "\n\nTipo:\t" + pqr.getTipo() + "\t\t" +
                         "Contenido:\t" + pqr.getContenido() +
-                        "\n\nEstado:\t\t" + pqr.getEstado() +
+                        "\n\nEstado:\t" + pqr.getEstado() +
                         "\n";
                 
                 //System.out.println(perfil);
@@ -129,7 +129,9 @@ public class ConsultarPQR_Eventos
                         
             JTextArea area = new JTextArea(perfil);
             area.setEditable(false);
-            JOptionPane.showMessageDialog(consultarPQR, area, "PQR Detallada", JOptionPane.INFORMATION_MESSAGE);
+            area.setOpaque(false);
+            area.setBackground(new Color(0,0,0,0));
+            JOptionPane.showMessageDialog(consultarPQR, area, "PQR Detallado", JOptionPane.INFORMATION_MESSAGE);
         }
         else
         {

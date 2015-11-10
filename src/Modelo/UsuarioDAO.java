@@ -46,7 +46,7 @@ public class UsuarioDAO
         } 
         catch (SQLException ex) 
         {
-            //Logger.getLogger(ConsultasBD.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ConsultasBD.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         conexionBD.cerrarConexion();
@@ -81,7 +81,7 @@ public class UsuarioDAO
         } 
         catch (SQLException ex) 
         {
-            //Logger.getLogger(ConsultasBD.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ConsultasBD.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         conexionBD.cerrarConexion();

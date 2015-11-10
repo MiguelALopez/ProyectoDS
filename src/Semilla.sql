@@ -35,11 +35,11 @@ CREATE TABLE pqr
 (
     pqr_numero    VARCHAR(5),
     pqr_cedula    VARCHAR(15) NOT NULL,
-    pqr_nombre    VARCHAR(50),
+    pqr_nombre    VARCHAR(50) NOT NULL,
     pqr_sede      VARCHAR(5)  NOT NULL,
-    pqr_tipo      VARCHAR(10),
-    pqr_contenido TEXT,
-    pqr_estado    VARCHAR(30),
+    pqr_tipo      VARCHAR(10) NOT NULL,
+    pqr_contenido TEXT        NOT NULL,
+    pqr_estado    VARCHAR(30) NOT NULL,
     PRIMARY KEY (pqr_numero),
     FOREIGN KEY (pqr_sede) REFERENCES sede (sede_numero)
 );
