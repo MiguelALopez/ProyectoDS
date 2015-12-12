@@ -9,6 +9,7 @@
 package Vista;
 
 import javax.swing.*;
+import javax.swing.border.TitledBorder;
 import java.awt.*;
 
 public class ModificarSede extends JFrame{
@@ -21,12 +22,13 @@ public class ModificarSede extends JFrame{
     JTextField textNumTruck;
     JButton buttonAccept;
     JButton buttonCancel;
+    JButton buttonBuscarSede;
 
     public ModificarSede(){
         super("Modificar Sede");
         setLayout(new GridBagLayout());
         initComponents();
-        setSize(400, 400);
+        setSize(500, 400);
     }
 
     /* Clase encargada de inicializar y posicionar los elementos en los diferentes posiciones en el frame*/
@@ -42,102 +44,132 @@ public class ModificarSede extends JFrame{
         textNumTruck = new JTextField();
         buttonAccept = new JButton("Aceptar");
         buttonCancel = new JButton("Cancelar");
+        buttonBuscarSede = new JButton("Buscar");
+        // Se desactivan las casillas
+        enableText(false);
+        textNumSede.setEnabled(true);
 
-        // Label titulo
-        manageConst(c,0,0,2,1,0,0,3,3);
-        c.insets = new Insets(10,30,10,0);
-        c.anchor = GridBagConstraints.CENTER;
-        add(new JLabel("Panel de Modificacion de Sedes"),c);
-
-        // Linea separadora
-        manageConst(c,0,1,2,1,0,0,3,3);
-        c.insets = new Insets(0,30,30,30);
+        // Panel buscarSede
+        JPanel panelBusqueda = new JPanel(new GridBagLayout());
+        manageConst(c,0,0,2,1,1,0,0,10);
+        c.insets = new Insets(0,60,20,60);
+        c.anchor = GridBagConstraints.NORTH;
         c.fill = GridBagConstraints.HORIZONTAL;
-        add(new JSeparator(SwingConstants.HORIZONTAL),c);
+        TitledBorder borderPanelBusqueda = new TitledBorder("Sede a buscar");
+        borderPanelBusqueda.setTitleJustification(TitledBorder.CENTER);
+        panelBusqueda.setBorder(borderPanelBusqueda);
+        add(panelBusqueda, c);
 
+        // Label numero sede
+        manageConst(c,0,0,1,1,0,0,3,3);
+        c.insets = new Insets(0,5,0,0);
+        c.anchor = GridBagConstraints.WEST;
+        panelBusqueda.add(new JLabel("No. Sede"),c);
 
-        // Label Numero Sede
+        manageConst(c,1,0,1,1,1,0,3,3);
+        c.insets = new Insets(0,10,0,10);
+        c.fill = GridBagConstraints.HORIZONTAL;
+        panelBusqueda.add(textNumSede,c);
+
+        manageConst(c,2,0,1,1,0,0,3,3);
+        c.insets = new Insets(0,0,0,5);
+        c.anchor = GridBagConstraints.EAST;
+        panelBusqueda.add(buttonBuscarSede, c);
+
+        // Panel datosSede
+        JPanel panelDatosSede = new JPanel(new GridBagLayout());
+        manageConst(c,0,1,2,1,1,0,0,10);
+        c.insets = new Insets(0,15,0,15);
+        c.anchor = GridBagConstraints.NORTH;
+        c.fill = GridBagConstraints.HORIZONTAL;
+        TitledBorder borderPanelSede = new TitledBorder("Datos de la sede");
+        borderPanelSede.setTitleJustification(TitledBorder.CENTER);
+        panelDatosSede.setBorder(borderPanelSede);
+        add(panelDatosSede,c);
+
+        // Label Nombre Sede
+        manageConst(c,0,0,1,1,0,0,3,3);
+        c.insets = new Insets(10,30,10,0);
+        c.anchor = GridBagConstraints.WEST;
+        panelDatosSede.add(new JLabel("Nombre de la Sede"), c);
+
+        manageConst(c,1,0,1,1,1,0,3,3);
+        c.insets = new Insets(0,20,0,30);
+        c.fill = GridBagConstraints.HORIZONTAL;
+        panelDatosSede.add(textNameSede, c);
+
+        // Label Direccion
+        manageConst(c,0,1,1,1,0,0,3,3);
+        c.insets = new Insets(10,30,10,0);
+        c.anchor = GridBagConstraints.WEST;
+        panelDatosSede.add(new JLabel("Direccion"), c);
+
+        manageConst(c,1,1,1,1,1,0,3,3);
+        c.insets = new Insets(0,20,0,30);
+        c.fill = GridBagConstraints.HORIZONTAL;
+        panelDatosSede.add(textAddress, c);
+
+        // Label Gerente
         manageConst(c,0,2,1,1,0,0,3,3);
         c.insets = new Insets(10,30,10,0);
         c.anchor = GridBagConstraints.WEST;
-        add(new JLabel("Numero Sede"),c);
+        panelDatosSede.add(new JLabel("Gerente a Cargo"), c);
 
         manageConst(c,1,2,1,1,1,0,3,3);
         c.insets = new Insets(0,20,0,30);
         c.fill = GridBagConstraints.HORIZONTAL;
-        add(textNumSede,c);
+        panelDatosSede.add(textManager, c);
 
-        // Label Nombre Sede
+        // Label Presupuesto
         manageConst(c,0,3,1,1,0,0,3,3);
         c.insets = new Insets(10,30,10,0);
         c.anchor = GridBagConstraints.WEST;
-        add(new JLabel("Nombre de la Sede"),c);
+        panelDatosSede.add(new JLabel("Presupuesto Asignado"), c);
 
         manageConst(c,1,3,1,1,1,0,3,3);
         c.insets = new Insets(0,20,0,30);
         c.fill = GridBagConstraints.HORIZONTAL;
-        add(textNameSede,c);
+        panelDatosSede.add(textBudget, c);
 
-        // Label Direccion
+        // Label Camiones
         manageConst(c,0,4,1,1,0,0,3,3);
         c.insets = new Insets(10,30,10,0);
         c.anchor = GridBagConstraints.WEST;
-        add(new JLabel("Direccion"),c);
+        panelDatosSede.add(new JLabel("Numero de Camiones"), c);
 
         manageConst(c,1,4,1,1,1,0,3,3);
         c.insets = new Insets(0,20,0,30);
         c.fill = GridBagConstraints.HORIZONTAL;
-        add(textAddress,c);
-
-        // Label Gerente
-        manageConst(c,0,5,1,1,0,0,3,3);
-        c.insets = new Insets(10,30,10,0);
-        c.anchor = GridBagConstraints.WEST;
-        add(new JLabel("Gerente a Cargo"),c);
-
-        manageConst(c,1,5,1,1,1,0,3,3);
-        c.insets = new Insets(0,20,0,30);
-        c.fill = GridBagConstraints.HORIZONTAL;
-        add(textManager,c);
-
-        // Label Presupuesto
-        manageConst(c,0,6,1,1,0,0,3,3);
-        c.insets = new Insets(10,30,10,0);
-        c.anchor = GridBagConstraints.WEST;
-        add(new JLabel("Presupuesto Asignado"),c);
-
-        manageConst(c,1,6,1,1,1,0,3,3);
-        c.insets = new Insets(0,20,0,30);
-        c.fill = GridBagConstraints.HORIZONTAL;
-        add(textBudget,c);
-
-        // Label Camiones
-        manageConst(c,0,7,1,1,0,0,3,3);
-        c.insets = new Insets(10,30,10,0);
-        c.anchor = GridBagConstraints.WEST;
-        add(new JLabel("Numero de Camiones"),c);
-
-        manageConst(c,1,7,1,1,1,0,3,3);
-        c.insets = new Insets(0,20,0,30);
-        c.fill = GridBagConstraints.HORIZONTAL;
-        add(textNumTruck,c);
+        panelDatosSede.add(textNumTruck,c);
 
         // Button Cancelar
-        manageConst(c,0,8,1,1,0,0,0,0);
+        manageConst(c,0,2,1,1,0,0,0,0);
         c.insets = new Insets(15,20,0,30);
-        c.anchor = GridBagConstraints.WEST;
+        c.anchor = GridBagConstraints.SOUTHWEST;
         add(buttonCancel,c);
 
         // Button Aceptar
-        manageConst(c,1,8,1,1,0,0,0,0);
-        c.insets = new Insets(15,20,0,30);
-        c.anchor = GridBagConstraints.EAST;
+        manageConst(c,1,2,1,1,0,0,0,0);
+        c.insets = new Insets(15,20,0,15);
+        c.anchor = GridBagConstraints.SOUTHEAST;
         add(buttonAccept,c);
     }
 
+    /**
+     * Este Metodo esta encarado de manejar las medidas del Layout pasandole una variable Constraint
+     * @param c Constraints encargado de organizar
+     * @param colX Posicion en X en la cuadricula
+     * @param filY Posicion en Y en la cuadricula
+     * @param width Numero de Filas que ocupa
+     * @param heigth Numero de Columnas que ocupa
+     * @param weightx Estiramiento horizontal puede ser 1 ó 0
+     * @param weighty Estiramiento vertical puede ser 1 ó 0
+     * @param ipadx Espaciado interno en X
+     * @param ipady Espaciado interno en Y
+     */
     public void manageConst(GridBagConstraints c, int colX, int filY, int width, int heigth, int weightx, int weighty, int ipadx, int ipady){
-        c.gridx = colX;
-        c.gridy = filY;
+        c.gridx = colX; // Posicion en X en la cuadricula
+        c.gridy = filY; // Posicion en Y en la cuadricula
         c.gridheight = heigth;
         c.gridwidth = width;
         c.weightx = weightx;
@@ -147,6 +179,16 @@ public class ModificarSede extends JFrame{
         c.insets = new Insets(0,0,0,0);
         c.ipadx = ipadx;
         c.ipady = ipady;
+    }
+
+    // Metodo encargado de activar o desactivar los JText
+    public void enableText(boolean enable){
+        textAddress.setEnabled(enable);
+        textBudget.setEnabled(enable);
+        textManager.setEnabled(enable);
+        textNameSede.setEnabled(enable);
+        textNumSede.setEnabled(enable);
+        textNumTruck.setEnabled(enable);
     }
 
     // Getters and Setters
