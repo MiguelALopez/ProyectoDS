@@ -31,6 +31,16 @@ public class ModificarSede_Eventos {
                 }
         );
 
+        this.modificarSede.getButtonBuscarSede().addActionListener(
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        boolean existe = buscarSede(modificarSede.getTextNumSede().getText());
+                        modificarSede.enableText(existe);
+                    }
+                }
+        );
+
         this.modificarSede.getButtonAccept().addActionListener(
                 new ActionListener() {
                     @Override
@@ -41,7 +51,18 @@ public class ModificarSede_Eventos {
         );
     }
 
-    private void modificarSede() {
+    /**
+     * Metodo encargado de buscar una sede y llevar los datos a los textField
+     * @param numeroSede es el numero de la sede que se desea buscar
+     * @return retorna true si la sede existe o false si no existe
+     */
+    public boolean buscarSede(String numeroSede){
+        boolean existe = false;
+
+        return existe;
+    }
+
+    public void modificarSede() {
 
     }
 

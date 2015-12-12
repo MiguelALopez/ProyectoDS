@@ -47,7 +47,6 @@ public class ModificarSede extends JFrame{
         buttonBuscarSede = new JButton("Buscar");
         // Se desactivan las casillas
         enableText(false);
-        textNumSede.setEnabled(true);
 
         // Panel buscarSede
         JPanel panelBusqueda = new JPanel(new GridBagLayout());
@@ -187,7 +186,7 @@ public class ModificarSede extends JFrame{
         textBudget.setEnabled(enable);
         textManager.setEnabled(enable);
         textNameSede.setEnabled(enable);
-        textNumSede.setEnabled(enable);
+        textNumSede.setEnabled(!enable);
         textNumTruck.setEnabled(enable);
     }
 
@@ -254,6 +253,14 @@ public class ModificarSede extends JFrame{
 
     public void setButtonCancel(JButton buttonCancel) {
         this.buttonCancel = buttonCancel;
+    }
+
+    public JButton getButtonBuscarSede() {
+        return buttonBuscarSede;
+    }
+
+    public void setButtonBuscarSede(JButton buttonBuscarSede) {
+        this.buttonBuscarSede = buttonBuscarSede;
     }
 
     public static void main(String[] args) {
