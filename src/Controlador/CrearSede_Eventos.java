@@ -39,8 +39,12 @@ public class CrearSede_Eventos {
                 new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        crearSede();
-                        crearSede.setVisible(false);
+                        if (verificarCampos()){
+                            crearSede();
+                            crearSede.setVisible(false);
+                        }else {
+                            JOptionPane.showMessageDialog(null, "Por favor llene los campos necesarios");
+                        }
                     }
                 }
         );
@@ -70,10 +74,22 @@ public class CrearSede_Eventos {
     }
 
     // Metodo encergado de limpiar los campos de la ventana
-    private void limpiarCampos(){
+    public void limpiarCampos(){
         crearSede.getTextNumSede().setText("");
         crearSede.getTextNameSede().setText("");
         crearSede.getTextAddress().setText("");
+    }
+
+    public boolean verificarCampos(){
+        boolean exito = true;
+
+        if (crearSede.getTextNumSede().getText().isEmpty() ||
+                crearSede.getTextNameSede().getText().isEmpty() ||
+                crearSede.getTextAddress().getText().isEmpty()){
+            exito = false;
+
+        }
+        return exito;
     }
 
 }

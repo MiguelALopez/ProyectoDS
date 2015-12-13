@@ -5,16 +5,10 @@
  */
 package Modelo;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 
-/**
- *
- * @author AndrésFelipe
- */
+
 public class SedeDAO
 {
     ConexionBD conexionBD = new ConexionBD();
@@ -32,9 +26,11 @@ public class SedeDAO
             
             while (tabla.next())
             {
-                listaSedes.add(new Sede(tabla.getString(1), 
-                        tabla.getString(2), tabla.getString(3), 
-                        tabla.getString(4), tabla.getString(5),
+                listaSedes.add(new Sede(tabla.getString(1),
+                        tabla.getString(2),
+                        tabla.getString(3),
+                        tabla.getString(4),
+                        tabla.getInt(5),
                         tabla.getString(6)));                
             }        
         } 
@@ -53,27 +49,29 @@ public class SedeDAO
         Sede sede = null;
         conexionBD.conectar();
         if (conexionBD.conexion != null){
-            if (!existSede(sede_numero)){
-                String query = "SELECT * "
-                        + "FROM sede "
-                        + "WHERE sede_numero='"+sede_numero+"'";
-                try{
-                    Statement st = conexionBD.conexion.createStatement();
-                    ResultSet tabla = st.executeQuery(query);
+            String query = "SELECT * "
+                    + "FROM sede "
+                    + "WHERE sede_numero='"+sede_numero+"'";
+            try{
+                Statement st = conexionBD.conexion.createStatement();
+                ResultSet tabla = st.executeQuery(query);
 
-                    if (tabla.next())
-                    {
-                        sede = new Sede(
-                                tabla.getString(1), tabla.getString(2),
-                                tabla.getString(3), tabla.getString(4),
-                                tabla.getString(5), tabla.getString(6));
+                if (tabla.next())
+                {
+                    sede = new Sede(
+                            tabla.getString(1),
+                            tabla.getString(2),
+                            tabla.getString(3),
+                            tabla.getString(4),
+                            tabla.getInt(5),
+                            tabla.getString(6));
 
-                    }
-                }catch (SQLException e){
-                    e.printStackTrace();
-                    //Logger.getLogger(ConsultasBD.class.getName()).log(Level.SEVERE, null, ex);
                 }
+            }catch (SQLException e){
+                e.printStackTrace();
+                //Logger.getLogger(ConsultasBD.class.getName()).log(Level.SEVERE, null, ex);
             }
+
             conexionBD.cerrarConexion();
         }
         return sede;
@@ -113,29 +111,52 @@ public class SedeDAO
         return exitoso;
     }
     
-    public void modificarSede(Sede sede)
+    public boolean modificarSede(Sede sede)
     {
+        boolean exito = true;
         conexionBD.conectar();
-        String query = "UPDATE sede SET "
-                //+ "sede_numero='" + sede.getNumero()+"', "
-                + "sede_nombre='" + sede.getNombre()+"', "
-                + "sede_gerente='" + sede.getGerente()+"', "
-                + "sede_presupuesto='" + sede.getPresupuesto()+"', "
-                + "sede_cant_camiones='" + sede.getCamiones()+"', "
-                + "sede_direccion='" + sede.getDireccion() + "' "
-                + "WHERE sede_numero='"+sede.getNumero()+"'";
+        String query = "UPDATE sede SET " +
+                "sede_nombre = ?," +
+                "sede_gerente = ?," +
+                "sede_presupuesto = ?," +
+                "sede_cant_camiones = ?," +
+                "sede_direccion = ?" +
+                "WHERE sede_numero = ?";
         
         try
         {
-            Statement st = conexionBD.conexion.createStatement();
-            int tabla = st.executeUpdate(query);
-            
-        } 
+            PreparedStatement preparedStatement = conexionBD.conexion.prepareStatement(query);
+            if (!sede.getNombre().isEmpty()){
+                preparedStatement.setString(1, sede.getNombre());
+            }else {
+                preparedStatement.setNull(1, Types.VARCHAR);
+            }
+            if (!sede.getGerente().isEmpty()){
+                preparedStatement.setString(2, sede.getGerente());
+            }else {
+                preparedStatement.setNull(2, Types.VARCHAR);
+            }
+            if (!sede.getPresupuesto().isEmpty()){
+                preparedStatement.setString(3, sede.getPresupuesto());
+            }else {
+                preparedStatement.setNull(3, Types.VARCHAR);
+            }
+            preparedStatement.setInt(4, sede.getCamiones());
+            if (!sede.getDireccion().isEmpty()){
+                preparedStatement.setString(5, sede.getDireccion());
+            }else {
+                preparedStatement.setNull(3, Types.VARCHAR);
+            }
+            preparedStatement.setString(6, sede.getNumero());
+            preparedStatement.executeUpdate();
+
+        }
         catch (SQLException ex) 
         {
-            //Logger.getLogger(ConsultasBD.class.getName()).log(Level.SEVERE, null, ex);
+            exito = false;
         }
         conexionBD.cerrarConexion();
+        return exito;
     }
 
     public boolean existSede(String numSede){

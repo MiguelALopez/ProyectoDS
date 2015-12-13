@@ -21,7 +21,7 @@ public class Sede
     private String nombre;
     private String gerente;    
     private String presupuesto;
-    private String camiones;
+    private int camiones;
     private String direccion;
 
     /**
@@ -33,7 +33,7 @@ public class Sede
         this.nombre = null;
         this.gerente = null;        
         this.presupuesto = null;
-        this.camiones = null;
+        this.camiones = 0;
         this.direccion = null;
     }
 
@@ -53,7 +53,7 @@ public class Sede
      * @param gerente
      */
 
-    public Sede(String numero, String nombre, String gerente, String presupuesto, String camiones, String direccion) 
+    public Sede(String numero, String nombre, String gerente, String presupuesto, int camiones, String direccion)
     {
         this.numero = numero;
         this.nombre = nombre;
@@ -100,11 +100,11 @@ public class Sede
         this.presupuesto = presupuesto;
     }
 
-    public String getCamiones() {
+    public int getCamiones() {
         return camiones;
     }
 
-    public void setCamiones(String camiones) {
+    public void setCamiones(int camiones) {
         this.camiones = camiones;
     }
 

@@ -10,8 +10,11 @@
  */
 package Controlador;
 
+import Modelo.Sede;
+import Modelo.SedeDAO;
 import Vista.ModificarSede;
 
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -37,6 +40,9 @@ public class ModificarSede_Eventos {
                     public void actionPerformed(ActionEvent e) {
                         boolean existe = buscarSede(modificarSede.getTextNumSede().getText());
                         modificarSede.enableText(existe);
+                        if (!existe){
+                            JOptionPane.showMessageDialog(null, "La sede no existe");
+                        }
                     }
                 }
         );
@@ -45,7 +51,11 @@ public class ModificarSede_Eventos {
                 new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        modificarSede();
+                        if (verificarCampos()) {
+                            modificarSede();
+                        }else {
+                            JOptionPane.showMessageDialog(null, "Por favor llenar todos los campos necesarios");
+                        }
                     }
                 }
         );
@@ -58,12 +68,36 @@ public class ModificarSede_Eventos {
      */
     public boolean buscarSede(String numeroSede){
         boolean existe = false;
-
+        SedeDAO sedeDAO = new SedeDAO();
+        Sede sede = sedeDAO.consultarSedeEspecifico(numeroSede);
+        if (sede!=null){
+            modificarSede.getTextNameSede().setText(sede.getNombre());
+            modificarSede.getTextAddress().setText(sede.getDireccion());
+            modificarSede.getTextManager().setText(sede.getGerente());
+            modificarSede.getTextBudget().setText(sede.getPresupuesto());
+            modificarSede.getTextNumTruck().setText(Integer.toString(sede.getCamiones()));
+            existe = true;
+        }
         return existe;
     }
 
     public void modificarSede() {
+        boolean exito = true;
+        Sede sede= new Sede();
 
+        sede.setNumero(modificarSede.getTextNumSede().getText());
+        sede.setNombre(modificarSede.getTextNameSede().getText());
+        sede.setDireccion(modificarSede.getTextAddress().getText());
+        sede.setGerente(modificarSede.getTextManager().getText());
+        sede.setPresupuesto(modificarSede.getTextBudget().getText());
+        sede.setCamiones(Integer.parseInt(modificarSede.getTextNumTruck().getText()));
+
+        exito = new SedeDAO().modificarSede(sede);
+        if (exito){
+            JOptionPane.showMessageDialog(null, "La sede fue modificada con exito");
+        }else {
+            JOptionPane.showMessageDialog(null, "Error al modificar la sede");
+        }
     }
 
     // Metodo encargado de hacer la ventana invisible y llamar al metodo limpiarCampos
@@ -73,12 +107,25 @@ public class ModificarSede_Eventos {
     }
 
     // Metodo encergado de limpiar los campos de la ventana
-    private void limpiarCampos(){
+    public void limpiarCampos(){
         modificarSede.getTextNumSede().setText("");
         modificarSede.getTextNameSede().setText("");
         modificarSede.getTextAddress().setText("");
         modificarSede.getTextManager().setText("");
         modificarSede.getTextBudget().setText("");
         modificarSede.getTextNumTruck().setText("");
+    }
+
+    public boolean verificarCampos(){
+        boolean exito = true;
+
+        if (modificarSede.getTextNumSede().getText().isEmpty() ||
+                modificarSede.getTextNameSede().getText().isEmpty() ||
+                modificarSede.getTextAddress().getText().isEmpty() ||
+                modificarSede.getTextNumTruck().getText().isEmpty()){
+            exito = false;
+
+        }
+        return exito;
     }
 }
