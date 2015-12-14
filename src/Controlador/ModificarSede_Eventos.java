@@ -22,7 +22,7 @@ public class ModificarSede_Eventos {
 
     private ModificarSede modificarSede;
 
-    public ModificarSede_Eventos(ModificarSede modificarSede) {
+    public ModificarSede_Eventos(final ModificarSede modificarSede) {
         this.modificarSede = modificarSede;
 
         this.modificarSede.getButtonCancel().addActionListener(
