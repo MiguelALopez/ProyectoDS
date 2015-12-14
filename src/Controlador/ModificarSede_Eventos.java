@@ -2,18 +2,18 @@
  * Autor: Camilo Ruiz Casanova - 1324486
  * Autor: Miguel Angel Lopez - 1326691
  * Autor: Andres Felipe Polanco - 1324539
- * Fecha: 20-oct-2015
- * Nombre del Archivo: ModificarSede_Eventos.java
+ * Autor: Cristian Camilo Jurado - 1324366
+ * Fecha: 09-oct-2015
+ * Nombre del Archivo: .java
  * Plan: Ingeniería de Sistemas - 3743
- * Institución Educativa: Universidad del Valle (Cali - Colombia)
- * *********************************************
- */
+ * Institución Educativa: Universidad del Valle
+ **********************************************/
+
 package Controlador;
 
 import Modelo.Sede;
 import Modelo.SedeDAO;
 import Vista.ModificarSede;
-
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

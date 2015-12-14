@@ -1,8 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+/***********************************************
+ * Autor: Camilo Ruiz Casanova - 1324486
+ * Autor: Miguel Angel Lopez - 1326691
+ * Autor: Andres Felipe Polanco - 1324539
+ * Autor: Cristian Camilo Jurado - 1324366
+ * Fecha: 09-oct-2015
+ * Nombre del Archivo: .java
+ * Plan: Ingeniería de Sistemas - 3743
+ * Institución Educativa: Universidad del Valle
+ **********************************************/
+
 package Modelo;
 
 import java.sql.PreparedStatement;
@@ -15,7 +21,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author AndrésFelipe
+ * @author AndresFelipe
  */
 public class UsuarioDAO 
 {
@@ -46,7 +52,7 @@ public class UsuarioDAO
         } 
         catch (SQLException ex) 
         {
-            Logger.getLogger(ConsultasBD.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         conexionBD.cerrarConexion();
@@ -81,7 +87,7 @@ public class UsuarioDAO
         } 
         catch (SQLException ex) 
         {
-            Logger.getLogger(ConsultasBD.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         conexionBD.cerrarConexion();
@@ -185,7 +191,7 @@ public class UsuarioDAO
         } 
         catch (SQLException ex) 
         {
-            Logger.getLogger(ConsultasBD.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         conexionBD.cerrarConexion();
@@ -303,7 +309,7 @@ public class UsuarioDAO
         } 
         catch (SQLException ex) 
         {
-            Logger.getLogger(ConsultasBD.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         conexionBD.cerrarConexion();

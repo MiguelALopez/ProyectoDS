@@ -1,19 +1,25 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+/***********************************************
+ * Autor: Camilo Ruiz Casanova - 1324486
+ * Autor: Miguel Angel Lopez - 1326691
+ * Autor: Andres Felipe Polanco - 1324539
+ * Autor: Cristian Camilo Jurado - 1324366
+ * Fecha: 09-oct-2015
+ * Nombre del Archivo: .java
+ * Plan: Ingeniería de Sistemas - 3743
+ * Institución Educativa: Universidad del Valle
+ **********************************************/
+
 package Controlador;
 
 import Vista.ConsultarPQR;
+import Modelo.PQR;
+import Modelo.PQRDAO;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import javax.swing.table.DefaultTableModel;
-import Modelo.PQR;
-import Modelo.PQRDAO;
 import java.awt.Color;
 
 /**

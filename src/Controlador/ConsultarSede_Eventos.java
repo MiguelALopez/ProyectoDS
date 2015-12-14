@@ -1,24 +1,21 @@
-/**
- * ********************************************
- * Autor: Miguel Angel Lopez Fernandez
- * Correo: miguel.angel.lopez@correounivalle.edu.co
- * Código: 1326691
- * Fecha: 20-oct-2015
- * Nombre del Archivo: ConsultarSede_Eventos.java
+/***********************************************
+ * Autor: Camilo Ruiz Casanova - 1324486
+ * Autor: Miguel Angel Lopez - 1326691
+ * Autor: Andres Felipe Polanco - 1324539
+ * Autor: Cristian Camilo Jurado - 1324366
+ * Fecha: 09-oct-2015
+ * Nombre del Archivo: .java
  * Plan: Ingeniería de Sistemas - 3743
- * Institución Educativa: Universidad del Valle (Cali - Colombia)
- * *********************************************
- */
+ * Institución Educativa: Universidad del Valle
+ **********************************************/
+
 package Controlador;
 
 import Modelo.Sede;
 import Modelo.SedeDAO;
 import Vista.ConsultarSede;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Vector;
 
@@ -38,28 +35,20 @@ public class ConsultarSede_Eventos {
                     }
                 }
         );
-
-
     }
 
-    public void cargarDatos(ArrayList<Sede> listaSedes){
-
-            for (int i = 0; i < listaSedes.size(); i++){
-                Vector<String> v = new Vector<>();
-                v.addElement(listaSedes.get(i).getNumero());
-                v.addElement(listaSedes.get(i).getNombre());
-                v.addElement(listaSedes.get(i).getGerente());
-                v.addElement(listaSedes.get(i).getDireccion());
-                consultarSede.getTableModelContent().addRow(v);
-            }
+    private void cargarDatos(ArrayList<Sede> listaSedes){
+        for (int i = 0; i < listaSedes.size(); i++){
+            Vector<String> v = new Vector<>();
+            v.addElement(listaSedes.get(i).getNumero());
+            v.addElement(listaSedes.get(i).getNombre());
+            v.addElement(listaSedes.get(i).getGerente());
+            v.addElement(listaSedes.get(i).getDireccion());
+            consultarSede.getTableModelContent().addRow(v);
+        }
     }
 
-    private void cerrarVentana() {
+    public void cerrarVentana() {
         consultarSede.setVisible(false);
-        limpiarCampos();
-    }
-
-    private void limpiarCampos() {
-
     }
 }
