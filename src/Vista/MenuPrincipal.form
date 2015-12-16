@@ -192,6 +192,7 @@
         <Component class="javax.swing.JButton" name="bCrearUsuario">
           <Properties>
             <Property name="text" type="java.lang.String" value="Crear Usuario"/>
+            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -200,6 +201,7 @@
         <Component class="javax.swing.JButton" name="bModificarUsuario">
           <Properties>
             <Property name="text" type="java.lang.String" value="Modificar Usuario"/>
+            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -208,6 +210,7 @@
         <Component class="javax.swing.JButton" name="bConsultarUsuarios">
           <Properties>
             <Property name="text" type="java.lang.String" value="Consultar Usuarios"/>
+            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -259,6 +262,7 @@
         <Component class="javax.swing.JButton" name="bCrearSede">
           <Properties>
             <Property name="text" type="java.lang.String" value="Crear Sede"/>
+            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -267,6 +271,7 @@
         <Component class="javax.swing.JButton" name="bModificarSede">
           <Properties>
             <Property name="text" type="java.lang.String" value="Modificar Sede"/>
+            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -275,6 +280,7 @@
         <Component class="javax.swing.JButton" name="bConsultarSedes">
           <Properties>
             <Property name="text" type="java.lang.String" value="Consultar Sedes"/>
+            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -323,6 +329,7 @@
         <Component class="javax.swing.JButton" name="bCrearPQR">
           <Properties>
             <Property name="text" type="java.lang.String" value="Realizar PQR"/>
+            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -331,6 +338,7 @@
         <Component class="javax.swing.JButton" name="bConsultarPQR">
           <Properties>
             <Property name="text" type="java.lang.String" value="Consultar PQR"/>
+            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -339,6 +347,7 @@
         <Component class="javax.swing.JButton" name="bResponderPQR">
           <Properties>
             <Property name="text" type="java.lang.String" value="Responder PQR"/>
+            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>

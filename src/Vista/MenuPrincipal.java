@@ -140,10 +140,13 @@ public class MenuPrincipal extends JFrame
         pGestionUsuarios.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Gestion de Usuarios", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
 
         bCrearUsuario.setText("Crear Usuario");
+        bCrearUsuario.setEnabled(false);
 
         bModificarUsuario.setText("Modificar Usuario");
+        bModificarUsuario.setEnabled(false);
 
         bConsultarUsuarios.setText("Consultar Usuarios");
+        bConsultarUsuarios.setEnabled(false);
 
         javax.swing.GroupLayout pGestionUsuariosLayout = new javax.swing.GroupLayout(pGestionUsuarios);
         pGestionUsuarios.setLayout(pGestionUsuariosLayout);
@@ -173,10 +176,13 @@ public class MenuPrincipal extends JFrame
         pGestionSedes.setPreferredSize(new java.awt.Dimension(155, 126));
 
         bCrearSede.setText("Crear Sede");
+        bCrearSede.setEnabled(false);
 
         bModificarSede.setText("Modificar Sede");
+        bModificarSede.setEnabled(false);
 
         bConsultarSedes.setText("Consultar Sedes");
+        bConsultarSedes.setEnabled(false);
 
         javax.swing.GroupLayout pGestionSedesLayout = new javax.swing.GroupLayout(pGestionSedes);
         pGestionSedes.setLayout(pGestionSedesLayout);
@@ -205,10 +211,13 @@ public class MenuPrincipal extends JFrame
         pPQR.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "PQR", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
 
         bCrearPQR.setText("Realizar PQR");
+        bCrearPQR.setEnabled(false);
 
         bConsultarPQR.setText("Consultar PQR");
+        bConsultarPQR.setEnabled(false);
 
         bResponderPQR.setText("Responder PQR");
+        bResponderPQR.setEnabled(false);
 
         javax.swing.GroupLayout pPQRLayout = new javax.swing.GroupLayout(pPQR);
         pPQR.setLayout(pPQRLayout);

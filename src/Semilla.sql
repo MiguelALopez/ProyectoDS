@@ -58,6 +58,9 @@ CREATE TABLE pqr
 INSERT INTO usuario (usuario_cedula, usuario_passwd, usuario_nombre, usuario_rol, usuario_estado)
 VALUES ('123', '123456', 'Miguel', 'Administrador', 'Activo');
 
+INSERT INTO usuario (usuario_cedula, usuario_passwd, usuario_nombre, usuario_rol, usuario_estado)
+VALUES ('456', 'holi', 'Andres', 'Secretaria', 'Activo');
+
 INSERT INTO sede(sede_numero, sede_nombre, sede_direccion)
     VALUES ('001', 'Melendez', 'Carrera 100');
 

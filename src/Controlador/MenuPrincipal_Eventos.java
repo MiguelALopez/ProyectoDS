@@ -209,6 +209,8 @@ public class MenuPrincipal_Eventos
                     {
                         case "Gerente":
                         {
+                            this.menuPrincipal.bConsultarPQR.setEnabled(true);
+                            
                             break;
                         }
 
@@ -229,11 +231,26 @@ public class MenuPrincipal_Eventos
 
                         case "Secretaria":
                         {
+                            this.menuPrincipal.bModificarUsuario.setEnabled(true);
+                            this.menuPrincipal.bConsultarUsuarios.setEnabled(true);
+                            this.menuPrincipal.bModificarSede.setEnabled(true);
+                            this.menuPrincipal.bConsultarSedes.setEnabled(true);
+                            this.menuPrincipal.bCrearPQR.setEnabled(true);
+                            this.menuPrincipal.bConsultarPQR.setEnabled(true);
+                            this.menuPrincipal.bResponderPQR.setEnabled(true);
+                            
                             break;
                         }
 
                         case "Administrador":
                         {
+                            this.menuPrincipal.bCrearUsuario.setEnabled(true);
+                            this.menuPrincipal.bModificarUsuario.setEnabled(true);
+                            this.menuPrincipal.bConsultarUsuarios.setEnabled(true);
+                            this.menuPrincipal.bCrearSede.setEnabled(true);
+                            this.menuPrincipal.bModificarSede.setEnabled(true);
+                            this.menuPrincipal.bConsultarSedes.setEnabled(true);
+                            
                             break;
                         }
 
@@ -267,5 +284,15 @@ public class MenuPrincipal_Eventos
         this.menuPrincipal.tfUsuario.setEnabled(true);
         this.menuPrincipal.pfClave.setEnabled(true);
         this.menuPrincipal.bIniciarSesion.setEnabled(true);
+        
+        this.menuPrincipal.bCrearUsuario.setEnabled(false);
+        this.menuPrincipal.bModificarUsuario.setEnabled(false);
+        this.menuPrincipal.bConsultarUsuarios.setEnabled(false);
+        this.menuPrincipal.bCrearSede.setEnabled(false);
+        this.menuPrincipal.bModificarSede.setEnabled(false);
+        this.menuPrincipal.bConsultarSedes.setEnabled(false);
+        this.menuPrincipal.bCrearPQR.setEnabled(false);
+        this.menuPrincipal.bConsultarPQR.setEnabled(false);
+        this.menuPrincipal.bResponderPQR.setEnabled(false);
     }
 }
