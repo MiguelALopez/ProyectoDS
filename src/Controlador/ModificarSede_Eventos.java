@@ -95,6 +95,7 @@ public class ModificarSede_Eventos {
         exito = new SedeDAO().modificarSede(sede);
         if (exito){
             JOptionPane.showMessageDialog(null, "La sede fue modificada con exito");
+            limpiarCampos();
         }else {
             JOptionPane.showMessageDialog(null, "Error al modificar la sede");
         }
@@ -114,6 +115,7 @@ public class ModificarSede_Eventos {
         modificarSede.getTextManager().setText("");
         modificarSede.getTextBudget().setText("");
         modificarSede.getTextNumTruck().setText("");
+        modificarSede.enableText(false);
     }
 
     public boolean verificarCampos(){

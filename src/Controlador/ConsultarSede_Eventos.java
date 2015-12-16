@@ -44,6 +44,8 @@ public class ConsultarSede_Eventos {
             v.addElement(listaSedes.get(i).getNombre());
             v.addElement(listaSedes.get(i).getGerente());
             v.addElement(listaSedes.get(i).getDireccion());
+            v.addElement(listaSedes.get(i).getPresupuesto());
+            v.addElement(Integer.toString(listaSedes.get(i).getCamiones()));
             consultarSede.getTableModelContent().addRow(v);
         }
     }

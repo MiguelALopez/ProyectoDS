@@ -17,17 +17,17 @@ import java.awt.*;
 
 public class ConsultarSede extends JFrame {
 
-    private JButton buttonView;
-    private JButton buttonEdit;
+//    private JButton buttonView;
+//    private JButton buttonEdit;
     private JButton buttonCancel;
-    private JTextField textNumSede;
+//    private JTextField textNumSede;
     private DefaultTableModel tableModelContent;
 
     public ConsultarSede() {
         super("Consultar Sede");
         setLayout(new GridBagLayout());
         initComponets();
-        setSize(700, 400);
+        setSize(900, 500);
     }
 
     public void initComponets(){
@@ -37,16 +37,18 @@ public class ConsultarSede extends JFrame {
         tableModelContent = new DefaultTableModel();
         JTable tableContent = new JTable(tableModelContent);
         JScrollPane scrollPane = new JScrollPane(tableContent);
-        buttonView = new JButton("Ver sede");
-        buttonEdit = new JButton("Modificar sede");
+//        buttonView = new JButton("Ver sede");
+//        buttonEdit = new JButton("Modificar sede");
         buttonCancel = new JButton("Cancelar");
-        textNumSede = new JTextField();
+//        textNumSede = new JTextField();
 
         // Se añaden las columnas de la tabla
         tableModelContent.addColumn("Numero de Sede");
         tableModelContent.addColumn("Nombre");
         tableModelContent.addColumn("Gerente a Cargo");
         tableModelContent.addColumn("Dierccion");
+        tableModelContent.addColumn("Presupuesto");
+        tableModelContent.addColumn("No Camiones");
 
         // Tabla con los elementos
         manageConst(c, 0, 0, 3, 1, 1, 1, 3, 3);
@@ -54,7 +56,7 @@ public class ConsultarSede extends JFrame {
         c.fill = GridBagConstraints.BOTH;
         add(scrollPane, c);
 
-        // Label con el numero de la sede
+        /*// Label con el numero de la sede
         manageConst(c, 0, 1, 1, 1, 0, 0, 3, 3);
         c.insets = new Insets(0, 30, 15, 0);
         c.anchor = GridBagConstraints.WEST;
@@ -64,7 +66,7 @@ public class ConsultarSede extends JFrame {
         manageConst(c, 1, 1, 2, 1, 0, 0, 3, 3);
         c.insets = new Insets(0, 20, 15, 30);
         c.fill = GridBagConstraints.HORIZONTAL;
-        add(textNumSede, c);
+        add(textNumSede, c);*/
 
         // button cancelar
         manageConst(c, 0, 2, 1, 1, 0, 0, 3, 3);
@@ -72,7 +74,7 @@ public class ConsultarSede extends JFrame {
         c.anchor = GridBagConstraints.WEST;
         add(buttonCancel, c);
 
-        //button modificar
+        /*//button modificar
         manageConst(c, 1, 2, 1, 1, 1, 0, 3, 3);
         c.insets = new Insets(0, 0, 15, 0);
         c.anchor = GridBagConstraints.EAST;
@@ -82,7 +84,7 @@ public class ConsultarSede extends JFrame {
         manageConst(c, 2, 2, 1, 1, 0, 0, 3, 3);
         c.insets = new Insets(0, 15, 15, 30);
         c.anchor = GridBagConstraints.EAST;
-        add(buttonView, c);
+        add(buttonView, c);*/
     }
 
     public void manageConst(GridBagConstraints c, int colX, int filY, int width, int heigth, int weightx, int weighty, int ipadx, int ipady) {
@@ -100,7 +102,7 @@ public class ConsultarSede extends JFrame {
     }
 
     // Getters and Setters
-    public JButton getButtonView() {
+    /*public JButton getButtonView() {
         return buttonView;
     }
 
@@ -114,7 +116,7 @@ public class ConsultarSede extends JFrame {
 
     public void setButtonEdit(JButton buttonEdit) {
         this.buttonEdit = buttonEdit;
-    }
+    }*/
 
     public JButton getButtonCancel() {
         return buttonCancel;
@@ -124,13 +126,13 @@ public class ConsultarSede extends JFrame {
         this.buttonCancel = buttonCancel;
     }
 
-    public JTextField getTextNumSede() {
+    /*public JTextField getTextNumSede() {
         return textNumSede;
     }
 
     public void setTextNumSede(JTextField textNumSede) {
         this.textNumSede = textNumSede;
-    }
+    }*/
 
     public DefaultTableModel getTableModelContent() {
         return tableModelContent;
