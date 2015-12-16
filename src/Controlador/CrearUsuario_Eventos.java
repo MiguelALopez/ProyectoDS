@@ -176,7 +176,7 @@ public class CrearUsuario_Eventos
         {
             try
             {
-                Integer.parseInt(usuario.getTelefono());
+                Long.parseLong(usuario.getTelefono());
             }
             catch (NumberFormatException ex)
             {
@@ -189,7 +189,7 @@ public class CrearUsuario_Eventos
         {
             try
             {
-                Integer.parseInt(usuario.getCelular());
+                Long.parseLong(usuario.getCelular());
             }
             catch (NumberFormatException ex)
             {

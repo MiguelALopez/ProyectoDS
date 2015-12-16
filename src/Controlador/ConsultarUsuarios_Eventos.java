@@ -120,18 +120,18 @@ public class ConsultarUsuarios_Eventos
             if (usuario != null)
             {
                 perfil = "\t\tInformacion del Usuario\t\t\t" + 
-                        "\n\nCedula:\t\t" + usuario.getCedula() + "\t\t" +
-                        "Nombre:\t" + usuario.getNombre() +
-                        "\n\nEstado:\t\t" + usuario.getEstado()+ "\t\t" +
-                        "Rol:\t" + usuario.getRol() +
-                        "\n\nFecha de Nacimiento:\t" + usuario.getFechaNacimiento() + "\t\t" +
-                        "Direccion:\t" + usuario.getDireccion() +
-                        "\n\nTelefono:\t\t" + usuario.getTelefono() + "\t\t" +
-                        "Celular:\t" + usuario.getCelular() +
-                        "\n\nFecha de Incorporacion:\t" + usuario.getFechaIncorporacion() + "\t\t" +
-                        "Salario:\t" + usuario.getSalario() +
-                        "\n\nCuenta:\t\t" + usuario.getCuenta() + "\t\t" +
-                        "Sede:\t" + usuario.getNumeroSede() +
+                        "\n\nCedula:\t\t\t" + usuario.getCedula() + "\t\t\t" +
+                        "Nombre:\t\t" + usuario.getNombre() + "\t" +
+                        "\n\nEstado:\t\t\t" + usuario.getEstado()+ "\t\t\t" +
+                        "Rol:\t\t" + usuario.getRol() + "\t" +
+                        "\n\nFecha de Nacimiento:\t" + usuario.getFechaNacimiento() + "\t\t\t" +
+                        "Direccion:\t" + usuario.getDireccion() + "\t" +
+                        "\n\nTelefono:\t\t\t" + usuario.getTelefono() + "\t\t" +
+                        "Celular:\t\t" + usuario.getCelular() + "\t" +
+                        "\n\nFecha de Incorporacion:\t" + usuario.getFechaIncorporacion() + "\t\t\t" +
+                        "Salario:\t\t" + usuario.getSalario() + "\t" +
+                        "\n\nCuenta:\t\t\t" + usuario.getCuenta() + "\t\t\t" +
+                        "Sede:\t\t" + usuario.getNumeroSede() + "\t" +
                         "\n";
                 
                 //System.out.println(perfil);
