@@ -88,7 +88,7 @@ public class CrearUsuario extends javax.swing.JFrame
 
         jLabel4.setText("Rol");
 
-        cbCargo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Gerente", "Contador", "Operador de Oficina", "Auxiliar de Operacion", "Secretaria" }));
+        cbCargo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Administrador", "Gerente", "Contador", "Operador de Oficina", "Auxiliar de Operacion", "Secretaria" }));
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 0, 0));

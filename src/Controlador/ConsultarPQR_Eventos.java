@@ -21,6 +21,10 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import javax.swing.table.DefaultTableModel;
 import java.awt.Color;
+import java.awt.GridLayout;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 /**
  *
@@ -117,26 +121,42 @@ public class ConsultarPQR_Eventos
             
             PQR pqr = pqrDAO.consultarPQR(numeroPQR);
             //PQR pqr = new PQR();
-
+                        
             if (pqr != null)
             {
-                perfil = "\tInformacion del PQR\t\t" + 
-                        "\n\nPQR N°:\t" + pqr.getNumero() +
-                        "\n\nCedula:\t" + pqr.getCedula() +
-                        "\n\nNombre:\t" + pqr.getNombre() +
-                        "\n\nSede:\t" + pqr.getSede() +
-                        "\n\nTipo:\t" + pqr.getTipo() +
-                        "\n\nEstado:\t" + pqr.getEstado() +
-                        "\n\nContenido:\n\n" + pqr.getContenido() + "\n";
+                JFrame fPerfil = new JFrame();
+                JPanel pPerfil = new JPanel(new GridLayout(7, 2, 5, 10));
+
+                pPerfil.add(new JLabel("PQR N°: "));
+                pPerfil.add(new JLabel(pqr.getNumero()));
+
+                pPerfil.add(new JLabel("Cedula: "));
+                pPerfil.add(new JLabel(pqr.getCedula()));
+
+                pPerfil.add(new JLabel("Nombre: "));
+                pPerfil.add(new JLabel(pqr.getNombre()));
+
+                pPerfil.add(new JLabel("Sede: "));
+                pPerfil.add(new JLabel(pqr.getSede()));
+
+                pPerfil.add(new JLabel("Tipo: "));
+                pPerfil.add(new JLabel(pqr.getTipo()));
+
+                pPerfil.add(new JLabel("Estado: "));
+                pPerfil.add(new JLabel(pqr.getEstado()));
+
+                pPerfil.add(new JLabel("Contenido: "));            
+                JTextArea area = new JTextArea(pqr.getContenido());
+                area.setEditable(false);
+                area.setOpaque(false);
+                area.setBackground(new Color(0,0,0,0));
+                pPerfil.add(area);
                 
-                //System.out.println(perfil);
-            }
-            
-            JTextArea area = new JTextArea(perfil);
-            area.setEditable(false);
-            area.setOpaque(false);
-            area.setBackground(new Color(0,0,0,0));
-            JOptionPane.showMessageDialog(consultarPQR, area, "PQR Detallado", JOptionPane.INFORMATION_MESSAGE);
+                fPerfil.add(pPerfil);
+                fPerfil.pack();
+                fPerfil.setLocationRelativeTo(null);
+                fPerfil.setVisible(true);
+            }       
         }
         else
         {

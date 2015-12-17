@@ -201,12 +201,13 @@
         <Component class="javax.swing.JComboBox" name="cbCargo">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="5">
-                <StringItem index="0" value="Gerente"/>
-                <StringItem index="1" value="Contador"/>
-                <StringItem index="2" value="Operador de Oficina"/>
-                <StringItem index="3" value="Auxiliar de Operacion"/>
-                <StringItem index="4" value="Secretaria"/>
+              <StringArray count="6">
+                <StringItem index="0" value="Administrador"/>
+                <StringItem index="1" value="Gerente"/>
+                <StringItem index="2" value="Contador"/>
+                <StringItem index="3" value="Operador de Oficina"/>
+                <StringItem index="4" value="Auxiliar de Operacion"/>
+                <StringItem index="5" value="Secretaria"/>
               </StringArray>
             </Property>
           </Properties>

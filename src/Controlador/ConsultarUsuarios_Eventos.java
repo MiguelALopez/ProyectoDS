@@ -14,12 +14,14 @@ package Controlador;
 import Modelo.Usuario;
 import Modelo.UsuarioDAO;
 import Vista.ConsultarUsuarios;
-import java.awt.Color;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JTextArea;
+import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -112,36 +114,56 @@ public class ConsultarUsuarios_Eventos
         if (row != -1)
         {
             String cedula = (String) consultarUsuarios.tUsuarios.getValueAt(row, 0);
-            String perfil = "";
             
             Usuario usuario = usuarioDAO.consultarUsuario(cedula);
-            //Usuario usuario = new Usuario();
+            //Usuario usuario = new Usuario();    
 
             if (usuario != null)
             {
-                perfil = "\t\tInformacion del Usuario\t\t\t" + 
-                        "\n\nCedula:\t\t\t" + usuario.getCedula() + "\t\t\t" +
-                        "Nombre:\t\t" + usuario.getNombre() + "\t" +
-                        "\n\nEstado:\t\t\t" + usuario.getEstado()+ "\t\t\t" +
-                        "Rol:\t\t" + usuario.getRol() + "\t" +
-                        "\n\nFecha de Nacimiento:\t" + usuario.getFechaNacimiento() + "\t\t\t" +
-                        "Direccion:\t" + usuario.getDireccion() + "\t" +
-                        "\n\nTelefono:\t\t\t" + usuario.getTelefono() + "\t\t" +
-                        "Celular:\t\t" + usuario.getCelular() + "\t" +
-                        "\n\nFecha de Incorporacion:\t" + usuario.getFechaIncorporacion() + "\t\t\t" +
-                        "Salario:\t\t" + usuario.getSalario() + "\t" +
-                        "\n\nCuenta:\t\t\t" + usuario.getCuenta() + "\t\t\t" +
-                        "Sede:\t\t" + usuario.getNumeroSede() + "\t" +
-                        "\n";
-                
-                //System.out.println(perfil);
+                JFrame fPerfil = new JFrame();
+                JPanel pPerfil = new JPanel(new GridLayout(6, 4, 5, 10));
+
+                pPerfil.add(new JLabel("Cedula: "));
+                pPerfil.add(new JLabel(usuario.getCedula()));
+
+                pPerfil.add(new JLabel("Nombre: "));
+                pPerfil.add(new JLabel(usuario.getNombre()));
+
+                pPerfil.add(new JLabel("Estado: "));
+                pPerfil.add(new JLabel(usuario.getEstado()));
+
+                pPerfil.add(new JLabel("Rol: "));
+                pPerfil.add(new JLabel(usuario.getRol()));
+
+                pPerfil.add(new JLabel("Fecha de Nacimiento: "));
+                pPerfil.add(new JLabel(usuario.getFechaNacimiento()));
+
+                pPerfil.add(new JLabel("Direccion: "));
+                pPerfil.add(new JLabel(usuario.getDireccion()));
+
+                pPerfil.add(new JLabel("Telefono: "));
+                pPerfil.add(new JLabel(usuario.getTelefono()));
+
+                pPerfil.add(new JLabel("Celular: "));
+                pPerfil.add(new JLabel(usuario.getCelular()));
+
+                pPerfil.add(new JLabel("Fecha de Incorporacion: "));
+                pPerfil.add(new JLabel(usuario.getFechaIncorporacion()));
+
+                pPerfil.add(new JLabel("Salario: "));
+                pPerfil.add(new JLabel(usuario.getSalario()));
+
+                pPerfil.add(new JLabel("Cuenta: "));
+                pPerfil.add(new JLabel(usuario.getCuenta()));
+
+                pPerfil.add(new JLabel("Sede: "));
+                pPerfil.add(new JLabel(usuario.getNumeroSede()));
+
+                fPerfil.add(pPerfil);
+                fPerfil.pack();
+                fPerfil.setLocationRelativeTo(null);
+                fPerfil.setVisible(true);
             }
-                        
-            JTextArea area = new JTextArea(perfil);
-            area.setEditable(false);
-            area.setOpaque(false);
-            area.setBackground(new Color(0,0,0,0));
-            JOptionPane.showMessageDialog(consultarUsuarios, area, "Perfil de Usuario", JOptionPane.INFORMATION_MESSAGE);
         }
         else
         {
