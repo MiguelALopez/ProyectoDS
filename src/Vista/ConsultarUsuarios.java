@@ -43,8 +43,10 @@ public class ConsultarUsuarios extends javax.swing.JFrame
 
         setTitle("Consultar Usuarios");
 
+        bCerrar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         bCerrar.setText("Cerrar");
 
+        bVerPerfil.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         bVerPerfil.setText("Ver Perfil Completo");
 
         tUsuarios.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -79,6 +81,7 @@ public class ConsultarUsuarios extends javax.swing.JFrame
             .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 286, Short.MAX_VALUE)
         );
 
+        bActualizar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         bActualizar.setText("Actualizar Lista");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

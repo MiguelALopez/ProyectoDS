@@ -96,16 +96,27 @@ public class ModificarUsuario extends javax.swing.JFrame
 
         setTitle("Modificar Usuario");
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos de Ingreso al Sistema", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos de Ingreso al Sistema", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 12))); // NOI18N
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel1.setText("Cedula");
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel2.setText("Contraseña");
 
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel3.setText("Repetir Contraseña");
 
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel4.setText("Rol");
 
+        tfCedula.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+
+        pfClave.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+
+        pfVerificarClave.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+
+        cbCargo.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         cbCargo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Administrador", "Gerente", "Contador", "Operador de Oficina", "Auxiliar de Operacion", "Secretaria" }));
 
         jLabel16.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -157,7 +168,7 @@ public class ModificarUsuario extends javax.swing.JFrame
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(pfVerificarClave)
                     .addComponent(pfClave, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -184,34 +195,60 @@ public class ModificarUsuario extends javax.swing.JFrame
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos Personales", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos Personales", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 12))); // NOI18N
 
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel5.setText("Nombre");
 
+        tfNombre.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel6.setText("Fecha de Incorporacion");
 
+        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel7.setText("Fecha de Nacimiento");
 
         ftfFechaNacimiento.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("dd/MM/yyyy"))));
+        ftfFechaNacimiento.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
+        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel8.setText("Direccion");
 
+        tfDireccion.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel9.setText("Telefono");
 
+        tfTelefono.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+
+        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel10.setText("Celular");
 
-        ftfFechaIncorporacion.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("dd/MM/yyyy"))));
+        tfCelular.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
+        ftfFechaIncorporacion.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("dd/MM/yyyy"))));
+        ftfFechaIncorporacion.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+
+        jLabel11.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel11.setText("Salario");
 
+        tfSalario.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+
+        jLabel12.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel12.setText("Numero de Cuenta");
 
+        tfNumeroCuenta.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+
+        jLabel13.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel13.setText("Estado");
 
+        cbEstado.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         cbEstado.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Activo", "Inactivo" }));
 
+        jLabel15.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel15.setText("Sede");
 
+        cbSedes.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         cbSedes.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " " }));
 
         jLabel20.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -243,9 +280,9 @@ public class ModificarUsuario extends javax.swing.JFrame
                                     .addComponent(tfNombre, javax.swing.GroupLayout.Alignment.LEADING))
                                 .addComponent(jLabel8)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(ftfFechaNacimiento, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+                                    .addComponent(ftfFechaNacimiento, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                        .addGap(18, 18, Short.MAX_VALUE)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel6)
                             .addComponent(jLabel9)
@@ -254,7 +291,7 @@ public class ModificarUsuario extends javax.swing.JFrame
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(tfTelefono, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
                                 .addComponent(tfCelular, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                        .addGap(18, 18, Short.MAX_VALUE)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel13)
@@ -323,15 +360,21 @@ public class ModificarUsuario extends javax.swing.JFrame
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        bModificarUsuario.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         bModificarUsuario.setText("Modificar Usuario");
 
+        bCancelar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         bCancelar.setText("Cancelar");
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
+        jLabel14.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel14.setText("Usuario (C.C.)");
 
+        bBuscarCedula.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         bBuscarCedula.setText("Buscar");
+
+        tfBuscarCedula.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);

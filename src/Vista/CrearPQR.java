@@ -65,24 +65,36 @@ public class CrearPQR extends javax.swing.JFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
+        Lpqrn.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         Lpqrn.setText("PQR N°");
 
+        LCedula.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         LCedula.setText("Cedula");
 
+        TPqrn.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+
+        ComboTipo.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         ComboTipo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Peticion", "Queja", "Reclamo" }));
 
+        LTipo.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         LTipo.setText("Tipo de PQR");
 
+        TCedula.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         TCedula.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TCedulaActionPerformed(evt);
             }
         });
 
+        LNombre.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         LNombre.setText("Nombre");
 
+        TNombre.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+
+        LSede.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         LSede.setText("Sede");
 
+        cbSedes.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         cbSedes.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " " }));
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -171,16 +183,20 @@ public class CrearPQR extends javax.swing.JFrame {
 
         LNombre.getAccessibleContext().setAccessibleName("LNombre");
 
+        bSalir.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         bSalir.setText("Salir");
 
+        bEnviar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         bEnviar.setText("Enviar");
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
+        LContenido.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         LContenido.setText("Contenido");
 
         TContenido.setColumns(20);
-        TContenido.setRows(5);
+        TContenido.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        TContenido.setRows(7);
         jScrollPane1.setViewportView(TContenido);
 
         jLabel18.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -289,13 +305,10 @@ public class CrearPQR extends javax.swing.JFrame {
     public javax.swing.JTextArea TContenido;
     public javax.swing.JTextField TNombre;
     public javax.swing.JTextField TPqrn;
-    public javax.swing.JButton bBuscarCedula;
-    public javax.swing.JButton bBuscarCedula1;
     public javax.swing.JButton bEnviar;
     public javax.swing.JButton bSalir;
     public javax.swing.JComboBox cbSedes;
     private javax.swing.Box.Filler filler1;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
@@ -305,12 +318,7 @@ public class CrearPQR extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
-    public javax.swing.JTextField tfBuscarCedula;
-    public javax.swing.JTextField tfBuscarCedula1;
     // End of variables declaration//GEN-END:variables
 }

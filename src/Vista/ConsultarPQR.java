@@ -35,6 +35,7 @@ public class ConsultarPQR extends javax.swing.JFrame {
         bVerPQR = new javax.swing.JButton();
         bActualizarPQR = new javax.swing.JButton();
 
+        bCerrar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         bCerrar.setText("Cerrar");
 
         tPQR.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -69,8 +70,10 @@ public class ConsultarPQR extends javax.swing.JFrame {
             .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 286, Short.MAX_VALUE)
         );
 
+        bVerPQR.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         bVerPQR.setText("Ver PQR Completo");
 
+        bActualizarPQR.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         bActualizarPQR.setText("Actualizar Lista");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

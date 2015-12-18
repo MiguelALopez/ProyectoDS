@@ -66,34 +66,46 @@ public class ResponderPQR extends javax.swing.JFrame
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
+        Lpqrn.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         Lpqrn.setText("PQR N°");
 
+        LCedula.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         LCedula.setText("Cedula");
 
         tfNumeroPQR.setEditable(false);
+        tfNumeroPQR.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
+        LTipo.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         LTipo.setText("Tipo de PQR");
 
         tfCedula.setEditable(false);
+        tfCedula.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         tfCedula.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfCedulaActionPerformed(evt);
             }
         });
 
+        LNombre.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         LNombre.setText("Nombre");
 
         tfNombre.setEditable(false);
+        tfNombre.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
+        LSede.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         LSede.setText("Sede");
 
         tfSede.setEditable(false);
+        tfSede.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
         tfTipo.setEditable(false);
+        tfTipo.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel1.setText("Estado");
 
         tfEstado.setEditable(false);
+        tfEstado.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -148,24 +160,30 @@ public class ResponderPQR extends javax.swing.JFrame
 
         LNombre.getAccessibleContext().setAccessibleName("LNombre");
 
+        bSalir.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         bSalir.setText("Salir");
 
+        bEnviar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         bEnviar.setText("Enviar");
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
+        LContenido.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         LContenido.setText("Contenido");
 
         taContenido.setEditable(false);
         taContenido.setColumns(20);
-        taContenido.setRows(5);
+        taContenido.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        taContenido.setRows(6);
         jScrollPane1.setViewportView(taContenido);
 
+        LContenido2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         LContenido2.setText("Respuesta");
 
         taRespuesta.setEditable(false);
         taRespuesta.setColumns(20);
-        taRespuesta.setRows(5);
+        taRespuesta.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        taRespuesta.setRows(6);
         jScrollPane3.setViewportView(taRespuesta);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -200,9 +218,13 @@ public class ResponderPQR extends javax.swing.JFrame
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
+        jLabel14.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel14.setText("PQR N°");
 
+        bBuscarPQR.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         bBuscarPQR.setText("Buscar");
+
+        tfBuscarPQR.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
