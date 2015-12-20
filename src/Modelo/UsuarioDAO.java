@@ -102,7 +102,7 @@ public class UsuarioDAO
         
         String query = "INSERT INTO usuario (usuario_cedula, usuario_passwd, usuario_nombre, usuario_rol, usuario_estado, "
                 + "usuario_fecha_nacimiento, usuario_direccion, usuario_telefono, usuario_celular, usuario_fecha_incorporacion, "
-                + "usuario_salario, usuario_cuenta, usuario_sede_numero) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                + "usuario_salario, usuario_cuenta, usuario_sede_numero) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?);";
         
         try
         {
