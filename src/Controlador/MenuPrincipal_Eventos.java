@@ -25,13 +25,11 @@ import javax.swing.JOptionPane;
  */
 public class MenuPrincipal_Eventos 
 {
-    private MenuPrincipal menuPrincipal;
-    private UsuarioDAO usuarioDAO;
+    private final MenuPrincipal menuPrincipal;
     
     public MenuPrincipal_Eventos(final MenuPrincipal menuPrincipal)
     {
         this.menuPrincipal = menuPrincipal;
-        this.usuarioDAO = new UsuarioDAO();
         
         this.menuPrincipal.bIniciarSesion.addActionListener(
             new ActionListener()
@@ -61,10 +59,10 @@ public class MenuPrincipal_Eventos
                 @Override
                 public void actionPerformed(ActionEvent ae) 
                 {
-                    menuPrincipal.crearUsuario = new CrearUsuario();
-                    menuPrincipal.crearUsuario_Eventos = new CrearUsuario_Eventos(menuPrincipal.crearUsuario);
-                    menuPrincipal.crearUsuario.setLocationRelativeTo(null);
-                    menuPrincipal.crearUsuario.setVisible(true);
+                    CrearUsuario cu = new CrearUsuario();
+                    CrearUsuario_Eventos cue = new CrearUsuario_Eventos(cu);
+                    cu.setLocationRelativeTo(null);
+                    cu.setVisible(true);
                 }                
             }
         );
@@ -75,10 +73,10 @@ public class MenuPrincipal_Eventos
                 @Override
                 public void actionPerformed(ActionEvent ae) 
                 {
-                    menuPrincipal.modificarUsuario = new ModificarUsuario();
-                    menuPrincipal.modificarUsuario_Eventos = new ModificarUsuario_Eventos(menuPrincipal.modificarUsuario);
-                    menuPrincipal.modificarUsuario.setLocationRelativeTo(null);
-                    menuPrincipal.modificarUsuario.setVisible(true);
+                    ModificarUsuario mu = new ModificarUsuario();
+                    ModificarUsuario_Eventos mue = new ModificarUsuario_Eventos(mu);
+                    mu.setLocationRelativeTo(null);
+                    mu.setVisible(true);
                 }                
             }
         );
@@ -89,10 +87,10 @@ public class MenuPrincipal_Eventos
                 @Override
                 public void actionPerformed(ActionEvent ae) 
                 {
-                    menuPrincipal.consultarUsuarios = new ConsultarUsuarios();
-                    menuPrincipal.consultarUsuarios_Eventos = new ConsultarUsuarios_Eventos(menuPrincipal.consultarUsuarios);
-                    menuPrincipal.consultarUsuarios.setLocationRelativeTo(null);
-                    menuPrincipal.consultarUsuarios.setVisible(true);
+                    ConsultarUsuarios cu = new ConsultarUsuarios();
+                    ConsultarUsuarios_Eventos cue = new ConsultarUsuarios_Eventos(cu);
+                    cu.setLocationRelativeTo(null);
+                    cu.setVisible(true);
                 }                
             }
         );
@@ -101,10 +99,10 @@ public class MenuPrincipal_Eventos
                 new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        menuPrincipal.crearSede = new CrearSede();
-                        menuPrincipal.crearSede_Eventos = new CrearSede_Eventos(menuPrincipal.crearSede);
-                        menuPrincipal.crearSede.setLocationRelativeTo(null);
-                        menuPrincipal.crearSede.setVisible(true);
+                        CrearSede cs = new CrearSede();
+                        CrearSede_Eventos cse = new CrearSede_Eventos(cs);
+                        cs.setLocationRelativeTo(null);
+                        cs.setVisible(true);
                     }
                 }
         );
@@ -113,10 +111,10 @@ public class MenuPrincipal_Eventos
                 new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        menuPrincipal.modificarSede = new ModificarSede();
-                        menuPrincipal.modificarSede_Eventos = new ModificarSede_Eventos(menuPrincipal.modificarSede);
-                        menuPrincipal.modificarSede.setLocationRelativeTo(null);
-                        menuPrincipal.modificarSede.setVisible(true);
+                        ModificarSede ms = new ModificarSede();
+                        ModificarSede_Eventos mse = new ModificarSede_Eventos(ms);
+                        ms.setLocationRelativeTo(null);
+                        ms.setVisible(true);
                     }
                 }
         );
@@ -125,10 +123,10 @@ public class MenuPrincipal_Eventos
                 new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        menuPrincipal.consultarSede = new ConsultarSede();
-                        menuPrincipal.consultarSede_Eventos = new ConsultarSede_Eventos(menuPrincipal.consultarSede);
-                        menuPrincipal.consultarSede.setLocationRelativeTo(null);
-                        menuPrincipal.consultarSede.setVisible(true);
+                        ConsultarSede cs = new ConsultarSede();
+                        ConsultarSede_Eventos cse = new ConsultarSede_Eventos(cs);
+                        cs.setLocationRelativeTo(null);
+                        cs.setVisible(true);
                     }
                 }
         );
@@ -139,10 +137,10 @@ public class MenuPrincipal_Eventos
                 @Override
                 public void actionPerformed(ActionEvent ae) 
                 {
-                    menuPrincipal.crearPQR = new CrearPQR();
-                    menuPrincipal.crearPQR_Eventos = new CrearPQR_Eventos(menuPrincipal.crearPQR);
-                    menuPrincipal.crearPQR.setLocationRelativeTo(null);
-                    menuPrincipal.crearPQR.setVisible(true);                    
+                    CrearPQR cp = new CrearPQR();
+                    CrearPQR_Eventos cpe = new CrearPQR_Eventos(cp);
+                    cp.setLocationRelativeTo(null);
+                    cp.setVisible(true);
                 }                
             }
         ); 
@@ -153,10 +151,10 @@ public class MenuPrincipal_Eventos
                 @Override
                 public void actionPerformed(ActionEvent ae) 
                 {
-                    menuPrincipal.consultarPQR = new ConsultarPQR();
-                    menuPrincipal.consultarPQR_Eventos = new ConsultarPQR_Eventos(menuPrincipal.consultarPQR);
-                    menuPrincipal.consultarPQR.setLocationRelativeTo(null);
-                    menuPrincipal.consultarPQR.setVisible(true);
+                    ConsultarPQR cp = new ConsultarPQR();
+                    ConsultarPQR_Eventos cpe = new ConsultarPQR_Eventos(cp);
+                    cp.setLocationRelativeTo(null);
+                    cp.setVisible(true);
                 }                
             }
         );
@@ -167,10 +165,10 @@ public class MenuPrincipal_Eventos
                 @Override
                 public void actionPerformed(ActionEvent ae) 
                 {
-                    menuPrincipal.responderPQR = new ResponderPQR();
-                    menuPrincipal.responderPQR_Eventos = new ResponderPQR_Eventos(menuPrincipal.responderPQR);
-                    menuPrincipal.responderPQR.setLocationRelativeTo(null);
-                    menuPrincipal.responderPQR.setVisible(true);
+                    ResponderPQR rp = new ResponderPQR();
+                    ResponderPQR_Eventos rpe = new ResponderPQR_Eventos(rp);
+                    rp.setLocationRelativeTo(null);
+                    rp.setVisible(true);
                 }                
             }
         ); 
@@ -181,7 +179,7 @@ public class MenuPrincipal_Eventos
         String cedula = this.menuPrincipal.tfUsuario.getText();
         String passwd = String.valueOf(this.menuPrincipal.pfClave.getPassword());
         
-        Usuario usuario = usuarioDAO.consultarUsuario(cedula);
+        Usuario usuario = new UsuarioDAO().consultarUsuario(cedula);
         //prueba
 //        Usuario usuario = new Usuario();
 //        usuario.setCedula("123");

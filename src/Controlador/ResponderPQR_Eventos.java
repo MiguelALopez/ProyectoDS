@@ -24,13 +24,11 @@ import javax.swing.JOptionPane;
  */
 public class ResponderPQR_Eventos 
 {
-    private ResponderPQR responderPQR;
-    private PQRDAO pqrDAO;
+    private final ResponderPQR responderPQR;
     
     public ResponderPQR_Eventos(final ResponderPQR responderPQR)
     {
         this.responderPQR = responderPQR;
-        this.pqrDAO = new PQRDAO();
         
         responderPQR.bBuscarPQR.addActionListener(
                 new ActionListener()
@@ -87,7 +85,7 @@ public class ResponderPQR_Eventos
 
             if (op == JOptionPane.YES_OPTION)
             {
-                boolean resultado = pqrDAO.modificarPQR(pqr);
+                boolean resultado = new PQRDAO().modificarPQR(pqr);
                 //boolean resultado = false;
 
                 if (resultado)
@@ -116,7 +114,7 @@ public class ResponderPQR_Eventos
         {
             String numeroPQR = this.responderPQR.tfBuscarPQR.getText();
                 
-            PQR pqr = this.pqrDAO.consultarPQR(numeroPQR);
+            PQR pqr = new PQRDAO().consultarPQR(numeroPQR);
             //Usuario pqr = new Usuario();
 
             if (pqr != null)

@@ -27,15 +27,11 @@ import javax.swing.JOptionPane;
  */
 public class CrearPQR_Eventos 
 {
-    private CrearPQR crearPQR;
-    private PQRDAO pqrDAO;
-    private SedeDAO sedeDAO;
+    private final CrearPQR crearPQR;
     
     public CrearPQR_Eventos(final CrearPQR crearPQR) 
     {
         this.crearPQR = crearPQR;
-        this.pqrDAO = new PQRDAO();
-        this.sedeDAO = new SedeDAO();
         
         crearPQR.bSalir.addActionListener(
             new ActionListener() 
@@ -81,7 +77,7 @@ public class CrearPQR_Eventos
             
             if (op == JOptionPane.YES_OPTION)
             {
-                boolean resultado = pqrDAO.insertarPQR(nuevoPQR);
+                boolean resultado = new PQRDAO().insertarPQR(nuevoPQR);
         
                 if (resultado)
                 {
@@ -141,11 +137,11 @@ public class CrearPQR_Eventos
         this.crearPQR.TContenido.setText("");
     }
     
-    public void actualizarSedes()
+    private void actualizarSedes()
     {
         crearPQR.cbSedes.removeAllItems();
         
-        ArrayList<Sede> sedes = sedeDAO.consultarSedes();
+        ArrayList<Sede> sedes = new SedeDAO().consultarSedes();
         //ArrayList<Sede> sedes = new ArrayList();
         
         for (int i = 0; i < sedes.size(); i++) 

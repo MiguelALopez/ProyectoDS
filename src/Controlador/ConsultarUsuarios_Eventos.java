@@ -30,13 +30,11 @@ import javax.swing.table.DefaultTableModel;
  */
 public class ConsultarUsuarios_Eventos 
 {
-    private ConsultarUsuarios consultarUsuarios;
-    private UsuarioDAO usuarioDAO;
+    private final ConsultarUsuarios consultarUsuarios;
     
     public ConsultarUsuarios_Eventos(final ConsultarUsuarios consultarUsuarios)
     {
         this.consultarUsuarios = consultarUsuarios;
-        this.usuarioDAO = new UsuarioDAO();
         
         consultarUsuarios.bCerrar.addActionListener(
                 new ActionListener()
@@ -76,7 +74,7 @@ public class ConsultarUsuarios_Eventos
     
     private void consultarUsuarios()
     {
-        ArrayList<Usuario> usuarios = usuarioDAO.getListaUsuarios(); // aqui metodo DAO para obtener todos los usuarios de la BD
+        ArrayList<Usuario> usuarios = new UsuarioDAO().getListaUsuarios(); // aqui metodo DAO para obtener todos los usuarios de la BD
         //ArrayList<Usuario> usuarios = new ArrayList();
         
         // prueba
@@ -88,15 +86,18 @@ public class ConsultarUsuarios_Eventos
 //        usuarios.add(u1);
         // fin prueba
         
-        DefaultTableModel model = (DefaultTableModel) this.consultarUsuarios.tUsuarios.getModel();
-        model.setRowCount(usuarios.size());
-        
-        for (int i = 0; i < usuarios.size(); i++) 
+        if (usuarios != null)
         {
-            this.consultarUsuarios.tUsuarios.setValueAt(usuarios.get(i).getCedula(), i, 0);
-            this.consultarUsuarios.tUsuarios.setValueAt(usuarios.get(i).getNombre(), i, 1);
-            this.consultarUsuarios.tUsuarios.setValueAt(usuarios.get(i).getRol(), i, 2);
-            this.consultarUsuarios.tUsuarios.setValueAt(usuarios.get(i).getEstado(), i, 3);
+            DefaultTableModel model = (DefaultTableModel) this.consultarUsuarios.tUsuarios.getModel();
+            model.setRowCount(usuarios.size());
+        
+            for (int i = 0; i < usuarios.size(); i++) 
+            {
+                this.consultarUsuarios.tUsuarios.setValueAt(usuarios.get(i).getCedula(), i, 0);
+                this.consultarUsuarios.tUsuarios.setValueAt(usuarios.get(i).getNombre(), i, 1);
+                this.consultarUsuarios.tUsuarios.setValueAt(usuarios.get(i).getRol(), i, 2);
+                this.consultarUsuarios.tUsuarios.setValueAt(usuarios.get(i).getEstado(), i, 3);
+            }
         }
     }
     
@@ -115,7 +116,7 @@ public class ConsultarUsuarios_Eventos
         {
             String cedula = (String) consultarUsuarios.tUsuarios.getValueAt(row, 0);
             
-            Usuario usuario = usuarioDAO.consultarUsuario(cedula);
+            Usuario usuario = new UsuarioDAO().consultarUsuario(cedula);
             //Usuario usuario = new Usuario();    
 
             if (usuario != null)

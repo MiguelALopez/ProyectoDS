@@ -27,15 +27,11 @@ import javax.swing.JOptionPane;
  */
 public class ModificarUsuario_Eventos 
 {
-    private ModificarUsuario modificarUsuario;
-    private UsuarioDAO usuarioDAO;
-    private SedeDAO sedeDAO;
+    private final ModificarUsuario modificarUsuario;
     
     public ModificarUsuario_Eventos(final ModificarUsuario modificarUsuario)
     {
         this.modificarUsuario = modificarUsuario;
-        this.usuarioDAO = new UsuarioDAO();
-        this.sedeDAO = new SedeDAO();
         
         modificarUsuario.bBuscarCedula.addActionListener(
                 new ActionListener()
@@ -101,7 +97,7 @@ public class ModificarUsuario_Eventos
 
             if (op == JOptionPane.YES_OPTION)
             {
-                boolean resultado = usuarioDAO.modificarUsuario(usuario);
+                boolean resultado = new UsuarioDAO().modificarUsuario(usuario);
                 //boolean resultado = false;
 
                 if (resultado)
@@ -126,7 +122,7 @@ public class ModificarUsuario_Eventos
         {
             String cedula = this.modificarUsuario.tfBuscarCedula.getText();
                 
-            Usuario usuario = this.usuarioDAO.consultarUsuario(cedula);
+            Usuario usuario = new UsuarioDAO().consultarUsuario(cedula);
             //Usuario usuario = new Usuario();
 
             if (usuario != null)
@@ -161,7 +157,7 @@ public class ModificarUsuario_Eventos
     {
         modificarUsuario.cbSedes.removeAllItems();
         
-        ArrayList<Sede> sedes = sedeDAO.consultarSedes();
+        ArrayList<Sede> sedes = new SedeDAO().consultarSedes();
         //ArrayList<Sede> sedes = new ArrayList();
         
         for (int i = 0; i < sedes.size(); i++) 

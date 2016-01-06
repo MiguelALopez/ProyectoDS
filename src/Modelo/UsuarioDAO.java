@@ -31,13 +31,15 @@ public class UsuarioDAO
     {
         conexionBD.conectar();
         
-        ArrayList<Usuario> listaUsuarios = new ArrayList();
+        ArrayList<Usuario> listaUsuarios = null;
         String query = "SELECT * FROM usuario;";
         
         try
         {
             Statement st = conexionBD.conexion.createStatement();
             ResultSet tabla = st.executeQuery(query);
+            
+            listaUsuarios = new ArrayList();
             
             while (tabla.next())
             {
