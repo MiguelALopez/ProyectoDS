@@ -11,6 +11,7 @@
 
 package Vista;
 
+import Controlador.*;
 import javax.swing.JFrame;
 
 
