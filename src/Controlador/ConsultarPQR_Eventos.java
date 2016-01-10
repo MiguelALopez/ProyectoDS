@@ -32,13 +32,11 @@ import javax.swing.JPanel;
  */
 public class ConsultarPQR_Eventos 
 {
-        private ConsultarPQR consultarPQR;
-        private PQRDAO pqrDAO;
+        private final ConsultarPQR consultarPQR;
         
     public ConsultarPQR_Eventos(final ConsultarPQR consultarPQR)
     {
         this.consultarPQR = consultarPQR;
-        this.pqrDAO = new PQRDAO();
         
         consultarPQR.bCerrar.addActionListener(
                 new ActionListener()
@@ -76,9 +74,9 @@ public class ConsultarPQR_Eventos
         consultarPQR();
     }  
         
-    public void consultarPQR()  
+    private void consultarPQR()  
     {
-        ArrayList<PQR> listaPQR = pqrDAO.getListaPQR(); // aqui metodo DAO para obtener todos los PQR de la BD
+        ArrayList<PQR> listaPQR = new PQRDAO().getListaPQR(); // aqui metodo DAO para obtener todos los PQR de la BD
         //ArrayList<PQR> listaPQR = new ArrayList();
         
         // prueba
@@ -119,7 +117,7 @@ public class ConsultarPQR_Eventos
             String numeroPQR = (String) consultarPQR.tPQR.getValueAt(row, 0);
             String perfil = "";
             
-            PQR pqr = pqrDAO.consultarPQR(numeroPQR);
+            PQR pqr = new PQRDAO().consultarPQR(numeroPQR);
             //PQR pqr = new PQR();
                         
             if (pqr != null)

@@ -28,15 +28,29 @@ public class ConsultarPQR extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
         bCerrar = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
+        bActualizarPQR = new javax.swing.JButton();
+        bVerPQR = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tPQR = new javax.swing.JTable();
-        bVerPQR = new javax.swing.JButton();
-        bActualizarPQR = new javax.swing.JButton();
 
-        bCerrar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        setMinimumSize(new java.awt.Dimension(700, 400));
+        setPreferredSize(new java.awt.Dimension(700, 400));
+
+        jPanel1.setLayout(new java.awt.GridLayout(1, 3, 10, 0));
+
+        bCerrar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         bCerrar.setText("Cerrar");
+        jPanel1.add(bCerrar);
+
+        bActualizarPQR.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        bActualizarPQR.setText("Actualizar Lista");
+        jPanel1.add(bActualizarPQR);
+
+        bVerPQR.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        bVerPQR.setText("Ver PQR Completo");
+        jPanel1.add(bVerPQR);
 
         tPQR.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         tPQR.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -45,7 +59,7 @@ public class ConsultarPQR extends javax.swing.JFrame {
 
             },
             new String [] {
-                "N°PQR", "TIPO", "Cedula", "Estado"
+                "N°PQR", "TIPO", "CEDULA", "ESTADO"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -59,50 +73,25 @@ public class ConsultarPQR extends javax.swing.JFrame {
         tPQR.getTableHeader().setReorderingAllowed(false);
         jScrollPane2.setViewportView(tPQR);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 572, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 286, Short.MAX_VALUE)
-        );
-
-        bVerPQR.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        bVerPQR.setText("Ver PQR Completo");
-
-        bActualizarPQR.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        bActualizarPQR.setText("Actualizar Lista");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(bCerrar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(bActualizarPQR)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(bVerPQR))
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(bCerrar)
-                    .addComponent(bVerPQR)
-                    .addComponent(bActualizarPQR))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 336, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -116,7 +105,7 @@ public class ConsultarPQR extends javax.swing.JFrame {
     public javax.swing.JButton bActualizarPQR;
     public javax.swing.JButton bCerrar;
     public javax.swing.JButton bVerPQR;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
     public javax.swing.JTable tPQR;
     // End of variables declaration//GEN-END:variables

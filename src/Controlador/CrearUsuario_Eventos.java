@@ -27,15 +27,11 @@ import javax.swing.JOptionPane;
  */
 public class CrearUsuario_Eventos 
 {
-    private CrearUsuario crearUsuario;
-    private UsuarioDAO usuarioDAO;
-    private SedeDAO sedeDAO;
+    private final CrearUsuario crearUsuario;
     
     public CrearUsuario_Eventos(final CrearUsuario crearUsuario)
     {
         this.crearUsuario = crearUsuario;
-        this.usuarioDAO = new UsuarioDAO();
-        this.sedeDAO = new SedeDAO();
         
         crearUsuario.bCancelar.addActionListener(
                 new ActionListener()
@@ -111,7 +107,7 @@ public class CrearUsuario_Eventos
 
             if (op == JOptionPane.YES_OPTION)
             {
-                boolean resultado = usuarioDAO.insetarUsuario(nuevoUsuario);
+                boolean resultado = new UsuarioDAO().insetarUsuario(nuevoUsuario);
                 //boolean resultado = false;
 
                 if (resultado)
@@ -127,11 +123,11 @@ public class CrearUsuario_Eventos
         }
     }
     
-    public void actualizarSedes()
+    private void actualizarSedes()
     {
         crearUsuario.cbSedes.removeAllItems();
         
-        ArrayList<Sede> sedes = sedeDAO.consultarSedes();
+        ArrayList<Sede> sedes = new SedeDAO().consultarSedes();
         //ArrayList<Sede> sedes = new ArrayList();
         
         for (int i = 0; i < sedes.size(); i++) 

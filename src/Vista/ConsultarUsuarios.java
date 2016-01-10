@@ -34,20 +34,14 @@ public class ConsultarUsuarios extends javax.swing.JFrame
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        bCerrar = new javax.swing.JButton();
-        bVerPerfil = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tUsuarios = new javax.swing.JTable();
+        jPanel1 = new javax.swing.JPanel();
+        bCerrar = new javax.swing.JButton();
         bActualizar = new javax.swing.JButton();
+        bVerPerfil = new javax.swing.JButton();
 
         setTitle("Consultar Usuarios");
-
-        bCerrar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        bCerrar.setText("Cerrar");
-
-        bVerPerfil.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        bVerPerfil.setText("Ver Perfil Completo");
 
         tUsuarios.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         tUsuarios.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -70,47 +64,39 @@ public class ConsultarUsuarios extends javax.swing.JFrame
         tUsuarios.getTableHeader().setReorderingAllowed(false);
         jScrollPane2.setViewportView(tUsuarios);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 660, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 286, Short.MAX_VALUE)
-        );
+        jPanel1.setLayout(new java.awt.GridLayout(1, 3, 10, 0));
 
-        bActualizar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        bCerrar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        bCerrar.setText("Cerrar");
+        jPanel1.add(bCerrar);
+
+        bActualizar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         bActualizar.setText("Actualizar Lista");
+        jPanel1.add(bActualizar);
+
+        bVerPerfil.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        bVerPerfil.setText("Ver Perfil Completo");
+        jPanel1.add(bVerPerfil);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(bCerrar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(bActualizar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(bVerPerfil)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 680, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(bCerrar)
-                    .addComponent(bVerPerfil)
-                    .addComponent(bActualizar))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 314, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -119,7 +105,7 @@ public class ConsultarUsuarios extends javax.swing.JFrame
     public javax.swing.JButton bActualizar;
     public javax.swing.JButton bCerrar;
     public javax.swing.JButton bVerPerfil;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
     public javax.swing.JTable tUsuarios;
     // End of variables declaration//GEN-END:variables
