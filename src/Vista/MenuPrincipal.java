@@ -22,31 +22,34 @@ import javax.swing.JFrame;
 public class MenuPrincipal extends JFrame
 {
     public CrearUsuario crearUsuario;
-    public CrearUsuario_Eventos crearUsuario_Eventos;
-    
-    public ModificarUsuario modificarUsuario;
-    public ModificarUsuario_Eventos modificarUsuario_Eventos;
-    
-    public ConsultarUsuarios consultarUsuarios;
-    public ConsultarUsuarios_Eventos consultarUsuarios_Eventos;
-    
-    public CrearSede crearSede;
-    public CrearSede_Eventos crearSede_Eventos;
+	public CrearUsuario_Eventos crearUsuario_Eventos;
 
-    public ModificarSede modificarSede;
-    public ModificarSede_Eventos modificarSede_Eventos;
+	public ModificarUsuario modificarUsuario;
+	public ModificarUsuario_Eventos modificarUsuario_Eventos;
 
-    public ConsultarSede consultarSede;
-    public ConsultarSede_Eventos consultarSede_Eventos;
-    
-    public CrearPQR crearPQR;
-    public CrearPQR_Eventos crearPQR_Eventos;
-    
-    public ConsultarPQR consultarPQR;
-    public ConsultarPQR_Eventos consultarPQR_Eventos;    
-    
-    public ResponderPQR responderPQR;
-    public ResponderPQR_Eventos responderPQR_Eventos;
+	public ConsultarUsuarios consultarUsuarios;
+	public ConsultarUsuarios_Eventos consultarUsuarios_Eventos;
+
+	public CrearSede crearSede;
+	public CrearSede_Eventos crearSede_Eventos;
+
+	public ModificarSede modificarSede;
+	public ModificarSede_Eventos modificarSede_Eventos;
+
+	public ConsultarSede consultarSede;
+	public ConsultarSede_Eventos consultarSede_Eventos;
+
+	public CrearPQR crearPQR;
+	public CrearPQR_Eventos crearPQR_Eventos;
+
+	public ConsultarPQR consultarPQR;
+	public ConsultarPQR_Eventos consultarPQR_Eventos;
+
+	public ResponderPQR responderPQR;
+	public ResponderPQR_Eventos responderPQR_Eventos;
+
+	public RegistrarVenta registrarVenta;
+	public RegistrarVenta_Eventos registrarVenta_Eventos;
     
     /**
      * constructor de la clase, construye la interfaz
