@@ -13,28 +13,28 @@ DROP TABLE IF EXISTS sede CASCADE;
 CREATE TABLE sede
 (
     sede_numero        VARCHAR(5),
-    sede_nombre        VARCHAR(30),
-    sede_gerente       VARCHAR(15),
-    sede_presupuesto   VARCHAR(15),
+    sede_nombre        VARCHAR(90),
+    sede_gerente       VARCHAR(30),
+    sede_presupuesto   VARCHAR(30),
     sede_cant_camiones INT,
-    sede_direccion     VARCHAR(30),
+    sede_direccion     VARCHAR(90),
     PRIMARY KEY (sede_numero)
 );
 
 DROP TABLE IF EXISTS usuario CASCADE;
 CREATE TABLE usuario
 (
-    usuario_cedula              VARCHAR(15),
-    usuario_passwd              VARCHAR(32) NOT NULL,
-    usuario_nombre              VARCHAR(30) NOT NULL,
-    usuario_rol                 VARCHAR(15) NOT NULL,
-    usuario_estado              VARCHAR(10) NOT NULL,
+    usuario_cedula              VARCHAR(30),
+    usuario_passwd              VARCHAR(90) NOT NULL,
+    usuario_nombre              VARCHAR(90) NOT NULL,
+    usuario_rol                 VARCHAR(60) NOT NULL,
+    usuario_estado              VARCHAR(30) NOT NULL,
     usuario_fecha_nacimiento    VARCHAR(25),
-    usuario_direccion           VARCHAR(60),
-    usuario_telefono            VARCHAR(15),
-    usuario_celular             VARCHAR(15),
+    usuario_direccion           VARCHAR(90),
+    usuario_telefono            VARCHAR(30),
+    usuario_celular             VARCHAR(30),
     usuario_fecha_incorporacion VARCHAR(25),
-    usuario_salario             VARCHAR(15),
+    usuario_salario             VARCHAR(30),
     usuario_cuenta              VARCHAR(30),
     usuario_sede_numero         VARCHAR(5),
     PRIMARY KEY (usuario_cedula),
@@ -45,10 +45,10 @@ DROP TABLE IF EXISTS pqr CASCADE;
 CREATE TABLE pqr
 (
     pqr_numero    VARCHAR(5),
-    pqr_cedula    VARCHAR(15) NOT NULL,
-    pqr_nombre    VARCHAR(50) NOT NULL,
+    pqr_cedula    VARCHAR(30) NOT NULL,
+    pqr_nombre    VARCHAR(90) NOT NULL,
     pqr_sede      VARCHAR(5)  NOT NULL,
-    pqr_tipo      VARCHAR(10) NOT NULL,
+    pqr_tipo      VARCHAR(30) NOT NULL,
     pqr_contenido TEXT        NOT NULL,
     pqr_estado    VARCHAR(30) NOT NULL,
     PRIMARY KEY (pqr_numero),
