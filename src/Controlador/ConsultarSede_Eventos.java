@@ -19,13 +19,15 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Vector;
 
-public class ConsultarSede_Eventos {
-    private ConsultarSede consultarSede;
+public class ConsultarSede_Eventos 
+{
+    private final ConsultarSede consultarSede;
 
-    public ConsultarSede_Eventos(ConsultarSede consultarSede) {
+    public ConsultarSede_Eventos(ConsultarSede consultarSede) 
+    {
         this.consultarSede = consultarSede;
 
-        cargarDatos(new SedeDAO().consultarSedes());
+        cargarDatos();
 
         this.consultarSede.getButtonCancel().addActionListener(
                 new ActionListener() {
@@ -37,20 +39,28 @@ public class ConsultarSede_Eventos {
         );
     }
 
-    private void cargarDatos(ArrayList<Sede> listaSedes){
-        for (int i = 0; i < listaSedes.size(); i++){
-            Vector<String> v = new Vector<>();
-            v.addElement(listaSedes.get(i).getNumero());
-            v.addElement(listaSedes.get(i).getNombre());
-            v.addElement(listaSedes.get(i).getGerente());
-            v.addElement(listaSedes.get(i).getDireccion());
-            v.addElement(listaSedes.get(i).getPresupuesto());
-            v.addElement(Integer.toString(listaSedes.get(i).getCamiones()));
-            consultarSede.getTableModelContent().addRow(v);
+    private void cargarDatos()
+    {       
+        ArrayList<Sede> listaSedes = new SedeDAO().consultarSedes();
+        
+        if (listaSedes != null)
+        {
+            for (int i = 0; i < listaSedes.size(); i++)
+            {
+                Vector<String> v = new Vector<>();
+                v.addElement(listaSedes.get(i).getNumero());
+                v.addElement(listaSedes.get(i).getNombre());
+                v.addElement(listaSedes.get(i).getGerente());
+                v.addElement(listaSedes.get(i).getDireccion());
+                v.addElement(listaSedes.get(i).getPresupuesto());
+                v.addElement(Integer.toString(listaSedes.get(i).getCamiones()));
+                consultarSede.getTableModelContent().addRow(v);
+            }
         }
     }
 
-    public void cerrarVentana() {
+    public void cerrarVentana() 
+    {
         consultarSede.setVisible(false);
     }
 }

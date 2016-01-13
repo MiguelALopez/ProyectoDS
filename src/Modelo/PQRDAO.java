@@ -24,7 +24,12 @@ import java.util.logging.Logger;
  */
 public class PQRDAO 
 {
-    ConexionBD conexionBD = new ConexionBD();
+    ConexionBD conexionBD;
+    
+    public PQRDAO()
+    {
+        this.conexionBD = new ConexionBD();
+    }
     
     public ArrayList<PQR> getListaPQR()
     {
@@ -50,8 +55,13 @@ public class PQRDAO
         {
             Logger.getLogger(PQRDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        conexionBD.cerrarConexion();
+        finally
+        {
+            if (conexionBD != null)
+            {
+                conexionBD.cerrarConexion();
+            }
+        }
         
         return listaPQR;
     }    
@@ -83,8 +93,13 @@ public class PQRDAO
         {
             Logger.getLogger(PQRDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        conexionBD.cerrarConexion();
+        finally
+        {
+            if (conexionBD != null)
+            {
+                conexionBD.cerrarConexion();
+            }
+        }
         
         return exito;
     }
@@ -123,8 +138,13 @@ public class PQRDAO
         {
             Logger.getLogger(PQRDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        conexionBD.cerrarConexion();
+        finally
+        {
+            if (conexionBD != null)
+            {
+                conexionBD.cerrarConexion();
+            }
+        }
         
         return exito;
     }
@@ -156,8 +176,13 @@ public class PQRDAO
         {
             Logger.getLogger(PQRDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        conexionBD.cerrarConexion();
+        finally
+        {
+            if (conexionBD != null)
+            {
+                conexionBD.cerrarConexion();
+            }
+        }
         
         return pqr;
     }

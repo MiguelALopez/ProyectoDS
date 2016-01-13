@@ -25,7 +25,12 @@ import java.util.logging.Logger;
  */
 public class UsuarioDAO 
 {
-    ConexionBD conexionBD = new ConexionBD();
+    ConexionBD conexionBD;
+    
+    public UsuarioDAO()
+    {
+        this.conexionBD = new ConexionBD();
+    }
         
     public ArrayList<Usuario> getListaUsuarios() 
     {
@@ -56,8 +61,13 @@ public class UsuarioDAO
         {
             Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        conexionBD.cerrarConexion();
+        finally
+        {
+            if (conexionBD != null)
+            {
+                conexionBD.cerrarConexion();
+            }
+        }
         
         return listaUsuarios;
     }
@@ -91,8 +101,13 @@ public class UsuarioDAO
         {
             Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        conexionBD.cerrarConexion();
+        finally
+        {
+            if (conexionBD != null)
+            {
+                conexionBD.cerrarConexion();
+            }
+        }
         
         return usuario;
     }
@@ -195,8 +210,13 @@ public class UsuarioDAO
         {
             Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        conexionBD.cerrarConexion();
+        finally
+        {
+            if (conexionBD != null)
+            {
+                conexionBD.cerrarConexion();
+            }
+        }
         
         return exito;
     }
@@ -313,9 +333,14 @@ public class UsuarioDAO
         {
             Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        conexionBD.cerrarConexion();
+        finally
+        {
+            if (conexionBD != null)
+            {
+                conexionBD.cerrarConexion();
+            }
+        }
         
         return exito;
-    }    
+    }
 }
