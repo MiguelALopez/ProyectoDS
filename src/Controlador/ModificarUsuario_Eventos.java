@@ -44,6 +44,17 @@ public class ModificarUsuario_Eventos
                 }
         );
         
+        modificarUsuario.tfBuscarCedula.addActionListener(
+                new ActionListener()
+                {
+                    @Override
+                    public void actionPerformed(ActionEvent ae) 
+                    {
+                        buscarUsuario();
+                    }
+                }
+        );
+        
         modificarUsuario.bCancelar.addActionListener(
                 new ActionListener()
                 {
@@ -259,22 +270,19 @@ public class ModificarUsuario_Eventos
     }
     
     public void habilitarCampos(boolean b)
-    {
-        this.modificarUsuario.tfBuscarCedula.setEnabled(!b);
-        this.modificarUsuario.bBuscarCedula.setEnabled(!b);
-        
+    {        
         //this.modificarUsuario.tfCedula.setEnabled(b);
         this.modificarUsuario.cbCargo.setEnabled(b);
-        this.modificarUsuario.pfClave.setEnabled(b);
-        this.modificarUsuario.pfVerificarClave.setEnabled(b);
-        this.modificarUsuario.tfNombre.setEnabled(b);
-        this.modificarUsuario.tfDireccion.setEnabled(b);
-        this.modificarUsuario.ftfFechaNacimiento.setEnabled(b);
-        this.modificarUsuario.tfTelefono.setEnabled(b);
-        this.modificarUsuario.tfCelular.setEnabled(b);
-        this.modificarUsuario.ftfFechaIncorporacion.setEnabled(b);
-        this.modificarUsuario.tfSalario.setEnabled(b);
-        this.modificarUsuario.tfNumeroCuenta.setEnabled(b);
+        this.modificarUsuario.pfClave.setEditable(b);
+        this.modificarUsuario.pfVerificarClave.setEditable(b);
+        this.modificarUsuario.tfNombre.setEditable(b);
+        this.modificarUsuario.tfDireccion.setEditable(b);
+        this.modificarUsuario.ftfFechaNacimiento.setEditable(b);
+        this.modificarUsuario.tfTelefono.setEditable(b);
+        this.modificarUsuario.tfCelular.setEditable(b);
+        this.modificarUsuario.ftfFechaIncorporacion.setEditable(b);
+        this.modificarUsuario.tfSalario.setEditable(b);
+        this.modificarUsuario.tfNumeroCuenta.setEditable(b);
         this.modificarUsuario.cbEstado.setEnabled(b);
         this.modificarUsuario.cbSedes.setEnabled(b);
         this.modificarUsuario.bModificarUsuario.setEnabled(b);
@@ -294,12 +302,13 @@ public class ModificarUsuario_Eventos
         this.modificarUsuario.tfNumeroCuenta.setText("");
         this.modificarUsuario.tfSalario.setText("");
         this.modificarUsuario.tfTelefono.setText("");
+        this.modificarUsuario.cbCargo.setSelectedIndex(0);
+        this.modificarUsuario.cbEstado.setSelectedIndex(0);
+        this.modificarUsuario.cbSedes.setSelectedIndex(0);
     }
     
     public void cerrarVentana()
     {
         this.modificarUsuario.setVisible(false);
-        limpiarCampos();
-        habilitarCampos(false);
     }
 }
