@@ -27,7 +27,7 @@ CREATE TABLE usuario
     usuario_cedula              VARCHAR(15),
     usuario_passwd              VARCHAR(32) NOT NULL,
     usuario_nombre              VARCHAR(30) NOT NULL,
-    usuario_rol                 VARCHAR(15) NOT NULL,
+    usuario_rol                 VARCHAR(30) NOT NULL,
     usuario_estado              VARCHAR(10) NOT NULL,
     usuario_fecha_nacimiento    VARCHAR(25),
     usuario_direccion           VARCHAR(60),
