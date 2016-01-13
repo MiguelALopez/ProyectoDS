@@ -32,12 +32,16 @@ public class ConexionBD
      */
     public ConexionBD()
     {
-        /*url = "jdbc:postgresql://localhost:5432/proyectods";
-        user = "prueba";
-        password = "123456";*/
+        /*
+        url = "jdbc:postgresql://localhost:5432/proyectods";
+        user = "postgres";
+        password = "postgresql";
+        */
+        
         url = "jdbc:postgresql://ec2-107-21-219-142.compute-1.amazonaws.com:5432/dbee7bg2hs2mfe?ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory";
         user = "tyjtckgxrzvutm";
         password = "vkbANSMRviN0md_cSyXhrtjpjj";
+        
     }
     
     /**
@@ -82,6 +86,10 @@ public class ConexionBD
         catch(SQLException ex)
         {
             System.err.println("No se pudo cerrar la conexion");
+        }
+        finally
+        {
+            //System.err.println("Error al cerrar");
         }
     }
     
