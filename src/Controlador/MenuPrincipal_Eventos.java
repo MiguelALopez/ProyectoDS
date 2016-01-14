@@ -16,6 +16,7 @@ import Modelo.UsuarioDAO;
 import Vista.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Locale;
 import javax.swing.JOptionPane;
 
 
@@ -182,7 +183,22 @@ public class MenuPrincipal_Eventos
                     rp.setVisible(true);
                 }                
             }
-        ); 
+        );
+		
+		this.menuPrincipal.bRegistrarVenta.addActionListener(
+			new ActionListener()
+			{
+
+				@Override
+				public void actionPerformed(ActionEvent e)
+				{
+					RegistrarVenta rv = new RegistrarVenta();
+					RegistrarVenta_Eventos rve = new RegistrarVenta_Eventos(rv);
+					rv.setLocationRelativeTo(null);
+					rv.setVisible(true);
+				}
+			}
+		);
     }
     
     public void iniciarSesion()
@@ -254,6 +270,7 @@ public class MenuPrincipal_Eventos
                             this.menuPrincipal.bCrearSede.setEnabled(true);
                             this.menuPrincipal.bModificarSede.setEnabled(true);
                             this.menuPrincipal.bConsultarSedes.setEnabled(true);
+							this.menuPrincipal.bRegistrarVenta.setEnabled(true);
                             
                             break;
                         }
@@ -297,5 +314,6 @@ public class MenuPrincipal_Eventos
         this.menuPrincipal.bCrearPQR.setEnabled(false);
         this.menuPrincipal.bConsultarPQR.setEnabled(false);
         this.menuPrincipal.bResponderPQR.setEnabled(false);
+		this.menuPrincipal.bRegistrarVenta.setEnabled(false);
     }
 }

@@ -33,11 +33,32 @@ public class RegistrarVenta_Eventos
 				}
 			}
 		);
+		
+		this.registrarVenta.tTotal.addActionListener(
+			new ActionListener()
+			{
+				
+				@Override
+				public void actionPerformed(ActionEvent e)
+				{
+					calcular();
+				}
+			}
+		);
 
 	}
 
 	public void cerrarFormulario()
 	{
 		this.registrarVenta.setVisible(false);
+	}
+	
+	public void calcular(){
+		int total = Integer.parseInt(this.registrarVenta.tTotal.getText());
+		int iva, subtotal;
+		subtotal = (total*100/116);
+		iva = total - subtotal;
+		this.registrarVenta.tSubtotal.setText(""+subtotal);
+		this.registrarVenta.tIva.setText(""+iva);
 	}
 }

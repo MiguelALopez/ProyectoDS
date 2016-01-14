@@ -41,22 +41,25 @@ public class RegistrarVenta extends javax.swing.JFrame {
         rbTarjetaDebito = new javax.swing.JRadioButton();
         rbTarjetaCredito = new javax.swing.JRadioButton();
         jPanel8 = new javax.swing.JPanel();
-        jPanel7 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        jPanel11 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        tIva = new javax.swing.JTextField();
+        jPanel10 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        tSubtotal = new javax.swing.JTextField();
+        jPanel7 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(5, 0), new java.awt.Dimension(5, 0), new java.awt.Dimension(5, 32767));
+        tTotal = new javax.swing.JTextField();
         filler2 = new javax.swing.Box.Filler(new java.awt.Dimension(5, 5), new java.awt.Dimension(5, 5), new java.awt.Dimension(5, 5));
-        filler3 = new javax.swing.Box.Filler(new java.awt.Dimension(5, 5), new java.awt.Dimension(5, 5), new java.awt.Dimension(5, 5));
-        filler4 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 5), new java.awt.Dimension(0, 5), new java.awt.Dimension(32767, 5));
-        filler5 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 5), new java.awt.Dimension(0, 5), new java.awt.Dimension(32767, 5));
+        filler3 = new javax.swing.Box.Filler(new java.awt.Dimension(5, 0), new java.awt.Dimension(5, 0), new java.awt.Dimension(5, 32767));
+        filler4 = new javax.swing.Box.Filler(new java.awt.Dimension(15, 0), new java.awt.Dimension(15, 0), new java.awt.Dimension(5, 32767));
+        filler5 = new javax.swing.Box.Filler(new java.awt.Dimension(5, 5), new java.awt.Dimension(5, 5), new java.awt.Dimension(5, 5));
+        filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 5), new java.awt.Dimension(0, 5), new java.awt.Dimension(32767, 5));
         jPanel5 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         bCancelar = new javax.swing.JButton();
 
+        setTitle("Registrar Venta");
         setMinimumSize(new java.awt.Dimension(400, 300));
         getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.LINE_AXIS));
 
@@ -121,75 +124,71 @@ public class RegistrarVenta extends javax.swing.JFrame {
 
         jPanel4.add(jPanel6, java.awt.BorderLayout.NORTH);
 
-        jPanel8.setLayout(new javax.swing.OverlayLayout(jPanel8));
+        jPanel8.setLayout(new java.awt.GridBagLayout());
 
-        jPanel7.setLayout(new java.awt.GridBagLayout());
-
-        jLabel2.setText("Subtotal");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE;
-        jPanel7.add(jLabel2, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE;
-        gridBagConstraints.weightx = 1.0;
-        jPanel7.add(jTextField1, gridBagConstraints);
+        jPanel11.setLayout(new java.awt.GridLayout(1, 2));
 
         jLabel3.setText("IVA");
+        jPanel11.add(jLabel3);
+        jPanel11.add(tIva);
+
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE;
-        jPanel7.add(jLabel3, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE;
         gridBagConstraints.weightx = 1.0;
-        jPanel7.add(jTextField2, gridBagConstraints);
+        jPanel8.add(jPanel11, gridBagConstraints);
+
+        jPanel10.setLayout(new java.awt.GridLayout(1, 2));
+
+        jLabel2.setText("Subtotal");
+        jPanel10.add(jLabel2);
+        jPanel10.add(tSubtotal);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE;
+        gridBagConstraints.weightx = 1.0;
+        jPanel8.add(jPanel10, gridBagConstraints);
+
+        jPanel7.setLayout(new java.awt.GridLayout(1, 0));
 
         jLabel4.setText("Total");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE;
-        jPanel7.add(jLabel4, gridBagConstraints);
+        jPanel7.add(jLabel4);
+        jPanel7.add(tTotal);
+
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE;
         gridBagConstraints.weightx = 1.0;
-        jPanel7.add(jTextField3, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 1;
-        jPanel7.add(filler1, gridBagConstraints);
+        jPanel8.add(jPanel7, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        jPanel7.add(filler2, gridBagConstraints);
+        jPanel8.add(filler2, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 1;
+        jPanel8.add(filler3, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 6;
-        jPanel7.add(filler3, gridBagConstraints);
+        gridBagConstraints.gridy = 1;
+        jPanel8.add(filler4, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
-        jPanel7.add(filler4, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 4;
-        jPanel7.add(filler5, gridBagConstraints);
+        jPanel8.add(filler5, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 2;
+        jPanel8.add(filler1, gridBagConstraints);
 
-        jPanel8.add(jPanel7);
-
-        jPanel4.add(jPanel8, java.awt.BorderLayout.PAGE_END);
+        jPanel4.add(jPanel8, java.awt.BorderLayout.CENTER);
 
         jPanel1.add(jPanel4);
 
@@ -260,6 +259,8 @@ public class RegistrarVenta extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -267,11 +268,11 @@ public class RegistrarVenta extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     private javax.swing.JRadioButton rbEfectivo;
     private javax.swing.JRadioButton rbTarjetaCredito;
     private javax.swing.JRadioButton rbTarjetaDebito;
+    public javax.swing.JTextField tIva;
+    public javax.swing.JTextField tSubtotal;
+    public javax.swing.JTextField tTotal;
     // End of variables declaration//GEN-END:variables
 }
