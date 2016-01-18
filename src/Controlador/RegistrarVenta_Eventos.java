@@ -54,6 +54,7 @@ public class RegistrarVenta_Eventos
 	}
 	
 	public void calcular(){
+		//Cambiar total por la suma 
 		int total = Integer.parseInt(this.registrarVenta.tTotal.getText());
 		int iva, subtotal;
 		subtotal = (total*100/116);
