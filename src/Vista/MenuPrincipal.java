@@ -63,9 +63,12 @@ public class MenuPrincipal extends JFrame
         bCrearPQR = new javax.swing.JButton();
         bConsultarPQR = new javax.swing.JButton();
         bResponderPQR = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        bCrearPOS = new javax.swing.JButton();
+        bModificarPOS = new javax.swing.JButton();
+        bConsultarPOS = new javax.swing.JButton();
         pGestionUsuarios2 = new javax.swing.JPanel();
         bRegistrarVenta = new javax.swing.JButton();
-        bModificarVenta = new javax.swing.JButton();
         bConsultarVentas = new javax.swing.JButton();
         pGestionUsuarios1 = new javax.swing.JPanel();
         bReportes = new javax.swing.JButton();
@@ -171,19 +174,19 @@ public class MenuPrincipal extends JFrame
         pGestionUsuariosLayout.setVerticalGroup(
             pGestionUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pGestionUsuariosLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
                 .addComponent(bCrearUsuario)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(bModificarUsuario)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(bConsultarUsuarios)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         jPanel1.add(pGestionUsuarios);
 
         pGestionSedes.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Gestion de Sedes", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 14))); // NOI18N
-        pGestionSedes.setPreferredSize(new java.awt.Dimension(155, 126));
+        pGestionSedes.setPreferredSize(new java.awt.Dimension(253, 145));
 
         bCrearSede.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         bCrearSede.setText("Crear Sede");
@@ -212,18 +215,19 @@ public class MenuPrincipal extends JFrame
         pGestionSedesLayout.setVerticalGroup(
             pGestionSedesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pGestionSedesLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
                 .addComponent(bCrearSede)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(bModificarSede)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(bConsultarSedes)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         jPanel1.add(pGestionSedes);
 
         pPQR.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "PQR", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 14))); // NOI18N
+        pPQR.setPreferredSize(new java.awt.Dimension(253, 145));
 
         bCrearPQR.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         bCrearPQR.setText("Realizar PQR");
@@ -252,30 +256,63 @@ public class MenuPrincipal extends JFrame
         pPQRLayout.setVerticalGroup(
             pPQRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pPQRLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
                 .addComponent(bCrearPQR)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(bConsultarPQR)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(bResponderPQR)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         jPanel1.add(pPQR);
 
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Gestion de POS", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 14))); // NOI18N
+        jPanel2.setPreferredSize(new java.awt.Dimension(253, 145));
+
+        bCrearPOS.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        bCrearPOS.setText("Crear POS");
+
+        bModificarPOS.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        bModificarPOS.setText("Modificar POS");
+
+        bConsultarPOS.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        bConsultarPOS.setText("Consultar POS");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(bCrearPOS, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(bModificarPOS, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(bConsultarPOS, javax.swing.GroupLayout.DEFAULT_SIZE, 221, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(bCrearPOS)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(bModificarPOS)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(bConsultarPOS)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jPanel1.add(jPanel2);
+
         pGestionUsuarios2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Gestion de Ventas", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 14))); // NOI18N
+        pGestionUsuarios2.setPreferredSize(new java.awt.Dimension(253, 145));
 
         bRegistrarVenta.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         bRegistrarVenta.setText("Registrar Venta");
-        bRegistrarVenta.setEnabled(false);
-
-        bModificarVenta.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        bModificarVenta.setText("Modificar Venta");
-        bModificarVenta.setEnabled(false);
 
         bConsultarVentas.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         bConsultarVentas.setText("Consultar Ventas");
-        bConsultarVentas.setEnabled(false);
 
         javax.swing.GroupLayout pGestionUsuarios2Layout = new javax.swing.GroupLayout(pGestionUsuarios2);
         pGestionUsuarios2.setLayout(pGestionUsuarios2Layout);
@@ -284,26 +321,24 @@ public class MenuPrincipal extends JFrame
             .addGroup(pGestionUsuarios2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pGestionUsuarios2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(bRegistrarVenta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(bConsultarVentas, javax.swing.GroupLayout.DEFAULT_SIZE, 221, Short.MAX_VALUE)
-                    .addComponent(bModificarVenta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(bRegistrarVenta, javax.swing.GroupLayout.DEFAULT_SIZE, 221, Short.MAX_VALUE)
+                    .addComponent(bConsultarVentas, javax.swing.GroupLayout.DEFAULT_SIZE, 221, Short.MAX_VALUE))
                 .addContainerGap())
         );
         pGestionUsuarios2Layout.setVerticalGroup(
             pGestionUsuarios2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pGestionUsuarios2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
                 .addComponent(bRegistrarVenta)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(bModificarVenta)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(bConsultarVentas)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(47, Short.MAX_VALUE))
         );
 
         jPanel1.add(pGestionUsuarios2);
 
         pGestionUsuarios1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Reportes", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 14))); // NOI18N
+        pGestionUsuarios1.setPreferredSize(new java.awt.Dimension(253, 145));
 
         bReportes.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         bReportes.setText("Reportes");
@@ -321,7 +356,7 @@ public class MenuPrincipal extends JFrame
         pGestionUsuarios1Layout.setVerticalGroup(
             pGestionUsuarios1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pGestionUsuarios1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
                 .addComponent(bReportes)
                 .addContainerGap(83, Short.MAX_VALUE))
         );
@@ -352,7 +387,7 @@ public class MenuPrincipal extends JFrame
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(pIniciarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -366,17 +401,19 @@ public class MenuPrincipal extends JFrame
     }// </editor-fold>//GEN-END:initComponents
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton bCerrarSesion;
+    public javax.swing.JButton bConsultarPOS;
     public javax.swing.JButton bConsultarPQR;
     public javax.swing.JButton bConsultarSedes;
     public javax.swing.JButton bConsultarUsuarios;
     public javax.swing.JButton bConsultarVentas;
+    public javax.swing.JButton bCrearPOS;
     public javax.swing.JButton bCrearPQR;
     public javax.swing.JButton bCrearSede;
     public javax.swing.JButton bCrearUsuario;
     public javax.swing.JButton bIniciarSesion;
+    public javax.swing.JButton bModificarPOS;
     public javax.swing.JButton bModificarSede;
     public javax.swing.JButton bModificarUsuario;
-    public javax.swing.JButton bModificarVenta;
     public javax.swing.JButton bRegistrarVenta;
     public javax.swing.JButton bReportes;
     public javax.swing.JButton bResponderPQR;
@@ -385,6 +422,7 @@ public class MenuPrincipal extends JFrame
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel pGestionSedes;
     private javax.swing.JPanel pGestionUsuarios;
     private javax.swing.JPanel pGestionUsuarios1;

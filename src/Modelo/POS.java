@@ -11,39 +11,46 @@
 
 package Modelo;
 
-import java.util.ArrayList;
 
 /**
  *
  * @author Cristian Jurado
  */
 
-public class POS {
-    
-    private String codigo;
+public class POS 
+{    
+    private String id;
+    private String nombre;
     private String direccion;
-    private ArrayList<Envio> envios;
     
     public POS()            
     {
-        this.codigo = null;
-        this.direccion = null;  
-        this.envios = null;
+        this.id = null;
+        this.nombre = null;
+        this.direccion = null;
     }   
     
-     public POS(String codigo, String direccion, ArrayList<Envio> envios)            
+    public POS(String codigo, String nombre, String direccion)
     {
-        this.codigo = codigo;
-        this.direccion = direccion;  
-        this.envios = envios;
+        this.id = codigo;
+        this.nombre = nombre;
+        this.direccion = direccion;
     }   
 
-    public String getCodigo() {
-        return codigo;
+    public String getId() {
+        return id;
     }
 
-    public void setCodigo(String codigo) {
-        this.codigo = codigo;
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public String getDireccion() {
@@ -52,20 +59,5 @@ public class POS {
 
     public void setDireccion(String direccion) {
         this.direccion = direccion;
-    }
-
-    public ArrayList<Envio> getEnvios() {
-        return envios;
-    }
-
-    public void setEnvios(ArrayList<Envio> envios) {
-        this.envios = envios;
-    }
-     
-     /**
-     * Getters and setters para los atributos de la clase
-     *      * 
-     */
-     
-     
+    }  
 }

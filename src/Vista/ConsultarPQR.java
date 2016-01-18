@@ -37,6 +37,7 @@ public class ConsultarPQR extends javax.swing.JFrame {
 
         setMinimumSize(new java.awt.Dimension(700, 400));
         setPreferredSize(new java.awt.Dimension(700, 400));
+        getContentPane().setLayout(new java.awt.BorderLayout(0, 5));
 
         jPanel1.setLayout(new java.awt.GridLayout(1, 3, 10, 0));
 
@@ -51,6 +52,8 @@ public class ConsultarPQR extends javax.swing.JFrame {
         bVerPQR.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         bVerPQR.setText("Ver PQR Completo");
         jPanel1.add(bVerPQR);
+
+        getContentPane().add(jPanel1, java.awt.BorderLayout.PAGE_END);
 
         tPQR.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         tPQR.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -73,26 +76,7 @@ public class ConsultarPQR extends javax.swing.JFrame {
         tPQR.getTableHeader().setReorderingAllowed(false);
         jScrollPane2.setViewportView(tPQR);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 336, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
+        getContentPane().add(jScrollPane2, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

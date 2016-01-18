@@ -9,8 +9,8 @@ package Vista;
  *
  * @author Cristian Jurado
  */
-public class ConsultarPOS extends javax.swing.JFrame {
-
+public class ConsultarPOS extends javax.swing.JFrame 
+{
     /**
      * Creates new form ConsultarPOS
      */
@@ -26,13 +26,17 @@ public class ConsultarPOS extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         jScrollPane2 = new javax.swing.JScrollPane();
         tPOS = new javax.swing.JTable();
+        jPanel1 = new javax.swing.JPanel();
         bCerrar = new javax.swing.JButton();
-        bVerPOS = new javax.swing.JButton();
-        bVerEnvios = new javax.swing.JButton();
-        bActualizarPOS = new javax.swing.JButton();
+        bActualizar = new javax.swing.JButton();
+
+        setMinimumSize(new java.awt.Dimension(700, 400));
+        setPreferredSize(new java.awt.Dimension(700, 400));
+        getContentPane().setLayout(new java.awt.BorderLayout(0, 5));
 
         tPOS.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         tPOS.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -41,11 +45,11 @@ public class ConsultarPOS extends javax.swing.JFrame {
 
             },
             new String [] {
-                "CODIGO", "DIRECCION"
+                "CODIGO", "NOMBRE", "DIRECCION"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false
+                false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -55,130 +59,27 @@ public class ConsultarPOS extends javax.swing.JFrame {
         tPOS.getTableHeader().setReorderingAllowed(false);
         jScrollPane2.setViewportView(tPOS);
 
+        getContentPane().add(jScrollPane2, java.awt.BorderLayout.CENTER);
+
+        jPanel1.setLayout(new java.awt.GridLayout(1, 2, 10, 0));
+
         bCerrar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         bCerrar.setText("Cerrar");
-        bCerrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bCerrarActionPerformed(evt);
-            }
-        });
+        jPanel1.add(bCerrar);
 
-        bVerPOS.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        bVerPOS.setText("Detalles del POS");
-        bVerPOS.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bVerPOSActionPerformed(evt);
-            }
-        });
+        bActualizar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        bActualizar.setText("Actualizar");
+        jPanel1.add(bActualizar);
 
-        bVerEnvios.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        bVerEnvios.setText("Ver Envios");
-        bVerEnvios.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bVerEnviosActionPerformed(evt);
-            }
-        });
-
-        bActualizarPOS.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        bActualizarPOS.setText("Actualizar");
-        bActualizarPOS.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bActualizarPOSActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(bCerrar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(bVerPOS)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(bVerEnvios)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(bActualizarPOS)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(bCerrar)
-                    .addComponent(bVerPOS)
-                    .addComponent(bVerEnvios)
-                    .addComponent(bActualizarPOS))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        getContentPane().add(jPanel1, java.awt.BorderLayout.PAGE_END);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void bCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCerrarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bCerrarActionPerformed
-
-    private void bVerPOSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVerPOSActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bVerPOSActionPerformed
-
-    private void bVerEnviosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVerEnviosActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bVerEnviosActionPerformed
-
-    private void bActualizarPOSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bActualizarPOSActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bActualizarPOSActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ConsultarPOS.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ConsultarPOS.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ConsultarPOS.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ConsultarPOS.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ConsultarPOS().setVisible(true);
-            }
-        });
-    }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton bActualizarPOS;
+    public javax.swing.JButton bActualizar;
     public javax.swing.JButton bCerrar;
-    public javax.swing.JButton bVerEnvios;
-    public javax.swing.JButton bVerPOS;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
     public javax.swing.JTable tPOS;
     // End of variables declaration//GEN-END:variables

@@ -42,6 +42,8 @@ public class ConsultarUsuarios extends javax.swing.JFrame
         bVerPerfil = new javax.swing.JButton();
 
         setTitle("Consultar Usuarios");
+        setMinimumSize(new java.awt.Dimension(700, 400));
+        getContentPane().setLayout(new java.awt.BorderLayout(0, 5));
 
         tUsuarios.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         tUsuarios.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -64,6 +66,8 @@ public class ConsultarUsuarios extends javax.swing.JFrame
         tUsuarios.getTableHeader().setReorderingAllowed(false);
         jScrollPane2.setViewportView(tUsuarios);
 
+        getContentPane().add(jScrollPane2, java.awt.BorderLayout.CENTER);
+
         jPanel1.setLayout(new java.awt.GridLayout(1, 3, 10, 0));
 
         bCerrar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -78,26 +82,7 @@ public class ConsultarUsuarios extends javax.swing.JFrame
         bVerPerfil.setText("Ver Perfil Completo");
         jPanel1.add(bVerPerfil);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 680, Short.MAX_VALUE)
-                    .addComponent(jScrollPane2))
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 314, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
+        getContentPane().add(jPanel1, java.awt.BorderLayout.PAGE_END);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

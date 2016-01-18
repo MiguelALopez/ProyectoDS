@@ -16,7 +16,6 @@ import Modelo.UsuarioDAO;
 import Vista.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Locale;
 import javax.swing.JOptionPane;
 
 
@@ -184,21 +183,62 @@ public class MenuPrincipal_Eventos
                 }                
             }
         );
+        
+        this.menuPrincipal.bCrearPOS.addActionListener(
+            new ActionListener()
+            {
+                @Override
+                public void actionPerformed(ActionEvent ae) 
+                {
+                    CrearPOS cp = new CrearPOS();
+                    CrearPOS_Eventos cpe = new CrearPOS_Eventos(cp);
+                    cp.setLocationRelativeTo(null);
+                    cp.setVisible(true);
+                }                
+            }
+        );
+        
+        this.menuPrincipal.bModificarPOS.addActionListener(
+            new ActionListener()
+            {
+                @Override
+                public void actionPerformed(ActionEvent ae) 
+                {
+                    ModificarPOS mp = new ModificarPOS();
+                    ModificarPOS_Eventos mpe = new ModificarPOS_Eventos(mp);
+                    mp.setLocationRelativeTo(null);
+                    mp.setVisible(true);
+                }                
+            }
+        );
+        
+        this.menuPrincipal.bConsultarPOS.addActionListener(
+            new ActionListener()
+            {
+                @Override
+                public void actionPerformed(ActionEvent ae) 
+                {
+                    ConsultarPOS cp = new ConsultarPOS();
+                    ConsultarPOS_Eventos cpe = new ConsultarPOS_Eventos(cp);
+                    cp.setLocationRelativeTo(null);
+                    cp.setVisible(true);
+                }                
+            }
+        );
 		
-		this.menuPrincipal.bRegistrarVenta.addActionListener(
-			new ActionListener()
-			{
-
-				@Override
-				public void actionPerformed(ActionEvent e)
-				{
-					RegistrarVenta rv = new RegistrarVenta();
-					RegistrarVenta_Eventos rve = new RegistrarVenta_Eventos(rv);
-					rv.setLocationRelativeTo(null);
-					rv.setVisible(true);
-				}
-			}
-		);
+        this.menuPrincipal.bRegistrarVenta.addActionListener(
+            new ActionListener()
+            {
+                @Override
+                public void actionPerformed(ActionEvent e)
+                {
+                    RegistrarVenta rv = new RegistrarVenta();
+                    RegistrarVenta_Eventos rve = new RegistrarVenta_Eventos(rv);
+                    rv.setLocationRelativeTo(null);
+                    rv.setVisible(true);
+                }
+            }
+        );
     }
     
     public void iniciarSesion()
@@ -314,6 +354,6 @@ public class MenuPrincipal_Eventos
         this.menuPrincipal.bCrearPQR.setEnabled(false);
         this.menuPrincipal.bConsultarPQR.setEnabled(false);
         this.menuPrincipal.bResponderPQR.setEnabled(false);
-		this.menuPrincipal.bRegistrarVenta.setEnabled(false);
+        this.menuPrincipal.bRegistrarVenta.setEnabled(false);
     }
 }
