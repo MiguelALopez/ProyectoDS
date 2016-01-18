@@ -61,7 +61,7 @@ CREATE TABLE pos
     pos_id        VARCHAR(5),
     pos_nombre    VARCHAR(60) NOT NULL,
     pos_direccion VARCHAR(90) NOT NULL,
-    PRIMARY KEY (pos_numero)
+    PRIMARY KEY (pos_id)
 );
 
 DROP SEQUENCE IF EXISTS venta_seq CASCADE;
@@ -78,7 +78,7 @@ CREATE TABLE venta
     venta_fecha     DATE        NOT NULL,
     venta_total     DECIMAL     NOT NULL,
     pos_id          VARCHAR(30) NOT NULL,
-    PRIMARY KEY (pos_numero),
+    PRIMARY KEY (venta_id),
     FOREIGN KEY (pos_id) REFERENCES pos (pos_id)
 );
 

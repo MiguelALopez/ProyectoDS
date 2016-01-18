@@ -102,8 +102,6 @@ public class ConsultarPQR_Eventos
             
     public void cerrarVentana()  
     {
-        DefaultTableModel model = (DefaultTableModel) consultarPQR.tPQR.getModel();
-        model.setRowCount(0);
         this.consultarPQR.setVisible(false);
     }
     

@@ -101,7 +101,7 @@ public class POSDAO
         String query = "UPDATE pos SET "
                 //+ "pos_id = ?,"
                 + "pos_nombre = ?,"
-                + "pos_direccion = ?,"
+                + "pos_direccion = ?"
                 + "WHERE pos_id = ?;";
         
         try
@@ -128,5 +128,41 @@ public class POSDAO
         }
         
         return exito;
+    }
+    
+    public POS consultarPOS(String pos_id)
+    {
+        conexionBD.conectar();
+        
+        POS pos = null;
+        
+        String query = "SELECT * FROM pos "
+                + "WHERE pos_id = ?;";
+        
+        try
+        {
+            PreparedStatement st = conexionBD.conexion.prepareStatement(query);
+            st.setString(1, pos_id);
+            ResultSet tabla = st.executeQuery();
+            
+            if (tabla.next())
+            {
+                pos = new POS(tabla.getString(1), tabla.getString(2),
+                        tabla.getString(3));                
+            }
+        } 
+        catch (SQLException ex) 
+        {
+            Logger.getLogger(POSDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        finally
+        {
+            if (conexionBD != null)
+            {
+                conexionBD.cerrarConexion();
+            }
+        }
+        
+        return pos;
     }
 }
