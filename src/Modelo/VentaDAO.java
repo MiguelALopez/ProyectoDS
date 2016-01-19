@@ -70,6 +70,64 @@ public class VentaDAO
         return listaVentas;
     }
     
+    public boolean insertarVenta(Venta venta)
+    {
+	conexionBD.conectar();
+        boolean exito = false;
+        
+        String query = "INSERT INTO venta (venta_cedula, venta_nombre, venta_direccion, venta_fecha, venta_metodo, venta_seguro, venta_subtotal, venta_iva, venta_total, pos_id)"
+                + " VALUES(?,?,?,DATE(?),?,?,?,?,?,?);";
+	String query2 = "SELECT MAX(venta_id) FROM venta;";
+        
+        try
+        {
+            PreparedStatement st = conexionBD.conexion.prepareStatement(query);
+            
+            st.setString(1, venta.getCedula());
+            st.setString(2, venta.getNombre());
+            st.setString(3, venta.getDireccion());
+	    st.setString(4, venta.getFecha());
+	    st.setString(5, venta.getMetodo());
+	    st.setBoolean(6, venta.isSeguro());
+	    st.setDouble(7, venta.getSubtotal());
+	    st.setDouble(8, venta.getIva());
+	    st.setDouble(9, venta.getTotal());
+	    st.setString(10, venta.getPos());
+            
+            int resultado = st.executeUpdate();
+	    
+	    st = conexionBD.conexion.prepareStatement(query2);
+	    ResultSet tabla = st.executeQuery();
+	    
+	    if (tabla.next())
+	    {
+		String venta_id = tabla.getString(1);
+		
+		for (Paquete p : venta.getPaquetes())
+		{
+		    p.setVenta(venta_id);
+		}
+		
+		boolean res = new PaqueteDAO().insertarPaquetes(venta.getPaquetes(), conexionBD);
+	    }
+	    
+	    exito = true;
+        } 
+        catch (SQLException ex) 
+        {
+            Logger.getLogger(POSDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        finally
+        {
+            if (conexionBD != null)
+            {
+                conexionBD.cerrarConexion();
+            }
+        }
+        
+        return exito;
+    }
+    
     public Venta consultarVenta(String id)
     {
         conexionBD.conectar();

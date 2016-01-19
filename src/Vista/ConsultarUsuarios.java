@@ -33,6 +33,7 @@ public class ConsultarUsuarios extends javax.swing.JFrame
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         jScrollPane2 = new javax.swing.JScrollPane();
         tUsuarios = new javax.swing.JTable();
@@ -43,7 +44,7 @@ public class ConsultarUsuarios extends javax.swing.JFrame
 
         setTitle("Consultar Usuarios");
         setMinimumSize(new java.awt.Dimension(700, 400));
-        getContentPane().setLayout(new java.awt.BorderLayout(0, 5));
+        getContentPane().setLayout(new java.awt.GridBagLayout());
 
         tUsuarios.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         tUsuarios.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -66,23 +67,54 @@ public class ConsultarUsuarios extends javax.swing.JFrame
         tUsuarios.getTableHeader().setReorderingAllowed(false);
         jScrollPane2.setViewportView(tUsuarios);
 
-        getContentPane().add(jScrollPane2, java.awt.BorderLayout.CENTER);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 5, 10);
+        getContentPane().add(jScrollPane2, gridBagConstraints);
 
-        jPanel1.setLayout(new java.awt.GridLayout(1, 3, 10, 0));
+        jPanel1.setLayout(new java.awt.GridBagLayout());
 
         bCerrar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         bCerrar.setText("Cerrar");
-        jPanel1.add(bCerrar);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 5);
+        jPanel1.add(bCerrar, gridBagConstraints);
 
         bActualizar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         bActualizar.setText("Actualizar Lista");
-        jPanel1.add(bActualizar);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 5);
+        jPanel1.add(bActualizar, gridBagConstraints);
 
         bVerPerfil.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         bVerPerfil.setText("Ver Perfil Completo");
-        jPanel1.add(bVerPerfil);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 0);
+        jPanel1.add(bVerPerfil, gridBagConstraints);
 
-        getContentPane().add(jPanel1, java.awt.BorderLayout.PAGE_END);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 10, 10, 10);
+        getContentPane().add(jPanel1, gridBagConstraints);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

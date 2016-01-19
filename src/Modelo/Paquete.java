@@ -22,14 +22,16 @@ public class Paquete
     private double volumen;
     private double peso;
     private String descripcion;
+    private double costo;
 
-    public Paquete(String venta, int numero, double volumen, double peso, String descripcion) 
+    public Paquete(String venta, int numero, double volumen, double peso, String descripcion, double costo) 
     {
         this.venta = venta;
         this.numero = numero;
         this.volumen = volumen;
         this.peso = peso;
         this.descripcion = descripcion;
+        this.costo = costo;
     }
 
     public String getVenta() {
@@ -70,5 +72,13 @@ public class Paquete
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
+    }
+
+    public double getCosto() {
+        return costo;
+    }
+
+    public void setCosto(double costo) {
+        this.costo = costo;
     }
 }

@@ -50,7 +50,7 @@ public class RegistrarVenta extends javax.swing.JFrame
         taAgregarDescripcion = new javax.swing.JTextArea();
         bAgregarPaquete = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        tfCosto = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
         cbSeguro = new javax.swing.JCheckBox();
         jLabel14 = new javax.swing.JLabel();
@@ -73,7 +73,7 @@ public class RegistrarVenta extends javax.swing.JFrame
         taVerDescripcion = new javax.swing.JTextArea();
         bEliminarPaquete = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        tfVerCosto = new javax.swing.JTextField();
         jPanel6 = new javax.swing.JPanel();
         cbPOS = new javax.swing.JComboBox<>();
         jPanel5 = new javax.swing.JPanel();
@@ -246,7 +246,7 @@ public class RegistrarVenta extends javax.swing.JFrame
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 0);
         jPanel3.add(jLabel2, gridBagConstraints);
 
-        jTextField1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        tfCosto.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
@@ -254,7 +254,7 @@ public class RegistrarVenta extends javax.swing.JFrame
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 10);
-        jPanel3.add(jTextField1, gridBagConstraints);
+        jPanel3.add(tfCosto, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -461,8 +461,8 @@ public class RegistrarVenta extends javax.swing.JFrame
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 0);
         jPanel9.add(jLabel3, gridBagConstraints);
 
-        jTextField2.setEditable(false);
-        jTextField2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        tfVerCosto.setEditable(false);
+        tfVerCosto.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 4;
@@ -470,7 +470,7 @@ public class RegistrarVenta extends javax.swing.JFrame
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 10);
-        jPanel9.add(jTextField2, gridBagConstraints);
+        jPanel9.add(tfVerCosto, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -535,7 +535,7 @@ public class RegistrarVenta extends javax.swing.JFrame
     public javax.swing.JButton bCancelar;
     public javax.swing.JButton bEliminarPaquete;
     public javax.swing.JButton bRegistrarVenta;
-    private javax.swing.ButtonGroup buttonGroup1;
+    public javax.swing.ButtonGroup buttonGroup1;
     public javax.swing.JComboBox<String> cbPOS;
     public javax.swing.JComboBox<String> cbPaquetes;
     public javax.swing.JCheckBox cbSeguro;
@@ -563,8 +563,6 @@ public class RegistrarVenta extends javax.swing.JFrame
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     public javax.swing.JRadioButton rbCredito;
     public javax.swing.JRadioButton rbDebito;
     public javax.swing.JRadioButton rbEfectivo;
@@ -573,11 +571,13 @@ public class RegistrarVenta extends javax.swing.JFrame
     public javax.swing.JTextField tfAgregarPeso;
     public javax.swing.JTextField tfAgregarVolumen;
     public javax.swing.JTextField tfCedula;
+    public javax.swing.JTextField tfCosto;
     public javax.swing.JTextField tfDireccion;
     public javax.swing.JTextField tfIVA;
     public javax.swing.JTextField tfNombre;
     public javax.swing.JTextField tfSubtotal;
     public javax.swing.JTextField tfTotal;
+    public javax.swing.JTextField tfVerCosto;
     public javax.swing.JTextField tfVerPeso;
     public javax.swing.JTextField tfVerVolumen;
     // End of variables declaration//GEN-END:variables

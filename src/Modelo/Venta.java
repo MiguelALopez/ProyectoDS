@@ -31,6 +31,21 @@ public class Venta
     private double total;
     private String pos;
     private ArrayList<Paquete> paquetes;
+    
+    public Venta(String cedula, String nombre, String direccion, String fecha, String metodo, boolean seguro, double subtotal, double iva, double total, String pos, ArrayList<Paquete> paquetes) 
+    {
+        this.cedula = cedula;
+        this.nombre = nombre;
+        this.direccion = direccion;
+        this.fecha = fecha;
+        this.metodo = metodo;
+        this.seguro = seguro;
+        this.subtotal = subtotal;
+        this.iva = iva;
+        this.total = total;
+        this.pos = pos;
+        this.paquetes = paquetes;
+    } 
 
     public Venta(String id, String cedula, String nombre, String direccion, String fecha, String metodo, boolean seguro, double subtotal, double iva, double total, String pos, ArrayList<Paquete> paquetes) 
     {
