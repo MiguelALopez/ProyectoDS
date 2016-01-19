@@ -15,51 +15,48 @@ import java.awt.event.ActionListener;
  */
 public class RegistrarVenta_Eventos
 {
+    private final RegistrarVenta registrarVenta;
+    
+    public RegistrarVenta_Eventos(final RegistrarVenta registrarVenta)
+    {
+        this.registrarVenta = registrarVenta;
 
-	private RegistrarVenta registrarVenta;
+        this.registrarVenta.bCancelar.addActionListener(
+            new ActionListener()
+            {
+                @Override
+                public void actionPerformed(ActionEvent e)
+                {
+                    cerrarFormulario();
+                }
+            }
+        );
 
-	public RegistrarVenta_Eventos(final RegistrarVenta registrarVenta)
-	{
-		this.registrarVenta = registrarVenta;
+        this.registrarVenta.tfTotal.addActionListener(
+            new ActionListener()
+            {
+                @Override
+                public void actionPerformed(ActionEvent e)
+                {
+                    calcular();
+                }
+            }
+        );
+    }
 
-		this.registrarVenta.bCancelar.addActionListener(
-			new ActionListener()
-			{
+    public void cerrarFormulario()
+    {
+        this.registrarVenta.setVisible(false);
+    }
 
-				@Override
-				public void actionPerformed(ActionEvent e)
-				{
-					cerrarFormulario();
-				}
-			}
-		);
-		
-		this.registrarVenta.tTotal.addActionListener(
-			new ActionListener()
-			{
-				
-				@Override
-				public void actionPerformed(ActionEvent e)
-				{
-					calcular();
-				}
-			}
-		);
-
-	}
-
-	public void cerrarFormulario()
-	{
-		this.registrarVenta.setVisible(false);
-	}
-	
-	public void calcular(){
-		//Cambiar total por la suma 
-		int total = Integer.parseInt(this.registrarVenta.tTotal.getText());
-		int iva, subtotal;
-		subtotal = (total*100/116);
-		iva = total - subtotal;
-		this.registrarVenta.tSubtotal.setText(""+subtotal);
-		this.registrarVenta.tIva.setText(""+iva);
-	}
+    public void calcular()
+    {
+        //Cambiar total por la suma 
+        int total = Integer.parseInt(this.registrarVenta.tfTotal.getText());
+        int iva, subtotal;
+        subtotal = (total*100/116);
+        iva = total - subtotal;
+        this.registrarVenta.tfSubtotal.setText(""+subtotal);
+        this.registrarVenta.tfIVA.setText(""+iva);
+    }
 }
