@@ -239,6 +239,20 @@ public class MenuPrincipal_Eventos
                 }
             }
         );
+        
+        this.menuPrincipal.bConsultarVentas.addActionListener(
+            new ActionListener()
+            {
+                @Override
+                public void actionPerformed(ActionEvent e)
+                {
+                    ConsultarVentas cv = new ConsultarVentas();
+                    ConsultarVentas_Eventos cve = new ConsultarVentas_Eventos(cv);
+                    cv.setLocationRelativeTo(null);
+                    cv.setVisible(true);
+                }
+            }
+        );
     }
     
     public void iniciarSesion()

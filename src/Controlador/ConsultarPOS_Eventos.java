@@ -60,14 +60,17 @@ public class ConsultarPOS_Eventos
         ArrayList<POS> listaPOS = new POSDAO().getListaPOS(); // aqui metodo DAO para obtener todos los POS de la BD
         //ArrayList<POS> listaPOS = new ArrayList();
         
-        DefaultTableModel model = (DefaultTableModel) this.consultarPOS.tPOS.getModel();
-        model.setRowCount(listaPOS.size());
-        
-        for (int i = 0; i < listaPOS.size(); i++) 
+        if (listaPOS != null)
         {
-            this.consultarPOS.tPOS.setValueAt(listaPOS.get(i).getId(), i, 0);
-            this.consultarPOS.tPOS.setValueAt(listaPOS.get(i).getNombre(), i, 1);
-            this.consultarPOS.tPOS.setValueAt(listaPOS.get(i).getDireccion(), i, 2);
+            DefaultTableModel model = (DefaultTableModel) this.consultarPOS.tPOS.getModel();
+            model.setRowCount(listaPOS.size());
+
+            for (int i = 0; i < listaPOS.size(); i++) 
+            {
+                this.consultarPOS.tPOS.setValueAt(listaPOS.get(i).getId(), i, 0);
+                this.consultarPOS.tPOS.setValueAt(listaPOS.get(i).getNombre(), i, 1);
+                this.consultarPOS.tPOS.setValueAt(listaPOS.get(i).getDireccion(), i, 2);
+            }
         }
     }
 }

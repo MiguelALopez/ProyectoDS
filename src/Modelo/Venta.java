@@ -11,6 +11,8 @@
 
 package Modelo;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Cristian Jurado
@@ -22,22 +24,28 @@ public class Venta
     private String nombre;
     private String direccion;
     private String fecha;
+    private String metodo;
+    private boolean seguro;
     private double subtotal;
     private double iva;
     private double total;
     private String pos;
+    private ArrayList<Paquete> paquetes;
 
-    public Venta(String id, String cedula, String nombre, String direccion, String fecha, double subtotal, double iva, double total, String pos) 
+    public Venta(String id, String cedula, String nombre, String direccion, String fecha, String metodo, boolean seguro, double subtotal, double iva, double total, String pos, ArrayList<Paquete> paquetes) 
     {
         this.id = id;
         this.cedula = cedula;
         this.nombre = nombre;
         this.direccion = direccion;
         this.fecha = fecha;
+        this.metodo = metodo;
+        this.seguro = seguro;
         this.subtotal = subtotal;
         this.iva = iva;
         this.total = total;
         this.pos = pos;
+        this.paquetes = paquetes;
     }   
 
     public String getId() {
@@ -80,6 +88,22 @@ public class Venta
         this.fecha = fecha;
     }
 
+    public String getMetodo() {
+        return metodo;
+    }
+
+    public void setMetodo(String metodo) {
+        this.metodo = metodo;
+    }
+
+    public boolean isSeguro() {
+        return seguro;
+    }
+
+    public void setSeguro(boolean seguro) {
+        this.seguro = seguro;
+    }    
+
     public double getSubtotal() {
         return subtotal;
     }
@@ -110,5 +134,13 @@ public class Venta
 
     public void setPos(String pos) {
         this.pos = pos;
+    }
+
+    public ArrayList<Paquete> getPaquetes() {
+        return paquetes;
+    }
+
+    public void setPaquetes(ArrayList<Paquete> paquetes) {
+        this.paquetes = paquetes;
     }
 }

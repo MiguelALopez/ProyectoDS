@@ -36,13 +36,15 @@ public class POSDAO
     {
         conexionBD.conectar();
         
-        ArrayList<POS> listaPOS = new ArrayList();
+        ArrayList<POS> listaPOS = null;
         String query = "SELECT * FROM pos;";
         
         try
         {
             Statement st = conexionBD.conexion.createStatement();
             ResultSet tabla = st.executeQuery(query);
+            
+            listaPOS = new ArrayList();
             
             while (tabla.next())
             {

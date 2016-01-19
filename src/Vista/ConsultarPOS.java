@@ -25,59 +25,68 @@ public class ConsultarPOS extends javax.swing.JFrame
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents()
-    {
+    private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         jScrollPane2 = new javax.swing.JScrollPane();
         tPOS = new javax.swing.JTable();
-        jPanel1 = new javax.swing.JPanel();
         bCerrar = new javax.swing.JButton();
         bActualizar = new javax.swing.JButton();
 
         setTitle("Consultar POS");
         setMinimumSize(new java.awt.Dimension(700, 400));
-        setPreferredSize(new java.awt.Dimension(700, 400));
-        getContentPane().setLayout(new java.awt.BorderLayout(0, 5));
+        getContentPane().setLayout(new java.awt.GridBagLayout());
 
         tPOS.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         tPOS.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         tPOS.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][]
-            {
+            new Object [][] {
 
             },
-            new String []
-            {
+            new String [] {
                 "CODIGO", "NOMBRE", "DIRECCION"
             }
-        )
-        {
-            boolean[] canEdit = new boolean []
-            {
+        ) {
+            boolean[] canEdit = new boolean [] {
                 false, false, false
             };
 
-            public boolean isCellEditable(int rowIndex, int columnIndex)
-            {
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
         tPOS.getTableHeader().setReorderingAllowed(false);
         jScrollPane2.setViewportView(tPOS);
 
-        getContentPane().add(jScrollPane2, java.awt.BorderLayout.CENTER);
-
-        jPanel1.setLayout(new java.awt.GridLayout(1, 2, 10, 0));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 5, 10);
+        getContentPane().add(jScrollPane2, gridBagConstraints);
 
         bCerrar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         bCerrar.setText("Cerrar");
-        jPanel1.add(bCerrar);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 10, 10, 5);
+        getContentPane().add(bCerrar, gridBagConstraints);
 
         bActualizar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         bActualizar.setText("Actualizar");
-        jPanel1.add(bActualizar);
-
-        getContentPane().add(jPanel1, java.awt.BorderLayout.PAGE_END);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 10, 10);
+        getContentPane().add(bActualizar, gridBagConstraints);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -85,7 +94,6 @@ public class ConsultarPOS extends javax.swing.JFrame
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton bActualizar;
     public javax.swing.JButton bCerrar;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
     public javax.swing.JTable tPOS;
     // End of variables declaration//GEN-END:variables

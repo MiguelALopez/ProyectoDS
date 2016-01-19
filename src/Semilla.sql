@@ -76,6 +76,8 @@ CREATE TABLE venta
     venta_nombre    VARCHAR(90) NOT NULL,
     venta_direccion VARCHAR(90) NOT NULL,
     venta_fecha     DATE        NOT NULL,
+    venta_metodo    VARCHAR(30) NOT NULL,
+    venta_seguro    BOOLEAN     NOT NULL,
     venta_subtotal  DECIMAL     NOT NULL,
     venta_iva       DECIMAL     NOT NULL,
     venta_total     DECIMAL     NOT NULL,
@@ -92,6 +94,7 @@ CREATE TABLE paquete
     paquete_volumen     DECIMAL NOT NULL,
     paquete_peso        DECIMAL NOT NULL,
     paquete_descripcion TEXT    NOT NULL,
+    paquete_costo       DECIMAL NOT NULL,
     PRIMARY KEY (venta_id, paquete_numero),
     FOREIGN KEY (venta_id) REFERENCES venta (venta_id)
 );
@@ -106,4 +109,19 @@ INSERT INTO sede(sede_numero, sede_nombre, sede_direccion)
     VALUES ('001', 'Melendez', 'Carrera 100');
 
 INSERT INTO pqr (pqr_numero, pqr_cedula, pqr_nombre, pqr_sede, pqr_tipo, pqr_contenido, pqr_estado)
-    VALUES ('1', '123', 'Miguel', '001', 'Peticion', 'nada', 'Nuevo')
+    VALUES ('1', '123', 'Miguel', '001', 'Peticion', 'nada', 'Nuevo');
+
+INSERT INTO pos (pos_id, pos_nombre, pos_direccion)
+VALUES ('1', 'La 50', 'Calle 50');
+
+INSERT INTO venta (venta_cedula, venta_nombre, venta_direccion, venta_fecha, venta_metodo, venta_seguro, venta_subtotal, venta_iva, venta_total, pos_id)
+VALUES ('1144082592', 'Camilo Ruiz', 'Calle 1', '18-01-2016', 'Efectivo', true, 900000, 100000, 1000000, '1');
+
+INSERT INTO paquete (venta_id, paquete_numero, paquete_volumen, paquete_peso, paquete_descripcion, paquete_costo)
+VALUES ('100000', 1, 100, 1000, 'Ampeta', 5000);
+
+INSERT INTO venta (venta_cedula, venta_nombre, venta_direccion, venta_fecha, venta_metodo, venta_seguro, venta_subtotal, venta_iva, venta_total, pos_id)
+VALUES ('1144082592', 'Camilo Ruiz', 'Calle 1', '18-01-2016', 'Efectivo', true, 900000, 100000, 2000000, '1');
+
+INSERT INTO paquete (venta_id, paquete_numero, paquete_volumen, paquete_peso, paquete_descripcion, paquete_costo)
+VALUES ('100001', 1, 100, 1000, 'Ampeta', 9000);
