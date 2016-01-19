@@ -26,7 +26,8 @@ public class RegistrarVenta extends javax.swing.JFrame
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents()
+    {
         java.awt.GridBagConstraints gridBagConstraints;
 
         buttonGroup1 = new javax.swing.ButtonGroup();
@@ -61,7 +62,7 @@ public class RegistrarVenta extends javax.swing.JFrame
         rbCredito = new javax.swing.JRadioButton();
         rbDebito = new javax.swing.JRadioButton();
         jPanel9 = new javax.swing.JPanel();
-        cbPaquetes = new javax.swing.JComboBox<>();
+        cbPaquetes = new javax.swing.JComboBox<String>();
         jLabel7 = new javax.swing.JLabel();
         tfVerVolumen = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
@@ -71,7 +72,7 @@ public class RegistrarVenta extends javax.swing.JFrame
         taVerDescripcion = new javax.swing.JTextArea();
         bEliminarPaquete = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
-        cbPOS = new javax.swing.JComboBox<>();
+        cbPOS = new javax.swing.JComboBox<String>();
         jPanel5 = new javax.swing.JPanel();
         bRegistrarVenta = new javax.swing.JButton();
         bCancelar = new javax.swing.JButton();
@@ -163,7 +164,7 @@ public class RegistrarVenta extends javax.swing.JFrame
         jPanel3.setLayout(new java.awt.GridBagLayout());
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel5.setText("Volumen (cm^3)");
+        jLabel5.setText("Volumen (cm³)");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -347,7 +348,7 @@ public class RegistrarVenta extends javax.swing.JFrame
         jPanel9.setLayout(new java.awt.GridBagLayout());
 
         cbPaquetes.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        cbPaquetes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
+        cbPaquetes.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " " }));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -358,7 +359,7 @@ public class RegistrarVenta extends javax.swing.JFrame
         jPanel9.add(cbPaquetes, gridBagConstraints);
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel7.setText("Volumen (cm3)");
+        jLabel7.setText("Volumen (cm³)");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;

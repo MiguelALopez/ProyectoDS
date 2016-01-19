@@ -25,8 +25,8 @@ public class ConsultarPOS extends javax.swing.JFrame
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
+    private void initComponents()
+    {
 
         jScrollPane2 = new javax.swing.JScrollPane();
         tPOS = new javax.swing.JTable();
@@ -34,6 +34,7 @@ public class ConsultarPOS extends javax.swing.JFrame
         bCerrar = new javax.swing.JButton();
         bActualizar = new javax.swing.JButton();
 
+        setTitle("Consultar POS");
         setMinimumSize(new java.awt.Dimension(700, 400));
         setPreferredSize(new java.awt.Dimension(700, 400));
         getContentPane().setLayout(new java.awt.BorderLayout(0, 5));
@@ -41,18 +42,23 @@ public class ConsultarPOS extends javax.swing.JFrame
         tPOS.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         tPOS.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         tPOS.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
+            new Object [][]
+            {
 
             },
-            new String [] {
+            new String []
+            {
                 "CODIGO", "NOMBRE", "DIRECCION"
             }
-        ) {
-            boolean[] canEdit = new boolean [] {
+        )
+        {
+            boolean[] canEdit = new boolean []
+            {
                 false, false, false
             };
 
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
+            public boolean isCellEditable(int rowIndex, int columnIndex)
+            {
                 return canEdit [columnIndex];
             }
         });
