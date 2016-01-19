@@ -70,13 +70,15 @@ public class RegistrarVenta extends javax.swing.JFrame
         jScrollPane2 = new javax.swing.JScrollPane();
         taVerDescripcion = new javax.swing.JTextArea();
         bEliminarPaquete = new javax.swing.JButton();
+        jPanel6 = new javax.swing.JPanel();
+        cbPOS = new javax.swing.JComboBox<>();
         jPanel5 = new javax.swing.JPanel();
         bRegistrarVenta = new javax.swing.JButton();
         bCancelar = new javax.swing.JButton();
 
         setTitle("Registrar Pedido");
-        setMinimumSize(new java.awt.Dimension(800, 630));
-        setPreferredSize(new java.awt.Dimension(800, 630));
+        setMinimumSize(new java.awt.Dimension(800, 695));
+        setPreferredSize(new java.awt.Dimension(800, 695));
         getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.LINE_AXIS));
 
         Main.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
@@ -151,7 +153,7 @@ public class RegistrarVenta extends javax.swing.JFrame
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
@@ -235,7 +237,7 @@ public class RegistrarVenta extends javax.swing.JFrame
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         jPanel1.add(jPanel3, gridBagConstraints);
@@ -335,7 +337,7 @@ public class RegistrarVenta extends javax.swing.JFrame
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
@@ -432,10 +434,30 @@ public class RegistrarVenta extends javax.swing.JFrame
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
         jPanel1.add(jPanel9, gridBagConstraints);
+
+        jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "POS", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 12))); // NOI18N
+        jPanel6.setLayout(new java.awt.GridBagLayout());
+
+        cbPOS.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel6.add(cbPOS, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        jPanel1.add(jPanel6, gridBagConstraints);
 
         Main.add(jPanel1, java.awt.BorderLayout.CENTER);
 
@@ -474,6 +496,7 @@ public class RegistrarVenta extends javax.swing.JFrame
     public javax.swing.JButton bEliminarPaquete;
     public javax.swing.JButton bRegistrarVenta;
     private javax.swing.ButtonGroup buttonGroup1;
+    public javax.swing.JComboBox<String> cbPOS;
     public javax.swing.JComboBox<String> cbPaquetes;
     public javax.swing.JCheckBox cbSeguro;
     private javax.swing.JLabel jLabel1;
@@ -494,6 +517,7 @@ public class RegistrarVenta extends javax.swing.JFrame
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;

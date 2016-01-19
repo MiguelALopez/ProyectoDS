@@ -76,6 +76,8 @@ CREATE TABLE venta
     venta_nombre    VARCHAR(90) NOT NULL,
     venta_direccion VARCHAR(90) NOT NULL,
     venta_fecha     DATE        NOT NULL,
+    venta_subtotal  DECIMAL     NOT NULL,
+    venta_iva       DECIMAL     NOT NULL,
     venta_total     DECIMAL     NOT NULL,
     pos_id          VARCHAR(30) NOT NULL,
     PRIMARY KEY (venta_id),
