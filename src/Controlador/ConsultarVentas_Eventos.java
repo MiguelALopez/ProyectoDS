@@ -123,16 +123,7 @@ public class ConsultarVentas_Eventos
                 }
                 
                 this.consultarVentas.tfMetodo.setText(venta.getMetodo());
-                
-                if (venta.isSeguro())
-                {
-                    this.consultarVentas.tfSeguro.setText("Si");
-                }
-                else
-                {
-                    this.consultarVentas.tfSeguro.setText("No");
-                }
-                
+		this.consultarVentas.tfSeguro.setText(String.valueOf(venta.getSeguro()));
                 this.consultarVentas.tfSubtotal.setText(String.valueOf(venta.getSubtotal()));
                 this.consultarVentas.tfIVA.setText(String.valueOf(venta.getIva()));
                 this.consultarVentas.tfTotal.setText(String.valueOf(venta.getTotal()));

@@ -27,12 +27,12 @@ CREATE TABLE usuario
     usuario_cedula              VARCHAR(30),
     usuario_passwd              VARCHAR(90) NOT NULL,
     usuario_nombre              VARCHAR(90) NOT NULL,
+    usuario_apellido            VARCHAR(90) NOT NULL,
     usuario_rol                 VARCHAR(60) NOT NULL,
     usuario_estado              VARCHAR(30) NOT NULL,
     usuario_fecha_nacimiento    VARCHAR(25),
     usuario_direccion           VARCHAR(90),
-    usuario_telefono            VARCHAR(30),
-    usuario_celular             VARCHAR(30),
+    usuario_telefono            VARCHAR(30),    
     usuario_fecha_incorporacion VARCHAR(25),
     usuario_salario             VARCHAR(30),
     usuario_cuenta              VARCHAR(30),
@@ -77,7 +77,7 @@ CREATE TABLE venta
     venta_direccion VARCHAR(90) NOT NULL,
     venta_fecha     DATE        NOT NULL,
     venta_metodo    VARCHAR(30) NOT NULL,
-    venta_seguro    BOOLEAN     NOT NULL,
+    venta_seguro    DECIMAL     NOT NULL,
     venta_subtotal  DECIMAL     NOT NULL,
     venta_iva       DECIMAL     NOT NULL,
     venta_total     DECIMAL     NOT NULL,
@@ -99,11 +99,11 @@ CREATE TABLE paquete
     FOREIGN KEY (venta_id) REFERENCES venta (venta_id)
 );
 
-INSERT INTO usuario (usuario_cedula, usuario_passwd, usuario_nombre, usuario_rol, usuario_estado)
-VALUES ('123', '123456', 'Miguel', 'Administrador', 'Activo');
+INSERT INTO usuario (usuario_cedula, usuario_passwd, usuario_nombre, usuario_apellido, usuario_rol, usuario_estado)
+VALUES ('123', '123456', 'Miguel', 'Lopez', 'Administrador', 'Activo');
 
-INSERT INTO usuario (usuario_cedula, usuario_passwd, usuario_nombre, usuario_rol, usuario_estado)
-VALUES ('456', 'holi', 'Andres', 'Secretaria', 'Activo');
+INSERT INTO usuario (usuario_cedula, usuario_passwd, usuario_nombre, usuario_apellido, usuario_rol, usuario_estado)
+VALUES ('456', 'holi', 'Andres', 'Martinez', 'Secretaria', 'Activo');
 
 INSERT INTO sede(sede_numero, sede_nombre, sede_direccion)
     VALUES ('001', 'Melendez', 'Carrera 100');
@@ -115,13 +115,13 @@ INSERT INTO pos (pos_id, pos_nombre, pos_direccion)
 VALUES ('1', 'La 50', 'Calle 50');
 
 INSERT INTO venta (venta_cedula, venta_nombre, venta_direccion, venta_fecha, venta_metodo, venta_seguro, venta_subtotal, venta_iva, venta_total, pos_id)
-VALUES ('1144082592', 'Camilo Ruiz', 'Calle 1', '18-01-2016', 'Efectivo', true, 900000, 100000, 1000000, '1');
+VALUES ('1144082592', 'Camilo Ruiz', 'Calle 1', '18-01-2016', 'Efectivo', 500, 900000, 100000, 1000000, '1');
 
 INSERT INTO paquete (venta_id, paquete_numero, paquete_volumen, paquete_peso, paquete_descripcion, paquete_costo)
 VALUES ('100000', 1, 100, 1000, 'Ampeta', 5000);
 
 INSERT INTO venta (venta_cedula, venta_nombre, venta_direccion, venta_fecha, venta_metodo, venta_seguro, venta_subtotal, venta_iva, venta_total, pos_id)
-VALUES ('1144082592', 'Camilo Ruiz', 'Calle 1', '18-01-2016', 'Efectivo', true, 900000, 100000, 2000000, '1');
+VALUES ('1144082592', 'Camilo Ruiz', 'Calle 1', '18-01-2016', 'Efectivo', 400, 900000, 100000, 2000000, '1');
 
 INSERT INTO paquete (venta_id, paquete_numero, paquete_volumen, paquete_peso, paquete_descripcion, paquete_costo)
 VALUES ('100001', 1, 100, 1000, 'Ampeta', 9000);

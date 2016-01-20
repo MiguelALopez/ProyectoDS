@@ -141,7 +141,7 @@ public class CrearPQR_Eventos
     {
         crearPQR.cbSedes.removeAllItems();
         
-        ArrayList<Sede> sedes = new SedeDAO().consultarSedes();
+        ArrayList<Sede> sedes = new SedeDAO().getListaSedes();
         //ArrayList<Sede> sedes = new ArrayList();
         
         for (int i = 0; i < sedes.size(); i++) 

@@ -80,17 +80,33 @@ public class ModificarUsuario_Eventos
         actualizarSedes();
     }
     
+    private void actualizarSedes()
+    {
+        modificarUsuario.cbSedes.removeAllItems();
+        
+        ArrayList<Sede> sedes = new SedeDAO().getListaSedes();
+        //ArrayList<Sede> sedes = new ArrayList();
+        
+	if (sedes != null)
+	{
+	    for (int i = 0; i < sedes.size(); i++) 
+	    {
+		modificarUsuario.cbSedes.addItem(sedes.get(i).getNumero());            
+	    }
+	}
+    }
+    
     public void modificarUsuario()
     {
         String cedula = this.modificarUsuario.tfCedula.getText();
         String passwd = String.valueOf(this.modificarUsuario.pfClave.getPassword());
         String nombre = this.modificarUsuario.tfNombre.getText();
+	String apellido = this.modificarUsuario.tfApellido.getText();
         String rol = (String) this.modificarUsuario.cbCargo.getSelectedItem();
         String estado = (String) this.modificarUsuario.cbEstado.getSelectedItem();        
         String fechaNacimiento = this.modificarUsuario.ftfFechaNacimiento.getText();
         String direccion = this.modificarUsuario.tfDireccion.getText();
-        String telefono = this.modificarUsuario.tfTelefono.getText();
-        String celular = this.modificarUsuario.tfCelular.getText();
+        String telefono = this.modificarUsuario.tfTelefono.getText();        
         String fechaIncorporacion = this.modificarUsuario.ftfFechaIncorporacion.getText();
         String salario = this.modificarUsuario.tfSalario.getText();
         String cuenta = this.modificarUsuario.tfNumeroCuenta.getText();
@@ -98,7 +114,7 @@ public class ModificarUsuario_Eventos
         
         String rePasswd = String.valueOf(this.modificarUsuario.pfVerificarClave.getPassword());
         
-        Usuario usuario = new Usuario(cedula, passwd, nombre, rol, estado, fechaNacimiento, direccion, telefono, celular, fechaIncorporacion, salario, cuenta, sede);
+        Usuario usuario = new Usuario(cedula, passwd, nombre, apellido, rol, estado, fechaNacimiento, direccion, telefono, fechaIncorporacion, salario, cuenta, sede);
         
         boolean verificar = verificarCamposModificarUsuario(usuario, rePasswd);
         
@@ -145,11 +161,11 @@ public class ModificarUsuario_Eventos
                 this.modificarUsuario.pfClave.setText(usuario.getPasswd());
                 this.modificarUsuario.pfVerificarClave.setText(usuario.getPasswd());
                 this.modificarUsuario.tfNombre.setText(usuario.getNombre());
+		this.modificarUsuario.tfApellido.setText(usuario.getApellido());
                 this.modificarUsuario.tfDireccion.setText(usuario.getDireccion());
                 this.modificarUsuario.ftfFechaNacimiento.setText(usuario.getFechaNacimiento());
                 this.modificarUsuario.cbSedes.setSelectedItem(usuario.getNumeroSede());
                 this.modificarUsuario.tfTelefono.setText(usuario.getTelefono());
-                this.modificarUsuario.tfCelular.setText(usuario.getCelular());
                 this.modificarUsuario.ftfFechaIncorporacion.setText(usuario.getFechaIncorporacion());
                 this.modificarUsuario.tfSalario.setText(usuario.getSalario());
                 this.modificarUsuario.tfNumeroCuenta.setText(usuario.getCuenta());
@@ -161,19 +177,6 @@ public class ModificarUsuario_Eventos
             {
                 JOptionPane.showMessageDialog(modificarUsuario, "Error al consultar en la Base de Datos", "Error", JOptionPane.ERROR_MESSAGE);
             }
-        }
-    }
-    
-    public void actualizarSedes()
-    {
-        modificarUsuario.cbSedes.removeAllItems();
-        
-        ArrayList<Sede> sedes = new SedeDAO().consultarSedes();
-        //ArrayList<Sede> sedes = new ArrayList();
-        
-        for (int i = 0; i < sedes.size(); i++) 
-        {
-            modificarUsuario.cbSedes.addItem(sedes.get(i).getNumero());            
         }
     }
     
@@ -213,6 +216,12 @@ public class ModificarUsuario_Eventos
             JOptionPane.showMessageDialog(modificarUsuario, "El campo Nombre es obligatorio.", "Error", JOptionPane.ERROR_MESSAGE);
             return false;
         }
+	
+	if (usuario.getApellido().isEmpty())
+        {
+	    JOptionPane.showMessageDialog(modificarUsuario, "El campo Apellido es obligatorio.", "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
         
         if (!usuario.getTelefono().isEmpty())
         {
@@ -225,20 +234,7 @@ public class ModificarUsuario_Eventos
                 JOptionPane.showMessageDialog(modificarUsuario, "El campo Telefono es numerico.", "Error", JOptionPane.ERROR_MESSAGE);
                 return false;
             }
-        }
-        
-        if (!usuario.getCelular().isEmpty())
-        {
-            try
-            {
-                Long.parseLong(usuario.getCelular());
-            }
-            catch (NumberFormatException ex)
-            {
-                JOptionPane.showMessageDialog(modificarUsuario, "El campo Celular es numerico.", "Error", JOptionPane.ERROR_MESSAGE);
-                return false;
-            }
-        }
+        }        
         
         if (!usuario.getSalario().isEmpty())
         {
@@ -276,10 +272,10 @@ public class ModificarUsuario_Eventos
         this.modificarUsuario.pfClave.setEditable(b);
         this.modificarUsuario.pfVerificarClave.setEditable(b);
         this.modificarUsuario.tfNombre.setEditable(b);
+        this.modificarUsuario.tfApellido.setEditable(b);
         this.modificarUsuario.tfDireccion.setEditable(b);
         this.modificarUsuario.ftfFechaNacimiento.setEditable(b);
         this.modificarUsuario.tfTelefono.setEditable(b);
-        this.modificarUsuario.tfCelular.setEditable(b);
         this.modificarUsuario.ftfFechaIncorporacion.setEditable(b);
         this.modificarUsuario.tfSalario.setEditable(b);
         this.modificarUsuario.tfNumeroCuenta.setEditable(b);
@@ -296,9 +292,9 @@ public class ModificarUsuario_Eventos
         this.modificarUsuario.pfClave.setText("");
         this.modificarUsuario.pfVerificarClave.setText("");
         this.modificarUsuario.tfCedula.setText("");
-        this.modificarUsuario.tfCelular.setText("");
         this.modificarUsuario.tfDireccion.setText("");
         this.modificarUsuario.tfNombre.setText("");
+        this.modificarUsuario.tfApellido.setText("");
         this.modificarUsuario.tfNumeroCuenta.setText("");
         this.modificarUsuario.tfSalario.setText("");
         this.modificarUsuario.tfTelefono.setText("");

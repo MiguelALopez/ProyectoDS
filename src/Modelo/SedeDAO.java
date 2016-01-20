@@ -26,7 +26,7 @@ public class SedeDAO
         this.conexionBD = new ConexionBD();
     }
 
-    public ArrayList<Sede> consultarSedes()
+    public ArrayList<Sede> getListaSedes()
     {
         conexionBD.conectar();        
         ArrayList<Sede> listaSedes = null;
@@ -65,18 +65,19 @@ public class SedeDAO
         return listaSedes;
     }
     
-    public Sede consultarSedeEspecifico(String sede_numero)
+    public Sede consultarSede(String sede_numero)
     {
         conexionBD.conectar();
         Sede sede = null;
         
         String query = "SELECT * "
                 + "FROM sede "
-                + "WHERE sede_numero='"+sede_numero+"';";
+                + "WHERE sede_numero = ?;";
         try
         {
-            Statement st = conexionBD.conexion.createStatement();
-            ResultSet tabla = st.executeQuery(query);
+            PreparedStatement st = conexionBD.conexion.prepareStatement(query);
+	    st.setString(1, sede_numero);
+            ResultSet tabla = st.executeQuery();
 
             if (tabla.next())
             {
@@ -113,41 +114,33 @@ public class SedeDAO
         
         if (conexionBD.conexion != null) 
         {
-            // Se verifica que no exista la sede primero
-            if (!existSede(sede.getNumero())) 
-            {
-                PreparedStatement consulta;
-                // La consulta se hace de esta forma para evitar inserciones SQL
-                String insertSQL = "INSERT INTO sede" +
-                        "(sede_numero, sede_nombre, sede_direccion) " +
-                        "VALUES (?, ?, ?);";
-                try 
-                {
-                    consulta = conexionBD.conexion.prepareStatement(insertSQL);
+	    PreparedStatement consulta;
+	    // La consulta se hace de esta forma para evitar inserciones SQL
+	    String insertSQL = "INSERT INTO sede " +
+		    "(sede_numero, sede_nombre, sede_direccion) " +
+		    "VALUES (?, ?, ?);";
+	    try 
+	    {
+		consulta = conexionBD.conexion.prepareStatement(insertSQL);
 
-                    consulta.setString(1, sede.getNumero());
-                    consulta.setString(2, sede.getNombre());
-                    consulta.setString(3, sede.getDireccion());
+		consulta.setString(1, sede.getNumero());
+		consulta.setString(2, sede.getNombre());
+		consulta.setString(3, sede.getDireccion());
 
-                    consulta.executeUpdate();
-                    exitoso = true;
-                } 
-                catch (SQLException ex) 
-                {
-                    Logger.getLogger(SedeDAO.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                finally
-                {
-                    if (conexionBD != null)
-                    {
-                        conexionBD.cerrarConexion();
-                    }
-                }
-            } 
-            else 
-            {
-                System.err.println("La sede numero " + sede.getNumero() + " ya existe");
-            }
+		consulta.executeUpdate();
+		exitoso = true;
+	    } 
+	    catch (SQLException ex) 
+	    {
+		Logger.getLogger(SedeDAO.class.getName()).log(Level.SEVERE, null, ex);
+	    }
+	    finally
+	    {
+		if (conexionBD != null)
+		{
+		    conexionBD.cerrarConexion();
+		}
+	    }
         }
         
         return exitoso;
@@ -209,41 +202,5 @@ public class SedeDAO
         }
         
         return exito;
-    }
-
-    public boolean existSede(String numSede)
-    {
-        conexionBD.conectar();
-        boolean existe = false;
-        
-        String consulta = "SELECT sede_numero "
-                + "FROM sede "
-                + "WHERE sede_numero='" + numSede + "';";
-        
-        ResultSet resultSet;
-
-        try 
-        {
-            Statement statement = conexionBD.conexion.createStatement();
-            resultSet = statement.executeQuery(consulta);
-            
-            if (resultSet.next())
-            {
-                existe = true;
-            }
-        }
-        catch (SQLException ex)
-        {
-            Logger.getLogger(SedeDAO.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        finally
-        {
-            if (conexionBD != null)
-            {
-                conexionBD.cerrarConexion();
-            }
-        }
-
-        return existe;
     }
 }

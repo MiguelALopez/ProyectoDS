@@ -69,7 +69,7 @@ public class ModificarSede_Eventos {
     public boolean buscarSede(String numeroSede){
         boolean existe = false;
         SedeDAO sedeDAO = new SedeDAO();
-        Sede sede = sedeDAO.consultarSedeEspecifico(numeroSede);
+        Sede sede = sedeDAO.consultarSede(numeroSede);
         if (sede!=null){
             modificarSede.getTextNameSede().setText(sede.getNombre());
             modificarSede.getTextAddress().setText(sede.getDireccion());

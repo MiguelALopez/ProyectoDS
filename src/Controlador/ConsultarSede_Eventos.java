@@ -41,7 +41,7 @@ public class ConsultarSede_Eventos
 
     private void cargarDatos()
     {       
-        ArrayList<Sede> listaSedes = new SedeDAO().consultarSedes();
+        ArrayList<Sede> listaSedes = new SedeDAO().getListaSedes();
         
         if (listaSedes != null)
         {

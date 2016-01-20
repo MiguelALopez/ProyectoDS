@@ -13,9 +13,7 @@ import Modelo.VentaDAO;
 import Vista.RegistrarVenta;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.logging.Level;
@@ -78,6 +76,17 @@ public class RegistrarVenta_Eventos
                 public void actionPerformed(ActionEvent e)
                 {
                     agregaPaquete();
+                }
+            }
+        );
+	
+	this.registrarVenta.cbSeguro.addActionListener(
+            new ActionListener()
+            {
+                @Override
+                public void actionPerformed(ActionEvent e)
+                {
+                    agregaSeguro();
                 }
             }
         );
@@ -210,8 +219,7 @@ public class RegistrarVenta_Eventos
 	    metodo = this.registrarVenta.rbDebito.getText();
 	}
 	
-	boolean seguro = this.registrarVenta.cbSeguro.isSelected();
-
+	double seguro = Double.parseDouble(this.registrarVenta.tfSeguro.getText());
 	double subtotal = Double.parseDouble(this.registrarVenta.tfSubtotal.getText());
 	double iva = Double.parseDouble(this.registrarVenta.tfIVA.getText());
 	double total = Double.parseDouble(this.registrarVenta.tfTotal.getText());
@@ -223,6 +231,7 @@ public class RegistrarVenta_Eventos
 	if (exito)
 	{
 	    JOptionPane.showMessageDialog(registrarVenta, "Venta registrada correctamente.", "", JOptionPane.INFORMATION_MESSAGE);
+	    borrarCamposVenta();
 	}
 	else
 	{
@@ -239,6 +248,23 @@ public class RegistrarVenta_Eventos
               this.registrarVenta.cbPaquetes.addItem(i.getNumero()+"");
         }
     }
+    
+    public void agregaSeguro()
+    {
+	if (this.registrarVenta.cbSeguro.isSelected())
+	{
+	    double total = Double.parseDouble(this.registrarVenta.tfTotal.getText());
+	    double seguro = total*0.02;
+	    
+	    this.registrarVenta.tfSeguro.setText(seguro+"");
+	}
+	else
+	{
+	    this.registrarVenta.tfSeguro.setText("0.0");
+	}
+	
+	calcular();
+    }
 
     public void calcular()
     {
@@ -252,20 +278,17 @@ public class RegistrarVenta_Eventos
         }
         
         iva = subtotal*0.16;
-        double total = subtotal + iva;
+	double total = subtotal + iva;
+	
+	if (this.registrarVenta.cbSeguro.isSelected())
+	{
+	    double seguro = Double.parseDouble(this.registrarVenta.tfSeguro.getText());
+	    total += seguro;
+	}
         
         this.registrarVenta.tfSubtotal.setText("" + subtotal);
         this.registrarVenta.tfIVA.setText("" + iva);
         this.registrarVenta.tfTotal.setText(total+"");
-    }
-    
-    public void registrarVenta()
-    {
-	double total = Integer.parseInt(this.registrarVenta.tfTotal.getText());
-	
-	
-	
-	borrarCamposVenta();
     }
     
     public void borrarCamposVenta()

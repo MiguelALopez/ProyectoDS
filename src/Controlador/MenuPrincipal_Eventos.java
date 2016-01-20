@@ -368,6 +368,6 @@ public class MenuPrincipal_Eventos
         this.menuPrincipal.bCrearPQR.setEnabled(false);
         this.menuPrincipal.bConsultarPQR.setEnabled(false);
         this.menuPrincipal.bResponderPQR.setEnabled(false);
-        this.menuPrincipal.bRegistrarVenta.setEnabled(false);
+        //this.menuPrincipal.bRegistrarVenta.setEnabled(false);
     }
 }

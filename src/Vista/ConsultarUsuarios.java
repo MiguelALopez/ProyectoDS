@@ -53,11 +53,11 @@ public class ConsultarUsuarios extends javax.swing.JFrame
 
             },
             new String [] {
-                "CEDULA", "NOMBRE", "ROL", "ESTADO"
+                "CEDULA", "NOMBRE", "APELLIDO", "ROL", "ESTADO"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {

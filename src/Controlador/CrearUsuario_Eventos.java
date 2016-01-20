@@ -58,6 +58,22 @@ public class CrearUsuario_Eventos
         actualizarSedes();
     }
     
+    private void actualizarSedes()
+    {
+        crearUsuario.cbSedes.removeAllItems();
+        
+        ArrayList<Sede> sedes = new SedeDAO().getListaSedes();
+        //ArrayList<Sede> sedes = new ArrayList();
+	
+        if (sedes != null)
+	{
+	    for (int i = 0; i < sedes.size(); i++) 
+	    {
+		crearUsuario.cbSedes.addItem(sedes.get(i).getNumero());            
+	    }
+	}
+    }
+    
     public void limpiarCampos()
     {
         this.crearUsuario.ftfFechaIncorporacion.setText("");
@@ -65,9 +81,9 @@ public class CrearUsuario_Eventos
         this.crearUsuario.pfClave.setText("");
         this.crearUsuario.pfVerificarClave.setText("");
         this.crearUsuario.tfCedula.setText("");
-        this.crearUsuario.tfCelular.setText("");
         this.crearUsuario.tfDireccion.setText("");
         this.crearUsuario.tfNombre.setText("");
+        this.crearUsuario.tfApellido.setText("");
         this.crearUsuario.tfNumeroCuenta.setText("");
         this.crearUsuario.tfSalario.setText("");
         this.crearUsuario.tfTelefono.setText("");
@@ -84,12 +100,12 @@ public class CrearUsuario_Eventos
         String cedula = this.crearUsuario.tfCedula.getText();
         String passwd = String.valueOf(this.crearUsuario.pfClave.getPassword());
         String nombre = this.crearUsuario.tfNombre.getText();
+        String apellido = this.crearUsuario.tfApellido.getText();
         String rol = (String) this.crearUsuario.cbCargo.getSelectedItem();
         String estado = (String) this.crearUsuario.cbEstado.getSelectedItem();        
         String fechaNacimiento = this.crearUsuario.ftfFechaNacimiento.getText();
         String direccion = this.crearUsuario.tfDireccion.getText();
         String telefono = this.crearUsuario.tfTelefono.getText();
-        String celular = this.crearUsuario.tfCelular.getText();
         String fechaIncorporacion = this.crearUsuario.ftfFechaIncorporacion.getText();
         String salario = this.crearUsuario.tfSalario.getText();
         String cuenta = this.crearUsuario.tfNumeroCuenta.getText();
@@ -97,7 +113,7 @@ public class CrearUsuario_Eventos
         
         String rePasswd = String.valueOf(this.crearUsuario.pfVerificarClave.getPassword());
         
-        Usuario nuevoUsuario = new Usuario(cedula, passwd, nombre, rol, estado, fechaNacimiento, direccion, telefono, celular, fechaIncorporacion, salario, cuenta, sede);
+        Usuario nuevoUsuario = new Usuario(cedula, passwd, nombre, apellido, rol, estado, fechaNacimiento, direccion, telefono, fechaIncorporacion, salario, cuenta, sede);
         
         boolean verificar = verificarCamposCrearUsuario(nuevoUsuario, rePasswd);
         
@@ -120,19 +136,6 @@ public class CrearUsuario_Eventos
                     JOptionPane.showMessageDialog(crearUsuario, "Error al crear el usuario.", "Error", JOptionPane.ERROR_MESSAGE);
                 }
             }
-        }
-    }
-    
-    private void actualizarSedes()
-    {
-        crearUsuario.cbSedes.removeAllItems();
-        
-        ArrayList<Sede> sedes = new SedeDAO().consultarSedes();
-        //ArrayList<Sede> sedes = new ArrayList();
-        
-        for (int i = 0; i < sedes.size(); i++) 
-        {
-            crearUsuario.cbSedes.addItem(sedes.get(i).getNumero());            
         }
     }
     
@@ -167,6 +170,12 @@ public class CrearUsuario_Eventos
             JOptionPane.showMessageDialog(crearUsuario, "El campo Nombre es obligatorio.", "Error", JOptionPane.ERROR_MESSAGE);
             return false;
         }
+	
+	if (usuario.getApellido().isEmpty())
+        {
+            JOptionPane.showMessageDialog(crearUsuario, "El campo Apellido es obligatorio.", "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
         
         if (!usuario.getTelefono().isEmpty())
         {
@@ -177,19 +186,6 @@ public class CrearUsuario_Eventos
             catch (NumberFormatException ex)
             {
                 JOptionPane.showMessageDialog(crearUsuario, "El campo Telefono es numerico.", "Error", JOptionPane.ERROR_MESSAGE);
-                return false;
-            }
-        }
-        
-        if (!usuario.getCelular().isEmpty())
-        {
-            try
-            {
-                Long.parseLong(usuario.getCelular());
-            }
-            catch (NumberFormatException ex)
-            {
-                JOptionPane.showMessageDialog(crearUsuario, "El campo Celular es numerico.", "Error", JOptionPane.ERROR_MESSAGE);
                 return false;
             }
         }

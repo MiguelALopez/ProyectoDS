@@ -14,7 +14,6 @@ package Modelo;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -41,8 +40,8 @@ public class UsuarioDAO
         
         try
         {
-            Statement st = conexionBD.conexion.createStatement();
-            ResultSet tabla = st.executeQuery(query);
+            PreparedStatement st = conexionBD.conexion.prepareStatement(query);
+            ResultSet tabla = st.executeQuery();
             
             listaUsuarios = new ArrayList();
             
@@ -79,12 +78,13 @@ public class UsuarioDAO
         Usuario usuario = null;
         
         String query = "SELECT * "
-                + "FROM usuario WHERE usuario_cedula='"+user+"';";
+                + "FROM usuario WHERE usuario_cedula = ?;";
         
         try
         {
-            Statement st = conexionBD.conexion.createStatement();
-            ResultSet tabla = st.executeQuery(query);
+            PreparedStatement st = conexionBD.conexion.prepareStatement(query);
+	    st.setString(1, user);
+            ResultSet tabla = st.executeQuery();
             
             if (tabla.next())
             {
@@ -128,43 +128,35 @@ public class UsuarioDAO
             st.setString(1, usuario.getCedula());
             st.setString(2, usuario.getPasswd());
             st.setString(3, usuario.getNombre());
-            st.setString(4, usuario.getRol());
-            st.setString(5, usuario.getEstado());
+	    st.setString(4, usuario.getApellido());
+            st.setString(5, usuario.getRol());
+            st.setString(6, usuario.getEstado());
             
             if (usuario.getFechaNacimiento().isEmpty())
-            {
-                st.setNull(6, java.sql.Types.VARCHAR);
-            }
-            else
-            {
-                st.setString(6, usuario.getFechaNacimiento());
-            }
-            
-            if (usuario.getDireccion().isEmpty())
             {
                 st.setNull(7, java.sql.Types.VARCHAR);
             }
             else
             {
-                st.setString(7, usuario.getDireccion());
+                st.setString(7, usuario.getFechaNacimiento());
             }
             
-            if (usuario.getTelefono().isEmpty())
+            if (usuario.getDireccion().isEmpty())
             {
                 st.setNull(8, java.sql.Types.VARCHAR);
             }
             else
             {
-                st.setString(8, usuario.getTelefono());
+                st.setString(8, usuario.getDireccion());
             }
             
-            if (usuario.getCelular().isEmpty())
+            if (usuario.getTelefono().isEmpty())
             {
                 st.setNull(9, java.sql.Types.VARCHAR);
             }
             else
             {
-                st.setString(9, usuario.getCelular());
+                st.setString(9, usuario.getTelefono());
             }
             
             if (usuario.getFechaIncorporacion().isEmpty())
@@ -230,12 +222,12 @@ public class UsuarioDAO
                 //+ "usuario_cedula = ?,"
                 + "usuario_passwd = ?,"
                 + "usuario_nombre = ?,"
+		+ "usuario_apellido = ?,"
                 + "usuario_rol = ?,"
                 + "usuario_estado = ?,"
                 + "usuario_fecha_nacimiento = ?,"
                 + "usuario_direccion = ?,"
                 + "usuario_telefono = ?,"
-                + "usuario_celular = ?,"
                 + "usuario_fecha_incorporacion = ?,"
                 + "usuario_salario = ?,"
                 + "usuario_cuenta = ?,"
@@ -249,43 +241,35 @@ public class UsuarioDAO
             //st.setString(1, usuario.getCedula());
             st.setString(1, usuario.getPasswd());
             st.setString(2, usuario.getNombre());
-            st.setString(3, usuario.getRol());
-            st.setString(4, usuario.getEstado());
+	    st.setString(3, usuario.getApellido());
+            st.setString(4, usuario.getRol());
+            st.setString(5, usuario.getEstado());
             
             if (usuario.getFechaNacimiento().isEmpty())
-            {
-                st.setNull(5, java.sql.Types.VARCHAR);
-            }
-            else
-            {
-                st.setString(5, usuario.getFechaNacimiento());
-            }
-            
-            if (usuario.getDireccion().isEmpty())
             {
                 st.setNull(6, java.sql.Types.VARCHAR);
             }
             else
             {
-                st.setString(6, usuario.getDireccion());
+                st.setString(6, usuario.getFechaNacimiento());
             }
             
-            if (usuario.getTelefono().isEmpty())
+            if (usuario.getDireccion().isEmpty())
             {
                 st.setNull(7, java.sql.Types.VARCHAR);
             }
             else
             {
-                st.setString(7, usuario.getTelefono());
+                st.setString(7, usuario.getDireccion());
             }
             
-            if (usuario.getCelular().isEmpty())
+            if (usuario.getTelefono().isEmpty())
             {
                 st.setNull(8, java.sql.Types.VARCHAR);
             }
             else
             {
-                st.setString(8, usuario.getCelular());
+                st.setString(8, usuario.getTelefono());
             }
             
             if (usuario.getFechaIncorporacion().isEmpty())

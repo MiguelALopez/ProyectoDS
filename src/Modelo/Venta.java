@@ -25,14 +25,14 @@ public class Venta
     private String direccion;
     private String fecha;
     private String metodo;
-    private boolean seguro;
+    private double seguro;
     private double subtotal;
     private double iva;
     private double total;
     private String pos;
     private ArrayList<Paquete> paquetes;
     
-    public Venta(String cedula, String nombre, String direccion, String fecha, String metodo, boolean seguro, double subtotal, double iva, double total, String pos, ArrayList<Paquete> paquetes) 
+    public Venta(String cedula, String nombre, String direccion, String fecha, String metodo, double seguro, double subtotal, double iva, double total, String pos, ArrayList<Paquete> paquetes) 
     {
         this.cedula = cedula;
         this.nombre = nombre;
@@ -47,7 +47,7 @@ public class Venta
         this.paquetes = paquetes;
     } 
 
-    public Venta(String id, String cedula, String nombre, String direccion, String fecha, String metodo, boolean seguro, double subtotal, double iva, double total, String pos, ArrayList<Paquete> paquetes) 
+    public Venta(String id, String cedula, String nombre, String direccion, String fecha, String metodo, double seguro, double subtotal, double iva, double total, String pos, ArrayList<Paquete> paquetes) 
     {
         this.id = id;
         this.cedula = cedula;
@@ -111,12 +111,12 @@ public class Venta
         this.metodo = metodo;
     }
 
-    public boolean isSeguro() {
-        return seguro;
+    public double getSeguro() {
+	return seguro;
     }
 
-    public void setSeguro(boolean seguro) {
-        this.seguro = seguro;
+    public void setSeguro(double seguro) {
+	this.seguro = seguro;
     }    
 
     public double getSubtotal() {

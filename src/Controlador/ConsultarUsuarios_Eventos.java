@@ -95,8 +95,9 @@ public class ConsultarUsuarios_Eventos
             {
                 this.consultarUsuarios.tUsuarios.setValueAt(usuarios.get(i).getCedula(), i, 0);
                 this.consultarUsuarios.tUsuarios.setValueAt(usuarios.get(i).getNombre(), i, 1);
-                this.consultarUsuarios.tUsuarios.setValueAt(usuarios.get(i).getRol(), i, 2);
-                this.consultarUsuarios.tUsuarios.setValueAt(usuarios.get(i).getEstado(), i, 3);
+		this.consultarUsuarios.tUsuarios.setValueAt(usuarios.get(i).getApellido(), i, 2);
+                this.consultarUsuarios.tUsuarios.setValueAt(usuarios.get(i).getRol(), i, 3);
+                this.consultarUsuarios.tUsuarios.setValueAt(usuarios.get(i).getEstado(), i, 4);
             }
         }
     }
@@ -129,6 +130,9 @@ public class ConsultarUsuarios_Eventos
 
                 pPerfil.add(new JLabel("Nombre: "));
                 pPerfil.add(new JLabel(usuario.getNombre()));
+		
+		pPerfil.add(new JLabel("Apellido: "));
+                pPerfil.add(new JLabel(usuario.getApellido()));
 
                 pPerfil.add(new JLabel("Estado: "));
                 pPerfil.add(new JLabel(usuario.getEstado()));
@@ -143,10 +147,7 @@ public class ConsultarUsuarios_Eventos
                 pPerfil.add(new JLabel(usuario.getDireccion()));
 
                 pPerfil.add(new JLabel("Telefono: "));
-                pPerfil.add(new JLabel(usuario.getTelefono()));
-
-                pPerfil.add(new JLabel("Celular: "));
-                pPerfil.add(new JLabel(usuario.getCelular()));
+                pPerfil.add(new JLabel(usuario.getTelefono()));                
 
                 pPerfil.add(new JLabel("Fecha de Incorporacion: "));
                 pPerfil.add(new JLabel(usuario.getFechaIncorporacion()));

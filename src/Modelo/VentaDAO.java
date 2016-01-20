@@ -51,7 +51,7 @@ public class VentaDAO
                 
                 listaVentas.add(new Venta(tabla.getString(1), tabla.getString(2), tabla.getString(3), 
                         tabla.getString(4), tabla.getString(5), tabla.getString(6), 
-                        tabla.getBoolean(7), tabla.getDouble(8), tabla.getDouble(9), 
+                        tabla.getDouble(7), tabla.getDouble(8), tabla.getDouble(9), 
                         tabla.getDouble(10), tabla.getString(11), lista));
             }
         } 
@@ -88,7 +88,7 @@ public class VentaDAO
             st.setString(3, venta.getDireccion());
 	    st.setString(4, venta.getFecha());
 	    st.setString(5, venta.getMetodo());
-	    st.setBoolean(6, venta.isSeguro());
+	    st.setDouble(6, venta.getSeguro());
 	    st.setDouble(7, venta.getSubtotal());
 	    st.setDouble(8, venta.getIva());
 	    st.setDouble(9, venta.getTotal());
@@ -147,7 +147,7 @@ public class VentaDAO
                 
                 venta = new Venta(tabla.getString(1), tabla.getString(2), tabla.getString(3), 
                         tabla.getString(4), tabla.getString(5), tabla.getString(6), 
-                        tabla.getBoolean(7), tabla.getDouble(8), tabla.getDouble(9), 
+                        tabla.getDouble(7), tabla.getDouble(8), tabla.getDouble(9), 
                         tabla.getDouble(10), tabla.getString(11), lista);
             }
         } 

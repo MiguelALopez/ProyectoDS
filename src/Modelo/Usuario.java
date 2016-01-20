@@ -26,12 +26,12 @@ public class Usuario
     private String cedula;
     private String passwd;
     private String nombre;
+    private String apellido;
     private String estado;
     private String rol;
     private String fechaNacimiento;
     private String direccion;
-    private String telefono;
-    private String celular;
+    private String telefono;    
     private String fechaIncorporacion;
     private String salario;
     private String cuenta;
@@ -45,12 +45,12 @@ public class Usuario
         this.cedula = null;
         this.passwd = null;
         this.nombre = null;
+	this.apellido = null;
         this.estado = null;
         this.rol = null;
         this.fechaNacimiento = null;
         this.direccion = null;
-        this.telefono = null;
-        this.celular = null;
+        this.telefono = null;        
         this.fechaIncorporacion = null;
         this.salario = null;
         this.cuenta = null;
@@ -66,17 +66,18 @@ public class Usuario
      * @param fecha_nacimiento : fecha de nacimiento del usuario
      * @param direccion : direccion del usuario
      * @param telefono : telefono del usuario
-     * @param celular : celular del usuario
+     * @param apellido : apellido del usuario
      * @param fecha_incorporacion : fecha de incorporacion del usuario a la empresa
      * @param salario : salario asignado al usuario
      * @param cuenta : cuenta bancaria del usuario
      * @param numeroSede
      */
-    public Usuario(String cedula, String passwd, String nombre, String rol, String estado, String fecha_nacimiento, String direccion, String telefono, String celular, String fecha_incorporacion, String salario, String cuenta, String numeroSede)
+    public Usuario(String cedula, String passwd, String nombre, String apellido, String rol, String estado, String fecha_nacimiento, String direccion, String telefono, String fecha_incorporacion, String salario, String cuenta, String numeroSede)
     {
         this.cedula = cedula;
         this.passwd = passwd;
         this.nombre = nombre;
+	this.apellido = apellido;
         this.estado = estado;
         this.rol = rol;
         
@@ -105,15 +106,6 @@ public class Usuario
         else
         {
             this.telefono = "";
-        }
-        
-        if (celular != null)
-        {
-            this.celular = celular;
-        }
-        else
-        {
-            this.celular = "";
         }
         
         if (fecha_incorporacion != null)
@@ -223,12 +215,12 @@ public class Usuario
         this.telefono = telefono;
     }
 
-    public String getCelular() {
-        return celular;
+    public String getApellido() {
+        return apellido;
     }
 
-    public void setCelular(String celular) {
-        this.celular = celular;
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
     }
 
     public String getFechaIncorporacion() {
