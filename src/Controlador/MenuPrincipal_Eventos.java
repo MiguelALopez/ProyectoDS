@@ -134,8 +134,8 @@ public class MenuPrincipal_Eventos
                 new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        ConsultarSede cs = new ConsultarSede();
-                        ConsultarSede_Eventos cse = new ConsultarSede_Eventos(cs);
+                        ConsultarSedes cs = new ConsultarSedes();
+                        ConsultarSedes_Eventos cse = new ConsultarSedes_Eventos(cs);
                         cs.setLocationRelativeTo(null);
                         cs.setVisible(true);
                     }

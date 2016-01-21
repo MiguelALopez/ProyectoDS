@@ -13,11 +13,12 @@ DROP TABLE IF EXISTS sede CASCADE;
 CREATE TABLE sede
 (
     sede_numero        VARCHAR(5),
-    sede_nombre        VARCHAR(90),
+    sede_nombre        VARCHAR(90)  NOT NULL,
     sede_gerente       VARCHAR(30),
     sede_presupuesto   VARCHAR(30),
-    sede_cant_camiones INT,
-    sede_direccion     VARCHAR(90),
+    sede_cant_camiones INTEGER,
+    sede_direccion     VARCHAR(90)  NOT NULL,
+    sede_ciudad        VARCHAR(90)  NOT NULL,
     PRIMARY KEY (sede_numero)
 );
 
@@ -99,14 +100,17 @@ CREATE TABLE paquete
     FOREIGN KEY (venta_id) REFERENCES venta (venta_id)
 );
 
+ALTER TABLE sede
+ADD CONSTRAINT sede_gerente_fkey FOREIGN KEY (sede_gerente) REFERENCES usuario (usuario_cedula);
+
 INSERT INTO usuario (usuario_cedula, usuario_passwd, usuario_nombre, usuario_apellido, usuario_rol, usuario_estado)
 VALUES ('123', '123456', 'Miguel', 'Lopez', 'Administrador', 'Activo');
 
 INSERT INTO usuario (usuario_cedula, usuario_passwd, usuario_nombre, usuario_apellido, usuario_rol, usuario_estado)
 VALUES ('456', 'holi', 'Andres', 'Martinez', 'Secretaria', 'Activo');
 
-INSERT INTO sede(sede_numero, sede_nombre, sede_direccion)
-    VALUES ('001', 'Melendez', 'Carrera 100');
+INSERT INTO sede(sede_numero, sede_nombre, sede_direccion, sede_ciudad)
+    VALUES ('001', 'Melendez', 'Carrera 100', 'Cali');
 
 INSERT INTO pqr (pqr_numero, pqr_cedula, pqr_nombre, pqr_sede, pqr_tipo, pqr_contenido, pqr_estado)
     VALUES ('1', '123', 'Miguel', '001', 'Peticion', 'nada', 'Nuevo');

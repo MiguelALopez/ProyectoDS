@@ -29,6 +29,7 @@ public class Sede
     private String presupuesto;
     private int camiones;
     private String direccion;
+    private String ciudad;
 
     /**
      * Constructor para crear una sede con datos nulos
@@ -41,6 +42,7 @@ public class Sede
         this.presupuesto = null;
         this.camiones = 0;
         this.direccion = null;
+	this.ciudad = null;
     }
 
     public Sede(String numero, String nombre, String direccion) {
@@ -57,9 +59,9 @@ public class Sede
      * @param presupuesto : presupuesto asignado a la sede
      * @param camiones : camiones asignados a la sede
      * @param gerente
+     * @param ciudad
      */
-
-    public Sede(String numero, String nombre, String gerente, String presupuesto, int camiones, String direccion)
+    public Sede(String numero, String nombre, String gerente, String presupuesto, int camiones, String direccion, String ciudad)
     {
         this.numero = numero;
         this.nombre = nombre;
@@ -67,6 +69,7 @@ public class Sede
         this.presupuesto = presupuesto;
         this.camiones = camiones;
         this.direccion = direccion;
+	this.ciudad = ciudad;
     }
 
     /**
@@ -120,6 +123,14 @@ public class Sede
 
     public void setGerente(String gerente) {
         this.gerente = gerente;
-    }    
+    }
+    
+    public String getCiudad() {
+	return ciudad;
+    }
+
+    public void setCiudad(String ciudad) {
+	this.ciudad = ciudad;
+    }
 }
  

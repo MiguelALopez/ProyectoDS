@@ -42,12 +42,9 @@ public class SedeDAO
             
             while (tabla.next())
             {
-                listaSedes.add(new Sede(tabla.getString(1),
-                        tabla.getString(2),
-                        tabla.getString(3),
-                        tabla.getString(4),
-                        tabla.getInt(5),
-                        tabla.getString(6)));                
+                listaSedes.add(new Sede(tabla.getString(1), tabla.getString(2), tabla.getString(3),
+                        tabla.getString(4), tabla.getInt(5), tabla.getString(6),
+			tabla.getString(7)));  
             }        
         } 
         catch (SQLException ex) 
@@ -81,13 +78,9 @@ public class SedeDAO
 
             if (tabla.next())
             {
-                sede = new Sede(
-                        tabla.getString(1),
-                        tabla.getString(2),
-                        tabla.getString(3),
-                        tabla.getString(4),
-                        tabla.getInt(5),
-                        tabla.getString(6));
+                sede = new Sede(tabla.getString(1), tabla.getString(2), tabla.getString(3), 
+			tabla.getString(4), tabla.getInt(5), tabla.getString(6),
+			tabla.getString(7));
             }
         }
         catch (SQLException ex)
