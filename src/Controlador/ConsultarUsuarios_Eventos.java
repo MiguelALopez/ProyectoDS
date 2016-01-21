@@ -14,14 +14,10 @@ package Controlador;
 import Modelo.Usuario;
 import Modelo.UsuarioDAO;
 import Vista.ConsultarUsuarios;
-import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -68,6 +64,17 @@ public class ConsultarUsuarios_Eventos
                     }
                 }
         );
+	
+	consultarUsuarios.bCerrarPerfil.addActionListener(
+                new ActionListener()
+                {
+                    @Override
+                    public void actionPerformed(ActionEvent ae) 
+                    {
+                        cerrarPerfil();
+                    }
+                }
+        );
         
         consultarUsuarios();
     }
@@ -76,15 +83,6 @@ public class ConsultarUsuarios_Eventos
     {
         ArrayList<Usuario> usuarios = new UsuarioDAO().getListaUsuarios(); // aqui metodo DAO para obtener todos los usuarios de la BD
         //ArrayList<Usuario> usuarios = new ArrayList();
-        
-        // prueba
-//        Usuario u1 = new Usuario();
-//        u1.setCedula("1144082592");
-//        u1.setNombre("Camilo Ruiz Casanova");
-//        u1.setRol("Gerente");
-//        u1.setEstado("Activo");
-//        usuarios.add(u1);
-        // fin prueba
         
         if (usuarios != null)
         {
@@ -111,6 +109,7 @@ public class ConsultarUsuarios_Eventos
     
     public void verPerfil()
     {
+	borrarCamposPerfil();
         int row = consultarUsuarios.tUsuarios.getSelectedRow();
                         
         if (row != -1)
@@ -122,54 +121,47 @@ public class ConsultarUsuarios_Eventos
 
             if (usuario != null)
             {
-                JFrame fPerfil = new JFrame();
-                JPanel pPerfil = new JPanel(new GridLayout(6, 4, 5, 10));
-
-                pPerfil.add(new JLabel("Cedula: "));
-                pPerfil.add(new JLabel(usuario.getCedula()));
-
-                pPerfil.add(new JLabel("Nombre: "));
-                pPerfil.add(new JLabel(usuario.getNombre()));
+                this.consultarUsuarios.tfCedula.setText(usuario.getCedula());
+                this.consultarUsuarios.tfRol.setText(usuario.getRol());
+                this.consultarUsuarios.tfNombre.setText(usuario.getNombre());
+                this.consultarUsuarios.tfApellido.setText(usuario.getApellido());
+                this.consultarUsuarios.tfFechaNacimiento.setText(usuario.getFechaNacimiento());
+                this.consultarUsuarios.tfFechaIncorporacion.setText(usuario.getFechaIncorporacion());
+                this.consultarUsuarios.tfDireccion.setText(usuario.getDireccion());
+                this.consultarUsuarios.tfSalario.setText(usuario.getSalario());
+                this.consultarUsuarios.tfTelefono.setText(usuario.getTelefono());
+                this.consultarUsuarios.tfNumeroCuenta.setText(usuario.getCuenta());
+                this.consultarUsuarios.tfSede.setText(usuario.getNumeroSede());
+                this.consultarUsuarios.tfEstado.setText(usuario.getEstado());
 		
-		pPerfil.add(new JLabel("Apellido: "));
-                pPerfil.add(new JLabel(usuario.getApellido()));
-
-                pPerfil.add(new JLabel("Estado: "));
-                pPerfil.add(new JLabel(usuario.getEstado()));
-
-                pPerfil.add(new JLabel("Rol: "));
-                pPerfil.add(new JLabel(usuario.getRol()));
-
-                pPerfil.add(new JLabel("Fecha de Nacimiento: "));
-                pPerfil.add(new JLabel(usuario.getFechaNacimiento()));
-
-                pPerfil.add(new JLabel("Direccion: "));
-                pPerfil.add(new JLabel(usuario.getDireccion()));
-
-                pPerfil.add(new JLabel("Telefono: "));
-                pPerfil.add(new JLabel(usuario.getTelefono()));                
-
-                pPerfil.add(new JLabel("Fecha de Incorporacion: "));
-                pPerfil.add(new JLabel(usuario.getFechaIncorporacion()));
-
-                pPerfil.add(new JLabel("Salario: "));
-                pPerfil.add(new JLabel(usuario.getSalario()));
-
-                pPerfil.add(new JLabel("Cuenta: "));
-                pPerfil.add(new JLabel(usuario.getCuenta()));
-
-                pPerfil.add(new JLabel("Sede: "));
-                pPerfil.add(new JLabel(usuario.getNumeroSede()));
-
-                fPerfil.add(pPerfil);
-                fPerfil.pack();
-                fPerfil.setLocationRelativeTo(null);
-                fPerfil.setVisible(true);
+		this.consultarUsuarios.fPerfil.setLocationRelativeTo(consultarUsuarios);
+		this.consultarUsuarios.fPerfil.setVisible(true);
             }
         }
         else
         {
             JOptionPane.showMessageDialog(consultarUsuarios, "No ha seleccionado ningun Usuario.", "Advertencia", JOptionPane.WARNING_MESSAGE);
         }
+    }
+    
+    public void borrarCamposPerfil()
+    {
+	this.consultarUsuarios.tfCedula.setText("");
+	this.consultarUsuarios.tfRol.setText("");
+	this.consultarUsuarios.tfNombre.setText("");
+	this.consultarUsuarios.tfApellido.setText("");
+	this.consultarUsuarios.tfFechaNacimiento.setText("");
+	this.consultarUsuarios.tfFechaIncorporacion.setText("");
+	this.consultarUsuarios.tfDireccion.setText("");
+	this.consultarUsuarios.tfSalario.setText("");
+	this.consultarUsuarios.tfTelefono.setText("");
+	this.consultarUsuarios.tfNumeroCuenta.setText("");
+	this.consultarUsuarios.tfSede.setText("");
+	this.consultarUsuarios.tfEstado.setText("");
+    }
+    
+    public void cerrarPerfil()
+    {
+	this.consultarUsuarios.fPerfil.setVisible(false);
     }
 }

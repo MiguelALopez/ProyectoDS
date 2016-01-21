@@ -72,6 +72,17 @@ public class ConsultarVentas_Eventos
                     }
                 }
         );
+	
+	consultarVentas.bGenerar.addActionListener(
+                new ActionListener()
+                {
+                    @Override
+                    public void actionPerformed(ActionEvent ae) 
+                    {
+                        generarRecibo();
+                    }
+                }
+        );
         
         consultarVentas();
     }
@@ -110,6 +121,8 @@ public class ConsultarVentas_Eventos
             {
                 limpiarDetalles();
                 
+		this.consultarVentas.tfID.setText(venta.getId());
+		this.consultarVentas.tfFecha.setText(venta.getFecha());
                 this.consultarVentas.tfPOS.setText(venta.getPos());
                 this.consultarVentas.tfCedula.setText(venta.getCedula());
                 this.consultarVentas.tfNombre.setText(venta.getNombre());
@@ -158,11 +171,32 @@ public class ConsultarVentas_Eventos
     
     public void limpiarDetalles()
     {
-        
+        this.consultarVentas.tfID.setText("");
+	this.consultarVentas.tfFecha.setText("");
+	this.consultarVentas.tfPOS.setText("");
+	this.consultarVentas.tfCedula.setText("");
+	this.consultarVentas.tfNombre.setText("");
+	this.consultarVentas.tfDireccion.setText("");
+
+	this.paquetes = new ArrayList();
+	this.consultarVentas.cbPaquetes.removeAllItems();
+
+	this.consultarVentas.tfMetodo.setText("");
+	this.consultarVentas.tfSeguro.setText("");
+	this.consultarVentas.tfSubtotal.setText("");
+	this.consultarVentas.tfIVA.setText("");
+	this.consultarVentas.tfTotal.setText("");
     }
     
     public void cerrarDetalles()
     {
         this.consultarVentas.fDetalles.setVisible(false);
+    }
+    
+    public void generarRecibo()
+    {
+	String id = this.consultarVentas.tfID.getText();
+	
+	RegistrarVenta_Eventos.generaRecibo(new VentaDAO().consultarVenta(id));
     }
 }

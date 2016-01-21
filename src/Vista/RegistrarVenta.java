@@ -111,6 +111,7 @@ public class RegistrarVenta extends javax.swing.JFrame
         gridBagConstraints.insets = new java.awt.Insets(10, 5, 5, 0);
         jPanel2.add(jLabel10, gridBagConstraints);
 
+        tfCedula.setEditable(false);
         tfCedula.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -129,6 +130,7 @@ public class RegistrarVenta extends javax.swing.JFrame
         gridBagConstraints.insets = new java.awt.Insets(10, 5, 5, 0);
         jPanel2.add(jLabel11, gridBagConstraints);
 
+        tfNombre.setEditable(false);
         tfNombre.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
@@ -147,6 +149,7 @@ public class RegistrarVenta extends javax.swing.JFrame
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 10, 0);
         jPanel2.add(jLabel12, gridBagConstraints);
 
+        tfDireccion.setEditable(false);
         tfDireccion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -186,6 +189,7 @@ public class RegistrarVenta extends javax.swing.JFrame
         gridBagConstraints.insets = new java.awt.Insets(10, 5, 5, 0);
         jPanel3.add(jLabel6, gridBagConstraints);
 
+        tfAgregarVolumen.setEditable(false);
         tfAgregarVolumen.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -195,6 +199,7 @@ public class RegistrarVenta extends javax.swing.JFrame
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 5, 10);
         jPanel3.add(tfAgregarVolumen, gridBagConstraints);
 
+        tfAgregarPeso.setEditable(false);
         tfAgregarPeso.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
@@ -213,6 +218,7 @@ public class RegistrarVenta extends javax.swing.JFrame
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 0);
         jPanel3.add(jLabel9, gridBagConstraints);
 
+        taAgregarDescripcion.setEditable(false);
         taAgregarDescripcion.setColumns(20);
         taAgregarDescripcion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         taAgregarDescripcion.setRows(5);
@@ -231,6 +237,7 @@ public class RegistrarVenta extends javax.swing.JFrame
 
         bAgregarPaquete.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         bAgregarPaquete.setText("Agregar Paquete");
+        bAgregarPaquete.setEnabled(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
@@ -248,6 +255,7 @@ public class RegistrarVenta extends javax.swing.JFrame
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 0);
         jPanel3.add(jLabel2, gridBagConstraints);
 
+        tfCosto.setEditable(false);
         tfCosto.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -332,6 +340,7 @@ public class RegistrarVenta extends javax.swing.JFrame
         buttonGroup1.add(rbEfectivo);
         rbEfectivo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         rbEfectivo.setText("Efectivo");
+        rbEfectivo.setEnabled(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -341,6 +350,7 @@ public class RegistrarVenta extends javax.swing.JFrame
         buttonGroup1.add(rbCredito);
         rbCredito.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         rbCredito.setText("Credito");
+        rbCredito.setEnabled(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
@@ -350,6 +360,7 @@ public class RegistrarVenta extends javax.swing.JFrame
         buttonGroup1.add(rbDebito);
         rbDebito.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         rbDebito.setText("Debito");
+        rbDebito.setEnabled(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
@@ -360,6 +371,7 @@ public class RegistrarVenta extends javax.swing.JFrame
 
         cbSeguro.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         cbSeguro.setText("Seguro");
+        cbSeguro.setEnabled(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -475,6 +487,7 @@ public class RegistrarVenta extends javax.swing.JFrame
 
         bEliminarPaquete.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         bEliminarPaquete.setText("Eliminar Paquete");
+        bEliminarPaquete.setEnabled(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 5;
@@ -536,6 +549,7 @@ public class RegistrarVenta extends javax.swing.JFrame
 
         bRegistrarVenta.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         bRegistrarVenta.setText("Registrar Venta");
+        bRegistrarVenta.setEnabled(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;

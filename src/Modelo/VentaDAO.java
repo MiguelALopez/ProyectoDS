@@ -14,6 +14,7 @@ package Modelo;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -139,6 +140,46 @@ public class VentaDAO
         {
             PreparedStatement st = conexionBD.conexion.prepareStatement(query);
             st.setString(1, id);
+            ResultSet tabla = st.executeQuery();
+	    
+	    SimpleDateFormat f = new SimpleDateFormat("dd-MM-yyyy");
+            
+            while (tabla.next())
+            {
+                ArrayList<Paquete> lista = new PaqueteDAO().getListaPaquetes(tabla.getString(1), conexionBD);
+                
+                venta = new Venta(tabla.getString(1), tabla.getString(2), tabla.getString(3), 
+                        tabla.getString(4), f.format(tabla.getDate(5)), tabla.getString(6), 
+                        tabla.getDouble(7), tabla.getDouble(8), tabla.getDouble(9), 
+                        tabla.getDouble(10), tabla.getString(11), lista);
+		System.out.println(venta.getFecha());
+            }
+        } 
+        catch (SQLException ex) 
+        {
+            Logger.getLogger(VentaDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        finally
+        {
+            if (conexionBD != null)
+            {
+                conexionBD.cerrarConexion();
+            }
+        }
+        
+        return venta;
+    }
+    
+    public Venta consultarUltimaVenta()
+    {
+        conexionBD.conectar();
+        
+        Venta venta = null;
+        String query = "SELECT * FROM venta WHERE venta_id = (SELECT MAX(venta_id) FROM venta);";
+        
+        try
+        {
+            PreparedStatement st = conexionBD.conexion.prepareStatement(query);
             ResultSet tabla = st.executeQuery();
             
             while (tabla.next())

@@ -62,26 +62,37 @@ public class ConsultarVentas extends javax.swing.JFrame
         taVerDescripcion = new javax.swing.JTextArea();
         jPanel6 = new javax.swing.JPanel();
         tfPOS = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        tfID = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        tfFecha = new javax.swing.JTextField();
         jPanel5 = new javax.swing.JPanel();
         bCerrar = new javax.swing.JButton();
+        bGenerar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tVentas = new javax.swing.JTable();
         bActualizar = new javax.swing.JButton();
         bDetalles = new javax.swing.JButton();
 
         fDetalles.setTitle("Detalles de la Venta");
-        fDetalles.setMinimumSize(new java.awt.Dimension(600, 660));
+        fDetalles.setMinimumSize(new java.awt.Dimension(600, 690));
+        fDetalles.setPreferredSize(new java.awt.Dimension(600, 690));
         fDetalles.getContentPane().setLayout(new javax.swing.BoxLayout(fDetalles.getContentPane(), javax.swing.BoxLayout.LINE_AXIS));
 
         Main.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
         Main.setMinimumSize(new java.awt.Dimension(380, 380));
         Main.setPreferredSize(new java.awt.Dimension(380, 280));
-        Main.setLayout(new java.awt.BorderLayout());
+        Main.setLayout(new java.awt.GridBagLayout());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("DETALLES DE LA VENTA");
-        Main.add(jLabel1, java.awt.BorderLayout.NORTH);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 5, 0);
+        Main.add(jLabel1, gridBagConstraints);
 
         jPanel1.setLayout(new java.awt.GridBagLayout());
 
@@ -94,7 +105,7 @@ public class ConsultarVentas extends javax.swing.JFrame
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
-        gridBagConstraints.insets = new java.awt.Insets(10, 5, 5, 0);
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 5, 0);
         jPanel2.add(jLabel10, gridBagConstraints);
 
         tfCedula.setEditable(false);
@@ -113,7 +124,7 @@ public class ConsultarVentas extends javax.swing.JFrame
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
-        gridBagConstraints.insets = new java.awt.Insets(10, 5, 5, 0);
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 5, 0);
         jPanel2.add(jLabel11, gridBagConstraints);
 
         tfNombre.setEditable(false);
@@ -132,7 +143,7 @@ public class ConsultarVentas extends javax.swing.JFrame
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 10, 0);
+        gridBagConstraints.insets = new java.awt.Insets(5, 10, 10, 0);
         jPanel2.add(jLabel12, gridBagConstraints);
 
         tfDireccion.setEditable(false);
@@ -344,18 +355,66 @@ public class ConsultarVentas extends javax.swing.JFrame
         gridBagConstraints.weightx = 1.0;
         jPanel1.add(jPanel9, gridBagConstraints);
 
-        jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "POS", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 12))); // NOI18N
+        jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 12))); // NOI18N
         jPanel6.setLayout(new java.awt.GridBagLayout());
 
         tfPOS.setEditable(false);
         tfPOS.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        gridBagConstraints.insets = new java.awt.Insets(5, 10, 10, 10);
         jPanel6.add(tfPOS, gridBagConstraints);
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel4.setText("ID");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 5, 0);
+        jPanel6.add(jLabel4, gridBagConstraints);
+
+        tfID.setEditable(false);
+        tfID.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 5, 10);
+        jPanel6.add(tfID, gridBagConstraints);
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel5.setText("POS");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(5, 10, 10, 0);
+        jPanel6.add(jLabel5, gridBagConstraints);
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel6.setText("Fecha");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(5, 10, 10, 0);
+        jPanel6.add(jLabel6, gridBagConstraints);
+
+        tfFecha.setEditable(false);
+        tfFecha.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 10, 10, 10);
+        jPanel6.add(tfFecha, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -364,21 +423,45 @@ public class ConsultarVentas extends javax.swing.JFrame
         gridBagConstraints.weightx = 1.0;
         jPanel1.add(jPanel6, gridBagConstraints);
 
-        Main.add(jPanel1, java.awt.BorderLayout.CENTER);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        Main.add(jPanel1, gridBagConstraints);
 
         jPanel5.setLayout(new java.awt.GridBagLayout());
 
         bCerrar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         bCerrar.setText("Cerrar");
         gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 5);
+        jPanel5.add(bCerrar, gridBagConstraints);
+
+        bGenerar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        bGenerar.setText("Generar Recibo");
+        bGenerar.setMaximumSize(new java.awt.Dimension(79, 31));
+        bGenerar.setMinimumSize(new java.awt.Dimension(79, 31));
+        bGenerar.setPreferredSize(new java.awt.Dimension(79, 31));
+        gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        jPanel5.add(bCerrar, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(10, 5, 10, 0);
+        jPanel5.add(bGenerar, gridBagConstraints);
 
-        Main.add(jPanel5, java.awt.BorderLayout.SOUTH);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        Main.add(jPanel5, gridBagConstraints);
 
         fDetalles.getContentPane().add(Main);
 
@@ -428,6 +511,9 @@ public class ConsultarVentas extends javax.swing.JFrame
 
         bDetalles.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         bDetalles.setText("Detalles de la Venta");
+        bDetalles.setMaximumSize(new java.awt.Dimension(107, 31));
+        bDetalles.setMinimumSize(new java.awt.Dimension(107, 31));
+        bDetalles.setPreferredSize(new java.awt.Dimension(107, 31));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
@@ -443,6 +529,7 @@ public class ConsultarVentas extends javax.swing.JFrame
     public javax.swing.JButton bActualizar;
     public javax.swing.JButton bCerrar;
     public javax.swing.JButton bDetalles;
+    public javax.swing.JButton bGenerar;
     public javax.swing.JComboBox<String> cbPaquetes;
     public javax.swing.JFrame fDetalles;
     private javax.swing.JLabel jLabel1;
@@ -455,6 +542,9 @@ public class ConsultarVentas extends javax.swing.JFrame
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
@@ -469,6 +559,8 @@ public class ConsultarVentas extends javax.swing.JFrame
     public javax.swing.JTextArea taVerDescripcion;
     public javax.swing.JTextField tfCedula;
     public javax.swing.JTextField tfDireccion;
+    public javax.swing.JTextField tfFecha;
+    public javax.swing.JTextField tfID;
     public javax.swing.JTextField tfIVA;
     public javax.swing.JTextField tfMetodo;
     public javax.swing.JTextField tfNombre;
