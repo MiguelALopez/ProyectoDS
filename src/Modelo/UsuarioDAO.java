@@ -71,6 +71,46 @@ public class UsuarioDAO
         return listaUsuarios;
     }
     
+    public ArrayList<Usuario> getListarGerentes(){
+        this.conexionBD.conectar();
+        
+        ArrayList<Usuario> listaGerentes = null;
+        
+        String query = "SELECT * FROM usuario WHERE usuario_rol='Gerente'";
+        
+        try
+        {
+            PreparedStatement st = conexionBD.conexion.prepareStatement(query);
+            ResultSet tabla = st.executeQuery();
+            
+            listaGerentes = new ArrayList();
+            
+            while (tabla.next())
+            {
+                listaGerentes.add(new Usuario(tabla.getString(1), 
+                        tabla.getString(2), tabla.getString(3), 
+                        tabla.getString(4), tabla.getString(5), 
+                        tabla.getString(6), tabla.getString(7), 
+                        tabla.getString(8), tabla.getString(9), 
+                        tabla.getString(10), tabla.getString(11), 
+                        tabla.getString(12), tabla.getString(13)));                
+            }        
+        } 
+        catch (SQLException ex) 
+        {
+            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        finally
+        {
+            if (conexionBD != null)
+            {
+                conexionBD.cerrarConexion();
+            }
+        }
+        
+        return listaGerentes;
+    }
+    
     public Usuario consultarUsuario(String user)
     {
         conexionBD.conectar();
