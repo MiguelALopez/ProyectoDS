@@ -110,8 +110,8 @@ public class SedeDAO
 	    PreparedStatement consulta;
 	    // La consulta se hace de esta forma para evitar inserciones SQL
 	    String insertSQL = "INSERT INTO sede " +
-		    "(sede_numero, sede_nombre, sede_direccion) " +
-		    "VALUES (?, ?, ?);";
+		    "(sede_numero, sede_nombre, sede_direccion, sede_ciudad) " +
+		    "VALUES (?, ?, ?, ?);";
 	    try 
 	    {
 		consulta = conexionBD.conexion.prepareStatement(insertSQL);
@@ -119,6 +119,7 @@ public class SedeDAO
 		consulta.setString(1, sede.getNumero());
 		consulta.setString(2, sede.getNombre());
 		consulta.setString(3, sede.getDireccion());
+		consulta.setString(4, sede.getCiudad());
 
 		consulta.executeUpdate();
 		exitoso = true;

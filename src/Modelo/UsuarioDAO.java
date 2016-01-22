@@ -157,8 +157,8 @@ public class UsuarioDAO
         conexionBD.conectar();
         boolean exito = false;
         
-        String query = "INSERT INTO usuario (usuario_cedula, usuario_passwd, usuario_nombre, usuario_rol, usuario_estado, "
-                + "usuario_fecha_nacimiento, usuario_direccion, usuario_telefono, usuario_celular, usuario_fecha_incorporacion, "
+        String query = "INSERT INTO usuario (usuario_cedula, usuario_passwd, usuario_nombre, usuario_apellido, usuario_rol, usuario_estado, "
+                + "usuario_fecha_nacimiento, usuario_direccion, usuario_telefono, usuario_fecha_incorporacion, "
                 + "usuario_salario, usuario_cuenta, usuario_sede_numero) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?);";
         
         try
