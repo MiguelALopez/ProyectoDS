@@ -46,7 +46,29 @@ public class CrearSedeOpe_Eventos
                 @Override
                 public void actionPerformed(ActionEvent e) 
                 {
-                    bSelGerente();
+                    ListGerentes();
+                }
+            }
+        );
+        
+        this.crearSedeOpe.bSeleccionar.addActionListener(
+            new ActionListener() 
+            {
+                @Override
+                public void actionPerformed(ActionEvent e) 
+                {
+                    SeleccionGerente();
+                }
+            }
+        );
+        
+        this.crearSedeOpe.bAgregar.addActionListener(
+            new ActionListener() 
+            {
+                @Override
+                public void actionPerformed(ActionEvent e) 
+                {
+                    bAgregarSede();
                 }
             }
         );
@@ -64,6 +86,50 @@ public class CrearSedeOpe_Eventos
         
     }
     
+    public void bAgregarSede(){
+        if(validaCampos())
+        {
+            String numero, nombre, direccion;
+            numero = this.crearSedeOpe.tNumero.getText();
+            nombre = this.crearSedeOpe.tNombre.getText();
+            direccion = this.crearSedeOpe.tDireccion.getText();
+            
+            SedeDAO daoSede = new SedeDAO();
+            
+            Sede antigua = daoSede.consultarSede(numero);
+            
+            if(antigua != null)
+            {
+                JOptionPane.showMessageDialog(crearSedeOpe, "La sede "+numero+" ya existe", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+            else
+            {
+                int go = JOptionPane.showConfirmDialog(crearSedeOpe, "Seguro desea agregar la sede "+ numero, "Confirmación", JOptionPane.YES_NO_OPTION);
+            
+                if(go == JOptionPane.YES_OPTION)
+                {
+                    String presupuesto="", gerente="", ciudad="";
+                    presupuesto = this.crearSedeOpe.tPresupuesto.getText();
+                    ciudad = this.crearSedeOpe.cbCiudad.getSelectedItem().toString();
+                    gerente = this.crearSedeOpe.tGerente.getText();
+
+                    Sede sede = new Sede(numero, nombre, gerente, presupuesto, 0, direccion, ciudad);
+
+                    daoSede.insertarSede(sede);
+
+                    borrarCampos();
+                }
+            }
+            
+            
+            
+            
+            
+            
+        }
+        
+    }
+    
     public void bCancelarMain(){
         borrarCampos();
         this.crearSedeOpe.setVisible(false);
@@ -75,7 +141,7 @@ public class CrearSedeOpe_Eventos
         this.crearSedeOpe.jfSelGerente.setVisible(false);
     }
     
-    public void bListGerentes()
+    public void ListGerentes()
     {
         ArrayList<Usuario> listaGerentes = null;
         
@@ -93,6 +159,7 @@ public class CrearSedeOpe_Eventos
                 this.crearSedeOpe.tGerentes.setValueAt(listaGerentes.get(i).getApellido(), i, 2);
             }
             
+            this.crearSedeOpe.jfSelGerente.setLocationRelativeTo(crearSedeOpe);
             this.crearSedeOpe.jfSelGerente.setVisible(true);
         }
         else
@@ -102,7 +169,7 @@ public class CrearSedeOpe_Eventos
         
     }
     
-    public void bSelGerente()
+    public void SeleccionGerente()
     {
         int row = this.crearSedeOpe.tGerentes.getSelectedRow();
         
@@ -119,7 +186,39 @@ public class CrearSedeOpe_Eventos
     
     public void borrarCampos()
     {
+        this.crearSedeOpe.tDireccion.setText("");
+        this.crearSedeOpe.tGerente.setText("");
+        this.crearSedeOpe.tNombre.setText("");
+        this.crearSedeOpe.tNumero.setText("");
+        this.crearSedeOpe.tPresupuesto.setText("");
+    }
+    
+    public boolean validaCampos()
+    {
+        String error="";
+        if(this.crearSedeOpe.tNumero.getText().isEmpty())
+        {
+            error += "\n* Numero de Sede";
+        }
         
+        if(this.crearSedeOpe.tNombre.getText().isEmpty())
+        {
+            error += "\n* Nombre de Sede";
+        }
+        
+        if(this.crearSedeOpe.tDireccion.getText().isEmpty())
+        {
+            error += "\n* Dirección de Sede";
+        }
+        
+        if(error.length() > 1)
+        {
+            error = "Por favor verificar los siguientes campos" + error;
+            JOptionPane.showMessageDialog(crearSedeOpe, error,"Digite los campos obligatorios",JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        
+        return true;
     }
     
 }
