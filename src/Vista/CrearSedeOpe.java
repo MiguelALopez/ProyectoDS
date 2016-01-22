@@ -27,34 +27,103 @@ public class CrearSedeOpe extends javax.swing.JFrame
 	 */
 	@SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents()
-    {
+    private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
+        jfSelGerente = new javax.swing.JFrame();
+        jLabel8 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tGerentes = new javax.swing.JTable();
+        jPanel5 = new javax.swing.JPanel();
+        bSeleccionar = new javax.swing.JButton();
+        bCancelar = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        tNumero = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        tNombre = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        tDireccion = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        tPresupuesto = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox();
+        cbCiudad = new javax.swing.JComboBox();
         jPanel4 = new javax.swing.JPanel();
-        jButton3 = new javax.swing.JButton();
-        jTextField4 = new javax.swing.JTextField();
+        bSelGerente = new javax.swing.JButton();
+        tGerente = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        bAgregar = new javax.swing.JButton();
+        bCancelarMain = new javax.swing.JButton();
+
+        jfSelGerente.setTitle("Seleccionar Gerente");
+        jfSelGerente.getContentPane().setLayout(new java.awt.GridBagLayout());
+
+        jLabel8.setText("Seleccionar Gerente");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.weightx = 1.0;
+        jfSelGerente.getContentPane().add(jLabel8, gridBagConstraints);
+
+        tGerentes.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Cedula", "Nombre", "Apellido"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(tGerentes);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        jfSelGerente.getContentPane().add(jScrollPane1, gridBagConstraints);
+
+        jPanel5.setLayout(new java.awt.GridBagLayout());
+
+        bSeleccionar.setText("Seleccionar");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 5);
+        jPanel5.add(bSeleccionar, gridBagConstraints);
+
+        bCancelar.setText("Cancelar");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.insets = new java.awt.Insets(10, 5, 10, 10);
+        jPanel5.add(bCancelar, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
+        jfSelGerente.getContentPane().add(jPanel5, gridBagConstraints);
+
+        jLabel9.setText("jLabel9");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(480, 300));
-        setPreferredSize(new java.awt.Dimension(480, 300));
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
         jPanel1.setLayout(new java.awt.GridBagLayout());
@@ -81,14 +150,14 @@ public class CrearSedeOpe extends javax.swing.JFrame
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 5, 5);
         jPanel2.add(jLabel2, gridBagConstraints);
 
-        jTextField1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        tNumero.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 5, 5, 5);
-        jPanel2.add(jTextField1, gridBagConstraints);
+        jPanel2.add(tNumero, gridBagConstraints);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel3.setText("Nombre");
@@ -101,16 +170,16 @@ public class CrearSedeOpe extends javax.swing.JFrame
         gridBagConstraints.insets = new java.awt.Insets(10, 5, 5, 5);
         jPanel2.add(jLabel3, gridBagConstraints);
 
-        jTextField2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextField2.setMaximumSize(null);
-        jTextField2.setPreferredSize(new java.awt.Dimension(26, 23));
+        tNombre.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        tNombre.setMaximumSize(null);
+        tNombre.setPreferredSize(new java.awt.Dimension(26, 23));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 5, 5, 10);
-        jPanel2.add(jTextField2, gridBagConstraints);
+        jPanel2.add(tNombre, gridBagConstraints);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setText("Dirección");
@@ -123,7 +192,7 @@ public class CrearSedeOpe extends javax.swing.JFrame
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 5);
         jPanel2.add(jLabel4, gridBagConstraints);
 
-        jTextField3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        tDireccion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
@@ -131,7 +200,7 @@ public class CrearSedeOpe extends javax.swing.JFrame
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 10);
-        jPanel2.add(jTextField3, gridBagConstraints);
+        jPanel2.add(tDireccion, gridBagConstraints);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel5.setText("Gerente");
@@ -152,15 +221,15 @@ public class CrearSedeOpe extends javax.swing.JFrame
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         jPanel2.add(jLabel6, gridBagConstraints);
 
-        jTextField5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextField5.setMinimumSize(new java.awt.Dimension(26, 23));
+        tPresupuesto.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        tPresupuesto.setMinimumSize(new java.awt.Dimension(26, 23));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 10);
-        jPanel2.add(jTextField5, gridBagConstraints);
+        jPanel2.add(tPresupuesto, gridBagConstraints);
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel7.setText("Ciudad");
@@ -170,38 +239,39 @@ public class CrearSedeOpe extends javax.swing.JFrame
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 10, 5);
         jPanel2.add(jLabel7, gridBagConstraints);
 
-        jComboBox1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Arauca", "Armenia", "Barranquilla", "Bogotá", "Bucaramanga", "Cali", "Cartagena", "Cúcuta", "Florencia", "Ibagué", "Leticia", "Manizales", "Medellín", "Mitú", "Mocoa", "Montería", "Neiva", "Pasto", "Pereira", "Popayán", "Puerto Carreño", "Puerto Inírida", "Quibdó", "Riohacha", "San Andres", "San José del Guaviare", "Santa Marta", "Sincelejo", "Tunja", "Valledupar", "Villavicencio", "Yopal" }));
-        jComboBox1.setMinimumSize(new java.awt.Dimension(26, 23));
-        jComboBox1.setPreferredSize(new java.awt.Dimension(26, 23));
+        cbCiudad.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        cbCiudad.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Arauca", "Armenia", "Barranquilla", "Bogotá", "Bucaramanga", "Cali", "Cartagena", "Cúcuta", "Florencia", "Ibagué", "Leticia", "Manizales", "Medellín", "Mitú", "Mocoa", "Montería", "Neiva", "Pasto", "Pereira", "Popayán", "Puerto Carreño", "Puerto Inírida", "Quibdó", "Riohacha", "San Andres", "San José del Guaviare", "Santa Marta", "Sincelejo", "Tunja", "Valledupar", "Villavicencio", "Yopal" }));
+        cbCiudad.setMinimumSize(new java.awt.Dimension(26, 23));
+        cbCiudad.setPreferredSize(new java.awt.Dimension(26, 23));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 10, 10);
-        jPanel2.add(jComboBox1, gridBagConstraints);
+        jPanel2.add(cbCiudad, gridBagConstraints);
 
         jPanel4.setLayout(new java.awt.GridBagLayout());
 
-        jButton3.setText("...");
-        jButton3.setMaximumSize(new java.awt.Dimension(20, 23));
-        jButton3.setMinimumSize(new java.awt.Dimension(20, 23));
-        jButton3.setPreferredSize(new java.awt.Dimension(20, 23));
+        bSelGerente.setText("...");
+        bSelGerente.setMaximumSize(new java.awt.Dimension(20, 23));
+        bSelGerente.setMinimumSize(new java.awt.Dimension(20, 23));
+        bSelGerente.setPreferredSize(new java.awt.Dimension(20, 23));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.insets = new java.awt.Insets(5, 0, 5, 5);
-        jPanel4.add(jButton3, gridBagConstraints);
+        jPanel4.add(bSelGerente, gridBagConstraints);
 
-        jTextField4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        tGerente.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 0);
-        jPanel4.add(jTextField4, gridBagConstraints);
+        jPanel4.add(tGerente, gridBagConstraints);
+        tGerente.setEditable(false);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -219,8 +289,8 @@ public class CrearSedeOpe extends javax.swing.JFrame
 
         jPanel3.setLayout(new java.awt.GridBagLayout());
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton1.setText("AGREGAR");
+        bAgregar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        bAgregar.setText("AGREGAR");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -228,10 +298,10 @@ public class CrearSedeOpe extends javax.swing.JFrame
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 5);
-        jPanel3.add(jButton1, gridBagConstraints);
+        jPanel3.add(bAgregar, gridBagConstraints);
 
-        jButton2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton2.setText("CANCELAR");
+        bCancelarMain.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        bCancelarMain.setText("CANCELAR");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
@@ -239,7 +309,7 @@ public class CrearSedeOpe extends javax.swing.JFrame
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 5, 10, 10);
-        jPanel3.add(jButton2, gridBagConstraints);
+        jPanel3.add(bCancelarMain, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -304,10 +374,12 @@ public class CrearSedeOpe extends javax.swing.JFrame
 	}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JComboBox jComboBox1;
+    public javax.swing.JButton bAgregar;
+    public javax.swing.JButton bCancelar;
+    public javax.swing.JButton bCancelarMain;
+    public javax.swing.JButton bSelGerente;
+    public javax.swing.JButton bSeleccionar;
+    public javax.swing.JComboBox cbCiudad;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -315,14 +387,20 @@ public class CrearSedeOpe extends javax.swing.JFrame
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JScrollPane jScrollPane1;
+    public javax.swing.JFrame jfSelGerente;
+    public javax.swing.JTextField tDireccion;
+    public javax.swing.JTextField tGerente;
+    public javax.swing.JTable tGerentes;
+    public javax.swing.JTextField tNombre;
+    public javax.swing.JTextField tNumero;
+    public javax.swing.JTextField tPresupuesto;
     // End of variables declaration//GEN-END:variables
 }
