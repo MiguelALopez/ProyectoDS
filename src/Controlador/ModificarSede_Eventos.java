@@ -74,7 +74,6 @@ public class ModificarSede_Eventos {
             modificarSede.getTextNameSede().setText(sede.getNombre());
             modificarSede.getTextAddress().setText(sede.getDireccion());
             modificarSede.getTextManager().setText(sede.getGerente());
-            modificarSede.getTextBudget().setText(sede.getPresupuesto());
             modificarSede.getTextNumTruck().setText(Integer.toString(sede.getCamiones()));
             existe = true;
         }
@@ -89,7 +88,6 @@ public class ModificarSede_Eventos {
         sede.setNombre(modificarSede.getTextNameSede().getText());
         sede.setDireccion(modificarSede.getTextAddress().getText());
         sede.setGerente(modificarSede.getTextManager().getText());
-        sede.setPresupuesto(modificarSede.getTextBudget().getText());
         sede.setCamiones(Integer.parseInt(modificarSede.getTextNumTruck().getText()));
 
         exito = new SedeDAO().modificarSede(sede);

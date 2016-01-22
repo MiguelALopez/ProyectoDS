@@ -25,11 +25,10 @@ public class Sede
      */
     private String numero;
     private String nombre;
-    private String gerente;    
-    private String presupuesto;
-    private int camiones;
     private String direccion;
     private String ciudad;
+    private String gerente;
+    private int camiones;
 
     /**
      * Constructor para crear una sede con datos nulos
@@ -38,17 +37,10 @@ public class Sede
     {
         this.numero = null;
         this.nombre = null;
-        this.gerente = null;        
-        this.presupuesto = null;
-        this.camiones = 0;
         this.direccion = null;
 	this.ciudad = null;
-    }
-
-    public Sede(String numero, String nombre, String direccion) {
-        this.numero = numero;
-        this.nombre = nombre;
-        this.direccion = direccion;
+        this.gerente = null;
+        this.camiones = 0;
     }
 
     /**
@@ -56,27 +48,33 @@ public class Sede
      * @param numero : numero unico que identifica la sede
      * @param nombre : nombre de la sede
      * @param direccion : direccion de la sede
-     * @param presupuesto : presupuesto asignado a la sede
      * @param camiones : camiones asignados a la sede
      * @param gerente
      * @param ciudad
      */
-    public Sede(String numero, String nombre, String gerente, String presupuesto, int camiones, String direccion, String ciudad)
+    public Sede(String numero, String nombre, String direccion, String ciudad, String gerente, int camiones)
     {
         this.numero = numero;
         this.nombre = nombre;
-        this.gerente = gerente;        
-        this.presupuesto = presupuesto;
-        this.camiones = camiones;
         this.direccion = direccion;
 	this.ciudad = ciudad;
+	
+	if (gerente != null)
+	{
+	    this.gerente = gerente;
+	}
+	else
+	{
+	    this.gerente = null;
+	}
+        
+        this.camiones = camiones;
     }
 
     /**
      * Getters and setters para los atributos de la clase
-     *      * 
-     */
-    
+     * 
+     */    
     public String getNumero() {
         return numero;
     }
@@ -100,21 +98,13 @@ public class Sede
     public void setDireccion(String direccion) {
         this.direccion = direccion;
     }
-
-    public String getPresupuesto() {
-        return presupuesto;
+    
+    public String getCiudad() {
+	return ciudad;
     }
 
-    public void setPresupuesto(String presupuesto) {
-        this.presupuesto = presupuesto;
-    }
-
-    public int getCamiones() {
-        return camiones;
-    }
-
-    public void setCamiones(int camiones) {
-        this.camiones = camiones;
+    public void setCiudad(String ciudad) {
+	this.ciudad = ciudad;
     }
 
     public String getGerente() {
@@ -124,13 +114,13 @@ public class Sede
     public void setGerente(String gerente) {
         this.gerente = gerente;
     }
-    
-    public String getCiudad() {
-	return ciudad;
+
+    public int getCamiones() {
+        return camiones;
     }
 
-    public void setCiudad(String ciudad) {
-	this.ciudad = ciudad;
+    public void setCamiones(int camiones) {
+        this.camiones = camiones;
     }
 }
  

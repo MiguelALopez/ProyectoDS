@@ -14,11 +14,10 @@ CREATE TABLE sede
 (
     sede_numero        VARCHAR(5),
     sede_nombre        VARCHAR(90)  NOT NULL,
-    sede_gerente       VARCHAR(30),
-    sede_presupuesto   VARCHAR(30),
-    sede_cant_camiones INTEGER,
     sede_direccion     VARCHAR(90)  NOT NULL,
     sede_ciudad        VARCHAR(90)  NOT NULL,
+    sede_gerente       VARCHAR(30),
+    sede_cant_camiones INTEGER,    
     PRIMARY KEY (sede_numero)
 );
 

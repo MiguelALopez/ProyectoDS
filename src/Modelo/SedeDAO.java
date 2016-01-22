@@ -43,8 +43,7 @@ public class SedeDAO
             while (tabla.next())
             {
                 listaSedes.add(new Sede(tabla.getString(1), tabla.getString(2), tabla.getString(3),
-                        tabla.getString(4), tabla.getInt(5), tabla.getString(6),
-			tabla.getString(7)));  
+                        tabla.getString(4), tabla.getString(5), tabla.getInt(6)));  
             }        
         } 
         catch (SQLException ex) 
@@ -79,8 +78,7 @@ public class SedeDAO
             if (tabla.next())
             {
                 sede = new Sede(tabla.getString(1), tabla.getString(2), tabla.getString(3), 
-			tabla.getString(4), tabla.getInt(5), tabla.getString(6),
-			tabla.getString(7));
+			tabla.getString(4), tabla.getString(5), tabla.getInt(6));
             }
         }
         catch (SQLException ex)
@@ -110,8 +108,8 @@ public class SedeDAO
 	    PreparedStatement consulta;
 	    // La consulta se hace de esta forma para evitar inserciones SQL
 	    String insertSQL = "INSERT INTO sede " +
-		    "(sede_numero, sede_nombre, sede_direccion, sede_ciudad) " +
-		    "VALUES (?, ?, ?, ?);";
+		    "(sede_numero, sede_nombre, sede_direccion, sede_ciudad, sede_gerente, sede_cant_camiones) " +
+		    "VALUES (?, ?, ?, ?, ?, ?);";
 	    try 
 	    {
 		consulta = conexionBD.conexion.prepareStatement(insertSQL);
@@ -120,6 +118,17 @@ public class SedeDAO
 		consulta.setString(2, sede.getNombre());
 		consulta.setString(3, sede.getDireccion());
 		consulta.setString(4, sede.getCiudad());
+		
+		if (!sede.getGerente().isEmpty())
+		{
+		    consulta.setString(5, sede.getGerente());
+		}
+		else 
+		{
+		    consulta.setNull(5, Types.VARCHAR);
+		}		
+		
+		consulta.setInt(6, sede.getCamiones());
 
 		consulta.executeUpdate();
 		exitoso = true;
@@ -147,37 +156,31 @@ public class SedeDAO
         
         String query = "UPDATE sede SET " +
                 "sede_nombre = ?, " +
+		"sede_direccion = ?, " +
+		"sede_ciudad = ?, " +
                 "sede_gerente = ?, " +
-                "sede_presupuesto = ?, " +
-                "sede_cant_camiones = ?, " +
-                "sede_direccion = ? " +
+                "sede_cant_camiones = ? " +                
                 "WHERE sede_numero = ?;";
         
         try
         {
             PreparedStatement preparedStatement = conexionBD.conexion.prepareStatement(query);
             
-            if (!sede.getNombre().isEmpty()){
-                preparedStatement.setString(1, sede.getNombre());
-            }else {
-                preparedStatement.setNull(1, Types.VARCHAR);
+            
+	    preparedStatement.setString(1, sede.getNombre());
+	    preparedStatement.setString(2, sede.getDireccion());
+	    preparedStatement.setString(3, sede.getCiudad());
+            
+            if (!sede.getGerente().isEmpty())
+	    {
+                preparedStatement.setString(4, sede.getGerente());
             }
-            if (!sede.getGerente().isEmpty()){
-                preparedStatement.setString(2, sede.getGerente());
-            }else {
-                preparedStatement.setNull(2, Types.VARCHAR);
+	    else 
+	    {
+                preparedStatement.setNull(4, Types.VARCHAR);
             }
-            if (!sede.getPresupuesto().isEmpty()){
-                preparedStatement.setString(3, sede.getPresupuesto());
-            }else {
-                preparedStatement.setNull(3, Types.VARCHAR);
-            }
-            preparedStatement.setInt(4, sede.getCamiones());
-            if (!sede.getDireccion().isEmpty()){
-                preparedStatement.setString(5, sede.getDireccion());
-            }else {
-                preparedStatement.setNull(3, Types.VARCHAR);
-            }
+            
+            preparedStatement.setInt(5, sede.getCamiones());
             preparedStatement.setString(6, sede.getNumero());
             
             preparedStatement.executeUpdate();

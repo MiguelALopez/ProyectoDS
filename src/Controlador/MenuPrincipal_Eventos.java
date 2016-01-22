@@ -110,8 +110,8 @@ public class MenuPrincipal_Eventos
                 new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        CrearSedeOpe cs = new CrearSedeOpe();
-                        CrearSedeOpe_Eventos cse = new CrearSedeOpe_Eventos(cs);
+                        CrearSede cs = new CrearSede();
+                        CrearSede_Eventos cse = new CrearSede_Eventos(cs);
                         cs.setLocationRelativeTo(null);
                         cs.setVisible(true);
                     }
