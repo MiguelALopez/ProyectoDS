@@ -60,6 +60,9 @@ public class CrearSedeOpe extends javax.swing.JFrame
         bCancelarMain = new javax.swing.JButton();
 
         jfSelGerente.setTitle("Seleccionar Gerente");
+        jfSelGerente.setMaximumSize(new java.awt.Dimension(400, 300));
+        jfSelGerente.setMinimumSize(new java.awt.Dimension(400, 300));
+        jfSelGerente.setPreferredSize(new java.awt.Dimension(400, 300));
         jfSelGerente.getContentPane().setLayout(new java.awt.GridBagLayout());
 
         jLabel8.setText("Seleccionar Gerente");
@@ -122,13 +125,12 @@ public class CrearSedeOpe extends javax.swing.JFrame
 
         jLabel9.setText("jLabel9");
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(480, 300));
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
         jPanel1.setLayout(new java.awt.GridBagLayout());
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setText("CREAR SEDE");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -171,8 +173,7 @@ public class CrearSedeOpe extends javax.swing.JFrame
         jPanel2.add(jLabel3, gridBagConstraints);
 
         tNombre.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        tNombre.setMaximumSize(null);
-        tNombre.setPreferredSize(new java.awt.Dimension(26, 23));
+        tNombre.setMaximumSize(new java.awt.Dimension(10, 27));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 0;
