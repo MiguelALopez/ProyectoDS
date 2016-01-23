@@ -84,7 +84,8 @@ public class ModificarUsuario extends javax.swing.JFrame
         bModificarUsuario = new javax.swing.JButton();
 
         setTitle("Modificar Usuario");
-        setMinimumSize(new java.awt.Dimension(620, 490));
+        setMinimumSize(new java.awt.Dimension(700, 490));
+        setPreferredSize(new java.awt.Dimension(700, 490));
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos de Ingreso al Sistema", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 12))); // NOI18N
@@ -288,7 +289,7 @@ public class ModificarUsuario extends javax.swing.JFrame
         gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 5, 10);
+        gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 10);
         jPanel2.add(ftfFechaNacimiento, gridBagConstraints);
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -471,6 +472,7 @@ public class ModificarUsuario extends javax.swing.JFrame
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 0);
         jPanel3.add(jLabel14, gridBagConstraints);
 

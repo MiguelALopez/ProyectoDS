@@ -109,7 +109,6 @@ public class ConsultarUsuarios_Eventos
     
     public void verPerfil()
     {
-	borrarCamposPerfil();
         int row = consultarUsuarios.tUsuarios.getSelectedRow();
                         
         if (row != -1)
@@ -163,5 +162,6 @@ public class ConsultarUsuarios_Eventos
     public void cerrarPerfil()
     {
 	this.consultarUsuarios.fPerfil.setVisible(false);
+	borrarCamposPerfil();
     }
 }

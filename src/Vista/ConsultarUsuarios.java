@@ -70,8 +70,8 @@ public class ConsultarUsuarios extends javax.swing.JFrame
         bVerPerfil = new javax.swing.JButton();
 
         fPerfil.setTitle("Perfil de Usuario");
-        fPerfil.setMinimumSize(new java.awt.Dimension(650, 340));
-        fPerfil.setPreferredSize(new java.awt.Dimension(650, 340));
+        fPerfil.setMinimumSize(new java.awt.Dimension(700, 340));
+        fPerfil.setPreferredSize(new java.awt.Dimension(700, 340));
         fPerfil.getContentPane().setLayout(new java.awt.GridBagLayout());
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos del Usuario", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 12))); // NOI18N

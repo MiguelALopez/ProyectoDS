@@ -35,6 +35,7 @@ public class ConsultarPOS extends javax.swing.JFrame
 
         setTitle("Consultar POS");
         setMinimumSize(new java.awt.Dimension(700, 400));
+        setPreferredSize(new java.awt.Dimension(700, 400));
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
         tPOS.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));

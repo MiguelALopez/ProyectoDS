@@ -17,6 +17,7 @@ import Vista.ConsultarSedes;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class ConsultarSedes_Eventos 
@@ -61,6 +62,17 @@ public class ConsultarSedes_Eventos
                     }
                 }
         );
+	
+	this.consultarSedes.bCerrarDetalles.addActionListener(
+                new ActionListener() 
+		{
+                    @Override
+                    public void actionPerformed(ActionEvent e) 
+		    {
+                        cerrarDetalles();
+                    }
+                }
+        );
     }
 
     public void cerrarVentana() 
@@ -89,6 +101,47 @@ public class ConsultarSedes_Eventos
     
     public void verDetalles()
     {
-	
+	int row = consultarSedes.tSedes.getSelectedRow();
+                        
+        if (row != -1)
+        {
+            String numeroSedes = (String) consultarSedes.tSedes.getValueAt(row, 0);
+            
+            Sede pqr = new SedeDAO().consultarSede(numeroSedes);
+            //Sedes pqr = new Sedes();
+                        
+            if (pqr != null)
+            {
+                this.consultarSedes.tfNumero.setText(pqr.getNumero());
+		this.consultarSedes.tfNombre.setText(pqr.getNombre());
+		this.consultarSedes.tfDireccion.setText(pqr.getDireccion());
+		this.consultarSedes.tfCiudad.setText(pqr.getCiudad());
+		this.consultarSedes.tfGerente.setText(pqr.getGerente());
+		this.consultarSedes.tfCamiones.setText(String.valueOf(pqr.getCamiones()));
+		
+		this.consultarSedes.fDetalles.setLocationRelativeTo(consultarSedes);
+		this.consultarSedes.fDetalles.setVisible(true);
+            }       
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(consultarSedes, "No ha seleccionado ninguna Sede.", "Advertencia", JOptionPane.WARNING_MESSAGE);
+        }
+    }
+    
+    public void cerrarDetalles()
+    {
+	this.consultarSedes.fDetalles.setVisible(false);
+	borrarCamposDetalles();
+    }
+    
+    public void borrarCamposDetalles()
+    {
+	this.consultarSedes.tfNumero.setText("");
+	this.consultarSedes.tfNombre.setText("");
+	this.consultarSedes.tfDireccion.setText("");
+	this.consultarSedes.tfCiudad.setText("");
+	this.consultarSedes.tfGerente.setText("");
+	this.consultarSedes.tfCamiones.setText("");
     }
 }

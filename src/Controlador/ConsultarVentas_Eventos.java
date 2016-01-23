@@ -118,9 +118,7 @@ public class ConsultarVentas_Eventos
             Venta venta = new VentaDAO().consultarVenta(id);
             
             if (venta != null)
-            {
-                limpiarDetalles();
-                
+            {                
 		this.consultarVentas.tfID.setText(venta.getId());
 		this.consultarVentas.tfFecha.setText(venta.getFecha());
                 this.consultarVentas.tfPOS.setText(venta.getPos());
@@ -191,6 +189,7 @@ public class ConsultarVentas_Eventos
     public void cerrarDetalles()
     {
         this.consultarVentas.fDetalles.setVisible(false);
+	limpiarDetalles();
     }
     
     public void generarRecibo()

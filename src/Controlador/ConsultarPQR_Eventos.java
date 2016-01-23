@@ -18,13 +18,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
-import javax.swing.JTextArea;
 import javax.swing.table.DefaultTableModel;
-import java.awt.Color;
-import java.awt.GridLayout;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
 
 /**
  *
@@ -70,6 +64,17 @@ public class ConsultarPQR_Eventos
                     }
                 }
         );
+	
+	consultarPQR.bCerrarDetalles.addActionListener(
+                new ActionListener()
+                {
+                    @Override
+                    public void actionPerformed(ActionEvent ae) 
+                    {
+                        cerrarDetalles();
+                    }
+                }
+        );
         
         consultarPQR();
     }  
@@ -78,15 +83,6 @@ public class ConsultarPQR_Eventos
     {
         ArrayList<PQR> listaPQR = new PQRDAO().getListaPQR(); // aqui metodo DAO para obtener todos los PQR de la BD
         //ArrayList<PQR> listaPQR = new ArrayList();
-        
-        // prueba
-//        PQR u1 = new PQR();
-//        u1.setCedula("1000000");
-//        u1.setNumero("1");
-//        u1.setTipo("Jodido eso");
-//        u1.setEstado("SinResponder");
-//        listaPQR.add(u1);
-        // fin prueba
         
         DefaultTableModel model = (DefaultTableModel) this.consultarPQR.tPQR.getModel();
         model.setRowCount(listaPQR.size());
@@ -103,8 +99,7 @@ public class ConsultarPQR_Eventos
     public void cerrarVentana()  
     {
         this.consultarPQR.setVisible(false);
-    }
-    
+    }    
     
     public void verPQR()
     {
@@ -113,50 +108,44 @@ public class ConsultarPQR_Eventos
         if (row != -1)
         {
             String numeroPQR = (String) consultarPQR.tPQR.getValueAt(row, 0);
-            String perfil = "";
             
             PQR pqr = new PQRDAO().consultarPQR(numeroPQR);
             //PQR pqr = new PQR();
                         
             if (pqr != null)
             {
-                JFrame fPerfil = new JFrame();
-                JPanel pPerfil = new JPanel(new GridLayout(7, 2, 5, 10));
-
-                pPerfil.add(new JLabel("PQR N°: "));
-                pPerfil.add(new JLabel(pqr.getNumero()));
-
-                pPerfil.add(new JLabel("Cedula: "));
-                pPerfil.add(new JLabel(pqr.getCedula()));
-
-                pPerfil.add(new JLabel("Nombre: "));
-                pPerfil.add(new JLabel(pqr.getNombre()));
-
-                pPerfil.add(new JLabel("Sede: "));
-                pPerfil.add(new JLabel(pqr.getSede()));
-
-                pPerfil.add(new JLabel("Tipo: "));
-                pPerfil.add(new JLabel(pqr.getTipo()));
-
-                pPerfil.add(new JLabel("Estado: "));
-                pPerfil.add(new JLabel(pqr.getEstado()));
-
-                pPerfil.add(new JLabel("Contenido: "));            
-                JTextArea area = new JTextArea(pqr.getContenido());
-                area.setEditable(false);
-                area.setOpaque(false);
-                area.setBackground(new Color(0,0,0,0));
-                pPerfil.add(area);
-                
-                fPerfil.add(pPerfil);
-                fPerfil.pack();
-                fPerfil.setLocationRelativeTo(null);
-                fPerfil.setVisible(true);
+                this.consultarPQR.tfNumeroPQR.setText(pqr.getNumero());
+		this.consultarPQR.tfEstado.setText(pqr.getEstado());
+		this.consultarPQR.tfCedula.setText(pqr.getCedula());
+		this.consultarPQR.tfNombre.setText(pqr.getNombre());
+		this.consultarPQR.tfTipo.setText(pqr.getTipo());
+		this.consultarPQR.tfSede.setText(pqr.getSede());
+		this.consultarPQR.taContenido.setText(pqr.getContenido());
+		
+		this.consultarPQR.fDetalles.setLocationRelativeTo(consultarPQR);
+		this.consultarPQR.fDetalles.setVisible(true);
             }       
         }
         else
         {
             JOptionPane.showMessageDialog(consultarPQR, "No ha seleccionado ningun PQR.", "Advertencia", JOptionPane.WARNING_MESSAGE);
         }
-    }   
+    }
+    
+    public void cerrarDetalles()
+    {
+	this.consultarPQR.fDetalles.setVisible(false);
+	borrarCamposDetalles();
+    }
+    
+    public void borrarCamposDetalles()
+    {
+	this.consultarPQR.tfNumeroPQR.setText("");
+	this.consultarPQR.tfEstado.setText("");
+	this.consultarPQR.tfCedula.setText("");
+	this.consultarPQR.tfNombre.setText("");
+	this.consultarPQR.tfTipo.setText("");
+	this.consultarPQR.tfSede.setText("");
+	this.consultarPQR.taContenido.setText("");
+    }
 }
