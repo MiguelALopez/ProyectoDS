@@ -26,7 +26,8 @@ public class CrearSede extends javax.swing.JFrame
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents()
+    {
         java.awt.GridBagConstraints gridBagConstraints;
 
         jfSelGerente = new javax.swing.JFrame();
@@ -71,18 +72,23 @@ public class CrearSede extends javax.swing.JFrame
 
         tGerentes.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         tGerentes.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
+            new Object [][]
+            {
 
             },
-            new String [] {
+            new String []
+            {
                 "CEDULA", "NOMBRE", "APELLIDO"
             }
-        ) {
-            boolean[] canEdit = new boolean [] {
+        )
+        {
+            boolean[] canEdit = new boolean []
+            {
                 false, false, false
             };
 
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
+            public boolean isCellEditable(int rowIndex, int columnIndex)
+            {
                 return canEdit [columnIndex];
             }
         });
@@ -138,7 +144,7 @@ public class CrearSede extends javax.swing.JFrame
         jPanel2.setLayout(new java.awt.GridBagLayout());
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel2.setText("Numero");
+        jLabel2.setText("Número");
         jLabel2.setMaximumSize(new java.awt.Dimension(76, 17));
         jLabel2.setMinimumSize(new java.awt.Dimension(76, 17));
         jLabel2.setPreferredSize(new java.awt.Dimension(76, 17));
@@ -183,7 +189,7 @@ public class CrearSede extends javax.swing.JFrame
         jPanel2.add(tfNombre, gridBagConstraints);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel4.setText("Direccion");
+        jLabel4.setText("Dirección");
         jLabel4.setMaximumSize(new java.awt.Dimension(76, 17));
         jLabel4.setMinimumSize(new java.awt.Dimension(76, 17));
         jLabel4.setPreferredSize(new java.awt.Dimension(76, 17));
