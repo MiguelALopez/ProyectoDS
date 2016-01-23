@@ -120,12 +120,12 @@ public class CrearSede_Eventos
     public void bCancelarMain()
     {
         this.crearSede.setVisible(false);
-        this.crearSede.jfSelGerente.setVisible(false);
+        this.crearSede.fSelGerente.setVisible(false);
     }
     
     public void bCancelar()
     {
-        this.crearSede.jfSelGerente.setVisible(false);
+        this.crearSede.fSelGerente.setVisible(false);
     }
     
     public void consultaGerentes()
@@ -144,8 +144,8 @@ public class CrearSede_Eventos
                 this.crearSede.tGerentes.setValueAt(listaGerentes.get(i).getApellido(), i, 2);
             }
             
-            this.crearSede.jfSelGerente.setLocationRelativeTo(crearSede);
-            this.crearSede.jfSelGerente.setVisible(true);
+            this.crearSede.fSelGerente.setLocationRelativeTo(crearSede);
+            this.crearSede.fSelGerente.setVisible(true);
         }
         else
         {
@@ -165,8 +165,12 @@ public class CrearSede_Eventos
             DefaultTableModel model = (DefaultTableModel) this.crearSede.tGerentes.getModel();
             model.setRowCount(0);
             
-            this.crearSede.jfSelGerente.setVisible(false);
+            this.crearSede.fSelGerente.setVisible(false);
         }
+	else
+	{
+	    JOptionPane.showMessageDialog(this.crearSede.fSelGerente, "Seleccione un gerente.", "", JOptionPane.ERROR_MESSAGE);
+	}
     }
     
     public void borraCampos()

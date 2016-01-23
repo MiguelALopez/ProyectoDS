@@ -107,6 +107,12 @@ public class ConsultarVentas_Eventos
         }
     }
     
+    public void cerrarVentana()
+    {
+	this.consultarVentas.setVisible(false);
+	//this.consultarVentas.fDetalles.setVisible(false);
+    }
+    
     public void verDetalles()
     {
         int row = this.consultarVentas.tVentas.getSelectedRow();

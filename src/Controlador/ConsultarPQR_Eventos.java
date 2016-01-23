@@ -99,6 +99,7 @@ public class ConsultarPQR_Eventos
     public void cerrarVentana()  
     {
         this.consultarPQR.setVisible(false);
+	this.consultarPQR.fDetalles.setVisible(false);
     }    
     
     public void verPQR()

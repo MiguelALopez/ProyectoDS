@@ -102,9 +102,8 @@ public class ConsultarUsuarios_Eventos
     
     public void cerrarVentana()
     {
-        DefaultTableModel model = (DefaultTableModel) consultarUsuarios.tUsuarios.getModel();
-        model.setRowCount(0);
         this.consultarUsuarios.setVisible(false);
+	this.consultarUsuarios.fPerfil.setVisible(false);
     }
     
     public void verPerfil()

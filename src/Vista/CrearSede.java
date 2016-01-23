@@ -26,11 +26,10 @@ public class CrearSede extends javax.swing.JFrame
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents()
-    {
+    private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        jfSelGerente = new javax.swing.JFrame();
+        fSelGerente = new javax.swing.JFrame();
         jLabel8 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tGerentes = new javax.swing.JTable();
@@ -54,9 +53,9 @@ public class CrearSede extends javax.swing.JFrame
         bCrear = new javax.swing.JButton();
         bCancelarMain = new javax.swing.JButton();
 
-        jfSelGerente.setTitle("Seleccionar Gerente");
-        jfSelGerente.setMinimumSize(new java.awt.Dimension(600, 300));
-        jfSelGerente.getContentPane().setLayout(new java.awt.GridBagLayout());
+        fSelGerente.setTitle("Seleccionar Gerente");
+        fSelGerente.setMinimumSize(new java.awt.Dimension(600, 300));
+        fSelGerente.getContentPane().setLayout(new java.awt.GridBagLayout());
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -68,27 +67,22 @@ public class CrearSede extends javax.swing.JFrame
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        jfSelGerente.getContentPane().add(jLabel8, gridBagConstraints);
+        fSelGerente.getContentPane().add(jLabel8, gridBagConstraints);
 
         tGerentes.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         tGerentes.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][]
-            {
+            new Object [][] {
 
             },
-            new String []
-            {
+            new String [] {
                 "CEDULA", "NOMBRE", "APELLIDO"
             }
-        )
-        {
-            boolean[] canEdit = new boolean []
-            {
+        ) {
+            boolean[] canEdit = new boolean [] {
                 false, false, false
             };
 
-            public boolean isCellEditable(int rowIndex, int columnIndex)
-            {
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
@@ -103,7 +97,7 @@ public class CrearSede extends javax.swing.JFrame
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(0, 10, 10, 10);
-        jfSelGerente.getContentPane().add(jScrollPane1, gridBagConstraints);
+        fSelGerente.getContentPane().add(jScrollPane1, gridBagConstraints);
 
         bSeleccionar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         bSeleccionar.setText("Seleccionar");
@@ -113,7 +107,7 @@ public class CrearSede extends javax.swing.JFrame
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(0, 10, 10, 5);
-        jfSelGerente.getContentPane().add(bSeleccionar, gridBagConstraints);
+        fSelGerente.getContentPane().add(bSeleccionar, gridBagConstraints);
 
         bCancelar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         bCancelar.setText("Cancelar");
@@ -123,7 +117,7 @@ public class CrearSede extends javax.swing.JFrame
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(0, 5, 10, 10);
-        jfSelGerente.getContentPane().add(bCancelar, gridBagConstraints);
+        fSelGerente.getContentPane().add(bCancelar, gridBagConstraints);
 
         setMinimumSize(new java.awt.Dimension(530, 350));
         getContentPane().setLayout(new java.awt.GridBagLayout());
@@ -320,6 +314,7 @@ public class CrearSede extends javax.swing.JFrame
     public javax.swing.JButton bSelGerente;
     public javax.swing.JButton bSeleccionar;
     public javax.swing.JComboBox cbCiudad;
+    public javax.swing.JFrame fSelGerente;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -331,7 +326,6 @@ public class CrearSede extends javax.swing.JFrame
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
-    public javax.swing.JFrame jfSelGerente;
     public javax.swing.JTable tGerentes;
     public javax.swing.JTextField tfDireccion;
     public javax.swing.JTextField tfGerente;

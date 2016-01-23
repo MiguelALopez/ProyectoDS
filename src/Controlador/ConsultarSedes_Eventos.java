@@ -78,6 +78,7 @@ public class ConsultarSedes_Eventos
     public void cerrarVentana() 
     {
         this.consultarSedes.setVisible(false);
+	this.consultarSedes.fDetalles.setVisible(false);
     }
 
     private void cargarDatos()

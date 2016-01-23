@@ -1,276 +1,381 @@
-/***********************************************
- * Autor: Camilo Ruiz Casanova - 1324486
- * Autor: Miguel Angel Lopez - 1326691
- * Autor: Andres Felipe Polanco - 1324539
- * Autor: Cristian Camilo Jurado - 1324366
- * Fecha: 09-oct-2015
- * Nombre del Archivo: .java
- * Plan: Ingeniería de Sistemas - 3743
- * Institución Educativa: Universidad del Valle
- **********************************************/
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package Vista;
 
-import javax.swing.*;
-import javax.swing.border.TitledBorder;
-import java.awt.*;
-
-public class ModificarSede extends JFrame{
-
-    JTextField textNumSede;
-    JTextField textNameSede;
-    JTextField textAddress;
-    JTextField textManager;
-    JTextField textBudget;
-    JTextField textNumTruck;
-    JButton buttonAccept;
-    JButton buttonCancel;
-    JButton buttonBuscarSede;
-
-    public ModificarSede(){
-        super("Modificar Sede");
-        setLayout(new GridBagLayout());
-        initComponents();
-        setSize(500, 400);
-    }
-
-    /* Clase encargada de inicializar y posicionar los elementos en los diferentes posiciones en el frame*/
-    public void initComponents(){
-        GridBagConstraints c = new GridBagConstraints();
-
-        // Se inicializan los componentes
-        textNumSede = new JTextField();
-        textNameSede = new JTextField();
-        textAddress = new JTextField();
-        textManager = new JTextField();
-        textBudget = new JTextField();
-        textNumTruck = new JTextField();
-        buttonAccept = new JButton("Aceptar");
-        buttonCancel = new JButton("Cancelar");
-        buttonBuscarSede = new JButton("Buscar");
-        // Se desactivan las casillas
-        enableText(false);
-
-        // Panel buscarSede
-        JPanel panelBusqueda = new JPanel(new GridBagLayout());
-        manageConst(c,0,0,2,1,1,0,0,10);
-        c.insets = new Insets(0,60,20,60);
-        c.anchor = GridBagConstraints.NORTH;
-        c.fill = GridBagConstraints.HORIZONTAL;
-        TitledBorder borderPanelBusqueda = new TitledBorder("Sede a buscar");
-        borderPanelBusqueda.setTitleJustification(TitledBorder.CENTER);
-        panelBusqueda.setBorder(borderPanelBusqueda);
-        add(panelBusqueda, c);
-
-        // Label numero sede
-        manageConst(c,0,0,1,1,0,0,3,3);
-        c.insets = new Insets(0,5,0,0);
-        c.anchor = GridBagConstraints.WEST;
-        panelBusqueda.add(new JLabel("No. Sede"),c);
-
-        manageConst(c,1,0,1,1,1,0,3,3);
-        c.insets = new Insets(0,10,0,10);
-        c.fill = GridBagConstraints.HORIZONTAL;
-        panelBusqueda.add(textNumSede,c);
-
-        manageConst(c,2,0,1,1,0,0,3,3);
-        c.insets = new Insets(0,0,0,5);
-        c.anchor = GridBagConstraints.EAST;
-        panelBusqueda.add(buttonBuscarSede, c);
-
-        // Panel datosSede
-        JPanel panelDatosSede = new JPanel(new GridBagLayout());
-        manageConst(c,0,1,2,1,1,0,0,10);
-        c.insets = new Insets(0,15,0,15);
-        c.anchor = GridBagConstraints.NORTH;
-        c.fill = GridBagConstraints.HORIZONTAL;
-        TitledBorder borderPanelSede = new TitledBorder("Datos de la sede");
-        borderPanelSede.setTitleJustification(TitledBorder.CENTER);
-        panelDatosSede.setBorder(borderPanelSede);
-        add(panelDatosSede,c);
-
-        // Label Nombre Sede
-        manageConst(c,0,0,1,1,0,0,3,3);
-        c.insets = new Insets(10,30,10,0);
-        c.anchor = GridBagConstraints.WEST;
-        panelDatosSede.add(new JLabel("Nombre de la Sede"), c);
-
-        manageConst(c,1,0,1,1,1,0,3,3);
-        c.insets = new Insets(0,20,0,30);
-        c.fill = GridBagConstraints.HORIZONTAL;
-        panelDatosSede.add(textNameSede, c);
-
-        // Label Direccion
-        manageConst(c,0,1,1,1,0,0,3,3);
-        c.insets = new Insets(10,30,10,0);
-        c.anchor = GridBagConstraints.WEST;
-        panelDatosSede.add(new JLabel("Direccion"), c);
-
-        manageConst(c,1,1,1,1,1,0,3,3);
-        c.insets = new Insets(0,20,0,30);
-        c.fill = GridBagConstraints.HORIZONTAL;
-        panelDatosSede.add(textAddress, c);
-
-        // Label Gerente
-        manageConst(c,0,2,1,1,0,0,3,3);
-        c.insets = new Insets(10,30,10,0);
-        c.anchor = GridBagConstraints.WEST;
-        panelDatosSede.add(new JLabel("Gerente a Cargo"), c);
-
-        manageConst(c,1,2,1,1,1,0,3,3);
-        c.insets = new Insets(0,20,0,30);
-        c.fill = GridBagConstraints.HORIZONTAL;
-        panelDatosSede.add(textManager, c);
-
-        // Label Presupuesto
-        manageConst(c,0,3,1,1,0,0,3,3);
-        c.insets = new Insets(10,30,10,0);
-        c.anchor = GridBagConstraints.WEST;
-        panelDatosSede.add(new JLabel("Presupuesto Asignado"), c);
-
-        manageConst(c,1,3,1,1,1,0,3,3);
-        c.insets = new Insets(0,20,0,30);
-        c.fill = GridBagConstraints.HORIZONTAL;
-        panelDatosSede.add(textBudget, c);
-
-        // Label Camiones
-        manageConst(c,0,4,1,1,0,0,3,3);
-        c.insets = new Insets(10,30,10,0);
-        c.anchor = GridBagConstraints.WEST;
-        panelDatosSede.add(new JLabel("Numero de Camiones"), c);
-
-        manageConst(c,1,4,1,1,1,0,3,3);
-        c.insets = new Insets(0,20,0,30);
-        c.fill = GridBagConstraints.HORIZONTAL;
-        panelDatosSede.add(textNumTruck,c);
-
-        // Button Cancelar
-        manageConst(c,0,2,1,1,0,0,0,0);
-        c.insets = new Insets(15,20,0,30);
-        c.anchor = GridBagConstraints.SOUTHWEST;
-        add(buttonCancel,c);
-
-        // Button Aceptar
-        manageConst(c,1,2,1,1,0,0,0,0);
-        c.insets = new Insets(15,20,0,15);
-        c.anchor = GridBagConstraints.SOUTHEAST;
-        add(buttonAccept,c);
+/**
+ *
+ * @author AndresFelipe
+ */
+public class ModificarSede extends javax.swing.JFrame
+{
+    /**
+     * Creates new form ModificarSedeOp
+     */
+    public ModificarSede()
+    {
+	initComponents();
     }
 
     /**
-     * Este Metodo esta encarado de manejar las medidas del Layout pasandole una variable Constraint
-     * @param c Constraints encargado de organizar
-     * @param colX Posicion en X en la cuadricula
-     * @param filY Posicion en Y en la cuadricula
-     * @param width Numero de Filas que ocupa
-     * @param heigth Numero de Columnas que ocupa
-     * @param weightx Estiramiento horizontal puede ser 1 ó 0
-     * @param weighty Estiramiento vertical puede ser 1 ó 0
-     * @param ipadx Espaciado interno en X
-     * @param ipady Espaciado interno en Y
+     * This method is called from within the constructor to initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is always
+     * regenerated by the Form Editor.
      */
-    public void manageConst(GridBagConstraints c, int colX, int filY, int width, int heigth, int weightx, int weighty, int ipadx, int ipady){
-        c.gridx = colX; // Posicion en X en la cuadricula
-        c.gridy = filY; // Posicion en Y en la cuadricula
-        c.gridheight = heigth;
-        c.gridwidth = width;
-        c.weightx = weightx;
-        c.weighty = weighty;
-        c.fill = GridBagConstraints.NONE;
-        c.anchor = GridBagConstraints.CENTER;
-        c.insets = new Insets(0,0,0,0);
-        c.ipadx = ipadx;
-        c.ipady = ipady;
-    }
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
-    // Metodo encargado de activar o desactivar los JText
-    public void enableText(boolean enable){
-        textAddress.setEnabled(enable);
-        textBudget.setEnabled(enable);
-        textManager.setEnabled(enable);
-        textNameSede.setEnabled(enable);
-        textNumSede.setEnabled(!enable);
-        textNumTruck.setEnabled(enable);
-    }
+        fSelGerente = new javax.swing.JFrame();
+        jLabel9 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tGerentes = new javax.swing.JTable();
+        bSeleccionar = new javax.swing.JButton();
+        bCerrar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        tfBuscar = new javax.swing.JTextField();
+        bBuscarSede = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        tfNombre = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        tfDireccion = new javax.swing.JTextField();
+        tfGerente = new javax.swing.JTextField();
+        tfCamiones = new javax.swing.JTextField();
+        bBuscar = new javax.swing.JButton();
+        cbCiudad = new javax.swing.JComboBox();
+        jLabel8 = new javax.swing.JLabel();
+        tfNumero = new javax.swing.JTextField();
+        bModificar = new javax.swing.JButton();
+        bCancelar = new javax.swing.JButton();
 
-    // Getters and Setters
-    public JTextField getTextNumSede() {
-        return textNumSede;
-    }
+        fSelGerente.setTitle("Seleccionar Gerente");
+        fSelGerente.setMinimumSize(new java.awt.Dimension(600, 300));
+        fSelGerente.getContentPane().setLayout(new java.awt.GridBagLayout());
 
-    public void setTextNumSede(JTextField textNumSede) {
-        this.textNumSede = textNumSede;
-    }
+        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel9.setText("Seleccionar Gerente");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        fSelGerente.getContentPane().add(jLabel9, gridBagConstraints);
 
-    public JTextField getTextNameSede() {
-        return textNameSede;
-    }
+        tGerentes.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        tGerentes.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
 
-    public void setTextNameSede(JTextField textNameSede) {
-        this.textNameSede = textNameSede;
-    }
+            },
+            new String [] {
+                "CEDULA", "NOMBRE", "APELLIDO"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
 
-    public JTextField getTextAddress() {
-        return textAddress;
-    }
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tGerentes.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(tGerentes);
 
-    public void setTextAddress(JTextField textAddress) {
-        this.textAddress = textAddress;
-    }
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(0, 10, 10, 10);
+        fSelGerente.getContentPane().add(jScrollPane1, gridBagConstraints);
 
-    public JTextField getTextManager() {
-        return textManager;
-    }
+        bSeleccionar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        bSeleccionar.setText("Seleccionar");
+        bSeleccionar.setMaximumSize(new java.awt.Dimension(71, 25));
+        bSeleccionar.setMinimumSize(new java.awt.Dimension(71, 25));
+        bSeleccionar.setPreferredSize(new java.awt.Dimension(71, 25));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(0, 10, 10, 5);
+        fSelGerente.getContentPane().add(bSeleccionar, gridBagConstraints);
 
-    public void setTextManager(JTextField textManager) {
-        this.textManager = textManager;
-    }
+        bCerrar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        bCerrar.setText("Cerrar");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(0, 5, 10, 10);
+        fSelGerente.getContentPane().add(bCerrar, gridBagConstraints);
 
-    public JTextField getTextBudget() {
-        return textBudget;
-    }
+        setTitle("Modificar Sede");
+        setMinimumSize(new java.awt.Dimension(600, 430));
+        getContentPane().setLayout(new java.awt.GridBagLayout());
 
-    public void setTextBudget(JTextField textBudget) {
-        this.textBudget = textBudget;
-    }
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("MODIFICAR SEDE");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        getContentPane().add(jLabel1, gridBagConstraints);
 
-    public JTextField getTextNumTruck() {
-        return textNumTruck;
-    }
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Buscar", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 14))); // NOI18N
+        jPanel1.setLayout(new java.awt.GridBagLayout());
 
-    public void setTextNumTruck(JTextField textNumTruck) {
-        this.textNumTruck = textNumTruck;
-    }
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel2.setText("Numero");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 0);
+        jPanel1.add(jLabel2, gridBagConstraints);
 
-    public JButton getButtonAccept() {
-        return buttonAccept;
-    }
+        tfBuscar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 5);
+        jPanel1.add(tfBuscar, gridBagConstraints);
 
-    public void setButtonAccept(JButton buttonAccept) {
-        this.buttonAccept = buttonAccept;
-    }
+        bBuscarSede.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        bBuscarSede.setText("Buscar");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.insets = new java.awt.Insets(10, 5, 10, 10);
+        jPanel1.add(bBuscarSede, gridBagConstraints);
 
-    public JButton getButtonCancel() {
-        return buttonCancel;
-    }
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 10);
+        getContentPane().add(jPanel1, gridBagConstraints);
 
-    public void setButtonCancel(JButton buttonCancel) {
-        this.buttonCancel = buttonCancel;
-    }
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 14))); // NOI18N
+        jPanel2.setLayout(new java.awt.GridBagLayout());
 
-    public JButton getButtonBuscarSede() {
-        return buttonBuscarSede;
-    }
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel3.setText("Nombre");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 0);
+        jPanel2.add(jLabel3, gridBagConstraints);
 
-    public void setButtonBuscarSede(JButton buttonBuscarSede) {
-        this.buttonBuscarSede = buttonBuscarSede;
-    }
+        tfNombre.setEditable(false);
+        tfNombre.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 10);
+        jPanel2.add(tfNombre, gridBagConstraints);
 
-    public static void main(String[] args) {
-        ModificarSede prueba = new ModificarSede();
-        prueba.setLocationRelativeTo(null);
-        prueba.setVisible(true);
-        prueba.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel4.setText("Direccion");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 0);
+        jPanel2.add(jLabel4, gridBagConstraints);
 
-    }
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel5.setText("Ciudad");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 0);
+        jPanel2.add(jLabel5, gridBagConstraints);
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel6.setText("Gerente");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 0);
+        jPanel2.add(jLabel6, gridBagConstraints);
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel7.setText("Camiones");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(5, 10, 10, 0);
+        jPanel2.add(jLabel7, gridBagConstraints);
+
+        tfDireccion.setEditable(false);
+        tfDireccion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 10);
+        jPanel2.add(tfDireccion, gridBagConstraints);
+
+        tfGerente.setEditable(false);
+        tfGerente.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 5);
+        jPanel2.add(tfGerente, gridBagConstraints);
+
+        tfCamiones.setEditable(false);
+        tfCamiones.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 10, 10, 10);
+        jPanel2.add(tfCamiones, gridBagConstraints);
+
+        bBuscar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        bBuscar.setText("...");
+        bBuscar.setEnabled(false);
+        bBuscar.setMaximumSize(new java.awt.Dimension(20, 23));
+        bBuscar.setMinimumSize(new java.awt.Dimension(20, 23));
+        bBuscar.setPreferredSize(new java.awt.Dimension(20, 23));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.insets = new java.awt.Insets(5, 0, 5, 10);
+        jPanel2.add(bBuscar, gridBagConstraints);
+
+        cbCiudad.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        cbCiudad.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Arauca", "Armenia", "Barranquilla", "Bogotá", "Bucaramanga", "Cali", "Cartagena", "Cúcuta", "Florencia", "Ibagué", "Leticia", "Manizales", "Medellín", "Mitú", "Mocoa", "Montería", "Neiva", "Pasto", "Pereira", "Popayán", "Puerto Carreño", "Puerto Inírida", "Quibdó", "Riohacha", "San Andres", "San José del Guaviare", "Santa Marta", "Sincelejo", "Tunja", "Valledupar", "Villavicencio", "Yopal" }));
+        cbCiudad.setEnabled(false);
+        cbCiudad.setMinimumSize(new java.awt.Dimension(26, 23));
+        cbCiudad.setPreferredSize(new java.awt.Dimension(26, 23));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 10);
+        jPanel2.add(cbCiudad, gridBagConstraints);
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel8.setText("Numero");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 5, 0);
+        jPanel2.add(jLabel8, gridBagConstraints);
+
+        tfNumero.setEditable(false);
+        tfNumero.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 5, 10);
+        jPanel2.add(tfNumero, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 10);
+        getContentPane().add(jPanel2, gridBagConstraints);
+
+        bModificar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        bModificar.setText("Modificar Sede");
+        bModificar.setMaximumSize(new java.awt.Dimension(99, 31));
+        bModificar.setMinimumSize(new java.awt.Dimension(99, 31));
+        bModificar.setPreferredSize(new java.awt.Dimension(99, 31));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 5);
+        getContentPane().add(bModificar, gridBagConstraints);
+
+        bCancelar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        bCancelar.setText("Cancelar");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(10, 5, 10, 10);
+        getContentPane().add(bCancelar, gridBagConstraints);
+
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton bBuscar;
+    public javax.swing.JButton bBuscarSede;
+    public javax.swing.JButton bCancelar;
+    public javax.swing.JButton bCerrar;
+    public javax.swing.JButton bModificar;
+    public javax.swing.JButton bSeleccionar;
+    public javax.swing.JComboBox cbCiudad;
+    public javax.swing.JFrame fSelGerente;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    public javax.swing.JTable tGerentes;
+    public javax.swing.JTextField tfBuscar;
+    public javax.swing.JTextField tfCamiones;
+    public javax.swing.JTextField tfDireccion;
+    public javax.swing.JTextField tfGerente;
+    public javax.swing.JTextField tfNombre;
+    public javax.swing.JTextField tfNumero;
+    // End of variables declaration//GEN-END:variables
 }
