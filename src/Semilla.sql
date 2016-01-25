@@ -118,13 +118,13 @@ INSERT INTO pos (pos_id, pos_nombre, pos_direccion)
 VALUES ('1', 'La 50', 'Calle 50');
 
 INSERT INTO venta (venta_cedula, venta_nombre, venta_direccion, venta_fecha, venta_metodo, venta_seguro, venta_subtotal, venta_iva, venta_total, pos_id)
-VALUES ('1144082592', 'Camilo Ruiz', 'Calle 1', '18-01-2016', 'Efectivo', 500, 900000, 100000, 1000000, '1');
+VALUES ('1144082592', 'Camilo Ruiz', 'Calle 1', '2016-01-18', 'Efectivo', 500, 900000, 100000, 1000000, '1');
 
 INSERT INTO paquete (venta_id, paquete_numero, paquete_volumen, paquete_peso, paquete_descripcion, paquete_costo)
 VALUES ('100000', 1, 100, 1000, 'Ampeta', 5000);
 
 INSERT INTO venta (venta_cedula, venta_nombre, venta_direccion, venta_fecha, venta_metodo, venta_seguro, venta_subtotal, venta_iva, venta_total, pos_id)
-VALUES ('1144082592', 'Camilo Ruiz', 'Calle 1', '18-01-2016', 'Efectivo', 400, 900000, 100000, 2000000, '1');
+VALUES ('1144082592', 'Camilo Ruiz', 'Calle 1', '2016-01-18', 'Efectivo', 400, 900000, 100000, 2000000, '1');
 
 INSERT INTO paquete (venta_id, paquete_numero, paquete_volumen, paquete_peso, paquete_descripcion, paquete_costo)
 VALUES ('100001', 1, 100, 1000, 'Ampeta', 9000);
