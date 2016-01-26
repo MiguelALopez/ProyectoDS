@@ -14,8 +14,10 @@ package Controlador;
 import Modelo.Usuario;
 import Modelo.UsuarioDAO;
 import Vista.*;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 
@@ -30,6 +32,9 @@ public class MenuPrincipal_Eventos
     public MenuPrincipal_Eventos(final MenuPrincipal menuPrincipal)
     {
         this.menuPrincipal = menuPrincipal;
+        ImageIcon imageIcon = new ImageIcon(new ImageIcon(getClass().getResource("../LogoFlash.png")).getImage().getScaledInstance(128, 60, Image.SCALE_DEFAULT));
+
+        this.menuPrincipal.lTitle.setIcon(imageIcon);
         
         this.menuPrincipal.bIniciarSesion.addActionListener(
             new ActionListener()

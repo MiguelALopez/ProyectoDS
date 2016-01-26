@@ -38,7 +38,8 @@ public class MenuPrincipal extends JFrame
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents()
+    {
         java.awt.GridBagConstraints gridBagConstraints;
 
         pIniciarSesion = new javax.swing.JPanel();
@@ -73,7 +74,7 @@ public class MenuPrincipal extends JFrame
         bConsultarVentas = new javax.swing.JButton();
         pReportes = new javax.swing.JPanel();
         bReportes = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        lTitle = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Sistema FLASH");
@@ -419,9 +420,9 @@ public class MenuPrincipal extends JFrame
         gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 10);
         getContentPane().add(jPanel1, gridBagConstraints);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("NOMBRE Y LOGO");
+        lTitle.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
+        lTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lTitle.setToolTipText("");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -430,7 +431,7 @@ public class MenuPrincipal extends JFrame
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 20, 10, 20);
-        getContentPane().add(jLabel1, gridBagConstraints);
+        getContentPane().add(lTitle, gridBagConstraints);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -452,11 +453,11 @@ public class MenuPrincipal extends JFrame
     public javax.swing.JButton bRegistrarVenta;
     public javax.swing.JButton bReportes;
     public javax.swing.JButton bResponderPQR;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JPanel jPanel1;
+    public javax.swing.JLabel lTitle;
     private javax.swing.JPanel pGestionSedes;
     private javax.swing.JPanel pGestionUsuarios;
     private javax.swing.JPanel pGestionVentas;
