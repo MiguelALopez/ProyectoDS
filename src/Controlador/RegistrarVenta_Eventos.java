@@ -8,29 +8,16 @@ package Controlador;
 import Modelo.POS;
 import Modelo.POSDAO;
 import Modelo.Paquete;
+import Modelo.ReportesPDF;
 import Modelo.Venta;
 import Modelo.VentaDAO;
 import Vista.RegistrarVenta;
-import be.quodlibet.boxable.BaseTable;
-import be.quodlibet.boxable.Cell;
-import be.quodlibet.boxable.HorizontalAlignment;
-import be.quodlibet.boxable.Row;
-import be.quodlibet.boxable.VerticalAlignment;
-import java.awt.Color;
-import java.awt.Desktop;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import org.apache.pdfbox.pdmodel.PDDocument;
-import org.apache.pdfbox.pdmodel.PDPage;
-import org.apache.pdfbox.pdmodel.font.PDType1Font;
 
 /**
  *
@@ -351,7 +338,7 @@ public class RegistrarVenta_Eventos
 	    String nombre = this.registrarVenta.tfNombre.getText();
 	    String direccion = this.registrarVenta.tfDireccion.getText();
 
-	    SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy");
+	    SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 	    String fecha = df.format(Calendar.getInstance().getTime());
 
 	    String metodo = "";
@@ -387,7 +374,7 @@ public class RegistrarVenta_Eventos
 		    JOptionPane.showMessageDialog(registrarVenta, "Venta registrada correctamente.", "", JOptionPane.INFORMATION_MESSAGE);
 		    borrarCamposVenta();
 		    
-		    generaRecibo(new VentaDAO().consultarUltimaVenta());
+		    generaRecibo(new VentaDAO().consultarUltimaVenta(cedula));
 		}
 		else
 		{
@@ -397,247 +384,9 @@ public class RegistrarVenta_Eventos
 	}
     }
     
-    public static void generaRecibo(Venta venta)
+    public void generaRecibo(Venta venta)
     {
-	if (venta != null)
-	{
-	    //margenes
-	    float margin = 10;
-
-	    //inicializacion del documento
-	    PDDocument doc = new PDDocument();
-	    PDPage page = agregarPagina(doc);
-	    float yStartNewPage = page.getMediaBox().getHeight() - (2 * margin);
-
-	    //inicializacion de la tabla
-	    float tableWidth = page.getMediaBox().getWidth() - (2 * margin);
-	    boolean drawContent = true;
-	    float yStart = yStartNewPage;
-	    float bottomMargin = 70;
-	    
-	    try
-	    {
-		BaseTable table  = new BaseTable(yStart,yStartNewPage, bottomMargin, tableWidth, margin, doc, page, true, drawContent);
-
-		//fila de titulo
-		Row<PDPage> headerRow = table.createRow(15f);
-		Cell<PDPage> cell = headerRow.createCell(100, "EMPRESA FLASH", HorizontalAlignment.CENTER, VerticalAlignment.MIDDLE);
-		cell.setFont(PDType1Font.COURIER_BOLD);
-		cell.setFontSize(28);
-		cell.setFillColor(Color.BLACK);
-		cell.setTextColor(Color.WHITE);
-		table.setHeader(headerRow);
-
-		headerRow = table.createRow(15f);
-		cell = headerRow.createCell(100, "NIT xxx.xxx.xxx-x", HorizontalAlignment.CENTER, VerticalAlignment.MIDDLE);
-		cell.setFont(PDType1Font.COURIER_BOLD);
-		cell.setFontSize(28);
-		cell.setFillColor(Color.BLACK);
-		cell.setTextColor(Color.WHITE);
-
-		headerRow = table.createRow(15f);
-		cell = headerRow.createCell(100, "RECIBO DE VENTA NO. " + venta.getId(), HorizontalAlignment.CENTER, VerticalAlignment.MIDDLE);
-		cell.setFont(PDType1Font.COURIER_BOLD);
-		cell.setFontSize(28);
-		cell.setFillColor(Color.BLACK);
-		cell.setTextColor(Color.WHITE);
-
-		//fila de los campos
-		Row<PDPage> campos = table.createRow(15f);
-
-		cell = campos.createCell((1*100/3), "POS", HorizontalAlignment.CENTER, VerticalAlignment.MIDDLE);
-		cell.setFont(PDType1Font.HELVETICA);
-		cell.setFontSize(12);
-		cell.setFillColor(Color.LIGHT_GRAY);       
-
-		cell = campos.createCell((2*100/3), venta.getPos(), HorizontalAlignment.CENTER, VerticalAlignment.MIDDLE);
-		cell.setFont(PDType1Font.HELVETICA);
-		cell.setFontSize(12);
-		cell.setFillColor(Color.LIGHT_GRAY);
-
-		campos = table.createRow(15f);
-
-		cell = campos.createCell((1*100/3), "FECHA", HorizontalAlignment.CENTER, VerticalAlignment.MIDDLE);
-		cell.setFont(PDType1Font.HELVETICA);
-		cell.setFontSize(12);
-		cell.setFillColor(Color.LIGHT_GRAY);       
-
-		cell = campos.createCell((2*100/3), venta.getFecha(), HorizontalAlignment.CENTER, VerticalAlignment.MIDDLE);
-		cell.setFont(PDType1Font.HELVETICA);
-		cell.setFontSize(12);
-		cell.setFillColor(Color.LIGHT_GRAY);
-
-		Row<PDPage> row;
-
-		row = table.createRow(15f);
-
-		cell = row.createCell((100), "DATOS DEL CLIENTE");
-		cell.setFont(PDType1Font.HELVETICA);
-		cell.setFontSize(12);
-		cell.setFillColor(Color.LIGHT_GRAY);
-
-		row = table.createRow(15f);
-
-		cell = row.createCell((100 / 2), "CEDULA");
-		cell.setFont(PDType1Font.HELVETICA);
-		cell.setFontSize(11);
-
-		cell = row.createCell((100 / 2), venta.getCedula());
-		cell.setFont(PDType1Font.HELVETICA);
-		cell.setFontSize(11);
-
-		row = table.createRow(15f);
-
-		cell = row.createCell((100 / 2), "NOMBRE");
-		cell.setFont(PDType1Font.HELVETICA);
-		cell.setFontSize(11);
-
-		cell = row.createCell((100 / 2), venta.getNombre());
-		cell.setFont(PDType1Font.HELVETICA);
-		cell.setFontSize(11);
-
-		row = table.createRow(15f);
-
-		cell = row.createCell((100 / 2), "DIRECCION");
-		cell.setFont(PDType1Font.HELVETICA);
-		cell.setFontSize(11);
-
-		cell = row.createCell((100 / 2), venta.getDireccion());
-		cell.setFont(PDType1Font.HELVETICA);
-		cell.setFontSize(11);
-
-		row = table.createRow(15f);
-
-		cell = row.createCell((100), "PAQUETES");
-		cell.setFont(PDType1Font.HELVETICA);
-		cell.setFontSize(12);
-		cell.setFillColor(Color.LIGHT_GRAY);
-
-		for (Paquete p : venta.getPaquetes())
-		{
-		    row = table.createRow(15f);
-
-		    cell = row.createCell((100 / 2), "NUMERO");
-		    cell.setFont(PDType1Font.HELVETICA);
-		    cell.setFontSize(11);
-
-		    cell = row.createCell((100 / 2), String.valueOf(p.getNumero()));
-		    cell.setFont(PDType1Font.HELVETICA);
-		    cell.setFontSize(11);
-
-		    row = table.createRow(15f);
-
-		    cell = row.createCell((100 / 2), "VOLUMEN (cm^3)");
-		    cell.setFont(PDType1Font.HELVETICA);
-		    cell.setFontSize(11);
-
-		    cell = row.createCell((100 / 2), String.valueOf(p.getVolumen()));
-		    cell.setFont(PDType1Font.HELVETICA);
-		    cell.setFontSize(11);
-
-		    row = table.createRow(15f);
-
-		    cell = row.createCell((100 / 2), "PESO (g)");
-		    cell.setFont(PDType1Font.HELVETICA);
-		    cell.setFontSize(11);
-
-		    cell = row.createCell((100 / 2), String.valueOf(p.getPeso()));
-		    cell.setFont(PDType1Font.HELVETICA);
-		    cell.setFontSize(11);
-
-		    row = table.createRow(15f);
-
-		    cell = row.createCell((100 / 2), "DESCRIPCION");
-		    cell.setFont(PDType1Font.HELVETICA);
-		    cell.setFontSize(11);
-
-		    cell = row.createCell((100 / 2), p.getDescripcion());
-		    cell.setFont(PDType1Font.HELVETICA);
-		    cell.setFontSize(11);
-
-		    row = table.createRow(15f);
-
-		    cell = row.createCell((100 / 2), "COSTO");
-		    cell.setFont(PDType1Font.HELVETICA);
-		    cell.setFontSize(11);
-
-		    cell = row.createCell((100 / 2), String.valueOf(p.getCosto()));
-		    cell.setFont(PDType1Font.HELVETICA);
-		    cell.setFontSize(11);
-		}
-
-		row = table.createRow(15f);
-
-		cell = row.createCell((100), "PAGO");
-		cell.setFont(PDType1Font.HELVETICA);
-		cell.setFontSize(12);
-		cell.setFillColor(Color.LIGHT_GRAY);
-
-		row = table.createRow(15f);
-
-		cell = row.createCell((100 / 2), "METODO");
-		cell.setFont(PDType1Font.HELVETICA);
-		cell.setFontSize(11);
-
-		cell = row.createCell((100 / 2), venta.getMetodo());
-		cell.setFont(PDType1Font.HELVETICA);
-		cell.setFontSize(11);
-
-		row = table.createRow(15f);
-
-		cell = row.createCell((100 / 2), "SUBTOTAL");
-		cell.setFont(PDType1Font.HELVETICA);
-		cell.setFontSize(11);
-
-		cell = row.createCell((100 / 2), String.valueOf(venta.getSubtotal()));
-		cell.setFont(PDType1Font.HELVETICA);
-		cell.setFontSize(11);
-
-		row = table.createRow(15f);
-
-		cell = row.createCell((100 / 2), "IVA (16%)");
-		cell.setFont(PDType1Font.HELVETICA);
-		cell.setFontSize(11);
-
-		cell = row.createCell((100 / 2), String.valueOf(venta.getIva()));
-		cell.setFont(PDType1Font.HELVETICA);
-		cell.setFontSize(11);
-
-		row = table.createRow(15f);
-
-		cell = row.createCell((100 / 2), "SEGURO");
-		cell.setFont(PDType1Font.HELVETICA);
-		cell.setFontSize(11);
-
-		cell = row.createCell((100 / 2), String.valueOf(venta.getSeguro()));
-		cell.setFont(PDType1Font.HELVETICA);
-		cell.setFontSize(11);
-
-		row = table.createRow(15f);
-
-		cell = row.createCell((100 / 2), "TOTAL");
-		cell.setFont(PDType1Font.HELVETICA);
-		cell.setFontSize(11);
-
-		cell = row.createCell((100 / 2), String.valueOf(venta.getTotal()));
-		cell.setFont(PDType1Font.HELVETICA);
-		cell.setFontSize(11);
-
-		table.draw();
-
-		//cerrar flujo y guardar pdf
-		File file = new File("Recibo_" + venta.getId() + ".pdf");
-		System.out.println("Sample file saved at : " + file.getAbsolutePath());
-		doc.save(file);
-		doc.close();
-
-		Desktop.getDesktop().open(file);
-	    }
-	    catch (IOException ex)
-	    {
-		Logger.getLogger(RegistrarVenta_Eventos.class.getName()).log(Level.SEVERE, null, ex);
-	    }
-	}
+	ReportesPDF.generarRecibo(venta);
     }
 
     public void actualizaLista()
@@ -665,13 +414,6 @@ public class RegistrarVenta_Eventos
 	}
 	
 	calcular();
-    }
-    
-    private static PDPage agregarPagina(PDDocument doc) 
-    {
-        PDPage page = new PDPage();
-        doc.addPage(page);
-        return page;
     }
 
     public void calcular()

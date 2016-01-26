@@ -395,7 +395,6 @@ public class MenuPrincipal extends JFrame
 
         bReportes.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         bReportes.setText("Reportes");
-        bReportes.setEnabled(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;

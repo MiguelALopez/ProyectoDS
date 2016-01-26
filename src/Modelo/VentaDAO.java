@@ -14,7 +14,6 @@ package Modelo;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -42,6 +41,210 @@ public class VentaDAO
         try
         {
             PreparedStatement st = conexionBD.conexion.prepareStatement(query);
+            ResultSet tabla = st.executeQuery();
+            
+            listaVentas = new ArrayList();
+            
+            while (tabla.next())
+            {
+                ArrayList<Paquete> lista = new PaqueteDAO().getListaPaquetes(tabla.getString(1), conexionBD);
+                
+                listaVentas.add(new Venta(tabla.getString(1), tabla.getString(2), tabla.getString(3), 
+                        tabla.getString(4), tabla.getString(5), tabla.getString(6), 
+                        tabla.getDouble(7), tabla.getDouble(8), tabla.getDouble(9), 
+                        tabla.getDouble(10), tabla.getString(11), lista));
+            }
+        } 
+        catch (SQLException ex) 
+        {
+            Logger.getLogger(VentaDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        finally
+        {
+            if (conexionBD != null)
+            {
+                conexionBD.cerrarConexion();
+            }
+        }
+        
+        return listaVentas;
+    }
+    
+    public ArrayList<Venta> getListaVentas(String pos, int year, int mes)
+    {
+        conexionBD.conectar();
+        
+        ArrayList<Venta> listaVentas = null;
+        String query = "SELECT * FROM venta WHERE pos_id = ? AND EXTRACT(YEAR FROM venta_fecha) = ? AND EXTRACT(MONTH FROM venta_fecha) = ?;";
+        
+        try
+        {
+            PreparedStatement st = conexionBD.conexion.prepareStatement(query);
+	    st.setString(1, pos);
+	    st.setInt(2, year);
+	    st.setInt(3, mes);
+            ResultSet tabla = st.executeQuery();
+            
+            listaVentas = new ArrayList();
+            
+            while (tabla.next())
+            {
+                ArrayList<Paquete> lista = new PaqueteDAO().getListaPaquetes(tabla.getString(1), conexionBD);
+                
+                listaVentas.add(new Venta(tabla.getString(1), tabla.getString(2), tabla.getString(3), 
+                        tabla.getString(4), tabla.getString(5), tabla.getString(6), 
+                        tabla.getDouble(7), tabla.getDouble(8), tabla.getDouble(9), 
+                        tabla.getDouble(10), tabla.getString(11), lista));
+            }
+        } 
+        catch (SQLException ex) 
+        {
+            Logger.getLogger(VentaDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        finally
+        {
+            if (conexionBD != null)
+            {
+                conexionBD.cerrarConexion();
+            }
+        }
+        
+        return listaVentas;
+    }
+    
+    public ArrayList<Venta> getListaVentas(String pos, int year)
+    {
+        conexionBD.conectar();
+        
+        ArrayList<Venta> listaVentas = null;
+        String query = "SELECT * FROM venta WHERE pos_id = ? AND EXTRACT(YEAR FROM venta_fecha) = ?;";
+        
+        try
+        {
+            PreparedStatement st = conexionBD.conexion.prepareStatement(query);
+	    st.setString(1, pos);
+	    st.setInt(2, year);
+            ResultSet tabla = st.executeQuery();
+            
+            listaVentas = new ArrayList();
+            
+            while (tabla.next())
+            {
+                ArrayList<Paquete> lista = new PaqueteDAO().getListaPaquetes(tabla.getString(1), conexionBD);
+                
+                listaVentas.add(new Venta(tabla.getString(1), tabla.getString(2), tabla.getString(3), 
+                        tabla.getString(4), tabla.getString(5), tabla.getString(6), 
+                        tabla.getDouble(7), tabla.getDouble(8), tabla.getDouble(9), 
+                        tabla.getDouble(10), tabla.getString(11), lista));
+            }
+        } 
+        catch (SQLException ex) 
+        {
+            Logger.getLogger(VentaDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        finally
+        {
+            if (conexionBD != null)
+            {
+                conexionBD.cerrarConexion();
+            }
+        }
+        
+        return listaVentas;
+    }
+    
+    public ArrayList<Venta> getListaVentas(String pos)
+    {
+        conexionBD.conectar();
+        
+        ArrayList<Venta> listaVentas = null;
+        String query = "SELECT * FROM venta WHERE pos_id = ?;";
+        
+        try
+        {
+            PreparedStatement st = conexionBD.conexion.prepareStatement(query);
+	    st.setString(1, pos);
+            ResultSet tabla = st.executeQuery();
+            
+            listaVentas = new ArrayList();
+            
+            while (tabla.next())
+            {
+                ArrayList<Paquete> lista = new PaqueteDAO().getListaPaquetes(tabla.getString(1), conexionBD);
+                
+                listaVentas.add(new Venta(tabla.getString(1), tabla.getString(2), tabla.getString(3), 
+                        tabla.getString(4), tabla.getString(5), tabla.getString(6), 
+                        tabla.getDouble(7), tabla.getDouble(8), tabla.getDouble(9), 
+                        tabla.getDouble(10), tabla.getString(11), lista));
+            }
+        } 
+        catch (SQLException ex) 
+        {
+            Logger.getLogger(VentaDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        finally
+        {
+            if (conexionBD != null)
+            {
+                conexionBD.cerrarConexion();
+            }
+        }
+        
+        return listaVentas;
+    }
+    
+    public ArrayList<Venta> getListaVentasFecha(int year, int mes)
+    {
+        conexionBD.conectar();
+        
+        ArrayList<Venta> listaVentas = null;
+        String query = "SELECT * FROM venta WHERE EXTRACT(YEAR FROM venta_fecha) = ? AND EXTRACT(MONTH FROM venta_fecha) = ?;";
+        
+        try
+        {
+            PreparedStatement st = conexionBD.conexion.prepareStatement(query);
+	    st.setInt(1, year);
+	    st.setInt(2, mes);
+            ResultSet tabla = st.executeQuery();
+            
+            listaVentas = new ArrayList();
+            
+            while (tabla.next())
+            {
+                ArrayList<Paquete> lista = new PaqueteDAO().getListaPaquetes(tabla.getString(1), conexionBD);
+                
+                listaVentas.add(new Venta(tabla.getString(1), tabla.getString(2), tabla.getString(3), 
+                        tabla.getString(4), tabla.getString(5), tabla.getString(6), 
+                        tabla.getDouble(7), tabla.getDouble(8), tabla.getDouble(9), 
+                        tabla.getDouble(10), tabla.getString(11), lista));
+            }
+        } 
+        catch (SQLException ex) 
+        {
+            Logger.getLogger(VentaDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        finally
+        {
+            if (conexionBD != null)
+            {
+                conexionBD.cerrarConexion();
+            }
+        }
+        
+        return listaVentas;
+    }
+    
+    public ArrayList<Venta> getListaVentasFecha(int year)
+    {
+        conexionBD.conectar();
+        
+        ArrayList<Venta> listaVentas = null;
+        String query = "SELECT * FROM venta WHERE EXTRACT(YEAR FROM venta_fecha) = ?;";
+        
+        try
+        {
+            PreparedStatement st = conexionBD.conexion.prepareStatement(query);
+	    st.setInt(1, year);
             ResultSet tabla = st.executeQuery();
             
             listaVentas = new ArrayList();
@@ -141,15 +344,13 @@ public class VentaDAO
             PreparedStatement st = conexionBD.conexion.prepareStatement(query);
             st.setString(1, id);
             ResultSet tabla = st.executeQuery();
-	    
-	    SimpleDateFormat f = new SimpleDateFormat("dd-MM-yyyy");
             
             while (tabla.next())
             {
                 ArrayList<Paquete> lista = new PaqueteDAO().getListaPaquetes(tabla.getString(1), conexionBD);
                 
                 venta = new Venta(tabla.getString(1), tabla.getString(2), tabla.getString(3), 
-                        tabla.getString(4), f.format(tabla.getDate(5)), tabla.getString(6), 
+                        tabla.getString(4), tabla.getString(5), tabla.getString(6), 
                         tabla.getDouble(7), tabla.getDouble(8), tabla.getDouble(9), 
                         tabla.getDouble(10), tabla.getString(11), lista);
 		System.out.println(venta.getFecha());
@@ -170,16 +371,17 @@ public class VentaDAO
         return venta;
     }
     
-    public Venta consultarUltimaVenta()
+    public Venta consultarUltimaVenta(String cedula)
     {
         conexionBD.conectar();
         
         Venta venta = null;
-        String query = "SELECT * FROM venta WHERE venta_id = (SELECT MAX(venta_id) FROM venta);";
+        String query = "SELECT * FROM venta WHERE venta_id = (SELECT MAX(venta_id) FROM venta WHERE cedula = ?);";
         
         try
         {
             PreparedStatement st = conexionBD.conexion.prepareStatement(query);
+	    st.setString(1, cedula);
             ResultSet tabla = st.executeQuery();
             
             while (tabla.next())

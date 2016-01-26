@@ -271,7 +271,7 @@ public class CrearUsuario extends javax.swing.JFrame
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 0);
         jPanel2.add(jLabel7, gridBagConstraints);
 
-        ftfFechaNacimiento.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("dd-MM-yyyy"))));
+        ftfFechaNacimiento.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("yyyy-MM-dd"))));
         ftfFechaNacimiento.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
@@ -329,7 +329,7 @@ public class CrearUsuario extends javax.swing.JFrame
         gridBagConstraints.insets = new java.awt.Insets(10, 5, 5, 0);
         jPanel2.add(jLabel10, gridBagConstraints);
 
-        ftfFechaIncorporacion.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("dd-MM-yyyy"))));
+        ftfFechaIncorporacion.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("yyyy-MM-dd"))));
         ftfFechaIncorporacion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;

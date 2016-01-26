@@ -45,6 +45,17 @@ public class ModificarPOS_Eventos
                 }
             }
         );
+	
+	modificarPOS.bCancelar.addActionListener(
+            new ActionListener() 
+            {
+                @Override
+                public void actionPerformed(ActionEvent ae) 
+                {
+                    cerrarVentana();
+                }
+            }
+        );
     }
     
     public void buscarPOS()
@@ -130,5 +141,10 @@ public class ModificarPOS_Eventos
         this.modificarPOS.tfID.setText("");
         this.modificarPOS.tfNombre.setText("");
         this.modificarPOS.tfDireccion.setText("");
+    }
+    
+    public void cerrarVentana()
+    {
+	this.modificarPOS.setVisible(false);
     }
 }

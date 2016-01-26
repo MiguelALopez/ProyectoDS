@@ -253,6 +253,20 @@ public class MenuPrincipal_Eventos
                 }
             }
         );
+	
+	this.menuPrincipal.bReportes.addActionListener(
+            new ActionListener()
+            {
+                @Override
+                public void actionPerformed(ActionEvent e)
+                {
+                    Reportes r = new Reportes();
+                    Reportes_Eventos re = new Reportes_Eventos(r);
+                    r.setLocationRelativeTo(null);
+                    r.setVisible(true);
+                }
+            }
+        );
     }
     
     public void iniciarSesion()

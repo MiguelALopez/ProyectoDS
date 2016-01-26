@@ -13,12 +13,15 @@ package Controlador;
 
 import Modelo.PQR;
 import Modelo.PQRDAO;
+import Modelo.ReportesPDF;
 import Modelo.Sede;
 import Modelo.SedeDAO;
 import Vista.CrearPQR;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import javax.swing.JOptionPane;
 
 /**
@@ -33,7 +36,7 @@ public class CrearPQR_Eventos
     {
         this.crearPQR = crearPQR;
         
-        crearPQR.bSalir.addActionListener(
+        crearPQR.bCancelar.addActionListener(
             new ActionListener() 
             {
                 @Override
@@ -58,85 +61,6 @@ public class CrearPQR_Eventos
         actualizarSedes();
     }
     
-    public void crearPQR()
-    {
-        String numeroPQR = this.crearPQR.TPqrn.getText();
-        String cedula = this.crearPQR.TCedula.getText();
-        String nombre = this.crearPQR.TNombre.getText();
-        String sede = (String) this.crearPQR.cbSedes.getSelectedItem();
-        String tipo = this.crearPQR.ComboTipo.getSelectedItem().toString();
-        String contenido = this.crearPQR.TContenido.getText();
-
-        PQR nuevoPQR = new PQR(numeroPQR, cedula, nombre, sede, tipo, contenido);
-        
-        boolean verificar = verificarCamposCrearPQR(nuevoPQR);
-        
-        if (verificar)
-        {
-            int op = JOptionPane.showConfirmDialog(crearPQR, "Desea realizar el PQR N° " + numeroPQR + "?", "Confirmacion", JOptionPane.YES_NO_OPTION);
-            
-            if (op == JOptionPane.YES_OPTION)
-            {
-                boolean resultado = new PQRDAO().insertarPQR(nuevoPQR);
-        
-                if (resultado)
-                {
-                    JOptionPane.showMessageDialog(crearPQR, "PQR N°" + numeroPQR + " creado exitosamente.", "", JOptionPane.INFORMATION_MESSAGE);
-                    limpiarCampos();
-                }
-                else
-                {
-                    JOptionPane.showMessageDialog(crearPQR, "Error al crear el PQR.", "Error", JOptionPane.ERROR_MESSAGE);
-                }
-            }
-        }
-    }
-    
-    public boolean verificarCamposCrearPQR(PQR pqr)
-    {
-        if (pqr.getNumero().isEmpty())
-        {
-            JOptionPane.showMessageDialog(crearPQR, "El campo PQR N° es obligatorio.", "Error", JOptionPane.ERROR_MESSAGE);
-            return false;
-        }
-        
-        if (pqr.getCedula().isEmpty())
-        {
-            JOptionPane.showMessageDialog(crearPQR, "El campo Cedula es obligatorio.", "Error", JOptionPane.ERROR_MESSAGE);
-            return false;
-        }
-        
-        if (pqr.getNombre().isEmpty())
-        {
-            JOptionPane.showMessageDialog(crearPQR, "El campo Nombre es obligatorio.", "Error", JOptionPane.ERROR_MESSAGE);
-            return false;
-        }
-        
-        if (pqr.getContenido().isEmpty())
-        {
-            JOptionPane.showMessageDialog(crearPQR, "El campo Contenido es obligatorio.", "Error", JOptionPane.ERROR_MESSAGE);
-            return false;
-        }
-        
-        return true;
-    }
-    
-    public void cerrarVentana()
-    {
-        this.crearPQR.setVisible(false);
-        limpiarCampos();
-    }
-    
-    public void limpiarCampos()
-    {
-        this.crearPQR.TPqrn.setText("");
-        this.crearPQR.TCedula.setText("");
-        this.crearPQR.TNombre.setText("");
-        this.crearPQR.cbSedes.setSelectedIndex(0);
-        this.crearPQR.ComboTipo.setSelectedIndex(0);
-        this.crearPQR.TContenido.setText("");
-    }
-    
     private void actualizarSedes()
     {
         crearPQR.cbSedes.removeAllItems();
@@ -148,5 +72,90 @@ public class CrearPQR_Eventos
         {
             crearPQR.cbSedes.addItem(sedes.get(i).getNumero());            
         }
+    }
+    
+    public void crearPQR()
+    {
+	if (verificarCamposCrearPQR())
+        {
+	    String fecha = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstance().getTime());
+	    String tipo = this.crearPQR.cbTipo.getSelectedItem().toString();
+	    String contenido = this.crearPQR.taContenido.getText();
+	    String estado = this.crearPQR.tfEstado.getText();
+	    String cedula = this.crearPQR.tfCedula.getText();
+	    String nombre = this.crearPQR.tfNombre.getText();
+	    String sede = (String) this.crearPQR.cbSedes.getSelectedItem();
+	    
+	    contenido = "[" + new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Calendar.getInstance().getTime()) + "]:\n" 
+		    + contenido;
+
+	    PQR nuevoPQR = new PQR(fecha, tipo, contenido, estado, cedula, nombre, sede);
+	
+            int op = JOptionPane.showConfirmDialog(crearPQR, "Desea realizar el PQR?", "Confirmacion", JOptionPane.YES_NO_OPTION);
+            
+            if (op == JOptionPane.YES_OPTION)
+            {
+                boolean resultado = new PQRDAO().insertarPQR(nuevoPQR);
+        
+                if (resultado)
+                {
+                    JOptionPane.showMessageDialog(crearPQR, "PQR creado exitosamente.", "", JOptionPane.INFORMATION_MESSAGE);
+                    limpiarCampos();
+		    generarReciboPQR(cedula);
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(crearPQR, "Error al crear el PQR.", "Error", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        }
+    }
+    
+    public void generarReciboPQR(String cedula)
+    {
+	ReportesPDF.generarReciboPQR(new PQRDAO().ultimoPQR(cedula));
+    }
+    
+    public boolean verificarCamposCrearPQR()
+    {
+	if (this.crearPQR.taContenido.getText().isEmpty())
+        {
+            JOptionPane.showMessageDialog(crearPQR, "El campo Contenido es obligatorio.", "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+	
+	if (this.crearPQR.tfEstado.getText().isEmpty())
+        {
+            JOptionPane.showMessageDialog(crearPQR, "El campo Contenido es obligatorio.", "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+	
+        if (this.crearPQR.tfCedula.getText().isEmpty())
+        {
+            JOptionPane.showMessageDialog(crearPQR, "El campo Cedula es obligatorio.", "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }	
+        
+        if (this.crearPQR.tfNombre.getText().isEmpty())
+        {
+            JOptionPane.showMessageDialog(crearPQR, "El campo Nombre es obligatorio.", "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }  
+        
+        return true;
+    }
+    
+    public void cerrarVentana()
+    {
+        this.crearPQR.setVisible(false);
+    }
+    
+    public void limpiarCampos()
+    {
+        this.crearPQR.tfCedula.setText("");
+        this.crearPQR.tfNombre.setText("");
+        this.crearPQR.cbSedes.setSelectedIndex(0);
+        this.crearPQR.cbTipo.setSelectedIndex(0);
+        this.crearPQR.taContenido.setText("");
     }
 }

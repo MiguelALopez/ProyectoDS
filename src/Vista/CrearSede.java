@@ -238,7 +238,6 @@ public class CrearSede extends javax.swing.JFrame
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 10);
         jPanel2.add(cbCiudad, gridBagConstraints);
 
-        tfGerente.setEditable(false);
         tfGerente.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -247,7 +246,6 @@ public class CrearSede extends javax.swing.JFrame
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 10, 5);
         jPanel2.add(tfGerente, gridBagConstraints);
-        tfGerente.setEditable(false);
 
         bSelGerente.setText("...");
         bSelGerente.setMaximumSize(new java.awt.Dimension(20, 23));

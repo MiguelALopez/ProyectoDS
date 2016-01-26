@@ -82,8 +82,7 @@ public class CrearSede_Eventos
                     bCancelar();
                 }
             }
-        );
-        
+        );        
     }
     
     public void agregaSede()
@@ -179,6 +178,7 @@ public class CrearSede_Eventos
         this.crearSede.tfGerente.setText("");
         this.crearSede.tfNombre.setText("");
         this.crearSede.tfNumero.setText("");
+	this.crearSede.cbCiudad.setSelectedIndex(0);
     }
     
     public boolean validaCampos()
@@ -207,6 +207,5 @@ public class CrearSede_Eventos
         }
         
         return true;
-    }
-    
+    }    
 }

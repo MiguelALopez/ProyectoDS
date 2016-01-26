@@ -6,6 +6,7 @@
 package Controlador;
 
 import Modelo.Paquete;
+import Modelo.ReportesPDF;
 import Modelo.Venta;
 import Modelo.VentaDAO;
 import Vista.ConsultarVentas;
@@ -202,6 +203,6 @@ public class ConsultarVentas_Eventos
     {
 	String id = this.consultarVentas.tfID.getText();
 	
-	RegistrarVenta_Eventos.generaRecibo(new VentaDAO().consultarVenta(id));
+	ReportesPDF.generarRecibo(new VentaDAO().consultarVenta(id));
     }
 }

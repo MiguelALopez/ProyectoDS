@@ -14,7 +14,6 @@ package Modelo;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -40,15 +39,15 @@ public class PQRDAO
         
         try
         {
-            Statement st = conexionBD.conexion.createStatement();
-            ResultSet tabla = st.executeQuery(query);
+            PreparedStatement st = conexionBD.conexion.prepareStatement(query);
+            ResultSet tabla = st.executeQuery();
             
             while (tabla.next())
             {
                 listaPQR.add(new PQR(tabla.getString(1), tabla.getString(2),
                         tabla.getString(3), tabla.getString(4),
                         tabla.getString(5), tabla.getString(6),
-                        tabla.getString(7)));
+                        tabla.getString(7), tabla.getString(8)));
             }
         } 
         catch (SQLException ex) 
@@ -71,20 +70,20 @@ public class PQRDAO
         conexionBD.conectar();
         boolean exito = false;
         
-        String query = "INSERT INTO pqr (pqr_numero, pqr_cedula, pqr_nombre, pqr_sede, pqr_tipo, pqr_contenido, pqr_estado)"
-                + " VALUES(?,?,?,?,?,?,?);";
+        String query = "INSERT INTO pqr (pqr_fecha, pqr_tipo, pqr_contenido, pqr_estado, pqr_cedula, pqr_nombre, pqr_sede)"
+                + " VALUES(DATE(?),?,?,?,?,?,?);";
         
         try
         {
             PreparedStatement st = conexionBD.conexion.prepareStatement(query);
             
-            st.setString(1, pqr.getNumero());
-            st.setString(2, pqr.getCedula());
-            st.setString(3, pqr.getNombre());
-            st.setString(4, pqr.getSede());
-            st.setString(5, pqr.getTipo());
-            st.setString(6, pqr.getContenido());
-            st.setString(7, pqr.getEstado());
+            st.setString(1, pqr.getFecha());
+            st.setString(2, pqr.getTipo());
+            st.setString(3, pqr.getContenido());
+            st.setString(4, pqr.getEstado());
+            st.setString(5, pqr.getCedula());
+            st.setString(6, pqr.getNombre());
+            st.setString(7, pqr.getSede());
             
             int resultado = st.executeUpdate();
             exito = true;
@@ -111,25 +110,27 @@ public class PQRDAO
         
         String query = "UPDATE pqr SET "
                 //+ "pqr_numero = ?,"
-                + "pqr_cedula = ?,"
-                + "pqr_nombre = ?,"
-                + "pqr_sede = ?,"
+                + "pqr_fecha = DATE(?),"
                 + "pqr_tipo = ?,"
                 + "pqr_contenido = ?,"
-                + "pqr_estado = ?"
+                + "pqr_estado = ?,"
+                + "pqr_cedula = ?,"
+                + "pqr_nombre = ?,"
+		+ "pqr_sede = ? "
                 + "WHERE pqr_numero = ?;";
         
         try
         {
             PreparedStatement st = conexionBD.conexion.prepareStatement(query);
             
-            st.setString(1, pqr.getCedula());
-            st.setString(2, pqr.getNombre());
-            st.setString(3, pqr.getSede());
-            st.setString(4, pqr.getTipo());
-            st.setString(5, pqr.getContenido());
-            st.setString(6, pqr.getEstado());
-            st.setString(7, pqr.getNumero());
+            st.setString(1, pqr.getFecha());
+            st.setString(2, pqr.getTipo());
+            st.setString(3, pqr.getContenido());
+            st.setString(4, pqr.getEstado());
+            st.setString(5, pqr.getCedula());
+            st.setString(6, pqr.getNombre());
+            st.setString(7, pqr.getSede());
+	    st.setString(8, pqr.getNumero());
                         
             int resultado = st.executeUpdate();
             exito = true;
@@ -156,20 +157,58 @@ public class PQRDAO
         PQR pqr = null;
         
         String query = "SELECT * FROM pqr "
-                + "WHERE pqr_numero='"+pqr_numero+"'";
+                + "WHERE pqr_numero = ?;";
         
         try
         {
-            Statement st = conexionBD.conexion.createStatement();
-            ResultSet tabla = st.executeQuery(query);
+            PreparedStatement st = conexionBD.conexion.prepareStatement(query);
+	    st.setString(1, pqr_numero);
+            ResultSet tabla = st.executeQuery();
             
             if (tabla.next())
             {
                 pqr = new PQR(tabla.getString(1), tabla.getString(2),
                         tabla.getString(3), tabla.getString(4),
                         tabla.getString(5), tabla.getString(6),
-                        tabla.getString(7));
-                
+                        tabla.getString(7), tabla.getString(8));                
+            }
+        } 
+        catch (SQLException ex) 
+        {
+            Logger.getLogger(PQRDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        finally
+        {
+            if (conexionBD != null)
+            {
+                conexionBD.cerrarConexion();
+            }
+        }
+        
+        return pqr;
+    }
+    
+    public PQR ultimoPQR(String cedula)
+    {
+	conexionBD.conectar();
+        
+        PQR pqr = null;
+        
+        String query = "SELECT * FROM pqr "
+                + "WHERE pqr_numero = (SELECT MAX(pqr_numero) FROM pqr WHERE pqr_cedula = ?);";
+        
+        try
+        {
+            PreparedStatement st = conexionBD.conexion.prepareStatement(query);
+	    st.setString(1, cedula);
+            ResultSet tabla = st.executeQuery();
+            
+            if (tabla.next())
+            {
+                pqr = new PQR(tabla.getString(1), tabla.getString(2),
+                        tabla.getString(3), tabla.getString(4),
+                        tabla.getString(5), tabla.getString(6),
+                        tabla.getString(7), tabla.getString(8));                
             }
         } 
         catch (SQLException ex) 

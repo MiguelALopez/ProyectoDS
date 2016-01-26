@@ -41,9 +41,11 @@ public class CrearPOS extends javax.swing.JFrame
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
-        bCrearPOS = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
+        jPanel2 = new javax.swing.JPanel();
+        bCrearPOS = new javax.swing.JButton();
+        bCancelar = new javax.swing.JButton();
 
         setTitle("Crear POS");
         setMinimumSize(new java.awt.Dimension(600, 300));
@@ -149,16 +151,6 @@ public class CrearPOS extends javax.swing.JFrame
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 0, 0);
         jPanel1.add(jLabel16, gridBagConstraints);
-
-        bCrearPOS.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        bCrearPOS.setText("Crear POS");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        jPanel1.add(bCrearPOS, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -168,17 +160,55 @@ public class CrearPOS extends javax.swing.JFrame
         jPanel1.add(jSeparator1, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 7;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel1.add(jSeparator2, gridBagConstraints);
+
+        jPanel2.setLayout(new java.awt.GridBagLayout());
+
+        bCrearPOS.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        bCrearPOS.setText("Crear POS");
+        bCrearPOS.setMaximumSize(new java.awt.Dimension(79, 31));
+        bCrearPOS.setMinimumSize(new java.awt.Dimension(79, 31));
+        bCrearPOS.setPreferredSize(new java.awt.Dimension(79, 31));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 0);
+        jPanel2.add(bCrearPOS, gridBagConstraints);
+
+        bCancelar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        bCancelar.setText("Cancelar");
+        bCancelar.setMaximumSize(new java.awt.Dimension(79, 31));
+        bCancelar.setMinimumSize(new java.awt.Dimension(79, 31));
+        bCancelar.setPreferredSize(new java.awt.Dimension(79, 31));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 5);
+        jPanel2.add(bCancelar, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel1.add(jPanel2, gridBagConstraints);
 
         getContentPane().add(jPanel1);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton bCancelar;
     public javax.swing.JButton bCrearPOS;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -189,6 +219,7 @@ public class CrearPOS extends javax.swing.JFrame
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     public javax.swing.JTextField tfDireccion;

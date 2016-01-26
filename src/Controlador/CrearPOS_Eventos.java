@@ -34,6 +34,17 @@ public class CrearPOS_Eventos
                 }
             }
         );
+	
+	crearPOS.bCancelar.addActionListener(
+            new ActionListener() 
+            {
+                @Override
+                public void actionPerformed(ActionEvent ae) 
+                {
+                    cerrarVentana();
+                }
+            }
+        );
     }
     
     public void crearPOS()
@@ -93,5 +104,10 @@ public class CrearPOS_Eventos
         this.crearPOS.tfID.setText("");
         this.crearPOS.tfNombre.setText("");
         this.crearPOS.tfDireccion.setText("");
+    }
+    
+    public void cerrarVentana()
+    {
+	this.crearPOS.setVisible(false);
     }
 }

@@ -16,6 +16,8 @@ import Modelo.PQRDAO;
 import Vista.ResponderPQR;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import javax.swing.JOptionPane;
 
 /**
@@ -41,7 +43,7 @@ public class ResponderPQR_Eventos
                 }
         );
         
-        responderPQR.bSalir.addActionListener(
+        responderPQR.bCancelar.addActionListener(
                 new ActionListener()
                 {
                     @Override
@@ -66,22 +68,24 @@ public class ResponderPQR_Eventos
     
     public void responderPQR()
     {
-        String numeroPQR = this.responderPQR.tfNumeroPQR.getText();
+        String numero = this.responderPQR.tfNumeroPQR.getText();
+	String fecha = this.responderPQR.tfFecha.getText();
+        String tipo = this.responderPQR.tfTipo.getText();        
+        String contenido = this.responderPQR.taContenido.getText();
+        String estado = (String) this.responderPQR.cbEstado.getSelectedItem();
         String cedula = this.responderPQR.tfCedula.getText();
         String nombre = this.responderPQR.tfNombre.getText();
         String sede = this.responderPQR.tfSede.getText();
-        String tipo = this.responderPQR.tfTipo.getText();        
-        String contenido = this.responderPQR.taContenido.getText();
-        String estado = "Respondido";
         String respuesta = this.responderPQR.taRespuesta.getText();
         
-        String nuevoContenido = contenido + "\n\n\n" + respuesta;
+	String fechaR = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").format(Calendar.getInstance().getTime());
+        String nuevoContenido = contenido + "\n\n\n[" + fechaR + "]:\n" + respuesta;
         
-        PQR pqr = new PQR(numeroPQR, cedula, nombre, sede, tipo, nuevoContenido, estado);
+        PQR pqr = new PQR(numero, fecha, tipo, nuevoContenido, estado, cedula, nombre, sede);
         
         if (!respuesta.isEmpty())
         {
-            int op = JOptionPane.showConfirmDialog(responderPQR, "Desea responder el PQR N° " + numeroPQR + "?", "Confirmacion", JOptionPane.YES_NO_OPTION);
+            int op = JOptionPane.showConfirmDialog(responderPQR, "Desea responder el PQR N° " + numero + "?", "Confirmacion", JOptionPane.YES_NO_OPTION);
 
             if (op == JOptionPane.YES_OPTION)
             {
@@ -90,7 +94,7 @@ public class ResponderPQR_Eventos
 
                 if (resultado)
                 {
-                    JOptionPane.showMessageDialog(responderPQR, "Se ha adicionado una respuesta al PQR N° " + numeroPQR + " exitosamente.", "", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(responderPQR, "Se ha adicionado una respuesta al PQR N° " + numero + " exitosamente.", "", JOptionPane.INFORMATION_MESSAGE);
                     limpiarCampos();
                     habilitarCampos(false);
                 }
@@ -120,12 +124,13 @@ public class ResponderPQR_Eventos
             if (pqr != null)
             {
                 this.responderPQR.tfNumeroPQR.setText(pqr.getNumero());
-                this.responderPQR.tfCedula.setText(pqr.getCedula());
-                this.responderPQR.tfNombre.setText(pqr.getNombre());
+		this.responderPQR.tfFecha.setText(pqr.getFecha());
                 this.responderPQR.tfTipo.setText(pqr.getTipo());
-                this.responderPQR.tfSede.setText(pqr.getSede());
                 this.responderPQR.taContenido.setText(pqr.getContenido());
                 this.responderPQR.tfEstado.setText(pqr.getEstado());
+                this.responderPQR.tfCedula.setText(pqr.getCedula());
+                this.responderPQR.tfNombre.setText(pqr.getNombre());
+                this.responderPQR.tfSede.setText(pqr.getSede());
 
                 habilitarCampos(true);
             }
@@ -148,30 +153,28 @@ public class ResponderPQR_Eventos
     }
     
     public void habilitarCampos(boolean b)
-    {
-        this.responderPQR.tfBuscarPQR.setEnabled(!b);
-        this.responderPQR.bBuscarPQR.setEnabled(!b);
-        
+    {        
         this.responderPQR.taRespuesta.setEditable(b);
+        this.responderPQR.cbEstado.setEnabled(b);
     }
     
     public void limpiarCampos()
     {
         this.responderPQR.tfBuscarPQR.setText("");
         this.responderPQR.tfNumeroPQR.setText("");
-        this.responderPQR.tfCedula.setText("");
-        this.responderPQR.tfNombre.setText("");
+        this.responderPQR.tfFecha.setText("");
         this.responderPQR.tfTipo.setText("");
-        this.responderPQR.tfSede.setText("");
         this.responderPQR.taContenido.setText("");
         this.responderPQR.tfEstado.setText("");
+        this.responderPQR.tfCedula.setText("");
+        this.responderPQR.tfNombre.setText("");
+        this.responderPQR.tfSede.setText("");
+        this.responderPQR.cbEstado.setSelectedIndex(0);
         this.responderPQR.taRespuesta.setText("");
     }
     
     public void cerrarVentana()
     {
         this.responderPQR.setVisible(false);
-        limpiarCampos();
-        habilitarCampos(false);
     }
 }

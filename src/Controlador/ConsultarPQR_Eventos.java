@@ -14,6 +14,7 @@ package Controlador;
 import Vista.ConsultarPQR;
 import Modelo.PQR;
 import Modelo.PQRDAO;
+import Modelo.ReportesPDF;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -75,6 +76,17 @@ public class ConsultarPQR_Eventos
                     }
                 }
         );
+	
+	consultarPQR.bGenerarRecibo.addActionListener(
+                new ActionListener()
+                {
+                    @Override
+                    public void actionPerformed(ActionEvent ae) 
+                    {
+                        generarRecibo();
+                    }
+                }
+        );
         
         consultarPQR();
     }  
@@ -116,12 +128,13 @@ public class ConsultarPQR_Eventos
             if (pqr != null)
             {
                 this.consultarPQR.tfNumeroPQR.setText(pqr.getNumero());
+                this.consultarPQR.tfFecha.setText(pqr.getFecha());
+		this.consultarPQR.tfTipo.setText(pqr.getTipo());
+		this.consultarPQR.taContenido.setText(pqr.getContenido());
 		this.consultarPQR.tfEstado.setText(pqr.getEstado());
 		this.consultarPQR.tfCedula.setText(pqr.getCedula());
 		this.consultarPQR.tfNombre.setText(pqr.getNombre());
-		this.consultarPQR.tfTipo.setText(pqr.getTipo());
 		this.consultarPQR.tfSede.setText(pqr.getSede());
-		this.consultarPQR.taContenido.setText(pqr.getContenido());
 		
 		this.consultarPQR.fDetalles.setLocationRelativeTo(consultarPQR);
 		this.consultarPQR.fDetalles.setVisible(true);
@@ -139,14 +152,21 @@ public class ConsultarPQR_Eventos
 	borrarCamposDetalles();
     }
     
+    public void generarRecibo()
+    {
+	String numero = this.consultarPQR.tfNumeroPQR.getText();	
+	ReportesPDF.generarReciboPQR(new PQRDAO().consultarPQR(numero));
+    }
+    
     public void borrarCamposDetalles()
     {
 	this.consultarPQR.tfNumeroPQR.setText("");
+	this.consultarPQR.tfFecha.setText("");
+	this.consultarPQR.tfTipo.setText("");
+	this.consultarPQR.taContenido.setText("");
 	this.consultarPQR.tfEstado.setText("");
 	this.consultarPQR.tfCedula.setText("");
 	this.consultarPQR.tfNombre.setText("");
-	this.consultarPQR.tfTipo.setText("");
 	this.consultarPQR.tfSede.setText("");
-	this.consultarPQR.taContenido.setText("");
     }
 }

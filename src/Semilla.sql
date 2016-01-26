@@ -41,16 +41,21 @@ CREATE TABLE usuario
     FOREIGN KEY (usuario_sede_numero) REFERENCES sede (sede_numero)
 );
 
+DROP SEQUENCE IF EXISTS pqr_seq CASCADE;
+CREATE SEQUENCE pqr_seq
+    START WITH 100000;
+
 DROP TABLE IF EXISTS pqr CASCADE;
 CREATE TABLE pqr
 (
-    pqr_numero    VARCHAR(5),
-    pqr_cedula    VARCHAR(30) NOT NULL,
-    pqr_nombre    VARCHAR(90) NOT NULL,
-    pqr_sede      VARCHAR(5)  NOT NULL,
-    pqr_tipo      VARCHAR(30) NOT NULL,
-    pqr_contenido TEXT        NOT NULL,
-    pqr_estado    VARCHAR(30) NOT NULL,
+    pqr_numero      VARCHAR DEFAULT nextval('pqr_seq'::regclass) NOT NULL,
+    pqr_fecha       DATE        NOT NULL,  
+    pqr_tipo        VARCHAR(30) NOT NULL,
+    pqr_contenido   TEXT        NOT NULL,
+    pqr_estado      VARCHAR(30) NOT NULL,
+    pqr_cedula      VARCHAR(30) NOT NULL,
+    pqr_nombre      VARCHAR(90) NOT NULL,
+    pqr_sede        VARCHAR(5)  NOT NULL,
     PRIMARY KEY (pqr_numero),
     FOREIGN KEY (pqr_sede) REFERENCES sede (sede_numero)
 );
@@ -109,10 +114,10 @@ INSERT INTO usuario (usuario_cedula, usuario_passwd, usuario_nombre, usuario_ape
 VALUES ('456', 'holi', 'Andres', 'Martinez', 'Secretaria', 'Activo');
 
 INSERT INTO sede(sede_numero, sede_nombre, sede_direccion, sede_ciudad)
-    VALUES ('001', 'Melendez', 'Carrera 100', 'Cali');
+VALUES ('001', 'Melendez', 'Carrera 100', 'Cali');
 
-INSERT INTO pqr (pqr_numero, pqr_cedula, pqr_nombre, pqr_sede, pqr_tipo, pqr_contenido, pqr_estado)
-    VALUES ('1', '123', 'Miguel', '001', 'Peticion', 'nada', 'Nuevo');
+INSERT INTO pqr (pqr_fecha, pqr_tipo, pqr_contenido, pqr_estado, pqr_cedula, pqr_nombre, pqr_sede)
+VALUES ('2016-01-10', 'Peticion', 'nada', 'Nuevo', '123', 'Miguel', '001');
 
 INSERT INTO pos (pos_id, pos_nombre, pos_direccion)
 VALUES ('1', 'La 50', 'Calle 50');

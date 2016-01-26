@@ -18,99 +18,96 @@ package Modelo;
 public class PQR 
 {
     private String numero;
-    private String cedula;
-    private String nombre;
-    private String sede;
+    private String fecha;
     private String tipo;
     private String contenido;
     private String estado;
+    private String cedula;
+    private String nombre;
+    private String sede;
 
-    public PQR(String numero, String cedula, String nombre, String sede, String tipo, String contenido, String estado)
-    {
-        this.numero = numero;
-        this.cedula = cedula;
-        this.nombre = nombre;
-        this.sede = sede;
-        this.tipo = tipo;
-        this.contenido = contenido;
-        this.estado = estado;
+    public PQR(String fecha, String tipo, String contenido, String estado, String cedula, String nombre, String sede) {
+	this.fecha = fecha;
+	this.tipo = tipo;
+	this.contenido = contenido;
+	this.estado = estado;
+	this.cedula = cedula;
+	this.nombre = nombre;
+	this.sede = sede;
     }
 
-    public PQR(String numero, String cedula, String nombre, String sede, String tipo, String contenido)
-    {
-        this.numero = numero;
-        this.cedula = cedula;
-        this.nombre = nombre;
-        this.sede = sede;
-        this.tipo = tipo;
-        this.contenido = contenido;
-        this.estado = "Nuevo";
-    }
-    
-    public PQR() 
-    {
-        this.numero = null;
-        this.cedula = null;
-        this.nombre = null;
-        this.sede = null;
-        this.tipo = null;
-        this.contenido = null;
-        this.estado = null;
+    public PQR(String numero, String fecha, String tipo, String contenido, String estado, String cedula, String nombre, String sede) {
+	this.numero = numero;
+	this.fecha = fecha;
+	this.tipo = tipo;
+	this.contenido = contenido;
+	this.estado = estado;
+	this.cedula = cedula;
+	this.nombre = nombre;
+	this.sede = sede;
     }
 
     public String getNumero() {
-        return numero;
+	return numero;
     }
 
     public void setNumero(String numero) {
-        this.numero = numero;
+	this.numero = numero;
     }
 
-    public String getCedula() {
-        return cedula;
+    public String getFecha() {
+	return fecha;
     }
 
-    public void setCedula(String cedula) {
-        this.cedula = cedula;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getSede() {
-        return sede;
-    }
-
-    public void setSede(String sede) {
-        this.sede = sede;
+    public void setFecha(String fecha) {
+	this.fecha = fecha;
     }
 
     public String getTipo() {
-        return tipo;
+	return tipo;
     }
 
     public void setTipo(String tipo) {
-        this.tipo = tipo;
+	this.tipo = tipo;
     }
 
     public String getContenido() {
-        return contenido;
+	return contenido;
     }
 
     public void setContenido(String contenido) {
-        this.contenido = contenido;
+	this.contenido = contenido;
     }
-    
+
     public String getEstado() {
-        return estado;
+	return estado;
     }
 
     public void setEstado(String estado) {
-        this.estado = estado;
-    }    
+	this.estado = estado;
+    }
+
+    public String getCedula() {
+	return cedula;
+    }
+
+    public void setCedula(String cedula) {
+	this.cedula = cedula;
+    }
+
+    public String getNombre() {
+	return nombre;
+    }
+
+    public void setNombre(String nombre) {
+	this.nombre = nombre;
+    }
+
+    public String getSede() {
+	return sede;
+    }
+
+    public void setSede(String sede) {
+	this.sede = sede;
+    }
 }

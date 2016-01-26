@@ -122,6 +122,7 @@ public class ModificarSede_Eventos {
 	this.modificarSede.tfNombre.setEditable(b);
 	this.modificarSede.tfDireccion.setEditable(b);
 	this.modificarSede.cbCiudad.setEnabled(b);
+	this.modificarSede.tfGerente.setEditable(b);
 	this.modificarSede.bBuscar.setEnabled(b);
 	this.modificarSede.tfCamiones.setEditable(b);
     }

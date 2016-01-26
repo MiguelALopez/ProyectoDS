@@ -48,6 +48,8 @@ public class ResponderPQR extends javax.swing.JFrame
         tfNombre = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         tfEstado = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        tfFecha = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         LContenido = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -55,25 +57,28 @@ public class ResponderPQR extends javax.swing.JFrame
         LContenido2 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         taRespuesta = new javax.swing.JTextArea();
+        jLabel3 = new javax.swing.JLabel();
+        cbEstado = new javax.swing.JComboBox<>();
         jPanel3 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         tfBuscarPQR = new javax.swing.JTextField();
         bBuscarPQR = new javax.swing.JButton();
         jPanel8 = new javax.swing.JPanel();
-        bSalir = new javax.swing.JButton();
+        bCancelar = new javax.swing.JButton();
         bEnviar = new javax.swing.JButton();
 
         setTitle("Nuevo PQR");
-        setMinimumSize(new java.awt.Dimension(620, 600));
-        setPreferredSize(new java.awt.Dimension(620, 600));
+        setMinimumSize(new java.awt.Dimension(620, 660));
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jPanel1.setLayout(new java.awt.GridBagLayout());
 
         Lpqrn.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        Lpqrn.setText("PQR N°");
+        Lpqrn.setText("Numero");
         gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 5, 0);
         jPanel1.add(Lpqrn, gridBagConstraints);
@@ -83,6 +88,7 @@ public class ResponderPQR extends javax.swing.JFrame
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 5, 10);
@@ -92,17 +98,17 @@ public class ResponderPQR extends javax.swing.JFrame
         tfTipo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 10);
         jPanel1.add(tfTipo, gridBagConstraints);
 
         LTipo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        LTipo.setText("Tipo de PQR");
+        LTipo.setText("Tipo");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 0);
         jPanel1.add(LTipo, gridBagConstraints);
@@ -111,7 +117,7 @@ public class ResponderPQR extends javax.swing.JFrame
         LSede.setText("Sede");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 10, 0);
         jPanel1.add(LSede, gridBagConstraints);
@@ -120,7 +126,7 @@ public class ResponderPQR extends javax.swing.JFrame
         tfSede.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 10, 10);
@@ -130,26 +136,26 @@ public class ResponderPQR extends javax.swing.JFrame
         LCedula.setText("Cedula");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 5, 0);
+        gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 0);
         jPanel1.add(LCedula, gridBagConstraints);
 
         tfCedula.setEditable(false);
         tfCedula.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 5, 10);
+        gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 10);
         jPanel1.add(tfCedula, gridBagConstraints);
 
         LNombre.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         LNombre.setText("Nombre");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 0);
         jPanel1.add(LNombre, gridBagConstraints);
@@ -159,7 +165,7 @@ public class ResponderPQR extends javax.swing.JFrame
         tfNombre.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 10);
@@ -169,7 +175,7 @@ public class ResponderPQR extends javax.swing.JFrame
         jLabel1.setText("Estado");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 10, 0);
         jPanel1.add(jLabel1, gridBagConstraints);
@@ -178,11 +184,30 @@ public class ResponderPQR extends javax.swing.JFrame
         tfEstado.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 10, 10);
         jPanel1.add(tfEstado, gridBagConstraints);
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel2.setText("Fecha");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 0);
+        jPanel1.add(jLabel2, gridBagConstraints);
+
+        tfFecha.setEditable(false);
+        tfFecha.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 10);
+        jPanel1.add(tfFecha, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -224,9 +249,9 @@ public class ResponderPQR extends javax.swing.JFrame
         LContenido2.setText("Respuesta");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 5, 10);
+        gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 10);
         jPanel2.add(LContenido2, gridBagConstraints);
 
         taRespuesta.setEditable(false);
@@ -237,13 +262,33 @@ public class ResponderPQR extends javax.swing.JFrame
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 10, 10);
         jPanel2.add(jScrollPane3, gridBagConstraints);
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel3.setText("Estado");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 5, 0);
+        jPanel2.add(jLabel3, gridBagConstraints);
+
+        cbEstado.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        cbEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "En Tramite", "Resuelto" }));
+        cbEstado.setEnabled(false);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 5, 10);
+        jPanel2.add(cbEstado, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -259,7 +304,7 @@ public class ResponderPQR extends javax.swing.JFrame
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel14.setText("PQR N°");
+        jLabel14.setText("Numero");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -295,11 +340,14 @@ public class ResponderPQR extends javax.swing.JFrame
 
         jPanel8.setLayout(new java.awt.GridBagLayout());
 
-        bSalir.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        bSalir.setText("Salir");
-        bSalir.addActionListener(new java.awt.event.ActionListener() {
+        bCancelar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        bCancelar.setText("Cancelar");
+        bCancelar.setMaximumSize(new java.awt.Dimension(81, 31));
+        bCancelar.setMinimumSize(new java.awt.Dimension(81, 31));
+        bCancelar.setPreferredSize(new java.awt.Dimension(81, 31));
+        bCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bSalirActionPerformed(evt);
+                bCancelarActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -308,7 +356,7 @@ public class ResponderPQR extends javax.swing.JFrame
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 5);
-        jPanel8.add(bSalir, gridBagConstraints);
+        jPanel8.add(bCancelar, gridBagConstraints);
 
         bEnviar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         bEnviar.setText("Enviar");
@@ -331,9 +379,9 @@ public class ResponderPQR extends javax.swing.JFrame
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void bSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirActionPerformed
+    private void bCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCancelarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_bSalirActionPerformed
+    }//GEN-LAST:event_bCancelarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel LCedula;
@@ -344,10 +392,13 @@ public class ResponderPQR extends javax.swing.JFrame
     private javax.swing.JLabel LTipo;
     private javax.swing.JLabel Lpqrn;
     public javax.swing.JButton bBuscarPQR;
+    public javax.swing.JButton bCancelar;
     public javax.swing.JButton bEnviar;
-    public javax.swing.JButton bSalir;
+    public javax.swing.JComboBox<String> cbEstado;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel8;
@@ -358,6 +409,7 @@ public class ResponderPQR extends javax.swing.JFrame
     public javax.swing.JTextField tfBuscarPQR;
     public javax.swing.JTextField tfCedula;
     public javax.swing.JTextField tfEstado;
+    public javax.swing.JTextField tfFecha;
     public javax.swing.JTextField tfNombre;
     public javax.swing.JTextField tfNumeroPQR;
     public javax.swing.JTextField tfSede;
