@@ -149,8 +149,7 @@ public class CrearSede_Eventos
         else
         {
             JOptionPane.showMessageDialog(crearSede, "Error al consultar.", "Error", JOptionPane.ERROR_MESSAGE);
-        }
-        
+        }        
     }
     
     public void seleccionaGerente()

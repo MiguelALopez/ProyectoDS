@@ -17,6 +17,8 @@ import Vista.*;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ComponentEvent;
+import java.awt.event.ComponentListener;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -28,13 +30,35 @@ import javax.swing.JOptionPane;
 public class MenuPrincipal_Eventos 
 {
     private final MenuPrincipal menuPrincipal;
+    private final ImageIcon logo;
     
     public MenuPrincipal_Eventos(final MenuPrincipal menuPrincipal)
     {
         this.menuPrincipal = menuPrincipal;
-        ImageIcon imageIcon = new ImageIcon(new ImageIcon(getClass().getResource("../LogoFlash.png")).getImage().getScaledInstance(128, 60, Image.SCALE_DEFAULT));
+	logo = new ImageIcon(getClass().getResource("../img/logo.png"));
+	
+	this.menuPrincipal.lTitle.addComponentListener(
+            new ComponentListener()
+            {
+		@Override
+		public void componentResized(ComponentEvent e) 
+		{
+		    resizeLogo();
+		}
 
-        this.menuPrincipal.lTitle.setIcon(imageIcon);
+		@Override
+		public void componentMoved(ComponentEvent e) {
+		}
+
+		@Override
+		public void componentShown(ComponentEvent e) {
+		}
+
+		@Override
+		public void componentHidden(ComponentEvent e) {
+		}
+            }
+        );
         
         this.menuPrincipal.bIniciarSesion.addActionListener(
             new ActionListener()
@@ -272,7 +296,18 @@ public class MenuPrincipal_Eventos
                 }
             }
         );
+	
+	resizeLogo();
     }
+    
+    private void resizeLogo()
+    {
+	int h = this.menuPrincipal.lTitle.getSize().height;
+	int w = (479/224)*h;
+	
+	ImageIcon imageIcon = new ImageIcon(this.logo.getImage().getScaledInstance(w, h, Image.SCALE_DEFAULT));
+        this.menuPrincipal.lTitle.setIcon(imageIcon);
+    }    
     
     public void iniciarSesion()
     {
