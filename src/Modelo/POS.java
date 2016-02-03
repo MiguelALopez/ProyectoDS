@@ -15,7 +15,6 @@ package Modelo;
  *
  * @author Cristian Jurado
  */
-
 public class POS 
 {    
     private String id;

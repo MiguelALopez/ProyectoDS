@@ -322,6 +322,7 @@ public class MenuPrincipal extends JFrame
 
         bCrearPOS.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         bCrearPOS.setText("Crear POS");
+        bCrearPOS.setEnabled(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -332,6 +333,7 @@ public class MenuPrincipal extends JFrame
 
         bModificarPOS.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         bModificarPOS.setText("Modificar POS");
+        bModificarPOS.setEnabled(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
@@ -342,6 +344,7 @@ public class MenuPrincipal extends JFrame
 
         bConsultarPOS.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         bConsultarPOS.setText("Consultar POS");
+        bConsultarPOS.setEnabled(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
@@ -364,6 +367,7 @@ public class MenuPrincipal extends JFrame
 
         bRegistrarVenta.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         bRegistrarVenta.setText("Registrar Venta");
+        bRegistrarVenta.setEnabled(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -374,6 +378,7 @@ public class MenuPrincipal extends JFrame
 
         bConsultarVentas.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         bConsultarVentas.setText("Consultar Ventas");
+        bConsultarVentas.setEnabled(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
@@ -396,6 +401,7 @@ public class MenuPrincipal extends JFrame
 
         bReportes.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         bReportes.setText("Reportes");
+        bReportes.setEnabled(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;

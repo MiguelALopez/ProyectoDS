@@ -1,8 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+/***********************************************
+ * Autor: Camilo Ruiz Casanova - 1324486
+ * Autor: Miguel Angel Lopez - 1326691
+ * Autor: Andres Felipe Polanco - 1324539
+ * Autor: Cristian Camilo Jurado - 1324366
+ * Fecha: 09-oct-2015
+ * Nombre del Archivo: .java
+ * Plan: Ingeniería de Sistemas - 3743
+ * Institución Educativa: Universidad del Valle
+ **********************************************/
+
 package Vista;
 
 /**
@@ -78,7 +84,6 @@ public class ConsultarVentas extends javax.swing.JFrame
 
         fDetalles.setTitle("Detalles de la Venta");
         fDetalles.setMinimumSize(new java.awt.Dimension(600, 690));
-        fDetalles.setPreferredSize(new java.awt.Dimension(600, 690));
         fDetalles.getContentPane().setLayout(new javax.swing.BoxLayout(fDetalles.getContentPane(), javax.swing.BoxLayout.LINE_AXIS));
 
         Main.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));

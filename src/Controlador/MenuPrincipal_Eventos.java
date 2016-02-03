@@ -315,11 +315,6 @@ public class MenuPrincipal_Eventos
         String passwd = String.valueOf(this.menuPrincipal.pfClave.getPassword());
         
         Usuario usuario = new UsuarioDAO().consultarUsuario(cedula);
-        //prueba
-//        Usuario usuario = new Usuario();
-//        usuario.setCedula("123");
-//        usuario.setPasswd("123");
-//        usuario.setRol("Administrador");
         
         if (usuario != null)
         {            
@@ -343,31 +338,33 @@ public class MenuPrincipal_Eventos
                         case "Gerente":
                         {
                             this.menuPrincipal.bConsultarPQR.setEnabled(true);
-                            
+			    this.menuPrincipal.bResponderPQR.setEnabled(true);
+			    this.menuPrincipal.bReportes.setEnabled(true);                            
                             break;
                         }
                         case "Contador":
                         {
                             break;
                         }
-                        case "Auxiliar de Operacion":
+                        case "Operador de Oficina":
                         {
+			    this.menuPrincipal.bRegistrarVenta.setEnabled(true);
+			    this.menuPrincipal.bConsultarVentas.setEnabled(true);
                             break;
                         }
-                        case "Auxiliar de Oficina":
+                        case "Auxiliar de Operacion":
                         {
                             break;
                         }
                         case "Secretaria":
                         {
-                            this.menuPrincipal.bModificarUsuario.setEnabled(true);
                             this.menuPrincipal.bConsultarUsuarios.setEnabled(true);
-                            this.menuPrincipal.bModificarSede.setEnabled(true);
                             this.menuPrincipal.bConsultarSedes.setEnabled(true);
                             this.menuPrincipal.bCrearPQR.setEnabled(true);
                             this.menuPrincipal.bConsultarPQR.setEnabled(true);
                             this.menuPrincipal.bResponderPQR.setEnabled(true);
-                            
+			    this.menuPrincipal.bConsultarPOS.setEnabled(true);
+			    this.menuPrincipal.bConsultarVentas.setEnabled(true);
                             break;
                         }
                         case "Administrador":
@@ -378,8 +375,15 @@ public class MenuPrincipal_Eventos
                             this.menuPrincipal.bCrearSede.setEnabled(true);
                             this.menuPrincipal.bModificarSede.setEnabled(true);
                             this.menuPrincipal.bConsultarSedes.setEnabled(true);
-							this.menuPrincipal.bRegistrarVenta.setEnabled(true);
-                            
+			    this.menuPrincipal.bCrearPQR.setEnabled(true);
+			    this.menuPrincipal.bConsultarPQR.setEnabled(true);
+			    this.menuPrincipal.bResponderPQR.setEnabled(true);
+			    this.menuPrincipal.bCrearPOS.setEnabled(true);
+			    this.menuPrincipal.bModificarPOS.setEnabled(true);
+			    this.menuPrincipal.bConsultarPOS.setEnabled(true);
+			    this.menuPrincipal.bRegistrarVenta.setEnabled(true);
+			    this.menuPrincipal.bConsultarVentas.setEnabled(true);
+			    this.menuPrincipal.bReportes.setEnabled(true);                            
                             break;
                         }
                         default:
@@ -422,6 +426,11 @@ public class MenuPrincipal_Eventos
         this.menuPrincipal.bCrearPQR.setEnabled(false);
         this.menuPrincipal.bConsultarPQR.setEnabled(false);
         this.menuPrincipal.bResponderPQR.setEnabled(false);
-        //this.menuPrincipal.bRegistrarVenta.setEnabled(false);
+	this.menuPrincipal.bCrearPOS.setEnabled(false);
+	this.menuPrincipal.bModificarPOS.setEnabled(false);
+	this.menuPrincipal.bConsultarPOS.setEnabled(false);
+        this.menuPrincipal.bRegistrarVenta.setEnabled(false);
+	this.menuPrincipal.bConsultarVentas.setEnabled(false);
+	this.menuPrincipal.bReportes.setEnabled(false);
     }
 }
