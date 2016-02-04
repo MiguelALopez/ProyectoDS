@@ -16,7 +16,7 @@ CREATE TABLE sede
     sede_nombre        VARCHAR  NOT NULL,
     sede_direccion     VARCHAR  NOT NULL,
     sede_ciudad        VARCHAR  NOT NULL,
-    sede_gerente       VARCHAR,
+    sede_gerente       VARCHAR  UNIQUE,
     sede_cant_camiones INTEGER,    
     PRIMARY KEY (sede_numero)
 );
