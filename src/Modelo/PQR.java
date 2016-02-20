@@ -14,6 +14,7 @@ package Modelo;
 /**
  *
  * @author AndresFelipe
+ * clase que representa un pqr
  */
 public class PQR 
 {

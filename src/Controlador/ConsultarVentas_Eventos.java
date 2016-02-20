@@ -18,6 +18,8 @@ import Modelo.VentaDAO;
 import Vista.ConsultarVentas;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -25,6 +27,7 @@ import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author Camilo Ruiz Casanova
+ * clase para manejar los eventos de consultar ventas
  */
 public class ConsultarVentas_Eventos 
 {
@@ -37,69 +40,98 @@ public class ConsultarVentas_Eventos
         this.paquetes = new ArrayList();
 	
 	consultarVentas.bCerrarMain.addActionListener(
-                new ActionListener()
-                {
-                    @Override
-                    public void actionPerformed(ActionEvent ae) 
-                    {
-                        cerrarVentana();
-                    }
-                }
+	    new ActionListener()
+	    {
+		@Override
+		public void actionPerformed(ActionEvent ae) 
+		{
+		    cerrarVentana();
+		}
+	    }
         );
         
         consultarVentas.bActualizar.addActionListener(
-                new ActionListener()
-                {
-                    @Override
-                    public void actionPerformed(ActionEvent ae) 
-                    {
-                        consultarVentas();
-                    }
-                }
+	    new ActionListener()
+	    {
+		@Override
+		public void actionPerformed(ActionEvent ae) 
+		{
+		    consultarVentas();
+		}
+	    }
         );
         
         consultarVentas.bDetalles.addActionListener(
-                new ActionListener()
-                {
-                    @Override
-                    public void actionPerformed(ActionEvent ae) 
-                    {
-                        verDetalles();
-                    }
-                }
+	    new ActionListener()
+	    {
+		@Override
+		public void actionPerformed(ActionEvent ae) 
+		{
+		    verDetalles();
+		}
+	    }
         );
         
         consultarVentas.cbPaquetes.addActionListener(
-                new ActionListener()
-                {
-                    @Override
-                    public void actionPerformed(ActionEvent ae) 
-                    {
-                        verPaquete();
-                    }
-                }
+	    new ActionListener()
+	    {
+		@Override
+		public void actionPerformed(ActionEvent ae) 
+		{
+		    verPaquete();
+		}
+	    }
         );
         
         consultarVentas.bCerrar.addActionListener(
-                new ActionListener()
-                {
-                    @Override
-                    public void actionPerformed(ActionEvent ae) 
-                    {
-                        cerrarDetalles();
-                    }
-                }
+	    new ActionListener()
+	    {
+		@Override
+		public void actionPerformed(ActionEvent ae) 
+		{
+		    cerrarDetalles();
+		}
+	    }
         );
 	
 	consultarVentas.bGenerar.addActionListener(
-                new ActionListener()
-                {
-                    @Override
-                    public void actionPerformed(ActionEvent ae) 
-                    {
-                        generarRecibo();
-                    }
-                }
+	    new ActionListener()
+	    {
+		@Override
+		public void actionPerformed(ActionEvent ae) 
+		{
+		    generarRecibo();
+		}
+	    }
+        );
+	
+	consultarVentas.addWindowListener(
+	    new WindowListener()
+	    {
+		@Override
+		public void windowOpened(WindowEvent e) {}
+
+		@Override
+		public void windowClosing(WindowEvent e) 
+		{
+		    cerrarVentana();
+		}
+
+		@Override
+		public void windowClosed(WindowEvent e) {}
+
+		@Override
+		public void windowIconified(WindowEvent e) {}
+
+		@Override
+		public void windowDeiconified(WindowEvent e) {}
+
+		@Override
+		public void windowActivated(WindowEvent e) {}
+
+		@Override
+		public void windowDeactivated(WindowEvent e) {}
+	    }
         );
         
         consultarVentas();
@@ -108,7 +140,6 @@ public class ConsultarVentas_Eventos
     private void consultarVentas()
     {
         ArrayList<Venta> listaVentas = new VentaDAO().getListaVentas(); // aqui metodo DAO para obtener todos los Ventas de la BD
-        //ArrayList<Venta> listaVentas = new ArrayList();
         
         if (listaVentas != null)
         {
@@ -128,7 +159,7 @@ public class ConsultarVentas_Eventos
     public void cerrarVentana()
     {
 	this.consultarVentas.setVisible(false);
-	//this.consultarVentas.fDetalles.setVisible(false);
+	this.consultarVentas.fDetalles.setVisible(false);
     }
     
     public void verDetalles()

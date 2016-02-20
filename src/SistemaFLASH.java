@@ -16,6 +16,8 @@ import Controlador.MenuPrincipal_Eventos;
 /**
  *
  * @author Camilo Ruiz Casanova
+ * clase principal de la aplicacion
+ * inicia la aplicacion
  */
 public class SistemaFLASH
 {

@@ -23,6 +23,7 @@ import javax.swing.JOptionPane;
 /**
  *
  * @author Camilo Ruiz Casanova
+ * clase para manejar los eventos de responder pqr
  */
 public class ResponderPQR_Eventos 
 {
@@ -33,36 +34,36 @@ public class ResponderPQR_Eventos
         this.responderPQR = responderPQR;
         
         responderPQR.bBuscarPQR.addActionListener(
-                new ActionListener()
-                {
-                    @Override
-                    public void actionPerformed(ActionEvent ae) 
-                    {
-                        buscarPQR();
-                    }
-                }
+	    new ActionListener()
+	    {
+		@Override
+		public void actionPerformed(ActionEvent ae) 
+		{
+		    buscarPQR();
+		}
+	    }
         );
         
         responderPQR.bCancelar.addActionListener(
-                new ActionListener()
-                {
-                    @Override
-                    public void actionPerformed(ActionEvent ae) 
-                    {
-                        cerrarVentana();
-                    }
-                }
+	    new ActionListener()
+	    {
+		@Override
+		public void actionPerformed(ActionEvent ae) 
+		{
+		    cerrarVentana();
+		}
+	    }
         );
         
         responderPQR.bEnviar.addActionListener(
-                new ActionListener()
-                {
-                    @Override
-                    public void actionPerformed(ActionEvent ae)
-                    {
-                        responderPQR();
-                    }
-                }
+	    new ActionListener()
+	    {
+		@Override
+		public void actionPerformed(ActionEvent ae)
+		{
+		    responderPQR();
+		}
+	    }
         );
     }
     
@@ -90,7 +91,6 @@ public class ResponderPQR_Eventos
             if (op == JOptionPane.YES_OPTION)
             {
                 boolean resultado = new PQRDAO().modificarPQR(pqr);
-                //boolean resultado = false;
 
                 if (resultado)
                 {
@@ -119,7 +119,6 @@ public class ResponderPQR_Eventos
             String numeroPQR = this.responderPQR.tfBuscarPQR.getText();
                 
             PQR pqr = new PQRDAO().consultarPQR(numeroPQR);
-            //Usuario pqr = new Usuario();
 
             if (pqr != null)
             {

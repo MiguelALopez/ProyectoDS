@@ -14,8 +14,7 @@ package Modelo;
 /**
  *
  * @author AndresFelipe
- * 
- * La clase usuario se crea con el fin de utilizar el patron de diseño DAO
+ * clase que representa un usuario
  */
 public class Usuario 
 {

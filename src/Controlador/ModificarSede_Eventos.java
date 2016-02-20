@@ -19,75 +19,112 @@ import Vista.ModificarSede;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 
-public class ModificarSede_Eventos {
-
+/**
+ * 
+ * @author Camilo Ruiz Casanova
+ * clase para manejar los eventos de modificar sede
+ */
+public class ModificarSede_Eventos 
+{
     private final ModificarSede modificarSede;
 
-    public ModificarSede_Eventos(final ModificarSede modificarSede) {
+    public ModificarSede_Eventos(final ModificarSede modificarSede) 
+    {
         this.modificarSede = modificarSede;
 
         this.modificarSede.bCancelar.addActionListener(
-                new ActionListener() 
+	    new ActionListener() 
+	    {
+		@Override
+		public void actionPerformed(ActionEvent e) 
 		{
-                    @Override
-                    public void actionPerformed(ActionEvent e) 
-		    {
-                        cerrarVentana();
-                    }
-                }
+		    cerrarVentana();
+		}
+	    }
         );
 
         this.modificarSede.bBuscarSede.addActionListener(
-                new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) 
-		    {
-                        buscarSede();
-                    }
-                }
+	    new ActionListener() {
+		@Override
+		public void actionPerformed(ActionEvent e) 
+		{
+		    buscarSede();
+		}
+	    }
         );
 
         this.modificarSede.bModificar.addActionListener(
-                new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) 
-		    {
-                        modificarSede();
-                    }
-                }
+	    new ActionListener() {
+		@Override
+		public void actionPerformed(ActionEvent e) 
+		{
+		    modificarSede();
+		}
+	    }
         );
 	
 	this.modificarSede.bBuscar.addActionListener(
-                new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) 
-		    {
-                        consultarGerentes();
-                    }
-                }
+	    new ActionListener() {
+		@Override
+		public void actionPerformed(ActionEvent e) 
+		{
+		    consultarGerentes();
+		}
+	    }
         );
 	
 	this.modificarSede.bSeleccionar.addActionListener(
-                new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) 
-		    {
-                        seleccionarGerente();
-                    }
-                }
+	    new ActionListener() {
+		@Override
+		public void actionPerformed(ActionEvent e) 
+		{
+		    seleccionarGerente();
+		}
+	    }
         );
 	
 	this.modificarSede.bCerrar.addActionListener(
-                new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) 
-		    {
-                        cerrarSeleccion();
-                    }
-                }
+	    new ActionListener() {
+		@Override
+		public void actionPerformed(ActionEvent e) 
+		{
+		    cerrarSeleccion();
+		}
+	    }
+        );
+	
+	modificarSede.addWindowListener(
+	    new WindowListener()
+	    {
+		@Override
+		public void windowOpened(WindowEvent e) {}
+
+		@Override
+		public void windowClosing(WindowEvent e) 
+		{
+		    cerrarVentana();
+		}
+
+		@Override
+		public void windowClosed(WindowEvent e) {}
+
+		@Override
+		public void windowIconified(WindowEvent e) {}
+
+		@Override
+		public void windowDeiconified(WindowEvent e) {}
+
+		@Override
+		public void windowActivated(WindowEvent e) {}
+
+		@Override
+		public void windowDeactivated(WindowEvent e) {}
+	    }
         );
     }
 

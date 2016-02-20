@@ -24,6 +24,7 @@ import javax.swing.JOptionPane;
 /**
  *
  * @author Camilo Ruiz Casanova
+ * clase para manejar los eventos de crear usuario
  */
 public class CrearUsuario_Eventos 
 {
@@ -34,25 +35,25 @@ public class CrearUsuario_Eventos
         this.crearUsuario = crearUsuario;
         
         crearUsuario.bCancelar.addActionListener(
-                new ActionListener()
-                {
-                    @Override
-                    public void actionPerformed(ActionEvent ae) 
-                    {
-                        cerrarVentana();
-                    }
-                }
+	    new ActionListener()
+	    {
+		@Override
+		public void actionPerformed(ActionEvent ae) 
+		{
+		    cerrarVentana();
+		}
+	    }
         );
         
         crearUsuario.bCrearUsuario.addActionListener(
-                new ActionListener()
-                {
-                    @Override
-                    public void actionPerformed(ActionEvent ae) 
-                    {
-                        crearUsuario();
-                    }
-                }
+	    new ActionListener()
+	    {
+		@Override
+		public void actionPerformed(ActionEvent ae) 
+		{
+		    crearUsuario();
+		}
+	    }
         );
         
         actualizarSedes();
@@ -63,7 +64,6 @@ public class CrearUsuario_Eventos
         crearUsuario.cbSedes.removeAllItems();
         
         ArrayList<Sede> sedes = new SedeDAO().getListaSedes();
-        //ArrayList<Sede> sedes = new ArrayList();
 	
         if (sedes != null)
 	{
@@ -124,7 +124,6 @@ public class CrearUsuario_Eventos
             if (op == JOptionPane.YES_OPTION)
             {
                 boolean resultado = new UsuarioDAO().insetarUsuario(nuevoUsuario);
-                //boolean resultado = false;
 
                 if (resultado)
                 {

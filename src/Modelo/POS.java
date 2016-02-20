@@ -14,6 +14,7 @@ package Modelo;
 /**
  *
  * @author Cristian Jurado
+ * clase que representa un pos
  */
 public class POS 
 {    

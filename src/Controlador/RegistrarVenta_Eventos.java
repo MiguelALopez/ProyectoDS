@@ -28,6 +28,7 @@ import javax.swing.JOptionPane;
 /**
  *
  * @author AndresFelipe
+ * clase para manejar los eventos de registrar venta
  */
 public class RegistrarVenta_Eventos
 {
@@ -128,42 +129,24 @@ public class RegistrarVenta_Eventos
     
     private void habilitarVenta()
     {
-	if (this.registrarVenta.cbPOS.getItemCount() > 0)
-	{
-	    this.registrarVenta.tfCedula.setEditable(true);
-	    this.registrarVenta.tfNombre.setEditable(true);	    
-	    this.registrarVenta.tfDireccion.setEditable(true);
-	    this.registrarVenta.tfAgregarVolumen.setEditable(true);
-	    this.registrarVenta.tfAgregarPeso.setEditable(true);
-	    this.registrarVenta.taAgregarDescripcion.setEditable(true);
-	    this.registrarVenta.tfCosto.setEditable(true);
-	    this.registrarVenta.cbPaquetes.setEnabled(true);
-	    this.registrarVenta.bAgregarPaquete.setEnabled(true);
-	    this.registrarVenta.bEliminarPaquete.setEnabled(true);
-	    this.registrarVenta.rbEfectivo.setEnabled(true);
-	    this.registrarVenta.rbCredito.setEnabled(true);
-	    this.registrarVenta.rbDebito.setEnabled(true);
-	    this.registrarVenta.cbSeguro.setEnabled(true);
-	    this.registrarVenta.bRegistrarVenta.setEnabled(true);
-	}
-	else
-	{
-	    this.registrarVenta.tfCedula.setEditable(false);
-	    this.registrarVenta.tfNombre.setEditable(false);	    
-	    this.registrarVenta.tfDireccion.setEditable(false);
-	    this.registrarVenta.tfAgregarVolumen.setEditable(false);
-	    this.registrarVenta.tfAgregarPeso.setEditable(false);
-	    this.registrarVenta.taAgregarDescripcion.setEditable(false);
-	    this.registrarVenta.tfCosto.setEditable(false);
-	    this.registrarVenta.cbPaquetes.setEnabled(false);
-	    this.registrarVenta.bAgregarPaquete.setEnabled(false);
-	    this.registrarVenta.bEliminarPaquete.setEnabled(false);
-	    this.registrarVenta.rbEfectivo.setEnabled(false);
-	    this.registrarVenta.rbCredito.setEnabled(false);
-	    this.registrarVenta.rbDebito.setEnabled(false);
-	    this.registrarVenta.cbSeguro.setEnabled(false);
-	    this.registrarVenta.bRegistrarVenta.setEnabled(false);
-	}
+	boolean b;	
+	b = this.registrarVenta.cbPOS.getItemCount() > 0;
+	
+	this.registrarVenta.tfCedula.setEditable(b);
+	this.registrarVenta.tfNombre.setEditable(b);	    
+	this.registrarVenta.tfDireccion.setEditable(b);
+	this.registrarVenta.tfAgregarVolumen.setEditable(b);
+	this.registrarVenta.tfAgregarPeso.setEditable(b);
+	this.registrarVenta.taAgregarDescripcion.setEditable(b);
+	this.registrarVenta.tfCosto.setEditable(b);
+	this.registrarVenta.cbPaquetes.setEnabled(b);
+	this.registrarVenta.bAgregarPaquete.setEnabled(b);
+	this.registrarVenta.bEliminarPaquete.setEnabled(b);
+	this.registrarVenta.rbEfectivo.setEnabled(b);
+	this.registrarVenta.rbCredito.setEnabled(b);
+	this.registrarVenta.rbDebito.setEnabled(b);
+	this.registrarVenta.cbSeguro.setEnabled(b);
+	this.registrarVenta.bRegistrarVenta.setEnabled(b);
     }
 
     public void cerrarFormulario()
@@ -424,7 +407,6 @@ public class RegistrarVenta_Eventos
 
     public void calcular()
     {
-        //Cambiar total por la suma 
         double iva;
         double subtotal = 0;
         

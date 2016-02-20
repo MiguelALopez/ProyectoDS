@@ -16,6 +16,7 @@ import java.util.ArrayList;
 /**
  *
  * @author Cristian Jurado
+ * clase que representa una venta
  */
 public class Venta
 {

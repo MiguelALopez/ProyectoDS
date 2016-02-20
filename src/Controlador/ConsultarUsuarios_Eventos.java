@@ -16,6 +16,8 @@ import Modelo.UsuarioDAO;
 import Vista.ConsultarUsuarios;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -23,6 +25,7 @@ import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author Camilo Ruiz Casanova
+ * clase para manejar los eventos de consultar usuarios
  */
 public class ConsultarUsuarios_Eventos 
 {
@@ -33,47 +36,76 @@ public class ConsultarUsuarios_Eventos
         this.consultarUsuarios = consultarUsuarios;
         
         consultarUsuarios.bCerrar.addActionListener(
-                new ActionListener()
-                {
-                    @Override
-                    public void actionPerformed(ActionEvent ae) 
-                    {
-                        cerrarVentana();
-                    }
-                }
+	    new ActionListener()
+	    {
+		@Override
+		public void actionPerformed(ActionEvent ae) 
+		{
+		    cerrarVentana();
+		}
+	    }
         );
         
         consultarUsuarios.bActualizar.addActionListener(
-                new ActionListener()
-                {
-                    @Override
-                    public void actionPerformed(ActionEvent ae) 
-                    {
-                        consultarUsuarios();
-                    }
-                }
+	    new ActionListener()
+	    {
+		@Override
+		public void actionPerformed(ActionEvent ae) 
+		{
+		    consultarUsuarios();
+		}
+	    }
         );
         
         consultarUsuarios.bVerPerfil.addActionListener(
-                new ActionListener()
-                {
-                    @Override
-                    public void actionPerformed(ActionEvent ae) 
-                    {
-                        verPerfil();
-                    }
-                }
+	    new ActionListener()
+	    {
+		@Override
+		public void actionPerformed(ActionEvent ae) 
+		{
+		    verPerfil();
+		}
+	    }
         );
 	
 	consultarUsuarios.bCerrarPerfil.addActionListener(
-                new ActionListener()
-                {
-                    @Override
-                    public void actionPerformed(ActionEvent ae) 
-                    {
-                        cerrarPerfil();
-                    }
-                }
+	    new ActionListener()
+	    {
+		@Override
+		public void actionPerformed(ActionEvent ae) 
+		{
+		    cerrarPerfil();
+		}
+	    }
+        );
+	
+	consultarUsuarios.addWindowListener(
+	    new WindowListener()
+	    {
+		@Override
+		public void windowOpened(WindowEvent e) {}
+
+		@Override
+		public void windowClosing(WindowEvent e) 
+		{
+		    cerrarVentana();
+		}
+
+		@Override
+		public void windowClosed(WindowEvent e) {}
+
+		@Override
+		public void windowIconified(WindowEvent e) {}
+
+		@Override
+		public void windowDeiconified(WindowEvent e) {}
+
+		@Override
+		public void windowActivated(WindowEvent e) {}
+
+		@Override
+		public void windowDeactivated(WindowEvent e) {}
+	    }
         );
         
         consultarUsuarios();
@@ -82,7 +114,6 @@ public class ConsultarUsuarios_Eventos
     private void consultarUsuarios()
     {
         ArrayList<Usuario> usuarios = new UsuarioDAO().getListaUsuarios(); // aqui metodo DAO para obtener todos los usuarios de la BD
-        //ArrayList<Usuario> usuarios = new ArrayList();
         
         if (usuarios != null)
         {
@@ -115,7 +146,6 @@ public class ConsultarUsuarios_Eventos
             String cedula = (String) consultarUsuarios.tUsuarios.getValueAt(row, 0);
             
             Usuario usuario = new UsuarioDAO().consultarUsuario(cedula);
-            //Usuario usuario = new Usuario();    
 
             if (usuario != null)
             {

@@ -24,6 +24,7 @@ import javax.swing.JOptionPane;
 /**
  *
  * @author Camilo Ruiz Casanova
+ * clase para manejar los eventos de modificar usuario
  */
 public class ModificarUsuario_Eventos 
 {
@@ -34,47 +35,47 @@ public class ModificarUsuario_Eventos
         this.modificarUsuario = modificarUsuario;
         
         modificarUsuario.bBuscarCedula.addActionListener(
-                new ActionListener()
-                {
-                    @Override
-                    public void actionPerformed(ActionEvent ae) 
-                    {
-                        buscarUsuario();
-                    }
-                }
+	    new ActionListener()
+	    {
+		@Override
+		public void actionPerformed(ActionEvent ae) 
+		{
+		    buscarUsuario();
+		}
+	    }
         );
         
         modificarUsuario.tfBuscarCedula.addActionListener(
-                new ActionListener()
-                {
-                    @Override
-                    public void actionPerformed(ActionEvent ae) 
-                    {
-                        buscarUsuario();
-                    }
-                }
+	    new ActionListener()
+	    {
+		@Override
+		public void actionPerformed(ActionEvent ae) 
+		{
+		    buscarUsuario();
+		}
+	    }
         );
         
         modificarUsuario.bCancelar.addActionListener(
-                new ActionListener()
-                {
-                    @Override
-                    public void actionPerformed(ActionEvent ae) 
-                    {
-                        cerrarVentana();
-                    }
-                }
+	    new ActionListener()
+	    {
+		@Override
+		public void actionPerformed(ActionEvent ae) 
+		{
+		    cerrarVentana();
+		}
+	    }
         );
         
         modificarUsuario.bModificarUsuario.addActionListener(
-                new ActionListener()
-                {
-                    @Override
-                    public void actionPerformed(ActionEvent ae)
-                    {
-                        modificarUsuario();
-                    }
-                }
+	    new ActionListener()
+	    {
+		@Override
+		public void actionPerformed(ActionEvent ae)
+		{
+		    modificarUsuario();
+		}
+	    }
         );
         
         actualizarSedes();
@@ -85,7 +86,6 @@ public class ModificarUsuario_Eventos
         modificarUsuario.cbSedes.removeAllItems();
         
         ArrayList<Sede> sedes = new SedeDAO().getListaSedes();
-        //ArrayList<Sede> sedes = new ArrayList();
         
 	if (sedes != null)
 	{
@@ -125,7 +125,6 @@ public class ModificarUsuario_Eventos
             if (op == JOptionPane.YES_OPTION)
             {
                 boolean resultado = new UsuarioDAO().modificarUsuario(usuario);
-                //boolean resultado = false;
 
                 if (resultado)
                 {
@@ -150,7 +149,6 @@ public class ModificarUsuario_Eventos
             String cedula = this.modificarUsuario.tfBuscarCedula.getText();
                 
             Usuario usuario = new UsuarioDAO().consultarUsuario(cedula);
-            //Usuario usuario = new Usuario();
 
             if (usuario != null)
             {

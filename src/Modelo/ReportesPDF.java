@@ -31,6 +31,7 @@ import org.apache.pdfbox.pdmodel.font.PDType1Font;
 /**
  *
  * @author Camilo Ruiz Casanova
+ * clase para generar archivos pdf
  */
 public class ReportesPDF 
 {

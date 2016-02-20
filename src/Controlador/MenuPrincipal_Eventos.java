@@ -26,6 +26,7 @@ import javax.swing.JOptionPane;
 /**
  *
  * @author Camilo Ruiz Casanova
+ * clase para manejar los eventos de login y roles
  */
 public class MenuPrincipal_Eventos 
 {
@@ -47,16 +48,13 @@ public class MenuPrincipal_Eventos
 		}
 
 		@Override
-		public void componentMoved(ComponentEvent e) {
-		}
+		public void componentMoved(ComponentEvent e) {}
 
 		@Override
-		public void componentShown(ComponentEvent e) {
-		}
+		public void componentShown(ComponentEvent e) {}
 
 		@Override
-		public void componentHidden(ComponentEvent e) {
-		}
+		public void componentHidden(ComponentEvent e) {}
             }
         );
         
@@ -136,39 +134,39 @@ public class MenuPrincipal_Eventos
         );
         
         this.menuPrincipal.bCrearSede.addActionListener(
-                new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        CrearSede cs = new CrearSede();
-                        CrearSede_Eventos cse = new CrearSede_Eventos(cs);
-                        cs.setLocationRelativeTo(null);
-                        cs.setVisible(true);
-                    }
-                }
+	    new ActionListener() {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+		    CrearSede cs = new CrearSede();
+		    CrearSede_Eventos cse = new CrearSede_Eventos(cs);
+		    cs.setLocationRelativeTo(null);
+		    cs.setVisible(true);
+		}
+	    }
         );
 
         this.menuPrincipal.bModificarSede.addActionListener(
-                new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        ModificarSede ms = new ModificarSede();
-                        ModificarSede_Eventos mse = new ModificarSede_Eventos(ms);
-                        ms.setLocationRelativeTo(null);
-                        ms.setVisible(true);
-                    }
-                }
+	    new ActionListener() {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+		    ModificarSede ms = new ModificarSede();
+		    ModificarSede_Eventos mse = new ModificarSede_Eventos(ms);
+		    ms.setLocationRelativeTo(null);
+		    ms.setVisible(true);
+		}
+	    }
         );
 
         this.menuPrincipal.bConsultarSedes.addActionListener(
-                new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        ConsultarSedes cs = new ConsultarSedes();
-                        ConsultarSedes_Eventos cse = new ConsultarSedes_Eventos(cs);
-                        cs.setLocationRelativeTo(null);
-                        cs.setVisible(true);
-                    }
-                }
+	    new ActionListener() {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+		    ConsultarSedes cs = new ConsultarSedes();
+		    ConsultarSedes_Eventos cse = new ConsultarSedes_Eventos(cs);
+		    cs.setLocationRelativeTo(null);
+		    cs.setVisible(true);
+		}
+	    }
         );
         
         this.menuPrincipal.bCrearPQR.addActionListener(

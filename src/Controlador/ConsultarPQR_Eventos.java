@@ -24,68 +24,69 @@ import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author Cristian Jurado
+ * clase para manejar los eventos de consultar pqr
  */
 public class ConsultarPQR_Eventos 
 {
-        private final ConsultarPQR consultarPQR;
+    private final ConsultarPQR consultarPQR;
         
     public ConsultarPQR_Eventos(final ConsultarPQR consultarPQR)
     {
         this.consultarPQR = consultarPQR;
         
         consultarPQR.bCerrar.addActionListener(
-                new ActionListener()
-                {
-                    @Override
-                    public void actionPerformed(ActionEvent ae) 
-                    {
-                        cerrarVentana();
-                    }
-                }
+	    new ActionListener()
+	    {
+		@Override
+		public void actionPerformed(ActionEvent ae) 
+		{
+		    cerrarVentana();
+		}
+	    }
         );
         
         consultarPQR.bActualizarPQR.addActionListener(
-                new ActionListener()
-                {
-                    @Override
-                    public void actionPerformed(ActionEvent ae) 
-                    {
-                        consultarPQR();
-                    }
-                }
+	    new ActionListener()
+	    {
+		@Override
+		public void actionPerformed(ActionEvent ae) 
+		{
+		    consultarPQR();
+		}
+	    }
         );
         
         consultarPQR.bVerPQR.addActionListener(
-                new ActionListener()
-                {
-                    @Override
-                    public void actionPerformed(ActionEvent ae) 
-                    {
-                        verPQR();
-                    }
-                }
+	    new ActionListener()
+	    {
+		@Override
+		public void actionPerformed(ActionEvent ae) 
+		{
+		    verPQR();
+		}
+	    }
         );
 	
 	consultarPQR.bCerrarDetalles.addActionListener(
-                new ActionListener()
-                {
-                    @Override
-                    public void actionPerformed(ActionEvent ae) 
-                    {
-                        cerrarDetalles();
-                    }
-                }
+	    new ActionListener()
+	    {
+		@Override
+		public void actionPerformed(ActionEvent ae) 
+		{
+		    cerrarDetalles();
+		}
+	    }
         );
 	
 	consultarPQR.bGenerarRecibo.addActionListener(
-                new ActionListener()
-                {
-                    @Override
-                    public void actionPerformed(ActionEvent ae) 
-                    {
-                        generarRecibo();
-                    }
-                }
+	    new ActionListener()
+	    {
+		@Override
+		public void actionPerformed(ActionEvent ae) 
+		{
+		    generarRecibo();
+		}
+	    }
         );
         
         consultarPQR();
@@ -94,7 +95,6 @@ public class ConsultarPQR_Eventos
     private void consultarPQR()  
     {
         ArrayList<PQR> listaPQR = new PQRDAO().getListaPQR(); // aqui metodo DAO para obtener todos los PQR de la BD
-        //ArrayList<PQR> listaPQR = new ArrayList();
         
         DefaultTableModel model = (DefaultTableModel) this.consultarPQR.tPQR.getModel();
         model.setRowCount(listaPQR.size());
@@ -123,7 +123,6 @@ public class ConsultarPQR_Eventos
             String numeroPQR = (String) consultarPQR.tPQR.getValueAt(row, 0);
             
             PQR pqr = new PQRDAO().consultarPQR(numeroPQR);
-            //PQR pqr = new PQR();
                         
             if (pqr != null)
             {

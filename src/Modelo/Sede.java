@@ -13,9 +13,8 @@ package Modelo;
 
 /**
  *
- * @author AndresFelipe
- * 
- * La clase sede se crea con el fin de utilizan el patron de diseño DAO
+ * @author AndresFelipe 
+ * clase que representa una sede
  */
 public class Sede 
 {    

@@ -20,6 +20,11 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
+/**
+ * 
+ * @author Camilo Ruiz Casanova
+ * clase para manejar los eventos de consultar sedes
+ */
 public class ConsultarSedes_Eventos 
 {
     private final ConsultarSedes consultarSedes;
@@ -31,47 +36,47 @@ public class ConsultarSedes_Eventos
         cargarDatos();
 
         this.consultarSedes.bCerrar.addActionListener(
-                new ActionListener() 
+	    new ActionListener() 
+	    {
+		@Override
+		public void actionPerformed(ActionEvent e) 
 		{
-                    @Override
-                    public void actionPerformed(ActionEvent e) 
-		    {
-                        cerrarVentana();
-                    }
-                }
+		    cerrarVentana();
+		}
+	    }
         );
 	
 	this.consultarSedes.bActualizar.addActionListener(
-                new ActionListener() 
+	    new ActionListener() 
+	    {
+		@Override
+		public void actionPerformed(ActionEvent e) 
 		{
-                    @Override
-                    public void actionPerformed(ActionEvent e) 
-		    {
-                        cargarDatos();
-                    }
-                }
+		    cargarDatos();
+		}
+	    }
         );
 	
 	this.consultarSedes.bVerDetalles.addActionListener(
-                new ActionListener() 
+	    new ActionListener() 
+	    {
+		@Override
+		public void actionPerformed(ActionEvent e) 
 		{
-                    @Override
-                    public void actionPerformed(ActionEvent e) 
-		    {
-                        verDetalles();
-                    }
-                }
+		    verDetalles();
+		}
+	    }
         );
 	
 	this.consultarSedes.bCerrarDetalles.addActionListener(
-                new ActionListener() 
+	    new ActionListener() 
+	    {
+		@Override
+		public void actionPerformed(ActionEvent e) 
 		{
-                    @Override
-                    public void actionPerformed(ActionEvent e) 
-		    {
-                        cerrarDetalles();
-                    }
-                }
+		    cerrarDetalles();
+		}
+	    }
         );
     }
 
@@ -109,7 +114,6 @@ public class ConsultarSedes_Eventos
             String numeroSedes = (String) consultarSedes.tSedes.getValueAt(row, 0);
             
             Sede pqr = new SedeDAO().consultarSede(numeroSedes);
-            //Sedes pqr = new Sedes();
                         
             if (pqr != null)
             {

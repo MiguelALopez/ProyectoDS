@@ -11,10 +11,6 @@
 
 package Controlador;
 
-/**
- *
- * @author Andresf01
- */
 import Modelo.Sede;
 import Modelo.SedeDAO;
 import Modelo.Usuario;
@@ -23,9 +19,16 @@ import Vista.CrearSede;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 
+/**
+ *
+ * @author Andresf01
+ * clase para manejar los eventos de crear sede
+ */
 public class CrearSede_Eventos 
 {
     private final CrearSede crearSede;
@@ -37,11 +40,10 @@ public class CrearSede_Eventos
         this.crearSede.bCancelarMain.addActionListener(
             new ActionListener() 
             {
-
                 @Override
                 public void actionPerformed(ActionEvent e) 
                 {
-                    bCancelarMain();
+                    cerrarVentana();
                 }
             }
         );
@@ -85,10 +87,39 @@ public class CrearSede_Eventos
                 @Override
                 public void actionPerformed(ActionEvent e) 
                 {
-                    bCancelar();
+                    cerrarSeleccion();
                 }
             }
-        );        
+        );
+	
+	crearSede.addWindowListener(
+	    new WindowListener()
+	    {
+		@Override
+		public void windowOpened(WindowEvent e) {}
+
+		@Override
+		public void windowClosing(WindowEvent e) 
+		{
+		    cerrarVentana();
+		}
+
+		@Override
+		public void windowClosed(WindowEvent e) {}
+
+		@Override
+		public void windowIconified(WindowEvent e) {}
+
+		@Override
+		public void windowDeiconified(WindowEvent e) {}
+
+		@Override
+		public void windowActivated(WindowEvent e) {}
+
+		@Override
+		public void windowDeactivated(WindowEvent e) {}
+	    }
+        );
     }
     
     public void agregaSede()
@@ -122,13 +153,13 @@ public class CrearSede_Eventos
         }        
     }
     
-    public void bCancelarMain()
+    public void cerrarVentana()
     {
         this.crearSede.setVisible(false);
         this.crearSede.fSelGerente.setVisible(false);
     }
     
-    public void bCancelar()
+    public void cerrarSeleccion()
     {
         this.crearSede.fSelGerente.setVisible(false);
     }

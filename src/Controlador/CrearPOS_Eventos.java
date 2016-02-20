@@ -21,6 +21,7 @@ import javax.swing.JOptionPane;
 /**
  *
  * @author Camilo Ruiz Casanova
+ * clase para manejar los eventos de crear pos
  */
 public class CrearPOS_Eventos 
 {

@@ -22,6 +22,7 @@ import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author Camilo Ruiz Casanova
+ * clase que maneja los eventos de consultar pos
  */
 public class ConsultarPOS_Eventos 
 {
@@ -32,39 +33,33 @@ public class ConsultarPOS_Eventos
         this.consultarPOS = consultarPOS;
         
         consultarPOS.bCerrar.addActionListener(
-                new ActionListener()
-                {
-                    @Override
-                    public void actionPerformed(ActionEvent ae) 
-                    {
-                        cerrarVentana();
-                    }
-                }
+	    new ActionListener()
+	    {
+		@Override
+		public void actionPerformed(ActionEvent ae) 
+		{
+		    cerrarVentana();
+		}
+	    }
         );
         
         consultarPOS.bActualizar.addActionListener(
-                new ActionListener()
-                {
-                    @Override
-                    public void actionPerformed(ActionEvent ae) 
-                    {
-                        consultarPOS();
-                    }
-                }
+	    new ActionListener()
+	    {
+		@Override
+		public void actionPerformed(ActionEvent ae) 
+		{
+		    consultarPOS();
+		}
+	    }
         );
         
         consultarPOS();
     }
     
-    public void cerrarVentana()
-    {
-        this.consultarPOS.setVisible(false);
-    }
-    
     private void consultarPOS()  
     {
         ArrayList<POS> listaPOS = new POSDAO().getListaPOS(); // aqui metodo DAO para obtener todos los POS de la BD
-        //ArrayList<POS> listaPOS = new ArrayList();
         
         if (listaPOS != null)
         {
@@ -78,5 +73,10 @@ public class ConsultarPOS_Eventos
                 this.consultarPOS.tPOS.setValueAt(listaPOS.get(i).getDireccion(), i, 2);
             }
         }
+    }
+    
+    public void cerrarVentana()
+    {
+        this.consultarPOS.setVisible(false);
     }
 }
