@@ -4,7 +4,7 @@
  * Autor: Andres Felipe Polanco - 1324539
  * Autor: Cristian Camilo Jurado - 1324366
  * Fecha: 09-oct-2015
- * Nombre del Archivo: .java
+ * Nombre del Archivo: ConsultarSedes_Eventos.java
  * Plan: Ingeniería de Sistemas - 3743
  * Institución Educativa: Universidad del Valle
  **********************************************/
@@ -21,8 +21,6 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
- * 
- * @author Camilo Ruiz Casanova
  * clase para manejar los eventos de consultar sedes
  */
 public class ConsultarSedes_Eventos 

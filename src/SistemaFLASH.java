@@ -4,7 +4,7 @@
  * Autor: Andres Felipe Polanco - 1324539
  * Autor: Cristian Camilo Jurado - 1324366
  * Fecha: 09-oct-2015
- * Nombre del Archivo: .java
+ * Nombre del Archivo: SistemaFLASH.java
  * Plan: Ingeniería de Sistemas - 3743
  * Institución Educativa: Universidad del Valle
  **********************************************/
@@ -14,8 +14,6 @@ import Controlador.MenuPrincipal_Eventos;
 
 
 /**
- *
- * @author Camilo Ruiz Casanova
  * clase principal de la aplicacion
  * inicia la aplicacion
  */
@@ -31,17 +29,22 @@ public class SistemaFLASH
         MenuPrincipal_Eventos eventos = new MenuPrincipal_Eventos(cliente);
     }
     
-    public static void setLookAndFeel() {
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                // System.out.println(info.getClassName());
-                if ("com.sun.java.swing.plaf.windows.WindowsLookAndFeel".equals(info.getClassName()) || "com.sun.java.swing.plaf.gtk.GTKLookAndFeel".equals(info.getClassName())) {   
+    public static void setLookAndFeel() 
+    {
+        try 
+	{
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) 
+	    {
+                if ("com.sun.java.swing.plaf.windows.WindowsLookAndFeel".equals(info.getClassName()) || "com.sun.java.swing.plaf.gtk.GTKLookAndFeel".equals(info.getClassName())) 
+		{   
                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
                    break;
                 }
             }
-        } catch(Exception e) {
-          System.out.println("Error setting native LAF: " + e);
+        } 
+	catch(Exception e) 
+	{
+	    System.out.println("Error setting native LAF: " + e);
         }
     }
 }

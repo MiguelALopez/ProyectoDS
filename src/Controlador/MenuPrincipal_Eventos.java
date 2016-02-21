@@ -4,7 +4,7 @@
  * Autor: Andres Felipe Polanco - 1324539
  * Autor: Cristian Camilo Jurado - 1324366
  * Fecha: 09-oct-2015
- * Nombre del Archivo: .java
+ * Nombre del Archivo: MenuPrincipal_Eventos.java
  * Plan: Ingeniería de Sistemas - 3743
  * Institución Educativa: Universidad del Valle
  **********************************************/
@@ -24,8 +24,6 @@ import javax.swing.JOptionPane;
 
 
 /**
- *
- * @author Camilo Ruiz Casanova
  * clase para manejar los eventos de login y roles
  */
 public class MenuPrincipal_Eventos 
@@ -36,7 +34,7 @@ public class MenuPrincipal_Eventos
     public MenuPrincipal_Eventos(final MenuPrincipal menuPrincipal)
     {
         this.menuPrincipal = menuPrincipal;
-	logo = new ImageIcon(getClass().getResource("../img/logo.png"));
+	logo = new ImageIcon("img/logo.png");
 	
 	this.menuPrincipal.lTitle.addComponentListener(
             new ComponentListener()

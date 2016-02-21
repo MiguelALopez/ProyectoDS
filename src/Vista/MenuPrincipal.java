@@ -4,7 +4,7 @@
  * Autor: Andres Felipe Polanco - 1324539
  * Autor: Cristian Camilo Jurado - 1324366
  * Fecha: 09-oct-2015
- * Nombre del Archivo: .java
+ * Nombre del Archivo: MenuPrincipal.java
  * Plan: Ingeniería de Sistemas - 3743
  * Institución Educativa: Universidad del Valle
  **********************************************/
@@ -15,8 +15,7 @@ import javax.swing.JFrame;
 
 
 /**
- *
- * @author Camilo Ruiz Casanova
+ * intefaz de menu principal
  */
 public class MenuPrincipal extends JFrame
 {    
@@ -430,7 +429,6 @@ public class MenuPrincipal extends JFrame
 
         lTitle.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lTitle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logo.png"))); // NOI18N
         lTitle.setToolTipText("");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;

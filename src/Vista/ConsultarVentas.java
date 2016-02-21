@@ -4,7 +4,7 @@
  * Autor: Andres Felipe Polanco - 1324539
  * Autor: Cristian Camilo Jurado - 1324366
  * Fecha: 09-oct-2015
- * Nombre del Archivo: .java
+ * Nombre del Archivo: ConsultarVentas.java
  * Plan: Ingeniería de Sistemas - 3743
  * Institución Educativa: Universidad del Valle
  **********************************************/
@@ -12,8 +12,7 @@
 package Vista;
 
 /**
- *
- * @author Camilo Ruiz Casanova
+ * interfaz de consultar ventas
  */
 public class ConsultarVentas extends javax.swing.JFrame 
 {
