@@ -62,7 +62,11 @@ public class ModificarPOS_Eventos
             }
         );
     }
-    
+
+    /***
+     * Metodo encargado de conectarse con el modulo DAO y buscar si un pos existe,
+     * de ser asi carga los datos el pos en los campos de la interfaz
+     */
     public void buscarPOS()
     {
         String id = this.modificarPOS.tfBuscar.getText();
@@ -81,13 +85,20 @@ public class ModificarPOS_Eventos
             JOptionPane.showMessageDialog(modificarPOS, "Error al buscar el POS.", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
-    
+
+    /***
+     * Metodo encargado de habilitar los campos para la edicion
+     * @param b booleano encargado de determinar si se habilitan o se desabilitan los campos
+     */
     public void habilitarCampos(boolean b)
     {
         this.modificarPOS.tfNombre.setEditable(b);
         this.modificarPOS.tfDireccion.setEditable(b);
     }
-    
+
+    /***
+     * Metodo encargado de conectarse con el modulo DAO y enviarle las modificaciones de un POS
+     */
     public void modificarPOS()
     {
         if (verificarCampos())
@@ -116,7 +127,11 @@ public class ModificarPOS_Eventos
             }
         }
     }
-    
+
+    /***
+     * Metodo encargado de verificar si los campos del pos se llenaron de forma correcta
+     * @return Retorna true si los campos se llenaron correctamente y false de lo contrario
+     */
     public boolean verificarCampos()
     {
         if (this.modificarPOS.tfID.getText().isEmpty())
@@ -139,7 +154,10 @@ public class ModificarPOS_Eventos
         
         return true;
     }
-    
+
+    /***
+     * Metodo encargado de limpiar los campos de los datos de pos para volver a usarlos despues
+     */
     public void limpiarCampos()
     {
         this.modificarPOS.tfBuscar.setText("");
@@ -147,9 +165,12 @@ public class ModificarPOS_Eventos
         this.modificarPOS.tfNombre.setText("");
         this.modificarPOS.tfDireccion.setText("");
     }
-    
+
+    /***
+     * Metodo encargado de hacer invisible la ventana al usuario
+     */
     public void cerrarVentana()
     {
-	this.modificarPOS.setVisible(false);
+	    this.modificarPOS.setVisible(false);
     }
 }

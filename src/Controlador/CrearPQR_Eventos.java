@@ -30,7 +30,11 @@ import javax.swing.JOptionPane;
 public class CrearPQR_Eventos 
 {
     private final CrearPQR crearPQR;
-    
+
+    /***
+     * Constructor encargado de inicializar los eventos de la interfaz de CrearPQR
+     * @param crearPQR Objeto que contiene la interfaz de CrearPQR con todos sus componentes
+     */
     public CrearPQR_Eventos(final CrearPQR crearPQR) 
     {
         this.crearPQR = crearPQR;
@@ -59,7 +63,10 @@ public class CrearPQR_Eventos
         
         actualizarSedes();
     }
-    
+
+    /***
+     * Metodo encargado de conectarse con el modulo DAO y listar las sedes disponibles
+     */
     private void actualizarSedes()
     {
         crearPQR.cbSedes.removeAllItems();
@@ -71,7 +78,10 @@ public class CrearPQR_Eventos
             crearPQR.cbSedes.addItem(sedes.get(i).getNumero());            
         }
     }
-    
+
+    /***
+     * Metodo encargado de conectarse con el modulo DAO y enviarle un pqr para que lo ingrese a la base de datos
+     */
     public void crearPQR()
     {
 	if (verificarCamposCrearPQR())
@@ -108,12 +118,20 @@ public class CrearPQR_Eventos
             }
         }
     }
-    
+
+    /***
+     * Metodo encargado de conectarse con el modulo reportes y generar un recibo dada una cedula especifica
+     * @param cedula Objeto el cual contiene la cedula a la cual se le desea hacer el recibo
+     */
     public void generarReciboPQR(String cedula)
     {
-	ReportesPDF.generarReciboPQR(new PQRDAO().ultimoPQR(cedula));
+	    ReportesPDF.generarReciboPQR(new PQRDAO().ultimoPQR(cedula));
     }
-    
+
+    /***
+     * Metodo encargado de verificar si todos los campos de CrearPQR se encuentan bien
+     * @return Retorna true si todos los campos se llenaron correctamente y false de lo contrario
+     */
     public boolean verificarCamposCrearPQR()
     {
 	if (this.crearPQR.taContenido.getText().isEmpty())
@@ -142,12 +160,18 @@ public class CrearPQR_Eventos
         
         return true;
     }
-    
+
+    /***
+     * Metodo encargado de hacer invisible la ventana CrearPQR al usuario
+     */
     public void cerrarVentana()
     {
         this.crearPQR.setVisible(false);
     }
-    
+
+    /***
+     * Metodo encargado de limpiar los campos de la interfaz para poder volverlos a usar
+     */
     public void limpiarCampos()
     {
         this.crearPQR.tfCedula.setText("");

@@ -24,7 +24,11 @@ import javax.swing.JOptionPane;
 public class CrearPOS_Eventos 
 {
     private final CrearPOS crearPOS;
-    
+
+    /***
+     * Constructor encargado de inicializar los eventos de la interfaz de CrearPOS
+     * @param crearPOS Objeto que contiene la interfaz CrearPOS con todos sus componentes
+     */
     public CrearPOS_Eventos(final CrearPOS crearPOS)
     {
         this.crearPOS = crearPOS;
@@ -51,7 +55,10 @@ public class CrearPOS_Eventos
             }
         );
     }
-    
+
+    /***
+     * Metodo encargado de pasarle al modulo DAO los datos de un pos para que los ingrese a la base de datos
+     */
     public void crearPOS()
     {
         if (verificarCampos())
@@ -80,7 +87,11 @@ public class CrearPOS_Eventos
             }
         }
     }
-    
+
+    /***
+     * Metodo encargado de verificar si los campos del pos se llenaron correctamente
+     * @return Retorna true si los campos de llenaron correctamente y false de lo contrario
+     */
     public boolean verificarCampos()
     {
         if (this.crearPOS.tfID.getText().isEmpty())
@@ -103,16 +114,22 @@ public class CrearPOS_Eventos
         
         return true;
     }
-    
+
+    /***
+     * Metodo encargado de limpoar los campos de la intefaz de CrearPOS para volver a usarlos
+     */
     public void limpiarCampos()
     {
         this.crearPOS.tfID.setText("");
         this.crearPOS.tfNombre.setText("");
         this.crearPOS.tfDireccion.setText("");
     }
-    
+
+    /***
+     * Metodo encargado de hacer invisible la interfaz de CrearPOS al usuario
+     */
     public void cerrarVentana()
     {
-	this.crearPOS.setVisible(false);
+	    this.crearPOS.setVisible(false);
     }
 }

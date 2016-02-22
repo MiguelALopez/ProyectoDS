@@ -16,6 +16,7 @@ import Modelo.ReportesPDF;
 import Modelo.Venta;
 import Modelo.VentaDAO;
 import Vista.ConsultarVentas;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
@@ -27,125 +28,120 @@ import javax.swing.table.DefaultTableModel;
 /**
  * clase para manejar los eventos de consultar ventas
  */
-public class ConsultarVentas_Eventos 
-{
-    private final ConsultarVentas consultarVentas;    
+public class ConsultarVentas_Eventos {
+    private final ConsultarVentas consultarVentas;
     private ArrayList<Paquete> paquetes;
-    
-    public ConsultarVentas_Eventos(final ConsultarVentas consultarVentas)
-    {
+
+    /***
+     * Constuctor encargado de inicializar todos eventos de los componentes de la interfaz ConsultarVentas
+     *
+     * @param consultarVentas Objeto el cual contiene la interfas ConsultarVentas con todos sus componentes
+     */
+    public ConsultarVentas_Eventos(final ConsultarVentas consultarVentas) {
         this.consultarVentas = consultarVentas;
         this.paquetes = new ArrayList();
-	
-	consultarVentas.bCerrarMain.addActionListener(
-	    new ActionListener()
-	    {
-		@Override
-		public void actionPerformed(ActionEvent ae) 
-		{
-		    cerrarVentana();
-		}
-	    }
+
+        consultarVentas.bCerrarMain.addActionListener(
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent ae) {
+                        cerrarVentana();
+                    }
+                }
         );
-        
+
         consultarVentas.bActualizar.addActionListener(
-	    new ActionListener()
-	    {
-		@Override
-		public void actionPerformed(ActionEvent ae) 
-		{
-		    consultarVentas();
-		}
-	    }
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent ae) {
+                        consultarVentas();
+                    }
+                }
         );
-        
+
         consultarVentas.bDetalles.addActionListener(
-	    new ActionListener()
-	    {
-		@Override
-		public void actionPerformed(ActionEvent ae) 
-		{
-		    verDetalles();
-		}
-	    }
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent ae) {
+                        verDetalles();
+                    }
+                }
         );
-        
+
         consultarVentas.cbPaquetes.addActionListener(
-	    new ActionListener()
-	    {
-		@Override
-		public void actionPerformed(ActionEvent ae) 
-		{
-		    verPaquete();
-		}
-	    }
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent ae) {
+                        verPaquete();
+                    }
+                }
         );
-        
+
         consultarVentas.bCerrar.addActionListener(
-	    new ActionListener()
-	    {
-		@Override
-		public void actionPerformed(ActionEvent ae) 
-		{
-		    cerrarDetalles();
-		}
-	    }
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent ae) {
+                        cerrarDetalles();
+                    }
+                }
         );
-	
-	consultarVentas.bGenerar.addActionListener(
-	    new ActionListener()
-	    {
-		@Override
-		public void actionPerformed(ActionEvent ae) 
-		{
-		    generarRecibo();
-		}
-	    }
+
+        consultarVentas.bGenerar.addActionListener(
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent ae) {
+                        generarRecibo();
+                    }
+                }
         );
-	
-	consultarVentas.addWindowListener(
-	    new WindowListener()
-	    {
-		@Override
-		public void windowOpened(WindowEvent e) {}
 
-		@Override
-		public void windowClosing(WindowEvent e) 
-		{
-		    cerrarVentana();
-		}
+        consultarVentas.addWindowListener(
+                new WindowListener() {
+                    @Override
+                    public void windowOpened(WindowEvent e) {
+                    }
 
-		@Override
-		public void windowClosed(WindowEvent e) {}
+                    @Override
+                    public void windowClosing(WindowEvent e) {
+                        cerrarVentana();
+                    }
 
-		@Override
-		public void windowIconified(WindowEvent e) {}
+                    @Override
+                    public void windowClosed(WindowEvent e) {
+                    }
 
-		@Override
-		public void windowDeiconified(WindowEvent e) {}
+                    @Override
+                    public void windowIconified(WindowEvent e) {
+                    }
 
-		@Override
-		public void windowActivated(WindowEvent e) {}
+                    @Override
+                    public void windowDeiconified(WindowEvent e) {
+                    }
 
-		@Override
-		public void windowDeactivated(WindowEvent e) {}
-	    }
+                    @Override
+                    public void windowActivated(WindowEvent e) {
+                    }
+
+                    @Override
+                    public void windowDeactivated(WindowEvent e) {
+                    }
+                }
         );
-        
+
         consultarVentas();
     }
-    
-    private void consultarVentas()
-    {
+
+    /***
+     * Metodo encargado de conectarse con el modulo DAO y mostar los detalles mas relevantes de las ventas
+     */
+    private void consultarVentas() {
         ArrayList<Venta> listaVentas = new VentaDAO().getListaVentas(); // aqui metodo DAO para obtener todos los Ventas de la BD
-        
-        if (listaVentas != null)
-        {
+
+        if (listaVentas != null) {
             DefaultTableModel model = (DefaultTableModel) this.consultarVentas.tVentas.getModel();
             model.setRowCount(listaVentas.size());
 
-            for (int i = 0; i < listaVentas.size(); i++) 
-            {
+            for (int i = 0; i < listaVentas.size(); i++) {
                 this.consultarVentas.tVentas.setValueAt(listaVentas.get(i).getId(), i, 0);
                 this.consultarVentas.tVentas.setValueAt(listaVentas.get(i).getFecha(), i, 1);
                 this.consultarVentas.tVentas.setValueAt(listaVentas.get(i).getPos(), i, 2);
@@ -153,102 +149,106 @@ public class ConsultarVentas_Eventos
             }
         }
     }
-    
-    public void cerrarVentana()
-    {
-	this.consultarVentas.setVisible(false);
-	this.consultarVentas.fDetalles.setVisible(false);
+
+    /***
+     * Metodo encargado de hacer invisible la interfaz ConsultarVentas al usuario
+     */
+    public void cerrarVentana() {
+        this.consultarVentas.setVisible(false);
+        this.consultarVentas.fDetalles.setVisible(false);
     }
-    
-    public void verDetalles()
-    {
+
+    /***
+     * Metodo encargado de conectarse con el modulo DAO y obtener y visualizar todos los detalle de una venta
+     */
+    public void verDetalles() {
         int row = this.consultarVentas.tVentas.getSelectedRow();
-        
-        if (row != -1)
-        {
+
+        if (row != -1) {
             String id = (String) this.consultarVentas.tVentas.getValueAt(row, 0);
-            
+
             Venta venta = new VentaDAO().consultarVenta(id);
-            
-            if (venta != null)
-            {                
-		this.consultarVentas.tfID.setText(venta.getId());
-		this.consultarVentas.tfFecha.setText(venta.getFecha());
+
+            if (venta != null) {
+                this.consultarVentas.tfID.setText(venta.getId());
+                this.consultarVentas.tfFecha.setText(venta.getFecha());
                 this.consultarVentas.tfPOS.setText(venta.getPos());
                 this.consultarVentas.tfCedula.setText(venta.getCedula());
                 this.consultarVentas.tfNombre.setText(venta.getNombre());
                 this.consultarVentas.tfDireccion.setText(venta.getDireccion());
-                
+
                 this.paquetes = venta.getPaquetes();
                 this.consultarVentas.cbPaquetes.removeAllItems();
-                for (Paquete p : this.paquetes)
-                {
-                    this.consultarVentas.cbPaquetes.addItem(p.getNumero()+"");
+                for (Paquete p : this.paquetes) {
+                    this.consultarVentas.cbPaquetes.addItem(p.getNumero() + "");
                 }
-                
+
                 this.consultarVentas.tfMetodo.setText(venta.getMetodo());
-		this.consultarVentas.tfSeguro.setText(String.valueOf(venta.getSeguro()));
+                this.consultarVentas.tfSeguro.setText(String.valueOf(venta.getSeguro()));
                 this.consultarVentas.tfSubtotal.setText(String.valueOf(venta.getSubtotal()));
                 this.consultarVentas.tfIVA.setText(String.valueOf(venta.getIva()));
                 this.consultarVentas.tfTotal.setText(String.valueOf(venta.getTotal()));
-                
+
                 this.consultarVentas.fDetalles.setLocationRelativeTo(this.consultarVentas);
                 this.consultarVentas.fDetalles.setVisible(true);
-            }
-            else
-            {
+            } else {
                 JOptionPane.showMessageDialog(consultarVentas, "Error al consultar.", "Error", JOptionPane.ERROR_MESSAGE);
             }
-        }
-        else
-        {
+        } else {
             JOptionPane.showMessageDialog(consultarVentas, "Seleccione una Venta.", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
-    
-    public void verPaquete()
-    {
+
+    /***
+     * Metodo encargado de mostrar los paquetes disponibles
+     */
+    public void verPaquete() {
         int index = this.consultarVentas.cbPaquetes.getSelectedIndex();
-        
-        if (index != -1)
-        {
+
+        if (index != -1) {
             Paquete p = this.paquetes.get(index);
-            
+
             this.consultarVentas.tfVerVolumen.setText(String.valueOf(p.getVolumen()));
             this.consultarVentas.tfVerPeso.setText(String.valueOf(p.getPeso()));
             this.consultarVentas.taVerDescripcion.setText(p.getDescripcion());
         }
     }
-    
-    public void limpiarDetalles()
-    {
+
+    /***
+     * Metodo encargado de limpiar los componentes de la interfaz para volverlos a reutilizar
+     */
+    public void limpiarDetalles() {
         this.consultarVentas.tfID.setText("");
-	this.consultarVentas.tfFecha.setText("");
-	this.consultarVentas.tfPOS.setText("");
-	this.consultarVentas.tfCedula.setText("");
-	this.consultarVentas.tfNombre.setText("");
-	this.consultarVentas.tfDireccion.setText("");
+        this.consultarVentas.tfFecha.setText("");
+        this.consultarVentas.tfPOS.setText("");
+        this.consultarVentas.tfCedula.setText("");
+        this.consultarVentas.tfNombre.setText("");
+        this.consultarVentas.tfDireccion.setText("");
 
-	this.paquetes = new ArrayList();
-	this.consultarVentas.cbPaquetes.removeAllItems();
+        this.paquetes = new ArrayList();
+        this.consultarVentas.cbPaquetes.removeAllItems();
 
-	this.consultarVentas.tfMetodo.setText("");
-	this.consultarVentas.tfSeguro.setText("");
-	this.consultarVentas.tfSubtotal.setText("");
-	this.consultarVentas.tfIVA.setText("");
-	this.consultarVentas.tfTotal.setText("");
+        this.consultarVentas.tfMetodo.setText("");
+        this.consultarVentas.tfSeguro.setText("");
+        this.consultarVentas.tfSubtotal.setText("");
+        this.consultarVentas.tfIVA.setText("");
+        this.consultarVentas.tfTotal.setText("");
     }
-    
-    public void cerrarDetalles()
-    {
+
+    /***
+     * Metodo encargado de hacer invisible el subFrame de detalles al usuario
+     */
+    public void cerrarDetalles() {
         this.consultarVentas.fDetalles.setVisible(false);
-	limpiarDetalles();
+        limpiarDetalles();
     }
-    
-    public void generarRecibo()
-    {
-	String id = this.consultarVentas.tfID.getText();
-	
-	ReportesPDF.generarRecibo(new VentaDAO().consultarVenta(id));
+
+    /***
+     * Metodo encargado de conectarse con el modulo de reportes y generar un recibo de la venta
+     */
+    public void generarRecibo() {
+        String id = this.consultarVentas.tfID.getText();
+
+        ReportesPDF.generarRecibo(new VentaDAO().consultarVenta(id));
     }
 }
