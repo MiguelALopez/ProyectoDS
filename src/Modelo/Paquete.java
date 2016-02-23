@@ -12,7 +12,7 @@
 package Modelo;
 
 /**
- * clase que representa un paquete
+ * clase que representa un Paquete
  */
 public class Paquete
 {
@@ -22,6 +22,16 @@ public class Paquete
     private double peso;
     private String descripcion;
     private double costo;
+    
+        /**
+     * Constructor para crear una sede dados los datos 
+     * @param venta : Venta la que pertenece el Paquete
+     * @param numero : numero que identifica el paquete
+     * @param volumen : volumen que ocupa el paquete
+     * @param peso : peso del paquete
+     * @param descripcion : descripcion del contenido del paquete
+     * @param costo : costo del  envio del paquete
+     */
 
     public Paquete(String venta, int numero, double volumen, double peso, String descripcion, double costo) 
     {
@@ -32,7 +42,9 @@ public class Paquete
         this.descripcion = descripcion;
         this.costo = costo;
     }
-
+    /***
+     * Metodos Get y Set encargador de la modificacion y consulta de los atributos 
+     */
     public String getVenta() {
         return venta;
     }

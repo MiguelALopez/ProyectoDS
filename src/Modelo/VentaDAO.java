@@ -19,17 +19,23 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
+ * clase encargada de la conexion a la base de datos donde se solicitara la lista
+ * de ventas y Agregacion de ventas
  */
 public class VentaDAO 
 {
     ConexionBD conexionBD;
-    
+     /***
+     * Constructor donde se creara una nueva conexion a la base de datos
+     */
     public VentaDAO()
     {
         this.conexionBD = new ConexionBD();
     }
-    
+    /***
+     * Metodo donde se solicitara la Lista de ventas a la base de datos de
+     * todos los pos y de todo el tiempo que lleva la compañia
+     */   
     public ArrayList<Venta> getListaVentas()
     {
         conexionBD.conectar();
@@ -68,7 +74,14 @@ public class VentaDAO
         
         return listaVentas;
     }
-    
+    /***
+     * Metodo donde se solicitara la Lista de ventas a la base de datos donde 
+     * solo retornara las ventas de un POS especifico y las que este en el 
+     * año y el mes inicados
+     * @param pos : El pos del cual se desean consultar la lista de ventas
+     * @param year : año del cual se desea saber las ventas realizadas 
+     * @param mes : mes del cual se desean saber las ventas realizadas
+     */   
     public ArrayList<Venta> getListaVentas(String pos, int year, int mes)
     {
         conexionBD.conectar();
@@ -110,7 +123,13 @@ public class VentaDAO
         
         return listaVentas;
     }
-    
+    /***
+     * Metodo donde se solicitara la Lista de ventas a la base de datos donde 
+     * solo retornara las ventas de un POS especifico y las que este en el 
+     * año indicado
+     * @param pos : El pos del cual se desean consultar la lista de ventas
+     * @param year : año del cual se desea saber las ventas realizadas 
+     */  
     public ArrayList<Venta> getListaVentas(String pos, int year)
     {
         conexionBD.conectar();
@@ -151,7 +170,11 @@ public class VentaDAO
         
         return listaVentas;
     }
-    
+    /***
+     * Metodo donde se solicitara la Lista de ventas a la base de datos donde 
+     * solo retornara las ventas de un POS especifico
+     * @param pos : El pos del cual se desean consultar la lista de ventas
+     */  
     public ArrayList<Venta> getListaVentas(String pos)
     {
         conexionBD.conectar();
@@ -191,7 +214,12 @@ public class VentaDAO
         
         return listaVentas;
     }
-    
+    /***
+     * Metodo donde se solicitara la Lista de ventas a la base de datos donde 
+     * solo retornara las ventas que sean del año y mes indicado 
+     * @param year : año del cual se desea saber las ventas realizadas 
+     * @param mes : mes del cual se desean saber las ventar realizadas
+     */  
     public ArrayList<Venta> getListaVentasFecha(int year, int mes)
     {
         conexionBD.conectar();
@@ -232,7 +260,11 @@ public class VentaDAO
         
         return listaVentas;
     }
-    
+    /***
+     * Metodo donde se solicitara la Lista de ventas a la base de datos donde 
+     * solo retornara las ventas de un año indicado
+     * @param year : año del cual se desea saber las ventas realizadas 
+     */  
     public ArrayList<Venta> getListaVentasFecha(int year)
     {
         conexionBD.conectar();
@@ -272,7 +304,11 @@ public class VentaDAO
         
         return listaVentas;
     }
-    
+    /***
+     * Metodo donde se insertara una nueva venta la base de datos 
+     * retornando el exito o fracaso de la funcion
+     * @param venta : venta que se desea agregar a la base de datos
+     */
     public boolean insertarVenta(Venta venta)
     {
 	conexionBD.conectar();
@@ -330,7 +366,11 @@ public class VentaDAO
         
         return exito;
     }
-    
+    /***
+     * Metodo donde se consultara una venta ya creada en la base de datos y
+     * se retornara
+     * @param id : identificador de la venta que se desea consultar
+     */
     public Venta consultarVenta(String id)
     {
         conexionBD.conectar();
@@ -369,7 +409,11 @@ public class VentaDAO
         
         return venta;
     }
-    
+    /***
+     * Metodo donde se consultara la ultima venta realizada por un cliente especifico 
+     * @param cedula : cedula de la persona de la que se desea saber su ultimo
+     * pedido
+     */
     public Venta consultarUltimaVenta(String cedula)
     {
         conexionBD.conectar();

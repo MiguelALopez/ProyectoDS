@@ -19,17 +19,23 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * 
+ * clase encargada de la conexion a la base de datos donde se solicitara la lista
+ * de PQR, Modificacion de PQR y Agregacion de PQR
  */
 public class PQRDAO 
 {
     ConexionBD conexionBD;
     
+     /***
+     * Constructor donde se creara una nueva conexion a la base de datos
+     */
     public PQRDAO()
     {
         this.conexionBD = new ConexionBD();
     }
-    
+     /***
+     * Metodo donde se solicitara la Lista de PQR a la base de datos 
+     */
     public ArrayList<PQR> getListaPQR()
     {
         conexionBD.conectar();
@@ -64,7 +70,10 @@ public class PQRDAO
         
         return listaPQR;
     }    
-    
+     /***
+     * Metodo encargado de la insercion de un nuevo PQR en la base de datos
+     * @param pqr : pqr que se desea insertar en la base de datos
+     */
     public boolean insertarPQR(PQR pqr)
     {
         conexionBD.conectar();
@@ -102,7 +111,11 @@ public class PQRDAO
         
         return exito;
     }
-    
+     /***
+     * Metodo encargada de la modificacion de algun PQR que ya exista
+     * en la base de datos
+     * @param pqr : pqr que se desea modificar en la base de datos
+     */
     public boolean modificarPQR(PQR pqr)
     {
         conexionBD.conectar();
@@ -150,6 +163,12 @@ public class PQRDAO
         return exito;
     }
     
+     /***
+     * Funcion encargada de la consulta de algun PQR que ya exista
+     * en la base de datos
+     * @param pqr_numero : numero del pqr que se desea consultar
+     */
+    
     public PQR consultarPQR(String pqr_numero)
     {
         conexionBD.conectar();
@@ -157,7 +176,7 @@ public class PQRDAO
         PQR pqr = null;
         
         String query = "SELECT * FROM pqr "
-                + "WHERE pqr_numero = ?;";
+                + "WHERE pqr_numero = ?;"; 
         
         try
         {
@@ -187,7 +206,12 @@ public class PQRDAO
         
         return pqr;
     }
-    
+     /***
+     * Funcion encargada de la consulta del PQR enviado mas recientemente 
+     * por un cliente especifica 
+     * @param cedula: cedula del cliente del que se desea saber el ultimo pqr
+     * que envio
+     */
     public PQR ultimoPQR(String cedula)
     {
 	conexionBD.conectar();

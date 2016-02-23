@@ -20,17 +20,24 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * 
+ * clase encargada de la conexion a la base de datos donde se solicitara la lista
+ * de POS, Modificacion de POS y Agregacion de POS
  */
 public class POSDAO 
 {
     ConexionBD conexionBD;
-    
+ 
+     /***
+     * Constructor donde se creara una nueva conexion a la base de datos
+     */
     public POSDAO()
     {
         this.conexionBD = new ConexionBD();
     }
-    
+  
+     /***
+     * Metodo donde se solicitara la Lista de POS a la base de datos 
+     */
     public ArrayList<POS> getListaPOS()
     {
         conexionBD.conectar();
@@ -65,7 +72,10 @@ public class POSDAO
         
         return listaPOS;
     }    
-    
+     /***
+     * Metodo encargado de la insercion de un nuevo POS en la base de datos
+     * @param  pos : Pos que se desea agregar en la base de datos
+     */
     public boolean insertarPOS(POS pos)
     {
         conexionBD.conectar();
@@ -99,7 +109,12 @@ public class POSDAO
         
         return exito;
     }
-    
+
+     /***
+     * Metodo encargada de la modificacion de algun POS que ya exista
+     * en la base de datos 
+     * @param pos : pos que se desea modificar en la base de datos
+     */
     public boolean modificarPOS(POS pos)
     {
         conexionBD.conectar();
@@ -136,13 +151,17 @@ public class POSDAO
         
         return exito;
     }
-    
+     /***
+     * Funcion encargada de la consulta de algun POS que ya exista
+     * en la base de datos
+     * @param pos_id : id del pos que se desea consultar
+     */
     public POS consultarPOS(String pos_id)
     {
         conexionBD.conectar();
         
         POS pos = null;
-        
+        // La consulta se hace de esta forma para evitar inserciones SQL
         String query = "SELECT * FROM pos "
                 + "WHERE pos_id = ?;";
         

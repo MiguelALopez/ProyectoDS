@@ -12,7 +12,7 @@
 package Modelo;
 
 /**
- * clase que representa un pqr
+ * clase que representa un PQR
  */
 public class PQR 
 {
@@ -24,6 +24,18 @@ public class PQR
     private String cedula;
     private String nombre;
     private String sede;
+    
+     /**
+     * Constructor para crear una sede dados los datos 
+     * @param fecha : en que se realizo el PQR
+     * @param tipo : tipo de PQR 
+     * @param contenido : contenido del PQR donde se muestra el reclamo
+     * @param estado : estado del PQR si ya fue respondido o no
+     * @param cedula : cedula de la persona que envio el PQR
+     * @param nombre : nombre de la persona que envio el PQR
+     * @param sede : sede a la que se envio el PQR
+     */
+
 
     public PQR(String fecha, String tipo, String contenido, String estado, String cedula, String nombre, String sede) {
 	this.fecha = fecha;
@@ -45,6 +57,10 @@ public class PQR
 	this.nombre = nombre;
 	this.sede = sede;
     }
+    
+    /***
+     * Metodos Get y Set encargador de la modificacion y consulta de los atributos 
+     */
 
     public String getNumero() {
 	return numero;

@@ -18,6 +18,10 @@ import java.util.ArrayList;
  */
 public class Venta
 {
+    /**
+    * Campos que representan una venta, también deben encontrarse en la base
+    * de datos
+    */
     private String id;
     private String cedula;
     private String nombre;
@@ -30,6 +34,22 @@ public class Venta
     private double total;
     private String pos;
     private ArrayList<Paquete> paquetes;
+    
+    /**
+     * Constructor para crear un usuario dados los datos
+     * @param id : identificador unico de la venta
+     * @param cedula : cedula del cliente de la venta
+     * @param nombre : nombre del cliente de la venta
+     * @param direccion : direccion del cliente de la venta
+     * @param fecha : fecha en que se realiza la venta
+     * @param metodo : metodo de pago seleccionado por el cliente 
+     * @param seguro : seguro de la venta
+     * @param subtotal : subtotal de la venta
+     * @param iva : valor del iva de la venta
+     * @param total : precio total de la venta
+     * @param pos : pos en que se realiza la venta
+     * @param paquetes : listado de paquetes asociados a la venta
+     */
     
     public Venta(String cedula, String nombre, String direccion, String fecha, String metodo, double seguro, double subtotal, double iva, double total, String pos, ArrayList<Paquete> paquetes) 
     {
@@ -62,6 +82,10 @@ public class Venta
         this.paquetes = paquetes;
     }   
 
+    /**
+     * Getters and Setters de los atributos de la clase
+     * 
+     */
     public String getId() {
         return id;
     }

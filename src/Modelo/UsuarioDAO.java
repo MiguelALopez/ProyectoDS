@@ -19,17 +19,22 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
+ * clase encargada de la conexion a la base de datos donde se solicitara la lista
+ * de Usuarios , Modificacion de Usuarios y Agregacion de Usuarios
  */
 public class UsuarioDAO 
 {
     ConexionBD conexionBD;
-    
+     /***
+     * Constructor donde se creara una nueva conexion a la base de datos
+     */
     public UsuarioDAO()
     {
         this.conexionBD = new ConexionBD();
     }
-        
+    /***
+     * Metodo donde se solicitara la Lista de Usuarios a la base de datos 
+     */   
     public ArrayList<Usuario> getListaUsuarios() 
     {
         conexionBD.conectar();
@@ -69,7 +74,11 @@ public class UsuarioDAO
         
         return listaUsuarios;
     }
-    
+    /***
+     * Metodo donde se solicitara la Lista de Usuarios a la base de datos
+     * posteriormente se realizara una consulta y se generara la lista 
+     * exclusiva de Gerentes y se retornara
+     */
     public ArrayList<Usuario> getListaGerentes(){
         this.conexionBD.conectar();
         
@@ -109,7 +118,12 @@ public class UsuarioDAO
         
         return listaGerentes;
     }
-    
+    /***
+     * Metodo donde se consultara un usuario ya creado en la base de datos y
+     * se retornara
+     * @param user : cedula del usuario que se desea consultar en 
+     * la base de datos
+     */
     public Usuario consultarUsuario(String user)
     {
         conexionBD.conectar();
@@ -150,7 +164,11 @@ public class UsuarioDAO
         
         return usuario;
     }
-    
+    /***
+     * Metodo donde se insertara un usuario nuevo en la base de datos 
+     * retornando el exito o fracaso de la funcion
+     * @param usuario : usuario el cual se desea insertar en la base de datos
+     */
     public boolean insetarUsuario(Usuario usuario)
     {
         conexionBD.conectar();
@@ -252,7 +270,10 @@ public class UsuarioDAO
         
         return exito;
     }
-    
+    /***
+     * Metodo donde se modificara un usuario ya creado en la base de datos 
+     * @param usuario : usuario el cual se desea modificar
+     */
     public boolean modificarUsuario(Usuario usuario) 
     {
         conexionBD.conectar();

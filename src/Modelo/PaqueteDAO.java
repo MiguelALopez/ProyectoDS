@@ -19,17 +19,25 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * 
+ * clase encargada de la conexion a la base de datos donde se solicitara la lista
+ * de Paquetes , Modificacion de Paquete y Agregacion de Paquete
  */
 public class PaqueteDAO 
 {
     ConexionBD conexionBD;
-    
+     /***
+     * Constructor donde se creara una nueva conexion a la base de datos
+     */
     public PaqueteDAO()
     {
         this.conexionBD = new ConexionBD();
     }
-    
+    /***
+     * Metodo donde se solicitara la Lista de Paquetes a la base de datos 
+     * pertenecientes a una venta especifica
+     * @param venta : venta a la que pertenecen los paquetes
+     * @param conexionBD: conexion a la base de datos que tiene la venta
+     */
     public ArrayList<Paquete> getListaPaquetes(String venta, ConexionBD conexionBD)
     {        
         ArrayList<Paquete> listaPaquetes = new ArrayList();
@@ -54,7 +62,13 @@ public class PaqueteDAO
         
         return listaPaquetes;
     }
-    
+     /***
+     * Metodo encargado de la insercion de un nuevo listado de
+     * paquetes en la base de datos
+     * @param paquetes : listado de paquetes que se añadiran a la base de datos
+     * @param conexionBD: conexion a la base de datos que tiene la venta a la que 
+     * pertenecen los paquetes
+     */
     public boolean insertarPaquetes(ArrayList<Paquete> paquetes, ConexionBD conexionBD)
     {
         boolean exito = false;

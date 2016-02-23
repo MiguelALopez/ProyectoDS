@@ -17,17 +17,22 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * 
+ * clase encargada de la conexion a la base de datos donde se solicitara la lista
+ * de Sedes , Modificacion de Sedes y Agregacion de Sede
  */
 public class SedeDAO
 {
     ConexionBD conexionBD;
-    
+     /***
+     * Constructor donde se creara una nueva conexion a la base de datos
+     */
     public SedeDAO()
     {
         this.conexionBD = new ConexionBD();
     }
-
+    /***
+     * Metodo donde se solicitara la Lista de Sedes a la base de datos 
+     */
     public ArrayList<Sede> getListaSedes()
     {
         conexionBD.conectar();        
@@ -62,7 +67,11 @@ public class SedeDAO
         
         return listaSedes;
     }
-    
+    /***
+     * Metodo encargado de la Consulta de una sede ya existente en la base 
+     * de datos
+     * @param sede_numero: numero de la sede que se desea consultar
+     */
     public Sede consultarSede(String sede_numero)
     {
         conexionBD.conectar();
@@ -98,8 +107,11 @@ public class SedeDAO
         return sede;
     }
 
-    /* Metodo encargado de insertar una sede en la base de datos retorna un true si la
-    * operacion es exitosa y un false de lo contrario*/
+    /***
+    * Metodo encargado de insertar una sede en la base de datos retorna un 
+    * true si la operacion es exitosa y un false de lo contrario
+    * @param sede : sede que se desea insertar en la base de datos
+    */
     public boolean insertarSede(Sede sede)
     {        
         conexionBD.conectar();
@@ -150,7 +162,11 @@ public class SedeDAO
         
         return exitoso;
     }
-    
+    /***
+     * Metodo encargado de modificar una sede ya existente en la base de datos
+     *  retorna true si la operacion es exitosa y un false de lo 
+     * @param sede: sede que se desea modificar
+     */
     public boolean modificarSede(Sede sede)
     {        
         conexionBD.conectar();

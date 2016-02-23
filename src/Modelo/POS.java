@@ -12,7 +12,7 @@
 package Modelo;
 
 /**
- * clase que representa un pos
+ * Clase que representa un Pos 
  */
 public class POS 
 {    
@@ -20,20 +20,34 @@ public class POS
     private String nombre;
     private String direccion;
     
+    /***
+     * Constructores para crear un POS de datos nulos 
+     */
+    
     public POS()            
     {
         this.id = null;
         this.nombre = null;
         this.direccion = null;
     }   
-    
+     /**
+     * Constructor para crear una sede dados los datos 
+     * @param codigo : numero unico que identifica la POS
+     * @param nombre : nombre del POS
+     * @param direccion : direccion del POS
+     */
+
     public POS(String codigo, String nombre, String direccion)
     {
         this.id = codigo;
         this.nombre = nombre;
         this.direccion = direccion;
     }   
-
+    
+    /***
+     * Metodos Get y Set encargador de la modificacion y consulta de los atributos 
+     */
+    
     public String getId() {
         return id;
     }

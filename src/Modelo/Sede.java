@@ -46,8 +46,8 @@ public class Sede
      * @param nombre : nombre de la sede
      * @param direccion : direccion de la sede
      * @param camiones : camiones asignados a la sede
-     * @param gerente
-     * @param ciudad
+     * @param gerente : encargado de la sede
+     * @param ciudad : en la que se ubica la sede
      */
     public Sede(String numero, String nombre, String direccion, String ciudad, String gerente, int camiones)
     {
